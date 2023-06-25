@@ -18,7 +18,7 @@ export default function About4({title, before_title, about_list_items=[]}) {
                                     <ul>
                                         {
                                             about_list_items.map(item => {
-                                                return <li key={item.id}>{item.list_item}</li>
+                                                return <li key={item.id}>{item.description}</li>
                                             })
                                         }
                                     </ul>

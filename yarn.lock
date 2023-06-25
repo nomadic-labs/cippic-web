@@ -2356,6 +2356,7 @@ __metadata:
     eslint-config-next: 13.2.4
     isotope-layout: ^3.0.6
     next: 13.2.4
+    qs: ^6.11.2
     react: 18.2.0
     react-countup: ^6.4.2
     react-dom: 18.2.0
@@ -7706,7 +7707,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"qs@npm:^6.11.0":
+"qs@npm:^6.11.0, qs@npm:^6.11.2":
   version: 6.11.2
   resolution: "qs@npm:6.11.2"
   dependencies:

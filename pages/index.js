@@ -19,15 +19,11 @@ const query = qs.stringify(
   {
     populate: [
       '*',
-      'about_list_items',
+      'about_cippic',
       'topics',
       'cta_tabs',
       'cta_tabs.background_image',
-      'cta_tabs.background_image.media',
-      'topics.icon',
-      'topics.icon.media',
-      'team_members.photo',
-      'team_members.photo.media',
+      'cta_tabs.background_image.media'
     ],
   },
   {
@@ -40,8 +36,32 @@ const contactQuery = qs.stringify(
   {
     populate: [
       '*',
-      'CIPPIC_logo.media',
+      'main_logo.media',
       'uottawa_logo.media'
+    ],
+  },
+  {
+    encodeValuesOnly: true, // prettify URL
+  }
+);
+
+const teamQuery = qs.stringify(
+  {
+    populate: [
+      '*',
+      'photo.media'
+    ],
+  },
+  {
+    encodeValuesOnly: true, // prettify URL
+  }
+);
+
+const categoriesQuery = qs.stringify(
+  {
+    populate: [
+      '*',
+      'icon.media'
     ],
   },
   {
@@ -60,12 +80,27 @@ export const getStaticProps = async () => {
     })
     const homepage = await res.json()
 
-    const contactRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/contact-information?${contactQuery}`, {
+    const contactRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/organization-information?${contactQuery}`, {
         method: 'GET',
         headers
     })
     const contact = await contactRes.json()
-    const content = { ...homepage.data.attributes, contact: { ...contact.data.attributes } }
+
+    const teamRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/team-members?${teamQuery}`, {
+        method: 'GET',
+        headers
+    })
+    const teamJson = await teamRes.json()
+    const teamMembers = teamJson.data.map(t => ({ id: t.id, ...t.attributes}))
+
+    const categoriesRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/categories?${categoriesQuery}`, {
+        method: 'GET',
+        headers
+    })
+    const categoriesJson = await categoriesRes.json()
+    const categories = categoriesJson.data.map(t => ({ id: t.id, ...t.attributes}))
+
+    const content = { ...homepage.data.attributes, contact: { ...contact.data.attributes }, team_members: teamMembers, categories: categories }
 
     return { props: { content } }
 }
@@ -74,13 +109,13 @@ export default function Home5({content}) {
     console.log({content})
     return (
         <>
-            <Layout headerStyle={1} footerStyle={8} contact={content.contact} topics={content.topics} actions={content.cta_tabs} >
+            <Layout headerStyle={1} footerStyle={8} contact={content.contact} topics={content.categories} actions={content.cta_tabs} >
                 <Banner3 headline={content.headline} />
                 <IconBox />
                 <About4 
                     title={content.about_section_title} 
                     before_title={content.about_section_before_title}
-                    about_list_items={content.about_list_items}
+                    about_list_items={content.about_cippic}
                 />
                 <Team2 
                     team_members={content.team_members}
@@ -88,7 +123,7 @@ export default function Home5({content}) {
                     before_title={content.team_section_before_title}
                 />
                 <Service3 
-                    topics={content.topics}
+                    topics={content.categories}
                     title={content.topics_section_title}
                     before_title={content.topics_section_before_title}
                     subtitle={content.topics_section_subtitle}

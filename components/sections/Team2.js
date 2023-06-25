@@ -47,7 +47,7 @@ export default function Team2({before_title, title, team_members}) {
                                                         <span>{item.title}</span>
                                                         <h6>{item.name}</h6>
                                                         <div className="button_view">
-                                                            <p className="text-white">{item.quote}</p>
+                                                            <p className="text-white">{item.description}</p>
                                                         </div>
                                                     </div>
                                                 </div>

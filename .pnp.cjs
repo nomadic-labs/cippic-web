@@ -33,6 +33,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-config-next", "virtual:745f2c62c4da978c0d653ab6e52cfa4031d9d92e4a9f32d4e3422c5bb758f412243bf851c8e97b9c3421659e78b824d54e2e96d72237a309c82e5fc52e98f795#npm:13.2.4"],\
             ["isotope-layout", "npm:3.0.6"],\
             ["next", "virtual:745f2c62c4da978c0d653ab6e52cfa4031d9d92e4a9f32d4e3422c5bb758f412243bf851c8e97b9c3421659e78b824d54e2e96d72237a309c82e5fc52e98f795#npm:13.2.4"],\
+            ["qs", "npm:6.11.2"],\
             ["react", "npm:18.2.0"],\
             ["react-countup", "virtual:745f2c62c4da978c0d653ab6e52cfa4031d9d92e4a9f32d4e3422c5bb758f412243bf851c8e97b9c3421659e78b824d54e2e96d72237a309c82e5fc52e98f795#npm:6.4.2"],\
             ["react-dom", "virtual:745f2c62c4da978c0d653ab6e52cfa4031d9d92e4a9f32d4e3422c5bb758f412243bf851c8e97b9c3421659e78b824d54e2e96d72237a309c82e5fc52e98f795#npm:18.2.0"],\
@@ -2842,6 +2843,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-config-next", "virtual:745f2c62c4da978c0d653ab6e52cfa4031d9d92e4a9f32d4e3422c5bb758f412243bf851c8e97b9c3421659e78b824d54e2e96d72237a309c82e5fc52e98f795#npm:13.2.4"],\
             ["isotope-layout", "npm:3.0.6"],\
             ["next", "virtual:745f2c62c4da978c0d653ab6e52cfa4031d9d92e4a9f32d4e3422c5bb758f412243bf851c8e97b9c3421659e78b824d54e2e96d72237a309c82e5fc52e98f795#npm:13.2.4"],\
+            ["qs", "npm:6.11.2"],\
             ["react", "npm:18.2.0"],\
             ["react-countup", "virtual:745f2c62c4da978c0d653ab6e52cfa4031d9d92e4a9f32d4e3422c5bb758f412243bf851c8e97b9c3421659e78b824d54e2e96d72237a309c82e5fc52e98f795#npm:6.4.2"],\
             ["react-dom", "virtual:745f2c62c4da978c0d653ab6e52cfa4031d9d92e4a9f32d4e3422c5bb758f412243bf851c8e97b9c3421659e78b824d54e2e96d72237a309c82e5fc52e98f795#npm:18.2.0"],\

@@ -1,6 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 export default function Service3({title, before_title, subtitle, topics=[]}) {
+    const keyTopics = topics.filter(t => t.featured)
     return (
         <>
             <section className="service-section-two bg_light_1">
@@ -22,23 +23,27 @@ export default function Service3({title, before_title, subtitle, topics=[]}) {
                         {/*===============spacing==============*/}
                     </div>
                     <div className="row gutter_15px">
-                        {topics.map(topic => {
+                        {keyTopics.map(topic => {
                             return(
                                 <div key={topic.id} className="col-xl-3 col-lg-6 col-md-12 col-sm-12 col-xs-12">
                                     <div className="service_box style_three dark_color">
                                         <div className="service_content">
                                             <div className="content_inner">
-                                                <span className="icon-topic">
-                                                    <Image
-                                                      src={`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${topic.icon.data.attributes.url}`}
-                                                      width={50}
-                                                      height={50}
-                                                      alt={`${topic.title} icon`}
-                                                      style={{objectFit: "contain", height: "50px"}}
-                                                    />
-                                                    <i />
-                                                </span>
-                                                <h2><Link href="#">{topic.title}</Link ></h2>
+                                                {
+                                                    topic.icon?.data?.attributes && (
+                                                        <span className="icon-topic">
+                                                            <Image
+                                                              src={`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${topic.icon.data.attributes.url}`}
+                                                              width={50}
+                                                              height={50}
+                                                              alt={`${topic.name} icon`}
+                                                              style={{objectFit: "contain", height: "50px"}}
+                                                            />
+                                                            <i />
+                                                        </span>
+                                                    )
+                                                }
+                                                <h2><Link href="#">{topic.name}</Link ></h2>
                                                 <p>{topic.description}</p>
                                                 <Link href={`/${topic.topic_id}`} className="read_more">Read more <i className="icon-right-arrow" /></Link >
                                             </div>

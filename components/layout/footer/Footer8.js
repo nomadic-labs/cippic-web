@@ -2,7 +2,8 @@ import ReactMarkdown from "react-markdown"
 import Link from "next/link"
 export default function Footer8({ contact, topics, actions }) {
     console.log({actions})
-    const { CIPPIC_logo, CIPPIC_full_name, CIPPIC_description, linkedin, twitter, email, phone, mailing_address, location, license, uottawa_logo } = contact;
+    const keyTopics = topics.filter(t => t.featured)
+    const { main_logo, full_name, description, linkedin, twitter, email, phone, mailing_address, location, license, uottawa_logo } = contact;
     return (
         <>
             <div className="footer_area footer_sticky_enable_foo footer_eight" id="footer_contents">
@@ -17,14 +18,14 @@ export default function Footer8({ contact, topics, actions }) {
                                     <div className="about_company_inner">
                                         <div className="footer_logo">
                                             <Link href="/" target="_blank" >
-                                                <img src={`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${CIPPIC_logo.data.attributes.url}`} alt="logo" />
+                                                <img src={`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${main_logo.data.attributes.url}`} alt="logo" />
                                             </Link>
                                         </div>
                                         {/*===============spacing==============*/}
                                         <div className="pd_bottom_40" />
                                         {/*===============spacing==============*/}
                                         <div className="content_box">
-                                            <p>{CIPPIC_description}</p>
+                                            <p>{description}</p>
                                         </div>
                                         <div className="footer_logo">
                                             <a href="https://uottawa.ca" target="_blank" >
@@ -49,7 +50,7 @@ export default function Footer8({ contact, topics, actions }) {
                                 <div className="list_item_box style_one">
                                     <ul>
                                         {
-                                            topics.map(topic => <li key={topic.id}><Link href={`/${topic.topic_id}`}> {topic.title} </Link></li>)
+                                            keyTopics.map(topic => <li key={topic.id}><Link href={`/${topic.taxonomy_term_id}`}> {topic.name} </Link></li>)
                                         }
                                     </ul>
                                 </div>
