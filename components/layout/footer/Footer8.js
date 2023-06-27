@@ -96,9 +96,7 @@ export default function Footer8({ contact, topics }) {
                                         <div className="foo_cont_inner">
                                             <div className="top">
                                                 <h6 className="color_dark">Location</h6>
-                                                <p className="color_dark">
-                                                    <ReactMarkdown>{location}</ReactMarkdown>
-                                                </p>
+                                                <ReactMarkdown className="color_dark">{location}</ReactMarkdown>
                                             </div>
                                             <div className="bottom">
                                                 <h6 className="color_dark"> Contact</h6>
@@ -131,6 +129,9 @@ export default function Footer8({ contact, topics }) {
                             <div className="col-lg-8 col-md-12 mb-3 mb-lg-0 mb-xl-0">
                                 <div className="footer_copy_content color_dark">
                                     <ReactMarkdown>{license}</ReactMarkdown>
+                                </div>
+                                <div className="footer_copy_content color_dark">
+                                    <Link href="/privacy">Privacy Policy</Link>
                                 </div>
                             </div>
                             <div className="col-lg-4 col-md-12">

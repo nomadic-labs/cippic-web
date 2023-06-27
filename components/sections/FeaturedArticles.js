@@ -19,14 +19,14 @@ export default function FeaturedArticles({ articles=[] }) {
                                                         <div className="content_box">
                                                             <ul>
                                                                 <li>
-                                                                    <Link href={article.slug}>{dateString}</Link>
+                                                                    <Link href={`/articles/${article.slug}`}>{dateString}</Link>
                                                                 </li>
                                                             </ul>
                                                             <h2 className="title">
-                                                                <Link href={article.slug}>{article.title}</Link>
+                                                                <Link href={`/articles/${article.slug}`}>{article.title}</Link>
                                                             </h2>
                                                             <p className="short_desc">{article.teaser}</p>
-                                                            <Link href={article.slug} className="link__go">Keep reading<i className="icon-right-arrow-long" /></Link>
+                                                            <Link href={`/articles/${article.slug}`} className="link__go">Keep reading<i className="icon-right-arrow-long" /></Link>
                                                         </div>
                                                     </div>
                                                 </div>

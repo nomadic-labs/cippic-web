@@ -4,7 +4,7 @@ export default function Banner3({headline}) {
     return (
         <section className="slider slider_version_v2 style_four nav_position_one">
             <div className="slide-item-content content_center">
-                <div className="image-layer" style={{ backgroundImage: 'url(/assets/images/sliders/slider-5-3.jpg)' }}>
+                <div className="image-layer" style={{ backgroundImage: 'url(/assets/images/about-bg.jpg)' }}>
                 </div>
                 <div className="auto-container">
                     <div className="row">

@@ -43,9 +43,9 @@ export default function Service3({title, before_title, subtitle, topics=[]}) {
                                                         </span>
                                                     )
                                                 }
-                                                <h2><Link href="#">{topic.name}</Link ></h2>
+                                                <h2><Link href={`/topics/${topic.slug}`}>{topic.name}</Link ></h2>
                                                 <p>{topic.description}</p>
-                                                <Link href={`/${topic.topic_id}`} className="read_more">Read more <i className="icon-right-arrow" /></Link >
+                                                <Link href={`/topics/${topic.slug}`} className="read_more">Read more <i className="icon-right-arrow" /></Link >
                                             </div>
                                         </div>
                                     </div>

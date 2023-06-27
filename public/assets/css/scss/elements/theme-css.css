@@ -2672,6 +2672,10 @@ body .enabled_custom_title .title_page .main_tit {
   display: none;
 }
 
+.text-sm {
+  font-size: 0.8em;
+}
+
 /*----------theme-button-csss-------*/
 .application_button {
   display: inline-block;
@@ -12840,7 +12844,7 @@ header .flaticon-list {
 }
 .project_all.filt_style_one .fliter_group .project_filter li, .project_all.filt_style_six .fliter_group .project_filter li {
   display: inline-block;
-  margin: 0px 15px;
+  margin: 10px;
   position: relative;
   padding: 9px 15px 5px;
   border-left: 1px solid var(--border-color-dark);
