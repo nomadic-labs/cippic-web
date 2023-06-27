@@ -4,7 +4,7 @@ import Blog5 from "@/components/sections/Blog5"
 import Contact1 from "@/components/sections/Contact1"
 import HeroSlider5 from "@/components/sections/HeroSlider5"
 import Banner3 from "@/components/sections/Banner3"
-import IconBox from "@/components/sections/IconBox"
+import FeaturedArticles from "@/components/sections/FeaturedArticles"
 import Process3 from "@/components/sections/Process3"
 import Project4 from "@/components/sections/Project4"
 import Team2 from "@/components/sections/Team2"
@@ -100,7 +100,14 @@ export const getStaticProps = async () => {
     const categoriesJson = await categoriesRes.json()
     const categories = categoriesJson.data.map(t => ({ id: t.id, ...t.attributes}))
 
-    const content = { ...homepage.data.attributes, contact: { ...contact.data.attributes }, team_members: teamMembers, categories: categories }
+    const articleRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/articles?filters[featured][$eq]=true`)
+    const { data, meta } = await articleRes.json()
+    const articles = data.map((article) => ({
+      id: article.id,
+      ...article.attributes
+    }))
+
+    const content = { ...homepage.data.attributes, contact: { ...contact.data.attributes }, team_members: teamMembers, categories, articles }
 
     return { props: { content } }
 }
@@ -109,9 +116,9 @@ export default function Home5({content}) {
     console.log({content})
     return (
         <>
-            <Layout headerStyle={1} footerStyle={8} contact={content.contact} topics={content.categories} actions={content.cta_tabs} >
+            <Layout headerStyle={1} footerStyle={8} contact={content.contact} topics={content.categories} >
                 <Banner3 headline={content.headline} />
-                <IconBox />
+                <FeaturedArticles articles={content.articles} />
                 <About4 
                     title={content.about_section_title} 
                     before_title={content.about_section_before_title}

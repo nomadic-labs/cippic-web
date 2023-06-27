@@ -30,10 +30,10 @@ export default function MobileMenu({ handleMobileMenu }) {
                     </form>
                     <div className="menu-outer">
                         <ul id="myNavbar" className="navbar_nav">
-                            <li className="menu-item  menu-item-has-children dropdown dropdown_full position-static mega_menu nav-item">
+                            <li className="menu-item  menu-item-has-children dropdown dropdown_full mega_menu nav-item">
                                 <Link href="/" className="dropdown-toggle nav-link">
                                     <span>Home</span>
-                                    <span className="fa fa-angle-down" /></Link>
+                                </Link>
                                 <ul className="dropdown-menu width_60_percentage" style={{ display: `${isActive.key == 1 ? "block" : "none"}` }}>
                                     <li>
                                         <div className="row">
@@ -235,8 +235,8 @@ export default function MobileMenu({ handleMobileMenu }) {
                                     </li>
                                 </ul>
                                 <div className="dropdown-btn" onClick={() => handleToggle(2)}><span className="fa fa-angle-down" /></div></li>
-                            <li className="menu-item menu-item-has-children dropdown dropdown_full position-static mega_menu nav-item">
-                                <Link href="#" className="dropdown-toggle nav-link"><span>Elements</span><span className="fa fa-angle-down" /></Link>
+                            <li className="menu-item menu-item-has-children dropdown dropdown_full mega_menu nav-item">
+                                <Link href="#" className="dropdown-toggle nav-link"><span>Elements</span></Link>
                                 <ul className="dropdown-menu width_60_percentage" style={{ display: `${isActive.key == 3 ? "block" : "none"}` }}>
                                     <li>
                                         <div className="row">

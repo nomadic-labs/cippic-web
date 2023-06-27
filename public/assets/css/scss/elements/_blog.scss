@@ -679,10 +679,10 @@
             padding: 30px;
             border-radius: 5px;
             border: 1px solid var(--border-color-dark);
-            transition: all .6s ease-in-out;
-            -moz-transition: all .6s ease-in-out;
-            -ms-transition: all .6s ease-in-out;
-            -o-transition: all .6s ease-in-out;
+            transition: all var(--animation-speed) ease-in-out;
+            -moz-transition: all var(--animation-speed) ease-in-out;
+            -ms-transition: all var(--animation-speed) ease-in-out;
+            -o-transition: all var(--animation-speed) ease-in-out;
             overflow: hidden;
             .content_box{
                 position: relative;
@@ -696,10 +696,10 @@
             top: 100%;
             left: 0;
             height: 100%;
-            transition: all .6s ease-in-out;
-            -moz-transition: all .6s ease-in-out;
-            -ms-transition: all .6s ease-in-out;
-            -o-transition: all .6s ease-in-out;
+            transition: all var(--animation-speed) ease-in-out;
+            -moz-transition: all var(--animation-speed) ease-in-out;
+            -ms-transition: all var(--animation-speed) ease-in-out;
+            -o-transition: all var(--animation-speed) ease-in-out;
         }
 
         h2 a {
@@ -708,26 +708,26 @@
             line-height: 30px;
             padding: 15px 0px;
             display: block;
-            transition: all .6s ease-in-out;
-            -moz-transition: all .6s ease-in-out;
-            -ms-transition: all .6s ease-in-out;
-            -o-transition: all .6s ease-in-out;
+            transition: all var(--animation-speed) ease-in-out;
+            -moz-transition: all var(--animation-speed) ease-in-out;
+            -ms-transition: all var(--animation-speed) ease-in-out;
+            -o-transition: all var(--animation-speed) ease-in-out;
             
         }
         p{
-            transition: all .6s ease-in-out;
-            -moz-transition: all .6s ease-in-out;
-            -ms-transition: all .6s ease-in-out;
-            -o-transition: all .6s ease-in-out;
+            transition: all var(--animation-speed) ease-in-out;
+            -moz-transition: all var(--animation-speed) ease-in-out;
+            -ms-transition: all var(--animation-speed) ease-in-out;
+            -o-transition: all var(--animation-speed) ease-in-out;
         }
         ul {
             position: relative;
             padding-bottom: 15px;
             border-bottom: 1px solid var(--border-color-dark);
-            transition: all .6s ease-in-out;
-            -moz-transition: all .6s ease-in-out;
-            -ms-transition: all .6s ease-in-out;
-            -o-transition: all .6s ease-in-out;
+            transition: all var(--animation-speed) ease-in-out;
+            -moz-transition: all var(--animation-speed) ease-in-out;
+            -ms-transition: all var(--animation-speed) ease-in-out;
+            -o-transition: all var(--animation-speed) ease-in-out;
             margin: 0px;
             padding-left: 0px;
             li {
@@ -736,18 +736,18 @@
                 span , i {
                     margin-right: 5px;
                     color: var(--text-color-light);
-                    transition: all .6s ease-in-out;
-                    -moz-transition: all .6s ease-in-out;
-                    -ms-transition: all .6s ease-in-out;
-                    -o-transition: all .6s ease-in-out;
+                    transition: all var(--animation-speed) ease-in-out;
+                    -moz-transition: all var(--animation-speed) ease-in-out;
+                    -ms-transition: all var(--animation-speed) ease-in-out;
+                    -o-transition: all var(--animation-speed) ease-in-out;
                     
                 }
                 a {
                     color: var(--text-color-dark);
-                    transition: all .6s ease-in-out;
-                    -moz-transition: all .6s ease-in-out;
-                    -ms-transition: all .6s ease-in-out;
-                    -o-transition: all .6s ease-in-out;
+                    transition: all var(--animation-speed) ease-in-out;
+                    -moz-transition: all var(--animation-speed) ease-in-out;
+                    -ms-transition: all var(--animation-speed) ease-in-out;
+                    -o-transition: all var(--animation-speed) ease-in-out;
                     font-size: 15px;
                    
                 }
@@ -759,10 +759,10 @@
         a.link__go {
             padding-top: 15px;
             border-top: 1px solid var(--border-color-dark);
-            transition: all .6s ease-in-out;
-            -moz-transition: all .6s ease-in-out;
-            -ms-transition: all .6s ease-in-out;
-            -o-transition: all .6s ease-in-out;
+            transition: all var(--animation-speed) ease-in-out;
+            -moz-transition: all var(--animation-speed) ease-in-out;
+            -ms-transition: all var(--animation-speed) ease-in-out;
+            -o-transition: all var(--animation-speed) ease-in-out;
             font-family: var(--creote-family-one);
             font-size: 15px;
             display: block;

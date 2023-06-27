@@ -43,7 +43,7 @@
             position: absolute;
             left: 0px;
             top: 0px;
-            width: 300px;
+            width: 90vw;
             height: 100%;
             max-height: 100%;
             overflow-y: auto;
@@ -238,6 +238,12 @@
     -ms-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
 }
+
+.header {
+    li {
+        margin-bottom: 0;
+    }
+}
  
 .header ,
 .default_sickty_heaad {
@@ -253,7 +259,7 @@
         position: relative; 
         img{
             display: block;
-            width: 220px;
+            max-width: 340px;
             height: auto; 
             margin-bottom: 0px;
         }
@@ -262,6 +268,7 @@
         }
         .logo__sticky{
             display: none;
+            max-width: 200px;
         }
         .site-description {
             position: absolute!important;
@@ -343,10 +350,10 @@
                          font-weight: 600;
                          color: var(--menu-color);
                          font-family: var(--creote-family-one);
-                         transition: 0.5s ease-in-out;
-                         -ms-transition: 0.5s ease-in-out;
-                        -moz-transition: 0.5s ease-in-out;
-                        -o-transition: 0.5s ease-in-out;
+                         transition: var(--animation-speed) ease-in-out;
+                         -ms-transition: var(--animation-speed) ease-in-out;
+                        -moz-transition: var(--animation-speed) ease-in-out;
+                        -o-transition: var(--animation-speed) ease-in-out;
                          &:hover{
                              color:var(--menu-active-color);
                          }
@@ -2985,6 +2992,14 @@ body.single-header{
         animation-name: slideInUp;
         &.style_two {
             background: var(--primary-color-two);
+        }
+
+        .logo_default {
+            display: none;
+        }
+
+        .logo__sticky {
+            display: block;
         }
     }
 }

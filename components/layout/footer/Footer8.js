@@ -1,7 +1,6 @@
 import ReactMarkdown from "react-markdown"
 import Link from "next/link"
-export default function Footer8({ contact, topics, actions }) {
-    console.log({actions})
+export default function Footer8({ contact, topics }) {
     const keyTopics = topics.filter(t => t.featured)
     const { main_logo, full_name, description, linkedin, twitter, email, phone, mailing_address, location, license, uottawa_logo } = contact;
     return (
@@ -13,7 +12,7 @@ export default function Footer8({ contact, topics, actions }) {
                 <div className="footer_widgets_wrap">
                     <div className="auto-container">
                         <div className="row">
-                            <div className="col-xl-4 col-lg-12 col-md-12 col-sm-12">
+                            <div className="col-xl-3 col-lg-12 col-md-12 col-sm-12">
                                 <div className="footer_widgets about_company dark_color">
                                     <div className="about_company_inner">
                                         <div className="footer_logo">
@@ -35,7 +34,30 @@ export default function Footer8({ contact, topics, actions }) {
                                     </div>
                                 </div>
                             </div>
-                            <div className="offset-xl-2 col-xl-3 col-lg-12 col-md-12 col-sm-12">
+
+                            <div className="col-xl-3 col-lg-12 col-md-12 col-sm-12">
+                                {/*===============spacing==============*/}
+                                <div className="pd_top_10" />
+                                {/*===============spacing==============*/}
+                                <div className="footer_widgets wid_tit style_one">
+                                    <div className="fo_wid_title">
+                                        <h2 className="color_dark">Top Pages</h2>
+                                    </div>
+                                </div>
+                                {/*===============spacing==============*/}
+                                <div className="pd_bottom_20" />
+                                {/*===============spacing==============*/}
+                                <div className="list_item_box style_one">
+                                    <ul>
+                                        <li><Link href={`/about-us`}> About us </Link></li>
+                                        <li><Link href={`/news`}> News </Link></li>
+                                        <li><Link href={`/contact`}> Contact us </Link></li>
+                                        <li><Link href={`/donate`}> Donate </Link></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div className="col-xl-3 col-lg-12 col-md-12 col-sm-12">
                                 {/*===============spacing==============*/}
                                 <div className="pd_top_10" />
                                 {/*===============spacing==============*/}
