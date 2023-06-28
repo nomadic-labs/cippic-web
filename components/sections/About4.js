@@ -1,7 +1,9 @@
 
 import Link from "next/link"
 import VideoBox from "../elements/VideoBox"
-export default function About4({title, before_title, about_list_items=[]}) {
+export default function About4({title, before_title, about_list_items=[], image}) {
+
+    const imageSrc = image ? `${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${image.url}` : null
     return (
         <>
             <section className="about-section">
@@ -25,16 +27,11 @@ export default function About4({title, before_title, about_list_items=[]}) {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-xl-6 col-lg-10 col-md-12">
+                        <div className="col-xl-6 col-lg-10 col-md-12 d-flex justify-content-center">
                             <div className="image_boxes style_five">
-                                <div className="image_box one">
-                                    <img src="/assets/images/about/about-11.jpg" className="img-fluid" alt="img" />
-                                    <div className="video_box_null">
-                                        <VideoBox />
-                                    </div>
-                                </div>
-                                <div className="image_box two">
-                                    <img src="/assets/images/about/about-2.jpg" className="img-fluid two" alt="img" />
+                                
+                                <div className="image_box">
+                                    {imageSrc && <img src={imageSrc} className="img-fluid" alt="img" />}
                                 </div>
                             </div>
                         </div>

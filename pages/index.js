@@ -23,7 +23,8 @@ const query = qs.stringify(
       'topics',
       'cta_tabs',
       'cta_tabs.background_image',
-      'cta_tabs.background_image.media'
+      'cta_tabs.background_image.media',
+      'about_section_image.media'
     ],
   },
   {
@@ -123,6 +124,7 @@ export default function Home5({content}) {
                     title={content.about_section_title} 
                     before_title={content.about_section_before_title}
                     about_list_items={content.about_cippic}
+                    image={content.about_section_image?.data?.attributes}
                 />
                 <Team2 
                     team_members={content.team_members}
