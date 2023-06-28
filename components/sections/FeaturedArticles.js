@@ -14,7 +14,7 @@ export default function FeaturedArticles({ articles=[] }) {
                                             const datePublished = new Date(article.date_published)
                                             const dateString = datePublished.toLocaleDateString('en-CA', { year: 'numeric', month: 'short', day: 'numeric' })
                                             return (
-                                                <div className="grid_box _card">
+                                                <div key={article.id} className="grid_box _card">
                                                     <div className="news_box style_five">
                                                         <div className="content_box">
                                                             <ul>

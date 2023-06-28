@@ -7,8 +7,8 @@ export default function Navbar() {
         <>
             <ul id="myNavbar" className="navbar_nav">
                 <li className="menu-item menu-item-has-children dropdown nav-item">
-                    <Link href="/fr" className="dropdown-toggle nav-link">
-                        <span>FR</span>
+                    <Link href={router.route} locale={router.locale === 'en' ? 'fr' : 'en'} className="dropdown-toggle nav-link">
+                        <span>{`${router.locale === 'en' ? 'FR' : 'EN'}`}</span>
                     </Link>
                 </li>
                 <li className="menu-item menu-item-has-children dropdown nav-item">

@@ -148,7 +148,7 @@ export default function Layout({
                 {footerStyle == 15 ? < Footer15 /> : null}
                 {footerStyle == 16 ? < Footer16 /> : null}
 
-                <MobileMenu isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} />
+                <MobileMenu isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} topics={topics} />
                 <SearchPopup isSearch={isSearch} handleSearch={handleSearch} />
 
             </div>

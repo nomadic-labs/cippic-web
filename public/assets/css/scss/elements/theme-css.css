@@ -20859,7 +20859,7 @@ header .flaticon-list {
   height: 40px;
   border-radius: 50px;
   background: var(--primary-color-one);
-  margin: auto;
+  margin: 15px auto;
   text-align: center;
   line-height: 40px;
 }
