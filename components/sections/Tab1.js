@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { useState } from "react"
 import ReactMarkdown from 'react-markdown'
+import Fade from 'react-reveal/Fade';
 
 export default function Tab1({title, before_title, tabs}) {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -28,6 +29,7 @@ export default function Tab1({title, before_title, tabs}) {
                         {/*===============spacing==============*/}
                     </div>
                     <div className="row">
+                        <Fade>
                         <div className="tabs_all_box  tabs_all_box_start type_one">
                             <div className="tab_over_all_box">
                                 <div className="tabs_header clearfix">
@@ -74,6 +76,7 @@ export default function Tab1({title, before_title, tabs}) {
                                 </div>
                             </div>
                         </div>
+                        </Fade>
                     </div>
                 </div>
                 {/*===============spacing==============*/}

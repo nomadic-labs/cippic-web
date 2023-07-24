@@ -5,13 +5,14 @@ import Contact1 from "@/components/sections/Contact1"
 import HeroSlider5 from "@/components/sections/HeroSlider5"
 import Banner3 from "@/components/sections/Banner3"
 import FeaturedArticles from "@/components/sections/FeaturedArticles"
+import FeaturedBlogPosts from "@/components/sections/FeaturedBlogPosts"
 import Process3 from "@/components/sections/Process3"
 import Project4 from "@/components/sections/Project4"
 import Team2 from "@/components/sections/Team2"
 import Testimonial5 from "@/components/sections/Testimonial5"
 import Service3 from "@/components/sections/Service3"
 import Tab1 from "@/components/sections/Tab1"
-
+import Fade from 'react-reveal/Fade';
 
 const qs = require('qs');
 
@@ -118,19 +119,39 @@ export default function Home5({content}) {
     return (
         <>
             <Layout headerStyle={1} footerStyle={8} contact={content.contact} topics={content.categories} >
-                <Banner3 headline={content.headline} />
-                <FeaturedArticles articles={content.articles} />
+                <section className="blog-section position-relative bg_pattern_1">
+                  {/*===============spacing==============*/}
+                  <div className="pd_top_60" />
+                  {/*===============spacing==============*/}
+                  <div className="container">
+                    <div className="row">
+                      <div className="col-12 col-md-8">
+                        <div className="headline pd_bottom_40">
+                          <h1>{content.headline}</h1>
+                        </div>
+                        <FeaturedArticles title={content.latest_news_heading} articles={content.articles} />
+                      </div>
+                      <div className="col-12 col-md-4">
+                        <FeaturedBlogPosts title={content.latest_blog_posts_heading} articles={content.articles} />
+                      </div>
+                    </div>
+                  </div>
+                  {/*===============spacing==============*/}
+                  <div className="pd_bottom_60" />
+                  {/*===============spacing==============*/}
+                </section>
                 <About4 
                     title={content.about_section_title} 
                     before_title={content.about_section_before_title}
                     about_list_items={content.about_cippic}
                     image={content.about_section_image?.data?.attributes}
+                    link_text={content.about_section_link_text}
                 />
-                <Team2 
+                {/*<Team2 
                     team_members={content.team_members}
                     title={content.team_section_title}
                     before_title={content.team_section_before_title}
-                />
+                />*/}
                 <Service3 
                     topics={content.categories}
                     title={content.topics_section_title}

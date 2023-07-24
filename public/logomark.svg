@@ -1,1 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?><svg id="a" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 191.144314 191.14447"><rect x="109.568386" y="13.996354" width="67.579711" height="67.579711" transform="translate(75.778669 -87.373358) rotate(45.000025)" style="fill:#346083;"/><rect x="13.996216" y="109.568375" width="67.579711" height="67.579711" transform="translate(115.365853 8.198828) rotate(45.000025)" style="fill:#346083;"/><rect x="13.996301" y="13.996298" width="67.57971" height="67.57971" transform="translate(-19.793672 47.786109) rotate(-44.999961)" style="fill:#6d9dc5;"/><polygon points="47.786172 0 95.572244 47.786137 143.358315 .000066 47.786172 0" style="fill:#6d9dc5;"/><path d="m47.786035,191.144409l95.572144.000061-47.786072-47.786133-47.786072,47.786072Zm143.358154-47.786194l-47.786072-47.786072-47.786072,47.786072,47.786072,47.786072,47.786072-47.786072Z" style="fill:#234058;"/></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 27.4.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="a" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 191.14 191.14" style="enable-background:new 0 0 191.14 191.14;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FF8552;}
+	.st1{fill:#F54900;}
+</style>
+<rect x="110.07" y="14" transform="matrix(0.7071 0.7071 -0.7071 0.7071 75.9251 -87.727)" class="st0" width="67.58" height="67.58"/>
+<rect x="14.5" y="109.57" transform="matrix(0.7071 0.7071 -0.7071 0.7071 115.5123 7.8452)" class="st0" width="67.58" height="67.58"/>
+<g>
+	
+		<rect x="14.5" y="14" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -19.6472 48.1397)" class="st1" width="67.58" height="67.58"/>
+	<polygon class="st1" points="48.29,0 96.07,47.79 143.86,0 	"/>
+</g>
+<g>
+	<g>
+		<path class="st1" d="M48.29,191.14l95.57,0l-47.79-47.79L48.29,191.14z M191.64,143.36l-47.79-47.79l-47.79,47.79l47.79,47.79
+			L191.64,143.36z"/>
+	</g>
+</g>
+</svg>

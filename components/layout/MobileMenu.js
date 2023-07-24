@@ -3,7 +3,6 @@ import { useState } from 'react'
 import { useRouter } from 'next/router'
 export default function MobileMenu({ handleMobileMenu, topics }) {
     const router = useRouter()
-    console.log({router})
     const [isActive, setIsActive] = useState({
         status: false,
         key: "",
@@ -43,7 +42,7 @@ export default function MobileMenu({ handleMobileMenu, topics }) {
                             </li>
                             <li className="menu-item  menu-item-has-children dropdown dropdown_full mega_menu nav-item">
                                 <Link href="/about-us" className="dropdown-toggle nav-link">
-                                    <span>About us</span>
+                                    <span>About</span>
                                 </Link>
                             </li>
                             <li className="menu-item  menu-item-has-children dropdown dropdown_full mega_menu nav-item">
@@ -52,8 +51,13 @@ export default function MobileMenu({ handleMobileMenu, topics }) {
                                 </Link>
                             </li>
                             <li className="menu-item  menu-item-has-children dropdown dropdown_full mega_menu nav-item">
-                                <Link href="/contact" className="dropdown-toggle nav-link">
-                                    <span>Contact us</span>
+                                <Link href="/blog" className="dropdown-toggle nav-link">
+                                    <span>Blog</span>
+                                </Link>
+                            </li>
+                            <li className="menu-item  menu-item-has-children dropdown dropdown_full mega_menu nav-item">
+                                <Link href="/students" className="dropdown-toggle nav-link">
+                                    <span>Student Program</span>
                                 </Link>
                             </li>
                             <li className="menu-item menu-item-has-children dropdown nav-item">
@@ -70,6 +74,11 @@ export default function MobileMenu({ handleMobileMenu, topics }) {
                                     ))}
                                 </ul>
                                 <div className="dropdown-btn" onClick={() => handleToggle(2)}><span className="fa fa-angle-down" /></div>
+                            </li>
+                            <li className="menu-item  menu-item-has-children dropdown dropdown_full mega_menu nav-item">
+                                <Link href="/contact" className="dropdown-toggle nav-link">
+                                    <span>Contact us</span>
+                                </Link>
                             </li>
                             <li className="menu-item  menu-item-has-children dropdown dropdown_full mega_menu nav-item">
                                 <Link href={router.route} locale={router.locale === 'en' ? 'fr' : 'en'} className="dropdown-toggle nav-link">

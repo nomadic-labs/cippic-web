@@ -1,5 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
+import Fade from 'react-reveal/Fade';
+
 export default function Service3({title, before_title, subtitle, topics=[]}) {
     const keyTopics = topics.filter(t => t.featured)
     return (
@@ -23,9 +25,10 @@ export default function Service3({title, before_title, subtitle, topics=[]}) {
                         {/*===============spacing==============*/}
                     </div>
                     <div className="row gutter_15px">
-                        {keyTopics.map(topic => {
+                        {keyTopics.map((topic, index) => {
                             return(
                                 <div key={topic.id} className="col-xl-3 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                                    <Fade bottom delay={index * 60}>
                                     <div className="service_box style_three dark_color">
                                         <div className="service_content">
                                             <div className="content_inner">
@@ -49,6 +52,7 @@ export default function Service3({title, before_title, subtitle, topics=[]}) {
                                             </div>
                                         </div>
                                     </div>
+                                    </Fade>
                                     {/*===============spacing==============*/}
                                     <div className="mr_bottom_40" />
                                     {/*===============spacing==============*/}

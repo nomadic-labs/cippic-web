@@ -1,7 +1,7 @@
 import Link from "next/link"
 import Navbar from "../Navbar"
 
-export default function Header1({ handleSearch, handleContactPopup, handleMobileMenu }) {
+export default function Header1({ handleSearch, handleContactPopup, handleMobileMenu, topics }) {
     return (
         <>
             <div className="header_area" id="header_contents">
@@ -18,7 +18,6 @@ export default function Header1({ handleSearch, handleContactPopup, handleMobile
                             </div>
                             <div className="col-lg-8 col-md-4 col-sm-4 col-xs-4 menu_column">
                                 <button onClick={handleMobileMenu} className="theme-btn one navbar_togglers"> 
-                                    <div>Menu</div>
                                     <div className="hamburger_menu">
                                         <span className="line" />
                                         <span className="line" />
@@ -28,23 +27,13 @@ export default function Header1({ handleSearch, handleContactPopup, handleMobile
                                 <div className="header_content_collapse d-flex justify-content-end">
                                     <div className="header_menu_box">
                                         <div className="navigation_menu">
-                                            <Navbar />
+                                            <Navbar topics={topics} />
                                         </div>
                                     </div>
                                     <div className="header_right_content">
                                         <ul>
                                             <li>
                                                 <button type="button" className="search-toggler" onClick={handleSearch}><i className="icon-search" /></button>
-                                            </li>
-                                            <li className="header-button">
-                                                <button onClick={handleMobileMenu} className="theme-btn one"> 
-                                                    <div>Menu</div>
-                                                    <div className="hamburger_menu">
-                                                        <span className="line" />
-                                                        <span className="line" />
-                                                        <span className="line" />
-                                                    </div>
-                                                </button>
                                             </li>
                                         </ul>
                                     </div>

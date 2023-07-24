@@ -6,8 +6,9 @@ export default function Footer8({ contact, topics }) {
     return (
         <>
             <div className="footer_area footer_sticky_enable_foo footer_eight" id="footer_contents">
+                <div className="divider_1" />
                 {/*===============spacing==============*/}
-                <div className="pd_top_80" />
+                <div className="pd_top_60" />
                 {/*===============spacing==============*/}
                 <div className="footer_widgets_wrap">
                     <div className="auto-container">
@@ -117,7 +118,7 @@ export default function Footer8({ contact, topics }) {
                     </div>
                 </div>
                 {/*===============spacing==============*/}
-                <div className="pd_bottom_60" />
+                <div className="pd_bottom_20" />
                 {/*===============spacing==============*/}
                 <div className="footer-copyright">
                     {/*===============spacing==============*/}

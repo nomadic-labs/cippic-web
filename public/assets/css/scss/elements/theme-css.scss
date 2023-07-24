@@ -1127,6 +1127,15 @@
     background-position: top !important;
 }
 
+.bg_pattern_1 {
+    background-image: url('/assets/images/polygon-luminary.svg');
+    background-position: bottom right !important;
+    background-repeat  : no-repeat !important;
+    background-size    : cover;
+    transition         : background 0.3s !important;
+    background-color   : var(--primary-color-three);
+}
+
 .bg_pattern_2 {
     background-position: bottom left !important;
     background-repeat  : no-repeat !important;

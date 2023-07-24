@@ -7813,3 +7813,60 @@ form{
         border-radius: 15px;
     }
 }
+
+// custom headline on home page
+
+.headline {
+    padding: 60px;
+    position: relative;
+
+    &:before {
+        content: "";
+        background-image: url(/assets/images/half-logo-icon-flipped.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: absolute;
+        width: 40%;
+        height: 40%;
+        max-height: 60px;
+        background-position: top left;
+        top: 0;
+        left: 0;
+    }
+
+    &:after {
+        content: "";
+        background-image: url(/assets/images/half-logo-icon.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: absolute;
+        width: 40%;
+        height: 40%;
+        max-height: 60px;
+        background-position: right bottom;
+        right: 0;
+        bottom: 0;
+    }
+
+    h1 {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        font-size: calc(24px + 0.7vw)
+    }
+}
+
+a.read_more {
+    font-size: 12px;
+    font-weight: 600;
+    // color: var(--heading-dark);
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    line-height: 23px;
+    font-family: var(--creote-family-one);
+    margin-top: 5px;
+     i {
+        margin-left: 3px;
+     }
+}

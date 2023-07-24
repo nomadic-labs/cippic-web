@@ -688,20 +688,6 @@
                 position: relative;
                 z-index: 1;
             }
-        &::before {
-            position: absolute;
-            content: '';
-            background: var(--primary-color-one);
-            width: 100%;
-            top: 100%;
-            left: 0;
-            height: 100%;
-            transition: all var(--animation-speed) ease-in-out;
-            -moz-transition: all var(--animation-speed) ease-in-out;
-            -ms-transition: all var(--animation-speed) ease-in-out;
-            -o-transition: all var(--animation-speed) ease-in-out;
-        }
-
         h2 a {
             font-size: 20px;
             color: var(--heading-dark);
@@ -733,6 +719,7 @@
             li {
                 display: inline-block;
                 padding-right: 12px;
+                margin-bottom: 0px;
                 span , i {
                     margin-right: 5px;
                     color: var(--text-color-light);
@@ -777,29 +764,29 @@
         }
          &:hover {
              h2 A{
-                 color: #fff;
+                 color: var(--primary-color-one);
              }
             border-color: var(--primary-color-one);
             &::before {
                 top: 0;
             }
             p {
-                transform: translateY(-30px);
-                opacity: 0;
+                // transform: translateY(-30px);
+                // opacity: 0;
             }
             a.link__go {
-                border-color: rgba(255,255,255,.2);
-                color: #fff;
+                // border-color: rgba(255,255,255,.2);
+                // color: #fff;
             }
-            ul {
-                border-color: rgba(255,255,255,.2);
-            }
-            ul li span , ul li i {
-                color: #fff;
-            }
-            ul li a {
-                color: #fff;
-            }
+            // ul {
+            //     border-color: rgba(255,255,255,.2);
+            // }
+            // ul li span , ul li i {
+            //     color: #fff;
+            // }
+            // ul li a {
+            //     color: #fff;
+            // }
          }
         
   
@@ -1195,7 +1182,7 @@
 
  .grid_box {
     .news_box{  
-       margin-bottom: 30px!important;
+       // margin-bottom: 30px!important;
      }
     
  }}
