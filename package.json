@@ -11,6 +11,7 @@
     },
     "dependencies": {
         "@emotion/cache": "^11.11.0",
+        "aos": "^2.3.4",
         "eslint": "8.36.0",
         "eslint-config-next": "13.2.4",
         "isotope-layout": "^3.0.6",
@@ -31,5 +32,10 @@
     },
     "resolutions": {
         "react-countup/countup.js": "2.5.0"
+    },
+    "packageManager": "yarn@3.6.3",
+    "devDependencies": {
+        "autoprefixer": "^10.4.16",
+        "postcss": "^8.4.31"
     }
 }

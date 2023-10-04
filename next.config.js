@@ -6,7 +6,17 @@ const nextConfig = {
     // This is the default locale you want to be used when visiting
     // a non-locale prefixed path e.g. `/hello`
     defaultLocale: 'en',
-  }
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cms.cippic.ca',
+        port: '',
+        pathname: '/uploads/**',
+      },
+    ],
+  },
 }
 
 module.exports = nextConfig

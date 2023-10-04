@@ -53,6 +53,7 @@ export default function Layout({
     image="/assets/images/test-image.jpg", 
     contact={},
     topics=[],
+    contentTypes=[],
     actions=[]
 }) {
     // Search
@@ -106,8 +107,8 @@ export default function Layout({
             <div id="page" className={`page_wapper hfeed site ${scroll ? "fixed-header floating-menu" : ""} ${isMobileMenu ? "crt_mobile_menu-visible" : ""}`}>
                 <div id="wrapper_full" className="content_all_warpper">
 
-                    {!headerStyle && <Header1 handleSearch={handleSearch} handleContactPopup={handleContactPopup} handleMobileMenu={handleMobileMenu} topics={topics} />}
-                    {headerStyle == 1 ? <Header1 handleSearch={handleSearch} handleContactPopup={handleContactPopup} handleMobileMenu={handleMobileMenu} topics={topics} /> : null}
+                    {!headerStyle && <Header1 handleSearch={handleSearch} handleContactPopup={handleContactPopup} handleMobileMenu={handleMobileMenu} topics={topics} contentTypes={contentTypes} />}
+                    {headerStyle == 1 ? <Header1 handleSearch={handleSearch} handleContactPopup={handleContactPopup} handleMobileMenu={handleMobileMenu} topics={topics} contentTypes={contentTypes} /> : null}
                     {headerStyle == 2 ? <Header2 handleSearch={handleSearch} handleContactPopup={handleContactPopup} handleMobileMenu={handleMobileMenu} /> : null}
                     {headerStyle == 3 ? <Header3 handleSearch={handleSearch} handleContactPopup={handleContactPopup} handleMobileMenu={handleMobileMenu} /> : null}
                     {headerStyle == 4 ? <Header4 handleSearch={handleSearch} handleContactPopup={handleContactPopup} handleMobileMenu={handleMobileMenu} /> : null}

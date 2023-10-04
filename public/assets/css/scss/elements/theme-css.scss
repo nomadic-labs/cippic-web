@@ -1150,6 +1150,10 @@
     transition         : background 0.3s, border-radius 0.3s, opacity 0.3s !important;
 }
 
+.bg_dark {
+    background-color: var(--primary-color-two);
+}
+
 /*--==================spacing===================--*/
 
 
@@ -1386,6 +1390,7 @@
 @import 'packagetwo/header';
 @import 'side-menu/sidemenu';
 @import 'map';
+@import 'article';
 @import 'responsive';
 
 // @import '../../../../../node_modules/react-modal-video/scss/modal-video.scss';

@@ -1,7 +1,9 @@
 import Link from "next/link"
 import Fade from 'react-reveal/Fade';
+import ReactMarkdown from 'react-markdown'
+import ArticleCard from "@/components/elements/ArticleCard"
 
-export default function FeaturedArticles({ title="Latest News", articles=[] }) {
+export default function FeaturedArticles({ title="Key Insights", articles=[] }) {
     return (
         <>
             <div className="">
@@ -14,31 +16,20 @@ export default function FeaturedArticles({ title="Latest News", articles=[] }) {
                     <div className="grid_show_case grid_layout clearfix row">
                         {
                             articles.map((article, index) => {
-                                const datePublished = new Date(article.date_published)
-                                const dateString = datePublished.toLocaleDateString('en-CA', { year: 'numeric', month: 'short', day: 'numeric' })
                                 return (
-                                    <div key={article.id} className="grid_box _card">
-                                        <Fade bottom delay={index * 60}>
-                                        <div className="news_box style_five">
-                                            <div className="content_box">
-                                                <ul>
-                                                    <li>
-                                                        <Link href={`/articles/${article.slug}`}>{dateString}</Link>
-                                                    </li>
-                                                </ul>
-                                                <h2 className="title">
-                                                    <Link href={`/articles/${article.slug}`}>{article.title}</Link>
-                                                </h2>
-                                                { article.teaser && <p className="short_desc">{article.teaser}</p> }
-                                            </div>
-                                        </div>
-                                        </Fade>
-                                    </div>
+                                    <Fade bottom delay={index * 60} key={article.id}>
+                                        <ArticleCard 
+                                            article={article} 
+                                            showImage={false}
+                                            showTeaser={false}
+                                            showDate={false}
+                                        />
+                                    </Fade>
                                 )
                             })
                         }
                     </div>
-                    <Link href={`/news`} className="read_more">All news <i className="icon-right-arrow" /></Link >
+                    <Link href={`/articles`} className="read_more">Explore the issues <i className="icon-right-arrow" /></Link >
                 </div>
             </div>
         </>

@@ -1,7 +1,7 @@
 import Link from "next/link"
 import Fade from 'react-reveal/Fade';
 
-export default function FeaturedBlogPosts({ title="From Our Blog", articles=[] }) {
+export default function LatestNews({ title="Latest News", articles=[] }) {
     return (
         <>
             <div className="">

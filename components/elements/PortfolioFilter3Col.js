@@ -2,6 +2,7 @@
 import Isotope from "isotope-layout"
 import Link from "next/link"
 import { useCallback, useEffect, useRef, useState } from "react"
+import ReactMarkdown from 'react-markdown'
 
 export default function PortfolioFilter3Col({articles, filters}) {
     // Isotope
@@ -82,7 +83,11 @@ export default function PortfolioFilter3Col({articles, filters}) {
                                             <h2 className="title">
                                                 <Link href={`/articles/${article.slug}`}>{article.title}</Link>
                                             </h2>
-                                            {article.teaser && <p className="short_desc">{article.teaser}</p>}
+                                            { article.teaser && 
+                                                <ReactMarkdown>
+                                                    {article.teaser}
+                                                </ReactMarkdown> 
+                                            }
                                             <p className="tags text-uppercase text-sm">{tags}</p>
                                             <Link href={`/articles/${article.slug}`} className="link__go">Keep reading<i className="icon-right-arrow-long" /></Link>
                                         </div>

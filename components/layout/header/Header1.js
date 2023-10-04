@@ -1,12 +1,12 @@
 import Link from "next/link"
 import Navbar from "../Navbar"
 
-export default function Header1({ handleSearch, handleContactPopup, handleMobileMenu, topics }) {
+export default function Header1({ handleSearch, handleContactPopup, handleMobileMenu, topics, contentTypes }) {
     return (
         <>
             <div className="header_area" id="header_contents">
                 <header className="header header_default style_one get_sticky_header">
-                    <div className="auto-container">
+                    <div className="container-xl">
                         <div className="row align-items-center">
                             <div className="col-lg-4 col-md-8 col-sm-8 col-xs-8 logo_column">
                                 <div className="header_logo_box">
@@ -27,7 +27,7 @@ export default function Header1({ handleSearch, handleContactPopup, handleMobile
                                 <div className="header_content_collapse d-flex justify-content-end">
                                     <div className="header_menu_box">
                                         <div className="navigation_menu">
-                                            <Navbar topics={topics} />
+                                            <Navbar topics={topics} contentTypes={contentTypes} />
                                         </div>
                                     </div>
                                     <div className="header_right_content">

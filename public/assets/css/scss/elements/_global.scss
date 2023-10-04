@@ -11,10 +11,10 @@ body {
     -moz-font-smoothing   : antialiased !important;
     -o-font-smoothing     : antialiased !important;
     -ms-font-smoothing    : antialiased !important;
-    transition            : 0.5s ease-in-out;
-    -ms-transition        : 0.5s ease-in-out;
-    -moz-transition       : 0.5s ease-in-out;
-    -o-transition         : 0.5s ease-in-out;
+    transition            : var(--animation-speed) ease-in-out;
+    -ms-transition        : var(--animation-speed) ease-in-out;
+    -moz-transition       : var(--animation-speed) ease-in-out;
+    -o-transition         : var(--animation-speed) ease-in-out;
 }
 
 img {
@@ -348,10 +348,10 @@ a {
     cursor         : pointer;
     color          : var(--primary-color-one);
 
-    transition     : 0.5s ease-in-out !important;
-    -moz-transition: 0.5s ease-in-out !important;
-    -o-transition  : 0.5s ease-in-out !important;
-    -ms-transition : 0.5s ease-in-out !important;
+    transition     : var(--animation-speed) ease-in-out !important;
+    -moz-transition: var(--animation-speed) ease-in-out !important;
+    -o-transition  : var(--animation-speed) ease-in-out !important;
+    -ms-transition : var(--animation-speed) ease-in-out !important;
 
 }
 

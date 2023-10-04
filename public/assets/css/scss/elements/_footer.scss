@@ -623,6 +623,12 @@
     color: var(--text-color-light);
     margin: 0px;
     font-family: var(--creote-family-two);
+    display: inline-block;
+    margin-right: 2em;
+
+    p {
+        margin-bottom: 0;
+    }
 }
     .nav_link_v_one{
             position: relative;

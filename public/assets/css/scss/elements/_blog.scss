@@ -253,10 +253,14 @@
 .news_box.default_style.list_view{
     position: relative;
     display: flex;
-    box-shadow: var(--box-shadow);
+    // box-shadow: var(--box-shadow);
     margin-bottom: 50px;
     overflow: hidden; 
-    border-radius: 10px;
+    background: var(--color-white);
+    border-radius: 5px;
+    border: 1px solid var(--border-color-dark);
+    transition: all var(--animation-speed) ease-in-out;
+
     .image {
         position: relative;
         max-width: 40%; 
@@ -291,7 +295,7 @@
     }
     .content_box{
         position: relative;
-        padding: 40px;
+        padding: 30px;
         .date{
             position: relative;
             margin-bottom: 15px;
@@ -365,6 +369,7 @@
 
     }
     &:hover{
+        border-color: var(--primary-color-one);
         .image {
             .categories{
                 background: var(--primary-color-one);
@@ -676,7 +681,7 @@
     &.style_five{
             background: #fff;
             position: relative;
-            padding: 30px;
+            padding: 15px 30px;
             border-radius: 5px;
             border: 1px solid var(--border-color-dark);
             transition: all var(--animation-speed) ease-in-out;
@@ -698,6 +703,11 @@
             -moz-transition: all var(--animation-speed) ease-in-out;
             -ms-transition: all var(--animation-speed) ease-in-out;
             -o-transition: all var(--animation-speed) ease-in-out;
+
+            &:hover {
+              color: var(--primary-color-one);
+
+            }
             
         }
         p{
@@ -763,9 +773,6 @@
             }
         }
          &:hover {
-             h2 A{
-                 color: var(--primary-color-one);
-             }
             border-color: var(--primary-color-one);
             &::before {
                 top: 0;
