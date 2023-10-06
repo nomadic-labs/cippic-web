@@ -262,6 +262,7 @@
             max-width: 340px;
             height: auto; 
             margin-bottom: 0px;
+            filter: invert(1) hue-rotate(-36deg);
         }
         .logo_default{
             display: block;

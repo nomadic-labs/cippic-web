@@ -3,6 +3,7 @@ import Isotope from "isotope-layout"
 import Link from "next/link"
 import { useCallback, useEffect, useRef, useState } from "react"
 import ReactMarkdown from 'react-markdown'
+import ArticleCard from '@/components/elements/ArticleCard'
 
 export default function PortfolioFilter3Col({articles, filters}) {
     // Isotope
@@ -45,9 +46,10 @@ export default function PortfolioFilter3Col({articles, filters}) {
         <>
             <div className="row">
                 <div className="col-lg-12">
-                    <div className="fliter_group" style={{ textAlign: 'center!important' }}>
+                    <div className="fliter_group bg-white rounded-lg padding-lg">
+                        <p className="title-small text-dark">Filters</p>
                         <ul className="project_filter dark clearfix">
-                            <li className={activeBtn("*")} onClick={handleFilterKeyChange("*")}>View All</li>
+                            <li className={activeBtn("*")} onClick={handleFilterKeyChange("*")}>All</li>
                             {
                                 filters.map(filter => {
                                     return(
@@ -64,34 +66,12 @@ export default function PortfolioFilter3Col({articles, filters}) {
                 <div className="row clearfix">
                     {
                         articles.map(article => {
-                            const categories = article.categories.data || []
                             const content_types = article.content_types.data || []
-                            const datePublished = new Date(article.date_published)
-                            const dateString = datePublished.toLocaleDateString('en-CA', { year: 'numeric', month: 'short', day: 'numeric' })
-                            const tags = categories.concat(content_types).map(t => t.attributes.name).join(', ')
                             const tagsClasses = content_types.map(t => t.attributes.slug).join(' ')
 
                             return (
                                 <div key={article.id} className={`project-wrapper grid-item col-xl-4 col-lg-6 col-md-12 col-sm-12 ${tagsClasses}`}>
-                                    <div className="news_box style_five">
-                                        <div className="content_box">
-                                            <ul>
-                                                <li>
-                                                    <Link href={`/articles/${article.slug}`}>{dateString}</Link>
-                                                </li>
-                                            </ul>
-                                            <h2 className="title">
-                                                <Link href={`/articles/${article.slug}`}>{article.title}</Link>
-                                            </h2>
-                                            { article.teaser && 
-                                                <ReactMarkdown>
-                                                    {article.teaser}
-                                                </ReactMarkdown> 
-                                            }
-                                            <p className="tags text-uppercase text-sm">{tags}</p>
-                                            <Link href={`/articles/${article.slug}`} className="link__go">Keep reading<i className="icon-right-arrow-long" /></Link>
-                                        </div>
-                                    </div>
+                                    <ArticleCard article={article} tagsAttribute="content_types" showImage={false} />
                                 </div>
                             )
                         })

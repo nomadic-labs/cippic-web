@@ -168,30 +168,40 @@
     &.filt_style_one , &.filt_style_six  {
     .fliter_group {
         position: relative;
-        margin-bottom: 50px;
+        margin-bottom: var(--padding-lg);
+
+
         .project_filter{
             position: relative;
             display: block;
             padding-left: 0px;
+            display: inline-flex;
+            gap: 1rem;
+            margin-bottom: 0;
             
             li{
                 display: inline-block;
-                margin: 10px;
                 position: relative;
-                padding: 9px 15px 5px;
-                border-left: 1px solid var(--border-color-dark);
-                border-bottom: 1px solid var(--border-color-dark);
+                padding: var(--padding-sm) var(--padding-md);
+                background-color: var(--color-white);
+                color: var(--primary-color-one);
+                border-radius: 50px;
                 cursor: pointer;
                 font-size: 12px;
-                line-height: 20px;
-                text-transform: uppercase;
                 text-transform: uppercase;
                 font-family: var(--creote-family-one);
                 font-weight: 600;
+                margin-bottom: 0;
+                border: 1px solid var(--primary-color-one);
+
+                &:hover {
+                    color: var(--highlight-color);
+                }
+
                 &.current{
                     border-color: var(--primary-color-one);
                     background: var(--primary-color-one);
-                    color: #fff
+                    color: var(--color-white);
                 }
             }
         }

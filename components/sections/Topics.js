@@ -13,7 +13,6 @@ export default function Topics({title, before_title, subtitle, topics=[]}) {
                 <div className="container-xl">
                     <div className="row">
                         <div className="col-lg-12">
-                            <div className="bg-faded rounded-lg padding-lg">
                                 <div className="title_sections">
                                     <h2 className="title-small">{title}</h2>
                                 </div>
@@ -47,7 +46,6 @@ export default function Topics({title, before_title, subtitle, topics=[]}) {
                                         )
                                     })}
                                 </div>
-                            </div>
                         </div>
                     </div>
                 </div>

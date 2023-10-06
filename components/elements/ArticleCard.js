@@ -8,7 +8,8 @@ export default function ArticleCard ({
     showTeaser=true, 
     showDate=true, 
     imageTop=true,
-    linkText="Keep reading" ,
+    linkText="Keep reading",
+    tagsAttribute="categories",
 }) {
 
     if (!article) return null
@@ -20,13 +21,15 @@ export default function ArticleCard ({
         dateString = datePublished.toLocaleDateString('en-CA', { year: 'numeric', month: 'short', day: 'numeric' })
     }
 
-    if (article.main_image.data) {
+    if (article.main_image?.data) {
         image = article.main_image.data.attributes;
     }
 
     const categories = article.categories?.data || []
     const content_types = article.content_types?.data || []
-    const tags = categories.map(t => t.attributes.name).join(', ')
+    const tagItems = article[tagsAttribute]?.data || []
+
+    const tags = tagItems.map(t => t.attributes.name).join(', ')
     const url = `/articles/${article.slug}`
     const hasImage = showImage && image
 

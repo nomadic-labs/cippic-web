@@ -19,7 +19,7 @@ export default function Landing({ headline, key_insights_heading="Key Insights",
                 </div>
                 <div className="row">
                   <div className="col-12 col-md-8">
-                    <div className="title_sections">
+                    <div className="title-section">
                         <h2 className="title-small">Featured Story</h2>
                     </div>
                     <ArticleCard 
@@ -28,7 +28,7 @@ export default function Landing({ headline, key_insights_heading="Key Insights",
                     />
                   </div>
                   <div className="col-12 col-md-4">
-                    <div className="title_sections">
+                    <div className="title-section">
                         <h2 className="title-small">{key_insights_heading}</h2>
                     </div>
                     <FeaturedArticles articles={articles} />

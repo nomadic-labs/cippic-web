@@ -29,7 +29,10 @@ const contactQuery = qs.stringify(
 const categoriesQuery = qs.stringify(
   {
     populate: [
-      '*'
+      '*',
+      'articles',
+      'articles.main_image',
+      'articles.main_image.media'
     ],
   },
   {
@@ -72,6 +75,18 @@ export const getStaticProps = async ({ params }) => {
       }
     );
 
+    const contentTypesQuery = qs.stringify(
+      {
+        populate: [
+          '*',
+          'articles'
+        ],
+      },
+      {
+        encodeValuesOnly: true, // prettify URL
+      }
+    );
+
     const categoryArticlesRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/categories?${categoryArticlesQuery}`)
     const categoryArticlesJson = await categoryArticlesRes.json()
     const categoryData = categoryArticlesJson.data[0]
@@ -84,7 +99,7 @@ export const getStaticProps = async ({ params }) => {
     const categoriesJson = await categoriesRes.json()
     const categories = categoriesJson.data.map(t => ({ id: t.id, ...t.attributes}))
 
-    const contentTypesRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/content-types`)
+    const contentTypesRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/content-types?${contentTypesQuery}`)
     const contentTypesJson = await contentTypesRes.json()
     const contentTypes = contentTypesJson.data.map(t => ({ id: t.id, ...t.attributes}))
 
@@ -147,48 +162,46 @@ export default function BlogSimple({ content }) {
     const mainImage = null
     const imagePath = mainImage ? mainImage.attributes.url : null
     const articles = category.articles.data.map(art => ({ id: art.id, ...art.attributes }))
-    console.log({articles})
+    const articleFilters = articles.reduce((filters, article) => {
+        const articleContentTypes = article.content_types.data.map(ct => ct.attributes)
+        const newFitlers = articleContentTypes.map(act => {
+            const filterExists = filters.find(f => f?.slug === act.slug)
+            if (!filterExists) {
+                return act
+            }
+        }).filter(i => i)
+        return filters.concat(newFitlers)
+    }, [])
 
     return (
         <>
             <Layout headerStyle={1} footerStyle={8} contact={content.contact} topics={content.categories} >
-                <div className={`page_header_default style_one blog_single_pageheader`}>
-                    <div className="parallax_cover">
-                        <div className="simpleParallax">
-                        { imagePath && <img src={`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/${imagePath}`} alt="bg_image" className="cover-parallax" />}
-                        </div>
-                    </div>
-                    <div className="page_header_content">
-                        <div className="auto-container">
-                            <div className="row">
-                                <div className="col-md-12">
-                                    <div className="banner_title_inner">
-                                        <div className="title_page">
-                                            {category.name}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-lg-12">
-                                    <div className="breadcrumbs creote text-white text-bold">
-                                        <p>{category.description}</p>
-                                    </div>
-                                </div>
+                <div className="bg-two padding-lg">
+                    <div className="pd_top_40" />
+                    <div className="container-xl">
+                        <div className="row">
+                          <div className="col-12">
+                            <div className="headline padding-xl">
+                              <h1>{category.name}</h1>
+                              <div className="pd_top_20" />
+                              <p className="text-center text-lg">{category.description}</p>
                             </div>
+                          </div>
                         </div>
                     </div>
                 </div>
 
-                <div className="auto-container">
-                    <div className="row default_row">
-                        <div className="full_width_box">
-                            {/*===============spacing==============*/}
-                            <div className="pd_top_80" />
-                            {/*===============spacing==============*/}
-                            <div className="project_all filt_style_one filter_enabled">
-                                <PortfolioFilter3Col articles={articles} filters={content.contentTypes} />
-                            </div>
-                        </div>
+
+                <div className="container-xl">
+                    {/*===============spacing==============*/}
+                    <div className="pd_top_60" />
+                    {/*===============spacing==============*/}
+                    <div className="project_all filt_style_one filter_enabled">
+                        <PortfolioFilter3Col articles={articles} filters={articleFilters} />
                     </div>
+                    {/*===============spacing==============*/}
+                    <div className="pd_top_60" />
+                    {/*===============spacing==============*/}
                 </div>
 
             </Layout>

@@ -98,7 +98,7 @@ export default function Navbar({ topics=[], contentTypes=[] }) {
                     </Link>
                 </li>
                 <li className="menu-item menu-item-has-children dropdown nav-item">
-                    <Link href="/blog" className="dropdown-toggle nav-link">
+                    <Link href="/donate" className="dropdown-toggle nav-link">
                         <span>Donate</span>
                     </Link>
                 </li>
