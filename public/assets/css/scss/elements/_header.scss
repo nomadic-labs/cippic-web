@@ -347,8 +347,8 @@
                          font-size:15px;
                          line-height: 65px;
                          padding: 0;
-                         font-weight: 600;
-                         color: var(--menu-color);
+                         // font-weight: 600;
+                         // color: var(--menu-color);
                          font-family: var(--creote-family-one);
                          transition: var(--animation-speed) ease-in-out;
                          -ms-transition: var(--animation-speed) ease-in-out;
@@ -387,7 +387,7 @@
                         pointer-events: none;
                         left: 0;
                         margin-left: 0;
-                        background-color: #fff;
+                        background-color: var(--color-light);
                         min-width: 250px;
                         padding: 20px 25px;
                         transform: translateX(-10px);
@@ -411,13 +411,17 @@
                             margin: 0!important;
                            
                             a.nav-link{
-                                // color:var(--text-color-dark)!important; 
+                                color: var(--text-color-dark);
                                 font-size: 15px;
                                 line-height: 25px;
                                 font-weight: 400;
                                 font-family: var(--creote-family-two);
                                 display: block;
                                 white-space: inherit; 
+
+                                &:hover {
+                                    color: var(--highlight-color);
+                                }
                             }
                         }
                         li ,
@@ -1155,8 +1159,12 @@
             box-shadow: 0px 0px 0px 0px;
             font-size: 20px;
             line-height: 20px;
-            color: var(--text-color-dark);
+            color: var(--text-color-light);
             top: 4px;
+
+            &:hover {
+                color: var(--color-highlight);
+            }
         }
     }
     &.style_two{
@@ -2983,7 +2991,7 @@ body.single-header{
         top: 0;
         padding: 10px 0px;
         width: 100%;
-        background: #ffffff;
+        // background: #ffffff;
         -webkit-box-shadow: 0 0 15px rgba(0 , 0 , 0 , .1);
         box-shadow: 0 0 15px rgba(0 , 0 , 0 , .1); 
         -ms-box-shadow: 0 0 15px rgba(0 , 0 , 0 , .1);

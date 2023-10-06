@@ -5,15 +5,13 @@ export default function Footer8({ contact, topics }) {
     const { main_logo, full_name, description, linkedin, twitter, email, phone, mailing_address, location, license, uottawa_logo } = contact;
     return (
         <>
-            <div className="footer_area footer_sticky_enable_foo footer_eight" id="footer_contents">
-                <div className="pd_bottom_20" />
+            <div className="footer_area footer_sticky_enable_foo bg-one" id="footer_contents">
                 {/*===============spacing==============*/}
                 <div className="footer-copyright">
                     {/*===============spacing==============*/}
-                    <div className="divider_1" />
                     <div className="pd_top_20" />
                     {/*===============spacing==============*/}
-                    <div className="auto-container">
+                    <div className="container-xl">
                         <div className="row align-items-center">
                             <div className="col-lg-8 col-md-12 mb-3 mb-lg-0 mb-xl-0">
                                 <div className="footer_copy_content color_dark">
@@ -31,7 +29,7 @@ export default function Footer8({ contact, topics }) {
                             </div>
                             <div className="col-lg-4 col-md-12">
                                 <div className="footer_copy_content_right text-md-end">
-                                    <div className="social_media_v_one style_two">
+                                    <div className="social_media_v_one">
                                         <ul>
                                             <li>
                                                 <a href={twitter}>

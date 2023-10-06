@@ -5,7 +5,7 @@ export default function Header1({ handleSearch, handleContactPopup, handleMobile
     return (
         <>
             <div className="header_area" id="header_contents">
-                <header className="header header_default style_one get_sticky_header">
+                <header className="header header_default bg-one get_sticky_header">
                     <div className="container-xl">
                         <div className="row align-items-center">
                             <div className="col-lg-4 col-md-8 col-sm-8 col-xs-8 logo_column">

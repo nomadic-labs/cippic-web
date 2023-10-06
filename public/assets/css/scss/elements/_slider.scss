@@ -759,6 +759,7 @@
         .slide-item-content {
             position: relative;
             overflow: hidden;
+            border-radius: var(--border-radius-lg);
 
             .image-layer {
                 position           : absolute;
@@ -952,6 +953,7 @@
         height  : 0px;
         left    : 0;
         right   : 0;
+        cursor  : pointer;
     }
 
     &.nav_position_two,
@@ -973,13 +975,13 @@
         &::before {
             position     : absolute;
             font-family  : "FontAwesome" !important;
-            width        : 60px;
-            height       : 60px;
-            line-height  : 60px;
-            background   : rgba(255, 255, 255, .1);
+            width        : 40px;
+            height       : 40px;
+            line-height  : 40px;
+            background   : rgba(255, 255, 255, .6);
             text-align   : center;
-            font-size    : 22px;
-            color        : #fff;
+            font-size    : 26px;
+            color        : var(--primary-color-two);
             border-radius: 50%;
         }
 
@@ -1004,7 +1006,7 @@
         .owl-next {
             position: absolute;
             top     : 0;
-            right   : 110px;
+            right   : 60px;
             bottom  : 0;
             margin  : auto;
             z-index : 99;
@@ -1013,7 +1015,7 @@
         .owl-prev {
             position: absolute;
             top     : 0;
-            left    : 50px;
+            left    : 20px;
             bottom  : 0;
             margin  : auto;
             z-index : 99;

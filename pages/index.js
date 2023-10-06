@@ -1,17 +1,9 @@
 import Layout from "@/components/layout/Layout"
-import About4 from "@/components/sections/About4"
-import Blog5 from "@/components/sections/Blog5"
-import Contact1 from "@/components/sections/Contact1"
-import HeroSlider5 from "@/components/sections/HeroSlider5"
-import Banner3 from "@/components/sections/Banner3"
 import FeaturedArticles from "@/components/sections/FeaturedArticles"
 import LatestNews from "@/components/sections/LatestNews"
-import Process3 from "@/components/sections/Process3"
-import Project4 from "@/components/sections/Project4"
-import Team2 from "@/components/sections/Team2"
-import Testimonial5 from "@/components/sections/Testimonial5"
-import Service3 from "@/components/sections/Service3"
 import News from "@/components/sections/News"
+import Topics from "@/components/sections/Topics"
+import Students from "@/components/sections/Students"
 import Tab1 from "@/components/sections/Tab1"
 import Landing from "@/components/sections/Landing"
 import SpotlightArticle from "@/components/elements/SpotlightArticle"
@@ -25,9 +17,8 @@ const query = qs.stringify(
       '*',
       'about_cippic',
       'topics',
-      'cta_tabs',
-      'cta_tabs.background_image',
-      'cta_tabs.background_image.media',
+      'students_pages',
+      'students_images.media',
       'about_section_image.media'
     ],
   },
@@ -167,18 +158,6 @@ export default function Home5({content}) {
                   spotlightHeading={content.spotlight_heading}
                   spotlightArticle={content.articles[0]}
                 />
-                {/*<About4 
-                    title={content.about_section_title} 
-                    before_title={content.about_section_before_title}
-                    about_list_items={content.about_cippic}
-                    image={content.about_section_image?.data?.attributes}
-                    link_text={content.about_section_link_text}
-                />*/}
-                {/*<Team2 
-                    team_members={content.team_members}
-                    title={content.team_section_title}
-                    before_title={content.team_section_before_title}
-                />*/}
                 <News 
                     topics={content.categories}
                     title={content.news_section_title}
@@ -186,16 +165,19 @@ export default function Home5({content}) {
                     subtitle={content.news_section_subtitle}
                     articles={content.articles}
                 />
-                <Service3 
+                <Topics 
                     topics={content.categories}
                     title={content.topics_section_title}
                     before_title={content.topics_section_before_title}
                     subtitle={content.topics_section_subtitle}
                 />
-                <Tab1 
-                    tabs={content.cta_tabs}
-                    title={content.get_involved_section_title}
-                    before_title={content.get_involved_section_before_title}
+                <Students 
+                    images={content.students_images}
+                    before_title={content.students_section_before_title}
+                    title={content.students_section_title}
+                    subtitle={content.students_section_subtitle}
+                    description={content.students_description}
+                    links={content.students_pages}
                 />
             </Layout>
         </>

@@ -1,16 +1,18 @@
 :root{
     --creote-family-one: 'DM Sans', sans-serif!important;
     --creote-family-two: 'DM Sans', sans-serif!important;
-    --primary-color-one: #219EBC; // dark  blue
-    --primary-color-two: #023047; // med blue
-    --primary-color-three: #8ECAE6; // sky blue
-    --color-white: #fff;
-    --highlight-color: #FB8500; // orange
-    --primary-color-four:#fafcff;
+    --primary-color-one: #00163D; 
+    --primary-color-two: #001F54; 
+    --primary-color-three: #00457A; 
+    --primary-color-four: #FEFCFB;
     --primary-color-five: #1f2530;
-    --text-color-dark: #28343E;
+    --highlight-color: #06d6a0; 
+    --color-light: #EFF2FB;
+    --color-dark: #0A1128;
+    --color-white: #fff;
+    --text-color-dark: #0A1128;
     --text-color-dark-two: #888888;
-    --text-color-light: #aaafb8;
+    --text-color-light: #EFF2FB;
     --heading-dark: #28343E;
     --link-color-dark: #282f3b;
     --border-color-dark: #e4e7ee; 
@@ -19,7 +21,7 @@
     --menu-color: #28343E;
     --menu-color-white: #ffffff;
     --menu-dropdown-color: #282f3b;
-    --menu-active-color: #F54900; // dark orange
+    --menu-active-color: #06d6a0; 
     --box-shadow: 0px 0px 40px 0px rgba(0,0,0,.09);
     --box-shadow-two: 0px 3px 16px 0px rgba(0 , 0 , 0 , .05);
     --footer-default-bgcolor: #1f2530;
@@ -27,6 +29,13 @@
     --bg-light-color-one:#F0F3F947;
     --bg-light-color-two:#F0F3F969;
     --animation-speed: 250ms;
+    --border-radius-lg: 1rem;
+    --border-radius-sm: 0.5rem;
+    --padding-xs: 0.25rem;
+    --padding-sm: 0.5rem;
+    --padding-md: 1rem;
+    --padding-lg: 2rem;
+    --padding-xl: 3rem;
 } 
  
 .color_white{

@@ -13,8 +13,6 @@ export default function ArticleCard ({
 
     if (!article) return null
 
-    console.log({article})
-
     let dateString, image;
 
     if (article.date_published) {
@@ -28,21 +26,18 @@ export default function ArticleCard ({
 
     const categories = article.categories?.data || []
     const content_types = article.content_types?.data || []
-    const tags = categories.concat(content_types).map(t => t.attributes.name).join(', ')
+    const tags = categories.map(t => t.attributes.name).join(', ')
     const url = `/articles/${article.slug}`
     const hasImage = showImage && image
 
     return (
-        <div className={`article-card ${imageTop ? 'image-top' : 'image-left'}`}>
-            {
-                hasImage &&
-                <div className={`image`}>
-                    <Image width={image.width} height={image.height} src={`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${image.url}`} alt={image.alternativeText} className="img-fluid" alt="img" />
-                    <Link href={url} className="categories">
-                        <i className="icon-folder" />{tags}
-                    </Link>
+        <div className={`article-card ${imageTop ? 'image-top' : 'image-left'} bg-white`}>
+            <div className={`image`}>
+                { hasImage && <Image width={image.width} height={image.height} src={`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${image.url}`} alt={image.alternativeText} className="img-fluid" alt="img" /> }
+                <div className="categories">
+                    <i className="icon-folder" />{tags}
                 </div>
-            }
+            </div>
             <div className="content_box">
                 {
                     showDate && dateString &&
@@ -51,8 +46,7 @@ export default function ArticleCard ({
                     </div>
                 }
 
-                <h2 className="title"><Link href="/" >{article.title}</Link></h2>
-                { !hasImage && <p className="tags text-uppercase text-sm">{tags}</p> }
+                <Link href={url} className="title">{article.title}</Link>
 
                 { 
                     showTeaser && article.teaser &&
