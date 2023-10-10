@@ -55,17 +55,21 @@ export const getStaticProps = async () => {
     const categoriesJson = await categoriesRes.json()
     const categories = categoriesJson.data.map(t => ({ id: t.id, ...t.attributes}))
 
-    const content = { ...page.data.attributes, contact: { ...orgInfo.data.attributes }, categories }
+    const contentTypesRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/content-types?${categoriesQuery}`)
+    const contentTypesJson = await contentTypesRes.json()
+    const contentTypes = contentTypesJson.data.map(t => ({ id: t.id, ...t.attributes}))
+
+    const content = { ...page.data.attributes, contact: { ...orgInfo.data.attributes }, categories, contentTypes }
 
     return { props: { content } }
 }
 
 export default function Contact({ content }) {
     const {contact, categories} = content
-    
+
     return (
         <>
-            <Layout headerStyle={1} footerStyle={8} contact={contact} topics={categories}>
+            <Layout contact={contact} topics={categories} contentTypes={content.contentTypes}>
                 <div>
                     <section className="contact-section">
                         {/*===============spacing==============*/}

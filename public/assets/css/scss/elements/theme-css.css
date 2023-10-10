@@ -28953,6 +28953,12 @@ body.side_menu_toggled .style-switcher {
 .article-card.image-top .image img {
   aspect-ratio: 2/1;
 }
+.article-card.profile-pic {
+  display: block;
+}
+.article-card.profile-pic .image img {
+  aspect-ratio: 16/9;
+}
 .article-card .categories {
   position: absolute;
   top: 0;
@@ -29001,14 +29007,14 @@ body.side_menu_toggled .style-switcher {
   font-size: 12px;
   text-transform: uppercase;
 }
-.article-card .content_box a.title {
+.article-card .content_box .title {
   display: block;
   color: var(--heading-dark);
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 0.5em;
 }
-.article-card .content_box a.title:hover {
+.article-card .content_box .title:hover {
   color: var(--primary-color-one);
 }
 .article-card .content_box .tags {

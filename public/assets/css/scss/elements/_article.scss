@@ -29,6 +29,16 @@
         }
     }
 
+    &.profile-pic {
+        display: block;
+
+        .image {
+            img {
+                aspect-ratio: 16/9;
+            }
+        }
+    }
+
     .categories{
         position: absolute;
         top: 0;
@@ -78,7 +88,7 @@
                text-transform: uppercase;
             }
         }
-        a.title {
+        .title {
             display: block;
             color: var(--heading-dark);
             font-size: 1.25rem;

@@ -150,7 +150,7 @@ export default function Home5({content}) {
     console.log({content})
     return (
         <>
-            <Layout headerStyle={1} footerStyle={8} contact={content.contact} topics={content.categories} contentTypes={content.contentTypes} >
+            <Layout contact={content.contact} topics={content.categories} contentTypes={content.contentTypes} >
                 <Landing 
                   headline={content.headline}
                   key_insights_heading={content.key_insights_heading}
