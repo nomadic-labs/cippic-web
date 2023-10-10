@@ -11,8 +11,8 @@ export default function Header1({ handleSearch, handleContactPopup, handleMobile
                             <div className="col-lg-4 col-md-8 col-sm-8 col-xs-8 logo_column">
                                 <div className="header_logo_box">
                                     <Link href="/" className="logo navbar-brand">
-                                        <img src="/assets/images/logo-alt.svg" alt="CIPPIC" className="logo_default" />
-                                        <img src="/assets/images/logo.svg" alt="CIPPIC" className="logo__sticky" />
+                                        <img src="/assets/images/cippic-logo-full-dark.svg" alt="CIPPIC" className="logo_default" />
+                                        <img src="/assets/images/cippic-logo-alt-dark.svg" alt="CIPPIC" className="logo__sticky" />
                                     </Link>
                                 </div>
                             </div>

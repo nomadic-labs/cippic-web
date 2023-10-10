@@ -6403,7 +6403,7 @@
         ul{
             li{
                 a{
-                    background-color: var(--primary-color-three);
+                    background-color: var(--highlight-color);
                     color: var(--primary-color-one);
                 }
             }
@@ -6446,142 +6446,47 @@
 /*--====================================================--
 ----==============Contact us contact boxes========================--
 --======================================================--*/
-.contact_box_content {
-    position: relative;
- 
-    &.style_one{
-        .contact_box_inner{
-            position: relative;
-            padding: 20px 30px;
-            display: block;
-            border-radius: 10px;
-            border: 1px solid var(--border-color-dark);
-            transition:all .5s ease;
-            -moz-transition: all .5s ease;
-            -o-transition:all .5s ease;
-            -ms-transition: all .5s ease;
-            cursor: pointer;
-            background: #fff;
-            .contnet{
-                position: relative;
-                h3{
-                    font-size: 18px;
-                    font-weight: 700;
-                    color: var(--heading-dark);
-                    margin-bottom: 5px;
-                    line-height: 26px;
-                }
-                p{
-                    margin-bottom: 0px;
-                }
-            }
-           &:hover{
-               box-shadow: var(--box-shadow);
-               border-color: #fff;
-           }
+.contact_box_inner{
+    .contnet{
+        position: relative;
+        h3{
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--heading-dark);
+            margin-bottom: 5px;
+            line-height: 26px;
         }
-        .contact_box_inner{
-            &.icon_yes{
-                .icon_bx{
-                    position: absolute;
-                    left: 24px;
-                    bottom: 0; 
-                    top: 0;
-                    width: 40px;
-                    height: 40px;
-                    border-radius: 50px;
-                    background: var(--primary-color-one);
-                    margin: 15px auto;
-                    text-align: center;
-                    line-height: 40px;
-                    span{
-                        color: #fff;
-                        font-size: 16px;
-                    }
-                }
-                .contnet{
-                    margin-left: 55px;
-                }
-            }
+        p{
+            margin-bottom: 0px;
         }
-    }
-    &.style_two{
-        .contact_box_inner {
-            position: relative; 
-             display: flex;
-
-            .icon_bx{
-                position: relative;
-                min-width: 60px;
-                width: 60px;
-                height: 60px;
-                border-radius: 50px;
-                background: var(--primary-color-one);
-                color: #fff;
-                line-height: 60px;
-                margin: auto 0px;
-                span{
-                    font-size: 25px;
-                    line-height: 40px;
-                    width: 40px;
-                    text-align: center;
-                    margin: auto;
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                    bottom: 0;
-                    margin: auto;
-                    left: 0;                color: #fff;
-                    height: 40px;
-                }
-                img{
-                    width: 30px;
-                    height: auto;
-                    margin: auto;
-                    display: block;
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                    bottom: 0;
-                    margin: auto;
-                    left: 0;
-                }
-            }
-            .text{
-                position: relative;
-                margin-left: 12px;
-                h3{
-                    font-size: 18px;
-                    line-height: 30px;
-                    margin-bottom: 2px;
-                }
-                p{
-                    margin-bottom: 0px;
-                    font-size: 15px;
-                    line-height: 25px;
-                }
-            }
-            &.color_two{
-                .icon_bx{
-                    background: transparent;
-                    border: 1px dashed #fff;
-                    span{
-                        color: #fff;
-                    }
-                }
-                .text{
-                    h3{
-                        color: #fff;
-                    }
-                    p{
-                        color: rgba(255 , 255 , 255 , .8);
-                    }
-                }
-            }
-        }
-
     }
 }
+
+.contact_box_inner{
+    &.icon_yes{
+        .icon_bx{
+            position: absolute;
+            left: 24px;
+            bottom: 0; 
+            top: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: 50px;
+            background: var(--primary-color-one);
+            margin: 15px auto;
+            text-align: center;
+            line-height: 40px;
+            span{
+                color: #fff;
+                font-size: 16px;
+            }
+        }
+        .contnet{
+            margin-left: 55px;
+        }
+    }
+}
+
 /*--====================================================--
 ----==============Contact Form contact========================--
 --======================================================--*/

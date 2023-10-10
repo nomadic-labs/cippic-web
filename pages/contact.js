@@ -1,5 +1,5 @@
 import Layout from "@/components/layout/Layout"
-import Headline from "@/components/layout/Headline"
+import Card from "@/components/elements/Card"
 import Link from "next/link"
 import ReactMarkdown from 'react-markdown'
 const qs = require('qs');
@@ -61,12 +61,11 @@ export const getStaticProps = async () => {
 }
 
 export default function Contact({ content }) {
-    console.log(content)
     const {contact, categories} = content
+    
     return (
         <>
             <Layout headerStyle={1} footerStyle={8} contact={contact} topics={categories}>
-                <Headline headline={content.headline} backgroundImage={content.background_image?.data?.attributes} />
                 <div>
                     <section className="contact-section">
                         {/*===============spacing==============*/}
@@ -75,19 +74,17 @@ export default function Contact({ content }) {
                         <div className="container">
                             <div className="row">
                                 <div className="col-12">
-                                    <div className="title_all_box style_one dark_color">
-                                        <div className="title_sections left">
-                                            <div className="before_title">{content.section_before_title}</div>
-                                            <h2>{content.section_title}</h2>
-                                            <p>{content.section_description}</p>
-                                        </div>
+                                    <div className="title_sections">
+                                        <div className="title-small text-dark">{content.section_before_title}</div>
+                                        <h2>{content.section_title}</h2>
+                                        <p>{content.section_description}</p>
                                     </div>
                                 </div>
                             </div>
 
                             <div className="row">
                                 <div className="col-xl-6 col-lg-6 col-12">
-                                    <div className="contact_box_content style_one mb-4">
+                                    <Card>
                                         <div className="contact_box_inner icon_yes">
                                             <div className="icon_bx">
                                                 <span className="icon-send" />
@@ -99,11 +96,11 @@ export default function Contact({ content }) {
                                                 </p>
                                             </div>
                                         </div>
-                                    </div>
+                                    </Card>
                                 </div>
 
                                 <div className="col-xl-6 col-lg-6 col-12">
-                                    <div className="contact_box_content style_one mb-4">
+                                    <Card>
                                         <div className="contact_box_inner icon_yes">
                                             <div className="icon_bx">
                                                 <span className="icon-phone-call" />
@@ -115,11 +112,11 @@ export default function Contact({ content }) {
                                                 </p>
                                             </div>
                                         </div>
-                                    </div>
+                                    </Card>
                                 </div>
                                     
                                 <div className="col-xl-6 col-lg-6 col-12">
-                                    <div className="contact_box_content style_one mb-4">
+                                    <Card>
                                         <div className="contact_box_inner icon_yes">
                                             <div className="icon_bx">
                                                 <span className=" icon-placeholder" />
@@ -131,12 +128,12 @@ export default function Contact({ content }) {
                                                 </ReactMarkdown>
                                             </div>
                                         </div>
-                                    </div>
+                                    </Card>
                                 </div>
 
 
                                 <div className="col-xl-6 col-lg-6 col-12">
-                                    <div className="contact_box_content style_one mb-4">
+                                    <Card>
                                         <div className="contact_box_inner icon_yes">
                                             <div className="icon_bx">
                                                 <span className=" icon-mail" />
@@ -148,10 +145,10 @@ export default function Contact({ content }) {
                                                 </ReactMarkdown>
                                             </div>
                                         </div>
-                                    </div>
+                                    </Card>
                                 </div>
                                     
-                                <div className="col-12">
+{/*                                <div className="col-12">
                                     <div className="social_media_v_one style_two">
                                         <ul>
                                             <li>
@@ -177,7 +174,7 @@ export default function Contact({ content }) {
                                         </ul>
                                     </div>
 
-                                </div>
+                                </div>*/}
 
                             </div>
                         </div>
@@ -185,29 +182,29 @@ export default function Contact({ content }) {
                         <div className="pd_top_70" />
                         {/*===============spacing==============*/}
                     </section>
-                    <section className="contact-map-section">
+                    <section className="contact-map-section bg-two">
                         <div className="container">
                             <div className="row">
                                 <div className="col-lg-12">
-                                    <ReactMarkdown>
-                                        {content.land_acknowledgement}
-                                    </ReactMarkdown>
+                                    {/*===============spacing==============*/}
+                                    <div className="pd_top_80" />
+                                    {/*===============spacing==============*/}   
+                                    <div className="bg-faded rounded-lg padding-lg text-white">
+                                        <ReactMarkdown>
+                                            {content.land_acknowledgement}
+                                        </ReactMarkdown>
+                                    </div>  
+                                    {/*===============spacing==============*/}
+                                    <div className="pd_top_40" />
+                                    {/*===============spacing==============*/}                              
+                                    <div className="map-outer rounded-lg">
+                                        <iframe src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=100%20Thomas%20More%20Private,%20Ottawa,%20ON%20K1N%206N5+(CIPPIC)&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" height={570} style={{ border: 0, borderRadius: '1rem' }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
+                                    </div>
                                 </div>  
-                                {/*===============spacing==============*/}
-                                <div className="pd_top_40" />
-                                {/*===============spacing==============*/}                              
-                                <div className="col-lg-12">
-                                    <section className="map-section">
-                                        {/*Map Outer*/}
-                                        <div className="map-outer">
-                                            <iframe src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=100%20Thomas%20More%20Private,%20Ottawa,%20ON%20K1N%206N5+(CIPPIC)&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" height={570} style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
-                                        </div>
-                                    </section>
-                                </div>
                             </div>
                         </div>
                         {/*===============spacing==============*/}
-                        <div className="pd_top_90" />
+                        <div className="pd_top_80" />
                         {/*===============spacing==============*/}
                     </section>
                 </div>

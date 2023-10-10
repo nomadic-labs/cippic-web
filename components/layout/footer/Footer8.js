@@ -18,7 +18,7 @@ export default function Footer8({ contact, topics }) {
                                     <Link href="/privacy">Privacy Policy</Link>
                                 </div>
                                 <div className="footer_copy_content color_dark">
-                                    <ReactMarkdown>{license}</ReactMarkdown>
+                                    <Link href="http://creativecommons.org/licenses/by-nc/2.5/ca/">CC BY-NC 2.5</Link>
                                 </div>
                                 <div className="footer_copy_content color_dark">
                                     <Link href="https://techlaw.uottawa.ca/">CLTS</Link>

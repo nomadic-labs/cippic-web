@@ -368,6 +368,12 @@ a:hover {
     color: var(--highlight-color);
 }
 
+p {
+    a {
+        text-decoration: underline;
+    }
+}
+
 #wrapper,
 #content {
     width : 100%;

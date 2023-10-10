@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 27.4.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!-- Generator: Adobe Illustrator 27.8.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="a" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 191.14 191.14" style="enable-background:new 0 0 191.14 191.14;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:#FF8552;}
-	.st1{fill:#F54900;}
+	.st0{opacity:0.5;}
+	.st1{fill:#06D6A0;}
 </style>
-<rect x="110.07" y="14" transform="matrix(0.7071 0.7071 -0.7071 0.7071 75.9251 -87.727)" class="st0" width="67.58" height="67.58"/>
-<rect x="14.5" y="109.57" transform="matrix(0.7071 0.7071 -0.7071 0.7071 115.5123 7.8452)" class="st0" width="67.58" height="67.58"/>
 <g>
-	
-		<rect x="14.5" y="14" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -19.6472 48.1397)" class="st1" width="67.58" height="67.58"/>
-	<polygon class="st1" points="48.29,0 96.07,47.79 143.86,0 	"/>
-</g>
-<g>
+	<g class="st0">
+		<path class="st1" d="M93.68,178.44l-87.9-37.99c-2.29-0.99-2.29-4.24,0-5.22l87.9-37.99c1.37-0.59,2.91-0.59,4.27,0l87.9,37.99
+			c2.29,0.99,2.29,4.24,0,5.22l-87.9,37.99C96.59,179.03,95.04,179.03,93.68,178.44z"/>
+	</g>
 	<g>
-		<path class="st1" d="M48.29,191.14l95.57,0l-47.79-47.79L48.29,191.14z M191.64,143.36l-47.79-47.79l-47.79,47.79l47.79,47.79
-			L191.64,143.36z"/>
+		<path class="st1" d="M4.08,124.22l49.61-72.79c0.58-0.85,1.38-1.51,2.31-1.91l85.63-37.02c2.62-1.13,5.09,1.86,3.48,4.21
+			L95.51,89.5c-0.58,0.85-1.38,1.51-2.31,1.91L7.56,128.43C4.94,129.56,2.48,126.57,4.08,124.22z"/>
 	</g>
 </g>
 </svg>
