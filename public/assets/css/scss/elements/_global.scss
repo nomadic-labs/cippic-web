@@ -182,8 +182,9 @@ h6 {
 .h1,
 h1 {
     line-height: 1.25;
-    font-size: calc(2rem + 1vw);
+    font-size: calc(2.5rem + 1vw);
     margin-bottom: 0.5em;
+    margin-top: 0.25em;
 }
 
 .h2,
@@ -1442,4 +1443,12 @@ body {
 .subtitle {
     font-size: 1.4em;
     line-height: 1.5;
+}
+
+.text-lg {
+    font-size: 1.2em;
+}
+
+.text-lg p {
+    font-size: 1.1em;
 }

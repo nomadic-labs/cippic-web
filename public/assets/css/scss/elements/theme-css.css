@@ -1106,12 +1106,11 @@
 }
 
 .bg_pattern_1 {
-  background-image: url("/assets/images/polygon-luminary.svg");
-  background-position: bottom right !important;
+  background-image: url("/assets/images/bg-pattern.svg");
+  background-position: top -4vw center !important;
   background-repeat: no-repeat !important;
-  background-size: cover;
+  background-size: 100% auto;
   transition: background 0.3s !important;
-  background-color: var(--primary-color-three);
 }
 
 .bg_pattern_2 {
@@ -1355,7 +1354,7 @@
   --highlight-color: #06d6a0;
   --color-light: #EFF2FB;
   --color-dark: #0A1128;
-  --color-white: #fff;
+  --color-white: #ffffff;
   --text-color-dark: #0A1128;
   --text-color-dark-two: #888888;
   --text-color-light: #EFF2FB;
@@ -1377,6 +1376,7 @@
   --animation-speed: 250ms;
   --border-radius-lg: 1rem;
   --border-radius-sm: 0.5rem;
+  --border-radius-full: 1000px;
   --padding-xs: 0.25rem;
   --padding-sm: 0.5rem;
   --padding-md: 1rem;
@@ -1651,8 +1651,9 @@ h6 {
 .h1,
 h1 {
   line-height: 1.25;
-  font-size: calc(2rem + 1vw);
+  font-size: calc(2.5rem + 1vw);
   margin-bottom: 0.5em;
+  margin-top: 0.25em;
 }
 
 .h2,
@@ -2711,6 +2712,14 @@ body .enabled_custom_title .title_page .main_tit {
   line-height: 1.5;
 }
 
+.text-lg {
+  font-size: 1.2em;
+}
+
+.text-lg p {
+  font-size: 1.1em;
+}
+
 /*----------theme-button-csss-------*/
 .application_button {
   display: inline-block;
@@ -2885,38 +2894,36 @@ body .enabled_custom_title .title_page .main_tit {
   left: 10px;
 }
 .theme-btn.five {
-  font-size: 12px;
+  font-size: 0.9em;
   position: relative;
   text-align: center !important;
-  color: #fff;
-  background: var(--primary-color-one);
+  color: var(--primary-color-one);
+  background: var(--highlight-color);
   display: inline-block;
   min-width: 180px;
-  height: 56px;
-  padding: 0px 18px;
-  line-height: 60px !important;
+  padding: 0.8em 1.6em;
+  line-height: 1.8em;
   font-weight: 600;
-  transition: all 0.5s ease;
-  transition: all 0.6s ease-in-out;
-  -moz-transition: all 0.6s ease-in-out;
-  -ms-transition: all 0.6s ease-in-out;
-  -o-transition: all 0.6s ease-in-out;
+  transition: all var(--animation-speed) ease;
+  -moz-transition: all var(--animation-speed) ease;
+  -ms-transition: all var(--animation-speed) ease;
+  -o-transition: all var(--animation-speed) ease;
   text-transform: uppercase;
-  border-radius: 5px;
+  border-radius: var(--border-radius-full);
 }
 .theme-btn.five i {
   position: relative;
   top: 2px;
   font-size: 18px;
   left: 5px;
-  transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -ms-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
+  transition: all var(--animation-speed) ease;
+  -moz-transition: all var(--animation-speed) ease;
+  -ms-transition: all var(--animation-speed) ease;
+  -o-transition: all var(--animation-speed) ease;
 }
 .theme-btn.five:hover {
-  background: var(--primary-color-two);
-  color: #fff;
+  background: var(--primary-color-three);
+  color: var(--color-white);
 }
 .theme-btn.five:hover i {
   left: 10px;
@@ -21044,21 +21051,15 @@ form .wpcf7-response-output {
 
 .headline {
   position: relative;
-  background-color: rgba(255, 255, 255, 0.15);
   border-radius: var(--border-radius-lg);
   margin-bottom: var(--padding-lg);
+  text-align: center;
 }
 .headline h1 {
   position: relative;
   z-index: 1;
-  text-align: center;
   color: var(--color-white);
-  margin-bottom: 0;
 }
-.headline p {
-  margin-bottom: 0;
-}
-
 a.read_more {
   font-size: 12px;
   font-weight: 600;
@@ -21146,6 +21147,11 @@ a.read_more i {
 
 .title-section {
   margin-bottom: 1rem;
+}
+
+.container-reading {
+  max-width: 768px;
+  margin: auto;
 }
 
 .owl_new_one .swiper .owl-nav .owl-prev {
@@ -29037,6 +29043,10 @@ body.side_menu_toggled .style-switcher {
 /*------===============-responsive scs-==============------*/
 /*---slider---cs----*/
 @media (max-width: 1199px) {
+  .bg_pattern_1 {
+    background-position: top center !important;
+    background-size: 100% auto;
+  }
   .mini_cart_togglers.fixed_cart {
     top: unset;
     bottom: 40px;
@@ -29169,6 +29179,10 @@ body.side_menu_toggled .style-switcher {
   }
 }
 @media (max-width: 992px) {
+  .bg_pattern_1 {
+    background-position: top 5% center !important;
+    background-size: 120% auto;
+  }
   .not_for_mobile_cart {
     display: none;
   }
@@ -29356,6 +29370,11 @@ body.side_menu_toggled .style-switcher {
   }
 }
 @media (max-width: 768px) {
+  .bg_pattern_1 {
+    background-image: url("/assets/images/bg-pattern-2.svg");
+    background-position: top center !important;
+    background-size: 90% auto;
+  }
   .testimonial_sec.style_three .arrows {
     z-index: 99;
   }
@@ -29779,6 +29798,22 @@ body.side_menu_toggled .style-switcher {
   }
   .team_box.type_one .image_box img {
     width: 100%;
+  }
+}
+@media (max-width: 660px) {
+  .bg_pattern_1 {
+    background-image: url("/assets/images/bg-pattern-2.svg");
+    background-position: top 1% center !important;
+    background-size: 105% auto;
+  }
+  .headline {
+    border-radius: var(--border-radius-lg);
+    padding: 1.5rem;
+  }
+  .headline h1 {
+    position: relative;
+    font-size: calc(1rem + 4vw);
+    font-weight: 600;
   }
 }
 @media (max-width: 550px) {

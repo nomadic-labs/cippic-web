@@ -179,38 +179,35 @@
         }
     }
     &.five{
-        font-size: 12px;
+        font-size: 0.9em;
         position: relative;
         text-align: center!important;
-        color: #fff;
-        background: var(--primary-color-one);
+        color: var(--primary-color-one);
+        background: var(--highlight-color);
         display: inline-block;
         min-width: 180px;
-
-        height: 56px;
-        padding: 0px 18px;
-        line-height: 60px!important;
+        padding: 0.8em 1.6em;
+        line-height: 1.8em;
         font-weight: 600;
-        transition: all .5s ease;
-        transition: all .6s ease-in-out;
-        -moz-transition: all .6s ease-in-out;
-        -ms-transition: all .6s ease-in-out;
-        -o-transition: all .6s ease-in-out;
+        transition: all var(--animation-speed) ease;
+        -moz-transition: all var(--animation-speed) ease;
+        -ms-transition: all var(--animation-speed) ease;
+        -o-transition: all var(--animation-speed) ease;
         text-transform: uppercase;
-        border-radius: 5px;
+        border-radius: var(--border-radius-full);
         i{
             position: relative;
             top: 2px;
             font-size: 18px;
             left: 5px;
-            transition:all 0.5s ease;
-            -moz-transition:all 0.5s ease;
-            -ms-transition:all 0.5s ease;
-            -o-transition:all 0.5s ease;
+            transition: all var(--animation-speed) ease;
+            -moz-transition: all var(--animation-speed) ease;
+            -ms-transition: all var(--animation-speed) ease;
+            -o-transition: all var(--animation-speed) ease;
         }
         &:hover{
-            background: var(--primary-color-two);
-            color: #fff;
+            background: var(--primary-color-three);
+            color: var(--color-white);
             i{
                 left: 10px;
             }

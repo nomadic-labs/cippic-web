@@ -153,6 +153,8 @@ export default function Home5({content}) {
             <Layout contact={content.contact} topics={content.categories} contentTypes={content.contentTypes} >
                 <Landing 
                   headline={content.headline}
+                  before_headline={content.before_headline}
+                  intro={content.intro}
                   key_insights_heading={content.key_insights_heading}
                   articles={content.articles}
                   spotlightHeading={content.spotlight_heading}

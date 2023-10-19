@@ -2,6 +2,11 @@
 
 /*---slider---cs----*/
 @media(max-width:1199px){
+    .bg_pattern_1 {
+        background-position: top center !important;
+        background-size    : 100% auto;
+    }
+
     .mini_cart_togglers.fixed_cart{
         top: unset;
         bottom: 40px;
@@ -160,6 +165,10 @@
     }
     
     @media(max-width:992px){
+        .bg_pattern_1 {
+            background-position: top 5% center !important;
+            background-size    : 120% auto;
+        }
    
     .not_for_mobile_cart{
         display: none;
@@ -371,6 +380,13 @@
     }
     
     @media(max-width:768px){ 
+
+        .bg_pattern_1 {
+            background-image: url('/assets/images/bg-pattern-2.svg');
+            background-position: top center !important;
+            background-size    : 90% auto;
+        }
+
         .testimonial_sec.style_three .arrows{
             z-index: 99;
             .prev-single-one_three{
@@ -817,6 +833,25 @@
         width: 100%;
        }
     //end media queries
+    }
+
+    @media(max-width:660px){
+        .bg_pattern_1 {
+            background-image: url('/assets/images/bg-pattern-2.svg');
+            background-position: top 1% center !important;
+            background-size    : 105% auto;
+        }
+
+        .headline {
+            border-radius: var(--border-radius-lg);
+            padding: 1.5rem;
+
+            h1 {
+                position: relative;
+                font-size: calc(1rem + 4vw);
+                font-weight: 600;
+            }
+        }
     }
     
     @media(max-width:550px){

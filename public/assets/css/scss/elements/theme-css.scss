@@ -1128,12 +1128,12 @@
 }
 
 .bg_pattern_1 {
-    background-image: url('/assets/images/polygon-luminary.svg');
-    background-position: bottom right !important;
+    background-image: url('/assets/images/bg-pattern.svg');
+    background-position: top -4vw center !important;
     background-repeat  : no-repeat !important;
-    background-size    : cover;
+    background-size    : 100% auto;
     transition         : background 0.3s !important;
-    background-color   : var(--primary-color-three);
+    // background-color   : var(--primary-color-three);
 }
 
 .bg_pattern_2 {
