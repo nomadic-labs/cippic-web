@@ -3,13 +3,13 @@ import { Swiper, SwiperSlide } from "swiper/react"
 import Image from "next/image"
 import { Autoplay, Navigation, Pagination } from "swiper"
 
-export default function ImageSlider({ images=[] }) {
+export default function ImageSlider({ images=[], slidesPerView=1 }) {
     const swiperOptions = {
         // General
         direction: 'horizontal',
         modules: [Autoplay, Pagination, Navigation],
         slidesPerView: 1,
-        spaceBetween: 0,
+        spaceBetween: 20,
         autoplay: {
             delay: 2500,
             disableOnInteraction: false,
@@ -26,12 +26,18 @@ export default function ImageSlider({ images=[] }) {
         pagination: {
             el: '.swiper-pagination',
             clickable: true,
-        },
+        }
+    }
+
+    const breakpoints = {
+        768: {
+            slidesPerView: slidesPerView,
+        }
     }
     return (
         <div className="slider style_four nav_position_one">
 
-            <Swiper {...swiperOptions} className=" owl_nav_block owl_dots_none theme_carousel rounded-lg">
+            <Swiper {...swiperOptions} breakpoints={breakpoints} className=" owl_nav_block owl_dots_none theme_carousel rounded-lg">
                 { images.map(image => {
                     return (
                         <SwiperSlide className="slide-item-content rounded-lg" key={image.url}>

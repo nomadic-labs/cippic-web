@@ -41,18 +41,6 @@ const contactQuery = qs.stringify(
   }
 );
 
-const teamQuery = qs.stringify(
-  {
-    populate: [
-      '*',
-      'photo.media'
-    ],
-  },
-  {
-    encodeValuesOnly: true, // prettify URL
-  }
-);
-
 const categoriesQuery = qs.stringify(
   {
     populate: [
@@ -113,13 +101,6 @@ export const getStaticProps = async () => {
     })
     const contact = await contactRes.json()
 
-    const teamRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/team-members?${teamQuery}`, {
-        method: 'GET',
-        headers
-    })
-    const teamJson = await teamRes.json()
-    const teamMembers = teamJson.data.map(t => ({ id: t.id, ...t.attributes}))
-
     const categoriesRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/categories?${categoriesQuery}`, {
         method: 'GET',
         headers
@@ -134,6 +115,13 @@ export const getStaticProps = async () => {
     const contentTypesJson = await contentTypesRes.json()
     const contentTypes = contentTypesJson.data.map(t => ({ id: t.id, ...t.attributes}))
 
+    const studentPagesRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/student-pages?sort=title`, {
+        method: 'GET',
+        headers
+    })
+    const studentPagesJson = await studentPagesRes.json()
+    const studentPages = studentPagesJson.data.map(t => ({ id: t.id, ...t.attributes}))
+
     const articleRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/articles?${articlesQuery}`)
     const { data, meta } = await articleRes.json()
     const articles = data.map((article) => ({
@@ -141,7 +129,7 @@ export const getStaticProps = async () => {
       ...article.attributes
     }))
 
-    const content = { ...homepage.data.attributes, contact: { ...contact.data.attributes }, team_members: teamMembers, categories, articles, contentTypes }
+    const content = { ...homepage.data.attributes, contact: { ...contact.data.attributes }, categories, articles, contentTypes, studentPages }
 
     return { props: { content } }
 }
@@ -150,7 +138,7 @@ export default function Home5({content}) {
     console.log({content})
     return (
         <>
-            <Layout contact={content.contact} topics={content.categories} contentTypes={content.contentTypes} >
+            <Layout contact={content.contact} topics={content.categories} contentTypes={content.contentTypes} studentPages={content.studentPages}>
                 <Landing 
                   headline={content.headline}
                   before_headline={content.before_headline}

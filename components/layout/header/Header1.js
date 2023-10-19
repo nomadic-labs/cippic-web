@@ -1,7 +1,7 @@
 import Link from "next/link"
 import Navbar from "../Navbar"
 
-export default function Header1({ handleSearch, handleContactPopup, handleMobileMenu, topics, contentTypes }) {
+export default function Header1({ handleSearch, handleContactPopup, handleMobileMenu, topics, contentTypes, studentPages }) {
     return (
         <>
             <div className="header_area" id="header_contents">
@@ -27,7 +27,7 @@ export default function Header1({ handleSearch, handleContactPopup, handleMobile
                                 <div className="header_content_collapse d-flex justify-content-end">
                                     <div className="header_menu_box">
                                         <div className="navigation_menu">
-                                            <Navbar topics={topics} contentTypes={contentTypes} />
+                                            <Navbar topics={topics} contentTypes={contentTypes} studentPages={studentPages} />
                                         </div>
                                     </div>
                                     <div className="header_right_content">

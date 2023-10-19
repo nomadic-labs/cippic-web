@@ -60,7 +60,6 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps = async ({ params }) => {
-    console.log({params})
     const { slug } = params;
     const articleRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/articles?filters[slug][$eq]=${slug}&populate=*`)
     const articleJson = await articleRes.json()
@@ -74,7 +73,22 @@ export const getStaticProps = async ({ params }) => {
     const categoriesJson = await categoriesRes.json()
     const categories = categoriesJson.data.map(t => ({ id: t.id, ...t.attributes}))
 
-    const content = { article, contact: { ...contact.data.attributes }, categories: categories }
+    const contentTypesRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/content-types?${categoriesQuery}`, {
+        method: 'GET',
+        headers
+    })
+    const contentTypesJson = await contentTypesRes.json()
+    const contentTypes = contentTypesJson.data.map(t => ({ id: t.id, ...t.attributes}))
+
+    const studentPagesRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/student-pages?sort=title`, {
+        method: 'GET',
+        headers
+    })
+    const studentPagesJson = await studentPagesRes.json()
+    const studentPages = studentPagesJson.data.map(t => ({ id: t.id, ...t.attributes}))
+
+
+    const content = { article, contact: { ...contact.data.attributes }, categories, contentTypes, studentPages }
 
     return { props: { content } }
 }
@@ -134,7 +148,7 @@ export default function BlogSimple({ content }) {
     const imagePath = mainImage ? mainImage.attributes.url : null
     return (
         <>
-            <Layout headerStyle={1} footerStyle={8} contact={content.contact} topics={content.categories} >
+            <Layout headerStyle={1} footerStyle={8} contact={content.contact} topics={content.categories} studentPages={content.studentPages}>
                 <div className={`page_header_default style_one blog_single_pageheader`}>
                     <div className="parallax_cover">
                         <div className="simpleParallax">

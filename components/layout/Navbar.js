@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { useRouter } from "next/router"
-export default function Navbar({ topics=[], contentTypes=[] }) {
+export default function Navbar({ topics=[], contentTypes=[], studentPages=[] }) {
     const router = useRouter()
     const keyTopics = topics.filter(t => t.featured)
     const ourWork = contentTypes.filter(ct => ct.featured)
@@ -52,26 +52,17 @@ export default function Navbar({ topics=[], contentTypes=[] }) {
                         <span className="fa fa-angle-down mr_left_5"></span>
                     </Link>
                     <ul className="dropdown-menu">
-                        <li className="menu-item  nav-item">
-                            <Link href={`/students/academics`} className="dropdown-item nav-link"> 
-                                <span>Academics</span>
-                            </Link>
-                        </li>
-                        <li className="menu-item  nav-item">
-                            <Link href={`/students/summer`} className="dropdown-item nav-link"> 
-                                <span>Summer</span>
-                            </Link>
-                        </li>
-                        <li className="menu-item  nav-item">
-                            <Link href={`/students/research-assistants`} className="dropdown-item nav-link"> 
-                                <span>Research Assistants</span>
-                            </Link>
-                        </li>
-                        <li className="menu-item  nav-item">
-                            <Link href={`/students/volunteer`} className="dropdown-item nav-link"> 
-                                <span>Volunteer</span>
-                            </Link>
-                        </li>
+                        {
+                            studentPages.map(page => {
+                                return(
+                                    <li key={page.id} className="menu-item  nav-item">
+                                        <Link href={`/students/${page.slug}`} className="dropdown-item nav-link"> 
+                                            <span>{page.title}</span>
+                                        </Link>
+                                    </li>
+                                )
+                            })
+                        }
                     </ul>
                 </li>
                 <li className="menu-item menu-item-has-children dropdown nav-item">

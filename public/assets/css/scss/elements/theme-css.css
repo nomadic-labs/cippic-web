@@ -6959,6 +6959,10 @@ header .flaticon-list {
   overflow: hidden;
   width: 100%;
 }
+.slider .slide-item img {
+  width: 100%;
+  object-fit: cover;
+}
 .slider .animated {
   animation-duration: 1.25s;
 }
@@ -21058,6 +21062,7 @@ form .wpcf7-response-output {
 .headline h1 {
   position: relative;
   z-index: 1;
+  font-size: calc(2rem + 1vw);
   color: var(--color-white);
 }
 a.read_more {

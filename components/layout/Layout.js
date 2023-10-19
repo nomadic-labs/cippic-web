@@ -21,7 +21,8 @@ export default function Layout({
     contact={},
     topics=[],
     contentTypes=[],
-    actions=[]
+    actions=[],
+    studentPages=[]
 }) {
     // Search
     const [isSearch, setSearch] = useState(false)
@@ -74,7 +75,7 @@ export default function Layout({
             <div id="page" className={`page_wapper hfeed site ${scroll ? "fixed-header floating-menu" : ""} ${isMobileMenu ? "crt_mobile_menu-visible" : ""}`}>
                 <div id="wrapper_full" className="content_all_warpper">
 
-                    <Header1 handleSearch={handleSearch} handleContactPopup={handleContactPopup} handleMobileMenu={handleMobileMenu} topics={topics} contentTypes={contentTypes} />
+                    <Header1 handleSearch={handleSearch} handleContactPopup={handleContactPopup} handleMobileMenu={handleMobileMenu} topics={topics} contentTypes={contentTypes} studentPages={studentPages}/>
 
                     {breadcrumbTitle && <Breadcrumb breadcrumbTitle={breadcrumbTitle} blogMetaSingle={blogMetaSingle}/>}
                     <div id="content" className="site-content">
