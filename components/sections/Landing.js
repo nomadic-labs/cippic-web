@@ -17,7 +17,7 @@ export default function Landing({ headline, before_headline, intro, key_insights
             </section>*/}
             <section id="landing" className="blog-section position-relative bg-two bg_pattern_1">
               {/*===============spacing==============*/}
-              <div className="pd_top_10" />
+              <div className="pd_top_40" />
               {/*===============spacing==============*/}
               <div className="container-xl">
                 <div className="row">
