@@ -2557,6 +2557,7 @@ body.error404 .left-sidebar .content-area {
   font-weight: 600;
   text-transform: uppercase;
   color: var(--text-color-dark);
+  background-color: var(--color-white);
   font-family: var(--creote-family-one);
   border: 1px solid var(--border-color-dark);
   border-radius: 5px;
@@ -4025,7 +4026,7 @@ body .enabled_custom_title .title_page .main_tit {
   height: 50px;
   line-height: 50px;
   font-size: 16px;
-  background: var(--primary-color-two);
+  background: var(--highlight-color);
   color: #fff;
   border-radius: 5px;
   bottom: 0;
@@ -11981,6 +11982,7 @@ header .flaticon-list {
   display: block;
   padding-left: 0px;
   display: inline-flex;
+  flex-wrap: wrap;
   gap: 1rem;
   margin-bottom: 0;
 }
@@ -21078,7 +21080,6 @@ a.read_more i {
 }
 
 .title-small {
-  color: var(--text-color-light);
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 1px;

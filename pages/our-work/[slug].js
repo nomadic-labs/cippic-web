@@ -4,8 +4,11 @@ import FeaturedArticles from "@/components/sections/FeaturedArticles"
 import Link from "next/link"
 import { Autoplay, Navigation, Pagination } from "swiper"
 import { Swiper, SwiperSlide } from "swiper/react"
+import ArticleCard from "@/components/elements/ArticleCard"
 import ReactMarkdown from 'react-markdown'
 import dynamic from 'next/dynamic';
+import Fade from 'react-reveal/Fade';
+import getLayoutData from "@/utils/layout-data"
 
 const PortfolioFilter3Col = dynamic(() => import('@/components/elements/PortfolioFilter3Col'), {
     ssr: false,
@@ -13,32 +16,8 @@ const PortfolioFilter3Col = dynamic(() => import('@/components/elements/Portfoli
 
 const qs = require('qs');
 
-const contactQuery = qs.stringify(
-  {
-    populate: [
-      '*',
-      'main_logo.media',
-      'uottawa_logo.media'
-    ],
-  },
-  {
-    encodeValuesOnly: true, // prettify URL
-  }
-);
-
-const categoriesQuery = qs.stringify(
-  {
-    populate: [
-      '*'
-    ],
-  },
-  {
-    encodeValuesOnly: true, // prettify URL
-  }
-);
-
 export async function getStaticPaths() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/categories`)
+  const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/content-types`)
   const { data, meta } = await res.json()
   const paths = data.map((cat) => ({
     params: { slug: cat.attributes.slug },
@@ -50,9 +29,10 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps = async ({ params }) => {
+    const layout = await getLayoutData()
     const { slug } = params;
 
-    const categoryArticlesQuery = qs.stringify(
+    const contentTypeQuery = qs.stringify(
       {
         filters: {
             slug: {
@@ -61,10 +41,7 @@ export const getStaticProps = async ({ params }) => {
         },
         populate: [
           '*',
-          'icon.media',
-          'articles',
-          'articles.categories',
-          'articles.content_types'
+          'icon.media'
         ],
       },
       {
@@ -72,121 +49,131 @@ export const getStaticProps = async ({ params }) => {
       }
     );
 
-    const categoryArticlesRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/categories?${categoryArticlesQuery}`)
-    const categoryArticlesJson = await categoryArticlesRes.json()
-    const categoryData = categoryArticlesJson.data[0]
-    const category = { id: categoryData.id, ...categoryData.attributes }
+    const articlesQuery = qs.stringify(
+      {
+        filters: {
+            content_types: {
+                slug: {
+                    $eq: slug
+                }
+            },
+        },
+        sort: "date_published:desc",
+        populate: [
+          '*',
+          'main_image',
+          'main_image.media',
+          'categories',
+          'content_types'
+        ],
+      },
+      {
+        encodeValuesOnly: true, // prettify URL
+      }
+    );
 
-    const contactRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/organization-information?${contactQuery}`)
-    const contact = await contactRes.json()
+    const contentTypeRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/content-types?${contentTypeQuery}`)
+    const contentTypeJson = await contentTypeRes.json()
+    const contentTypeData = contentTypeJson.data[0]
+    const contentType = { id: contentTypeData.id, ...contentTypeData.attributes }
 
-    const categoriesRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/categories?${categoriesQuery}`)
-    const categoriesJson = await categoriesRes.json()
-    const categories = categoriesJson.data.map(t => ({ id: t.id, ...t.attributes}))
+    const articlesRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/articles?${articlesQuery}`)
+    const articlesJson = await articlesRes.json()
+    const articles = articlesJson.data.map(t => ({ id: t.id, ...t.attributes}))
 
-    const contentTypesRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/content-types`)
-    const contentTypesJson = await contentTypesRes.json()
-    const contentTypes = contentTypesJson.data.map(t => ({ id: t.id, ...t.attributes}))
+    const content = { contentType, articles }
 
-    const content = { category, contact: { ...contact.data.attributes }, categories, contentTypes }
-
-    return { props: { content } }
+    return { props: { content, layout } }
 }
 
-export default function BlogSimple({ content }) {
-    console.log({content})
-    const { category } = content;
-
-    const swiperOptions = {
-        // General
-        direction: 'horizontal',
-        modules: [Autoplay, Pagination, Navigation],
-        slidesPerView: 2,
-        spaceBetween: 30,
-        autoplay: {
-            delay: 2500,
-            disableOnInteraction: false,
-        },
-        loop: true,
-
-        // Navigation
-        navigation: {
-            nextEl: '.related-button-next',
-            prevEl: '.related-button-prev',
-        },
-        breakpoints: {
-            320: {
-                slidesPerView: 1,
-                spaceBetween: 30,
-            },
-            575: {
-                slidesPerView: 2,
-                spaceBetween: 30,
-            },
-            767: {
-                slidesPerView: 2,
-                spaceBetween: 30,
-            },
-            991: {
-                slidesPerView: 2,
-                spaceBetween: 30,
-            },
-            1199: {
-                slidesPerView: 2,
-                spaceBetween: 30,
-            },
-            1350: {
-                slidesPerView: 2,
-                spaceBetween: 30,
-            },
-        }
-    };
-
-    const categories = []
-    const content_types = []
+export default function OurWork({ content, layout }) {
+    const { contentType, articles } = content;
     const mainImage = null
     const imagePath = mainImage ? mainImage.attributes.url : null
-    const articles = category.articles.data.map(art => ({ id: art.id, ...art.attributes }))
-    console.log({articles})
+    const latestArticles = articles.slice(0,3)
+
+    const articleFilters = articles.reduce((filters, article) => {
+        const articleCategories = article.categories.data.map(ct => ct.attributes)
+        const newFilters = articleCategories.map(act => {
+            const filterExists = filters.find(f => f?.slug === act.slug)
+            if (!filterExists) {
+                return act
+            }
+        }).filter(i => i)
+        return filters.concat(newFilters)
+    }, [])
 
     return (
         <>
-            <Layout headerStyle={1} footerStyle={8} contact={content.contact} topics={content.categories} >
-                <div className={`page_header_default style_one blog_single_pageheader`}>
-                    <div className="parallax_cover">
-                        <div className="simpleParallax">
-                        { imagePath && <img src={`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/${imagePath}`} alt="bg_image" className="cover-parallax" />}
-                        </div>
-                    </div>
-                    <div className="page_header_content">
-                        <div className="auto-container">
-                            <div className="row">
-                                <div className="col-md-12">
-                                    <div className="banner_title_inner">
-                                        <div className="title_page">
-                                            {category.name}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-lg-12">
-                                    <div className="breadcrumbs creote text-white text-bold">
-                                        <p>{category.description}</p>
-                                    </div>
-                                </div>
+            <Layout 
+              contact={layout.contact} 
+              topics={layout.categories} 
+              contentTypes={layout.contentTypes}
+              studentPages={layout.studentPages}
+            >
+
+                <section className="service-section bg-two">
+                {/*===============spacing==============*/}
+                <div className="pd_top_60" />
+                {/*===============spacing==============*/}
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-12">
+                            <h1 className="">{contentType.name}</h1>
+                            <div className="pd_top_10" />
+                            <div className="title-section">
+                                <h2 className="title-small">{`Latest ${contentType.name}`}</h2>
                             </div>
                         </div>
+                        {/*===============spacing==============*/}
+                        <div className="mr_bottom_10" />
+                        {/*===============spacing==============*/}
+                    </div>
+                    <div className="row">
+                    {
+                            latestArticles.map((article, index) => {
+                                const categories = article.categories.data || []
+                                const content_types = article.content_types.data || []
+                                const datePublished = new Date(article.date_published)
+                                const dateString = datePublished.toLocaleDateString('en-CA', { year: 'numeric', month: 'short', day: 'numeric' })
+                                const tags = categories.map(t => t.attributes.name).join(', ')
+                                const image = article.main_image.data ? article.main_image.data.url : null
+
+                                return (
+                                    <div key={article.id} className="col-12 col-lg-6 col-xl-4">
+                                        <Fade bottom delay={index * 60}>
+                                            <ArticleCard article={article} />
+                                        </Fade>
+                                    </div>
+                                )
+                            })
+                        }
+                        
                     </div>
                 </div>
+                {/*===============spacing==============*/}
+                <div className="pd_bottom_80" />
+                {/*===============spacing==============*/}
+            </section>
 
                 <div className="auto-container">
                     <div className="row default_row">
                         <div className="full_width_box">
-                            {/*===============spacing==============*/}
-                            <div className="pd_top_80" />
-                            {/*===============spacing==============*/}
-                            <div className="project_all filt_style_one filter_enabled">
-                                <PortfolioFilter3Col articles={articles} filters={content.contentTypes} />
+                            <div className="pd_top_60" />
+                            <div className="row">
+                        <div className="col-lg-12">
+                            <div className="title-section">
+                                <h2 className="title-small">{`All ${contentType.name}`}</h2>
                             </div>
+                        </div>
+                        {/*===============spacing==============*/}
+                        <div className="mr_bottom_10" />
+                        {/*===============spacing==============*/}
+                    </div>
+                            <div className="project_all filt_style_one filter_enabled">
+                                <PortfolioFilter3Col articles={articles} filters={articleFilters} filterField="categories" />
+                            </div>
+                            <div className="pd_top_60" />
                         </div>
                     </div>
                 </div>

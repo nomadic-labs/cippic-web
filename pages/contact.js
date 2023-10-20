@@ -2,10 +2,12 @@ import Layout from "@/components/layout/Layout"
 import Card from "@/components/elements/Card"
 import Link from "next/link"
 import ReactMarkdown from 'react-markdown'
+import getLayoutData from "@/utils/layout-data"
 const qs = require('qs');
 
 
 export const getStaticProps = async () => {
+    const layout = await getLayoutData()
 
     const pageQuery = qs.stringify(
       {
@@ -18,58 +20,25 @@ export const getStaticProps = async () => {
         encodeValuesOnly: true, // prettify URL
       }
     );
-
-    const orgQuery = qs.stringify(
-      {
-        populate: [
-          '*',
-          'main_logo.media',
-          'uottawa_logo.media'
-        ],
-      },
-      {
-        encodeValuesOnly: true, // prettify URL
-      }
-    );
-
-    const categoriesQuery = qs.stringify(
-      {
-        populate: [
-          '*',
-          'icon.media'
-        ],
-      },
-      {
-        encodeValuesOnly: true, // prettify URL
-      }
-    );
-
     
     const pageRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/contact-page?${pageQuery}`)
     const page = await pageRes.json()
 
-    const orgRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/organization-information?${orgQuery}`)
-    const orgInfo = await orgRes.json()
+    const content = { ...page.data.attributes }
 
-    const categoriesRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/categories?${categoriesQuery}`)
-    const categoriesJson = await categoriesRes.json()
-    const categories = categoriesJson.data.map(t => ({ id: t.id, ...t.attributes}))
-
-    const contentTypesRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/content-types?${categoriesQuery}`)
-    const contentTypesJson = await contentTypesRes.json()
-    const contentTypes = contentTypesJson.data.map(t => ({ id: t.id, ...t.attributes}))
-
-    const content = { ...page.data.attributes, contact: { ...orgInfo.data.attributes }, categories, contentTypes }
-
-    return { props: { content } }
+    return { props: { content, layout } }
 }
 
-export default function Contact({ content }) {
-    const {contact, categories} = content
+export default function Contact({ content, layout }) {
 
     return (
         <>
-            <Layout contact={contact} topics={categories} contentTypes={content.contentTypes}>
+            <Layout 
+              contact={layout.contact} 
+              topics={layout.categories} 
+              contentTypes={layout.contentTypes}
+              studentPages={layout.studentPages}
+            >
                 <div>
                     <section className="contact-section">
                         {/*===============spacing==============*/}

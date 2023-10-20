@@ -5,7 +5,7 @@ import { useCallback, useEffect, useRef, useState } from "react"
 import ReactMarkdown from 'react-markdown'
 import ArticleCard from '@/components/elements/ArticleCard'
 
-export default function PortfolioFilter3Col({articles, filters}) {
+export default function PortfolioFilter3Col({articles, filters, filterField="content_types"}) {
     // Isotope
     const isotope = useRef()
     const [filterKey, setFilterKey] = useState("*")
@@ -66,12 +66,12 @@ export default function PortfolioFilter3Col({articles, filters}) {
                 <div className="row clearfix">
                     {
                         articles.map(article => {
-                            const content_types = article.content_types.data || []
-                            const tagsClasses = content_types.map(t => t.attributes.slug).join(' ')
+                            const filterOptions = article[filterField]?.data || []
+                            const tagsClasses = filterOptions.map(t => t.attributes.slug).join(' ')
 
                             return (
                                 <div key={article.id} className={`project-wrapper grid-item col-xl-4 col-lg-6 col-md-12 col-sm-12 ${tagsClasses}`}>
-                                    <ArticleCard article={article} tagsAttribute="content_types" showImage={false} />
+                                    <ArticleCard article={article} tagsAttribute={filterField} showImage={false} />
                                 </div>
                             )
                         })

@@ -4,47 +4,9 @@ import Link from "next/link"
 import { Autoplay, Navigation, Pagination } from "swiper"
 import { Swiper, SwiperSlide } from "swiper/react"
 import ReactMarkdown from 'react-markdown'
+import getLayoutData from "@/utils/layout-data"
 
 const qs = require('qs');
-
-
-
-const contactQuery = qs.stringify(
-  {
-    populate: [
-      '*',
-      'main_logo.media',
-      'uottawa_logo.media'
-    ],
-  },
-  {
-    encodeValuesOnly: true, // prettify URL
-  }
-);
-
-const teamQuery = qs.stringify(
-  {
-    populate: [
-      '*',
-      'photo.media'
-    ],
-  },
-  {
-    encodeValuesOnly: true, // prettify URL
-  }
-);
-
-const categoriesQuery = qs.stringify(
-  {
-    populate: [
-      '*',
-      'icon.media'
-    ],
-  },
-  {
-    encodeValuesOnly: true, // prettify URL
-  }
-);
 
 export async function getStaticPaths() {
   // Call an external API endpoint to get posts
@@ -61,128 +23,82 @@ export async function getStaticPaths() {
 
 export const getStaticProps = async ({ params }) => {
     const { slug } = params;
-    const articleRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/articles?filters[slug][$eq]=${slug}&populate=*`)
+    const layout = await getLayoutData()
+
+    const pageQuery = qs.stringify(
+      {
+        filters: {
+            slug: {
+              $eq: slug,
+            },
+        },
+        populate: [
+          '*',
+          'main_image.media',
+          'categories',
+          'content_types'
+        ],
+      },
+      {
+        encodeValuesOnly: true, // prettify URL
+      }
+    );
+
+    const articleRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/articles?${pageQuery}`)
     const articleJson = await articleRes.json()
     const articleData = articleJson.data[0]
     const article = { id: articleData.id, ...articleData.attributes }
 
-    const contactRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/organization-information?${contactQuery}`)
-    const contact = await contactRes.json()
+    const content = { article }
 
-    const categoriesRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/categories?${categoriesQuery}`)
-    const categoriesJson = await categoriesRes.json()
-    const categories = categoriesJson.data.map(t => ({ id: t.id, ...t.attributes}))
-
-    const contentTypesRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/content-types?${categoriesQuery}`, {
-        method: 'GET',
-        headers
-    })
-    const contentTypesJson = await contentTypesRes.json()
-    const contentTypes = contentTypesJson.data.map(t => ({ id: t.id, ...t.attributes}))
-
-    const studentPagesRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/student-pages?sort=title`, {
-        method: 'GET',
-        headers
-    })
-    const studentPagesJson = await studentPagesRes.json()
-    const studentPages = studentPagesJson.data.map(t => ({ id: t.id, ...t.attributes}))
-
-
-    const content = { article, contact: { ...contact.data.attributes }, categories, contentTypes, studentPages }
-
-    return { props: { content } }
+    return { props: { content, layout } }
 }
 
-export default function BlogSimple({ content }) {
-    console.log({content})
+export default function ArticlePage({ content, layout }) {
     const { article } = content;
-
-    const swiperOptions = {
-        // General
-        direction: 'horizontal',
-        modules: [Autoplay, Pagination, Navigation],
-        slidesPerView: 2,
-        spaceBetween: 30,
-        autoplay: {
-            delay: 2500,
-            disableOnInteraction: false,
-        },
-        loop: true,
-
-        // Navigation
-        navigation: {
-            nextEl: '.related-button-next',
-            prevEl: '.related-button-prev',
-        },
-        breakpoints: {
-            320: {
-                slidesPerView: 1,
-                spaceBetween: 30,
-            },
-            575: {
-                slidesPerView: 2,
-                spaceBetween: 30,
-            },
-            767: {
-                slidesPerView: 2,
-                spaceBetween: 30,
-            },
-            991: {
-                slidesPerView: 2,
-                spaceBetween: 30,
-            },
-            1199: {
-                slidesPerView: 2,
-                spaceBetween: 30,
-            },
-            1350: {
-                slidesPerView: 2,
-                spaceBetween: 30,
-            },
-        }
-    };
-
     const categories = article.categories.data || []
     const content_types = article.content_types.data || []
     const mainImage = article.main_image?.data
     const imagePath = mainImage ? mainImage.attributes.url : null
+    const datePublished = new Date(article.date_published)
+    const dateString = datePublished.toLocaleDateString('en-CA', { year: 'numeric', month: 'short', day: 'numeric' })
+    
     return (
         <>
-            <Layout headerStyle={1} footerStyle={8} contact={content.contact} topics={content.categories} studentPages={content.studentPages}>
-                <div className={`page_header_default style_one blog_single_pageheader`}>
-                    <div className="parallax_cover">
-                        <div className="simpleParallax">
-                        { imagePath && <img src={`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/${imagePath}`} alt="bg_image" className="cover-parallax" />}
+            <Layout 
+              contact={layout.contact} 
+              topics={layout.categories} 
+              contentTypes={layout.contentTypes}
+              studentPages={layout.studentPages}
+            >
+                <section className="blog-section position-relative bg-two">
+                  {/*===============spacing==============*/}
+                  <div className="pd_top_60" />
+                  {/*===============spacing==============*/}
+                  <div className="container">
+                    <div className="row">
+                      <div className="col-12">
+                        <div className="padding-xl bg-one rounded-lg">
+                          <div className="title-small">{dateString}</div>
+                          <h1>{article.title}</h1>
+                          <ReactMarkdown className="text-lg">{`By ${article.author}`}</ReactMarkdown>
                         </div>
+                      </div>
                     </div>
-                    <div className="page_header_content">
-                        <div className="auto-container">
-                            <div className="row">
-                                <div className="col-md-12">
-                                    <div className="banner_title_inner">
-                                        <div className="title_page">
-                                            {article.title}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-lg-12">
-                                    <div className="breadcrumbs creote text-white text-uppercase text-bold">
-                                        <p>{`By ${article.author}`}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                  </div>
+                    {/*===============spacing==============*/}
+                  <div className="pd_top_60" />
+                  {/*===============spacing==============*/}
+                </section>
 
-                <div className="auto-container">
-                    <div className="row default_row">
+                <div className="container-reading">
+                    <div className="row">
                         <div id="primary" className="content-area service col-12">
                             <main id="main" className="site-main" role="main">
                                 {/*===============spacing==============*/}
                                 <div className="pd_top_90" />
                                 {/*===============spacing==============*/}
-                                <section className="blog_single_details_outer">
+                                <div className="blog_single_details_outer">
                                     <div className="single_content_upper">
                                         <ReactMarkdown>
                                             {article.body}
@@ -198,32 +114,13 @@ export default function BlogSimple({ content }) {
                                                         { content_types.map(ct => <Link key={ct.id} className="btn" href={`/${ct.attributes.slug}`}>{ct.attributes.name}</Link>)}
                                                     </div>
                                                 </div>
-                                                {/*<div className="share_content right_one">
-                                                    <div className="share_socail">
-                                                        <div className="title">Share</div>
-                                                        <button className="m_icon" title="facebook" data-sharer="facebook" data-title="blog single" data-url="/">
-                                                            <i className="fa fa-facebook" />
-                                                        </button>
-                                                        <button className="m_icon" title="twitter" data-sharer="twitter" data-title="blog single" data-url="/">
-                                                            <i className="fa fa-twitter" />
-                                                        </button>
-                                                        <button className="m_icon" title="whatsapp" data-sharer="whatsapp" data-title="blog single" data-url="/">
-                                                            <i className="fa fa-whatsapp" />
-                                                        </button>
-                                                        <button className="m_icon" title="telegram" data-sharer="telegram" data-title="blog single" data-url="/" data-to="+44555-03564">
-                                                            <i className="fa fa-telegram" />
-                                                        </button>
-                                                        <button className="m_icon" title="skype" data-sharer="skype" data-url="/" data-title="blog single">
-                                                            <i className="fa fa-skype" />
-                                                        </button>
-                                                    </div>
-                                                </div>*/}
+                                                
                                             </div>
                                         </div>
                                     </div>
                                     
                                     
-                                </section>
+                                </div>
                                 {/*===============spacing==============*/}
                                 <div className="pd_bottom_70" />
                                 {/*===============spacing==============*/}

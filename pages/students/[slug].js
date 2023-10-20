@@ -4,6 +4,8 @@ import ButtonLink from "@/components/elements/ButtonLink"
 import Link from "next/link"
 import ReactMarkdown from 'react-markdown'
 import ImageSlider from "@/components/elements/ImageSlider"
+import getLayoutData from "@/utils/layout-data"
+
 const qs = require('qs');
 
 export async function getStaticPaths() {
@@ -20,6 +22,8 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps = async ({ params }) => {
+    const layout = await getLayoutData()
+
     const { slug } = params;
 
     const pageQuery = qs.stringify(
@@ -41,65 +45,28 @@ export const getStaticProps = async ({ params }) => {
       }
     );
 
-    const orgQuery = qs.stringify(
-      {
-        populate: [
-          '*',
-          'main_logo.media',
-          'uottawa_logo.media'
-        ],
-      },
-      {
-        encodeValuesOnly: true, // prettify URL
-      }
-    );
-
-    const categoriesQuery = qs.stringify(
-      {
-        populate: [
-          '*',
-          'icon.media'
-        ],
-      },
-      {
-        encodeValuesOnly: true, // prettify URL
-      }
-    );
-
     const pageRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/student-pages?${pageQuery}`)
     const pageJson = await pageRes.json()
     const pageData = pageJson.data[0]
     const page = { id: pageData.id, ...pageData.attributes }
 
-    const orgRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/organization-information?${orgQuery}`)
-    const orgInfo = await orgRes.json()
+    const content = { page }
 
-    const categoriesRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/categories?${categoriesQuery}`)
-    const categoriesJson = await categoriesRes.json()
-    const categories = categoriesJson.data.map(t => ({ id: t.id, ...t.attributes}))
-
-    const contentTypesRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/content-types?${categoriesQuery}`)
-    const contentTypesJson = await contentTypesRes.json()
-    const contentTypes = contentTypesJson.data.map(t => ({ id: t.id, ...t.attributes}))
-
-    const studentPagesRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/student-pages?sort=title`)
-    const studentPagesJson = await studentPagesRes.json()
-    const studentPages = studentPagesJson.data.map(t => ({ id: t.id, ...t.attributes}))
-
-
-    const content = { page, contact: { ...orgInfo.data.attributes }, categories, contentTypes, studentPages }
-
-    return { props: { content } }
+    return { props: { content, layout } }
 }
 
 
-export default function StudentPage({ content }) {
-    const {contact, categories, contentTypes, studentPages, page} = content
-    console.log({content})
+export default function StudentPage({ content, layout }) {
+    const {page} = content
     const imagesArr = page.images?.data ? page.images.data.map(i => i.attributes) : []
     return (
         <>
-            <Layout contact={contact} topics={categories} contentTypes={contentTypes} studentPages={studentPages}>
+            <Layout 
+              contact={layout.contact} 
+              topics={layout.categories} 
+              contentTypes={layout.contentTypes}
+              studentPages={layout.studentPages}
+            >
                     <section className="blog-section position-relative bg-two">
                       {/*===============spacing==============*/}
                       <div className="pd_top_60" />

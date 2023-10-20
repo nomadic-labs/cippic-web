@@ -6,39 +6,13 @@ import { Autoplay, Navigation, Pagination } from "swiper"
 import { Swiper, SwiperSlide } from "swiper/react"
 import ReactMarkdown from 'react-markdown'
 import dynamic from 'next/dynamic';
+import getLayoutData from "@/utils/layout-data";
 
 const PortfolioFilter3Col = dynamic(() => import('@/components/elements/PortfolioFilter3Col'), {
     ssr: false,
 })
 
 const qs = require('qs');
-
-const contactQuery = qs.stringify(
-  {
-    populate: [
-      '*',
-      'main_logo.media',
-      'uottawa_logo.media'
-    ],
-  },
-  {
-    encodeValuesOnly: true, // prettify URL
-  }
-);
-
-const categoriesQuery = qs.stringify(
-  {
-    populate: [
-      '*',
-      'articles',
-      'articles.main_image',
-      'articles.main_image.media'
-    ],
-  },
-  {
-    encodeValuesOnly: true, // prettify URL
-  }
-);
 
 export async function getStaticPaths() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/categories`)
@@ -53,6 +27,8 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps = async ({ params }) => {
+    const layout = await getLayoutData()
+
     const { slug } = params;
 
     const categoryArticlesQuery = qs.stringify(
@@ -75,87 +51,19 @@ export const getStaticProps = async ({ params }) => {
       }
     );
 
-    const contentTypesQuery = qs.stringify(
-      {
-        populate: [
-          '*',
-          'articles'
-        ],
-      },
-      {
-        encodeValuesOnly: true, // prettify URL
-      }
-    );
 
     const categoryArticlesRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/categories?${categoryArticlesQuery}`)
     const categoryArticlesJson = await categoryArticlesRes.json()
     const categoryData = categoryArticlesJson.data[0]
     const category = { id: categoryData.id, ...categoryData.attributes }
 
-    const contactRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/organization-information?${contactQuery}`)
-    const contact = await contactRes.json()
+    const content = { category }
 
-    const categoriesRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/categories?${categoriesQuery}`)
-    const categoriesJson = await categoriesRes.json()
-    const categories = categoriesJson.data.map(t => ({ id: t.id, ...t.attributes}))
-
-    const contentTypesRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/content-types?${contentTypesQuery}`)
-    const contentTypesJson = await contentTypesRes.json()
-    const contentTypes = contentTypesJson.data.map(t => ({ id: t.id, ...t.attributes}))
-
-    const content = { category, contact: { ...contact.data.attributes }, categories, contentTypes }
-
-    return { props: { content } }
+    return { props: { content, layout } }
 }
 
-export default function BlogSimple({ content }) {
-    console.log({content})
+export default function TopicsPage({ content, layout }) {
     const { category } = content;
-
-    const swiperOptions = {
-        // General
-        direction: 'horizontal',
-        modules: [Autoplay, Pagination, Navigation],
-        slidesPerView: 2,
-        spaceBetween: 30,
-        autoplay: {
-            delay: 2500,
-            disableOnInteraction: false,
-        },
-        loop: true,
-
-        // Navigation
-        navigation: {
-            nextEl: '.related-button-next',
-            prevEl: '.related-button-prev',
-        },
-        breakpoints: {
-            320: {
-                slidesPerView: 1,
-                spaceBetween: 30,
-            },
-            575: {
-                slidesPerView: 2,
-                spaceBetween: 30,
-            },
-            767: {
-                slidesPerView: 2,
-                spaceBetween: 30,
-            },
-            991: {
-                slidesPerView: 2,
-                spaceBetween: 30,
-            },
-            1199: {
-                slidesPerView: 2,
-                spaceBetween: 30,
-            },
-            1350: {
-                slidesPerView: 2,
-                spaceBetween: 30,
-            },
-        }
-    };
 
     const categories = []
     const content_types = []
@@ -175,21 +83,30 @@ export default function BlogSimple({ content }) {
 
     return (
         <>
-            <Layout headerStyle={1} footerStyle={8} contact={content.contact} topics={content.categories} >
-                <div className="bg-two padding-lg">
-                    <div className="pd_top_40" />
-                    <div className="container-xl">
-                        <div className="row">
-                          <div className="col-12">
-                            <div className="headline padding-xl">
-                              <h1>{category.name}</h1>
-                              <div className="pd_top_20" />
-                              <p className="text-center text-lg">{category.description}</p>
-                            </div>
-                          </div>
+            <Layout 
+              contact={layout.contact} 
+              topics={layout.categories} 
+              contentTypes={layout.contentTypes}
+              studentPages={layout.studentPages}
+            >
+                <section className="blog-section position-relative bg-two">
+                  {/*===============spacing==============*/}
+                  <div className="pd_top_60" />
+                  {/*===============spacing==============*/}
+                  <div className="container-xl">
+                    <div className="row">
+                      <div className="col-12">
+                        <div className="padding-xl bg-one rounded-lg">
+                          <h1>{category.name}</h1>
+                          <ReactMarkdown className="text-lg">{category.description}</ReactMarkdown>
                         </div>
+                      </div>
                     </div>
-                </div>
+                  </div>
+                    {/*===============spacing==============*/}
+                  <div className="pd_top_60" />
+                  {/*===============spacing==============*/}
+                </section>
 
 
                 <div className="container-xl">
