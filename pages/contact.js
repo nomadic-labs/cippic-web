@@ -30,6 +30,7 @@ export const getStaticProps = async () => {
 }
 
 export default function Contact({ content, layout }) {
+    const { contact } = layout
 
     return (
         <>
@@ -121,33 +122,6 @@ export default function Contact({ content, layout }) {
                                     </Card>
                                 </div>
                                     
-{/*                                <div className="col-12">
-                                    <div className="social_media_v_one style_two">
-                                        <ul>
-                                            <li>
-                                                <Link href="#"> <span className="fa fa-facebook" />
-                                                    <small>facebook</small>
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link href="#"> <span className="fa fa-twitter" />
-                                                    <small>twitter</small>
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link href="#"> <span className="fa fa-skype" />
-                                                    <small>skype</small>
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link href="#"> <span className="fa fa-instagram" />
-                                                    <small>instagram</small>
-                                                </Link>
-                                            </li>
-                                        </ul>
-                                    </div>
-
-                                </div>*/}
 
                             </div>
                         </div>
