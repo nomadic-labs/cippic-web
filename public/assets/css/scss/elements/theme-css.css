@@ -1106,8 +1106,8 @@
 }
 
 .bg_pattern_1 {
-  background-image: url("/assets/images/bg-pattern.svg");
-  background-position: top -4vw center !important;
+  background-image: url("/assets/images/bg-pattern-1.svg");
+  background-position: top 10% center !important;
   background-repeat: no-repeat !important;
   background-size: 100% auto;
   transition: background 0.3s !important;
@@ -1344,8 +1344,8 @@
 }
 /*--==================import styles===================--*/
 :root {
-  --creote-family-one: "DM Sans", sans-serif!important;
-  --creote-family-two: "DM Sans", sans-serif!important;
+  --font-family-one: "DM Sans", sans-serif!important;
+  --font-family-two: "Lora", serif!important;
   --primary-color-one: #00163D;
   --primary-color-two: #001F54;
   --primary-color-three: #00457A;
@@ -1480,7 +1480,7 @@
 /*--================box shadows ======================--*/
 /*------===============-css-start-==============------*/
 body {
-  font-family: var(--creote-family-two);
+  font-family: var(--font-family-one);
   font-size: 16px;
   color: var(--text-color-dark);
   font-weight: 400;
@@ -1640,7 +1640,7 @@ h6 a,
 h6 {
   font-weight: 400;
   margin: 0;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-two);
   transition: 0.5s ease-in-out;
   -ms-transition: 0.5s ease-in-out;
   -moz-transition: 0.5s ease-in-out;
@@ -1691,7 +1691,7 @@ h6 {
 p {
   font-size: 16px;
   line-height: 26px;
-  font-family: var(--creote-family-two);
+  font-family: var(--font-family-one);
   font-weight: 400;
   margin-bottom: 15px;
   transition: 0.5s ease-in-out;
@@ -1762,7 +1762,7 @@ body button[type=submit] {
   border-radius: 10px 0px 10px 0px;
   border: 1px solid var(--border-color-one);
   background: var(--primary-color-one);
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   color: #fff;
   font-weight: 600;
   text-transform: uppercase;
@@ -1830,7 +1830,7 @@ a {
 }
 
 a:hover {
-  color: var(--highlight-color);
+  color: var(--primary-color-three);
 }
 
 p a {
@@ -1966,7 +1966,7 @@ body.error404 .left-sidebar .content-area {
   font-size: 60px;
   line-height: 70px;
   font-weight: 700;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
 }
 
 @media (max-width: 1400px) {
@@ -1997,7 +1997,7 @@ body.error404 .left-sidebar .content-area {
   margin-right: 30px;
   color: #fff;
   position: relative;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-size: 12px;
   line-height: 18px;
   font-weight: 600;
@@ -2007,7 +2007,7 @@ body.error404 .left-sidebar .content-area {
   color: rgba(255, 255, 255, 0.7);
   position: relative;
   text-decoration: none;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-size: 12px;
   line-height: 18px;
   text-transform: uppercase;
@@ -2062,7 +2062,7 @@ body.error404 .left-sidebar .content-area {
 }
 .blog_single_pageheader.page_header_default .page_header_content .banner_title_inner .date span {
   color: #fff;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-weight: 600;
   text-transform: uppercase;
   font-size: 12px;
@@ -2093,7 +2093,7 @@ body.error404 .left-sidebar .content-area {
 .blog_single_pageheader.page_header_default .meta_blog_single .left_side .comments a,
 .blog_single_pageheader.page_header_default .meta_blog_single .left_side .comments span {
   color: #fff;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-weight: 600;
   text-transform: uppercase;
   font-size: 12px;
@@ -2121,7 +2121,7 @@ body.error404 .left-sidebar .content-area {
 }
 .blog_single_pageheader.page_header_default .meta_blog_single .right_side .content_box_auht .authour_content h6 {
   color: #fff;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-weight: 600;
   text-transform: uppercase;
   font-size: 12px;
@@ -2130,7 +2130,7 @@ body.error404 .left-sidebar .content-area {
 }
 .blog_single_pageheader.page_header_default .meta_blog_single .right_side .content_box_auht .authour_content h4 {
   color: #fff;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-weight: 700;
   font-size: 14px;
   line-height: 22px;
@@ -2208,7 +2208,7 @@ body.error404 .left-sidebar .content-area {
   line-height: 32px;
   font-weight: 700;
   color: var(--primary-color-two);
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
 }
 .sec_comments .comment_box .comment-list {
   position: relative;
@@ -2245,7 +2245,7 @@ body.error404 .left-sidebar .content-area {
   line-height: 28px;
   font-weight: 700;
   color: var(--primary-color-two);
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   margin: 15px 0px;
 }
 .sec_comments .comment_box .comment-list li.comment .media .comment-text h1,
@@ -2261,7 +2261,7 @@ body.error404 .left-sidebar .content-area {
   font-size: 12px;
   font-weight: 600;
   color: var(--primary-color-one);
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   text-transform: uppercase;
   top: 7px;
 }
@@ -2274,7 +2274,7 @@ body.error404 .left-sidebar .content-area {
   font-size: 12px;
   font-weight: 600;
   color: var(--primary-color-one);
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   text-transform: uppercase;
 }
 .sec_comments .comment_box .comment-list li.comment:last-child {
@@ -2313,7 +2313,7 @@ body.error404 .left-sidebar .content-area {
   line-height: 32px;
   font-weight: 700;
   color: var(--heading-dark);
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
 }
 .sec_comments .comment-respond .comment-reply-title small {
   margin: 5px 0px;
@@ -2380,7 +2380,7 @@ body.error404 .left-sidebar .content-area {
   font-weight: 600;
   text-transform: uppercase;
   color: var(--text-color-dark);
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   margin-bottom: 8px;
 }
 .previouse_next_post .text h2 a {
@@ -2389,7 +2389,7 @@ body.error404 .left-sidebar .content-area {
   font-weight: 700;
   text-transform: capitalize;
   color: var(--heading-dark);
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   display: block;
 }
 .previouse_next_post .prev_post {
@@ -2518,7 +2518,7 @@ body.error404 .left-sidebar .content-area {
   font-weight: 600;
   text-transform: uppercase;
   color: var(--text-color-dark);
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   margin-bottom: 8px;
 }
 .tags_and_share .d-flex .share_content {
@@ -2558,7 +2558,7 @@ body.error404 .left-sidebar .content-area {
   text-transform: uppercase;
   color: var(--text-color-dark);
   background-color: var(--color-white);
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   border: 1px solid var(--border-color-dark);
   border-radius: 5px;
   line-height: 30px;
@@ -2734,7 +2734,7 @@ body .enabled_custom_title .title_page .main_tit {
   color: #fff;
   border: 1px solid var(--primary-color-one);
   line-height: 56px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   min-height: 56px;
   min-width: 160px;
   font-weight: 600;
@@ -2753,7 +2753,7 @@ body .enabled_custom_title .title_page .main_tit {
 
 .theme-btn {
   position: relative;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   /*----theme-btn one-----*/
   /*----theme-btn two-----*/
 }
@@ -2878,7 +2878,7 @@ body .enabled_custom_title .title_page .main_tit {
   color: var(--heading-dark);
   text-transform: uppercase;
   background: none !important;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-weight: 600;
 }
 .theme-btn.four i {
@@ -3367,7 +3367,7 @@ body .enabled_custom_title .title_page .main_tit {
   line-height: 50px;
   font-weight: 600;
   color: var(--menu-color);
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   -ms-transition: 0.5s ease-in-out;
@@ -3608,7 +3608,7 @@ body .enabled_custom_title .title_page .main_tit {
   font-size: 15px;
   line-height: 65px;
   padding: 0;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   transition: var(--animation-speed) ease-in-out;
   -ms-transition: var(--animation-speed) ease-in-out;
   -moz-transition: var(--animation-speed) ease-in-out;
@@ -3675,7 +3675,7 @@ body .enabled_custom_title .title_page .main_tit {
   font-size: 15px;
   line-height: 25px;
   font-weight: 400;
-  font-family: var(--creote-family-two);
+  font-family: var(--font-family-one);
   display: block;
   white-space: inherit;
 }
@@ -4153,7 +4153,7 @@ body .enabled_custom_title .title_page .main_tit {
   color: var(--heading-dark);
   font-weight: 600;
   text-transform: uppercase;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
 }
 .modal_popup .modal-popup-inner .form_inner textarea {
   height: 150px;
@@ -4168,7 +4168,7 @@ body .enabled_custom_title .title_page .main_tit {
 .modal_popup .modal-popup-inner .form_inner .wpcf7-not-valid-tip {
   font-size: 14px;
   font-weight: 400;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   line-height: 26px;
   color: var(--primary-color-one);
   text-transform: none;
@@ -4181,7 +4181,7 @@ body .enabled_custom_title .title_page .main_tit {
   font-size: 14px;
   font-weight: 400;
   margin: 0px 50px;
-  font-family: var(--creote-family-two);
+  font-family: var(--font-family-one);
   color: #fff;
   padding: 20px;
   border-radius: 5px;
@@ -4237,7 +4237,7 @@ body .enabled_custom_title .title_page .main_tit {
   font-size: 12px;
   font-weight: 700;
   color: var(--text-color-dark);
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
 }
 .modal_popup .modal-popup-inner .post_contet_modal {
   position: relative;
@@ -4461,7 +4461,7 @@ body .enabled_custom_title .title_page .main_tit {
   font-size: 15px;
   line-height: 22px;
   font-weight: 600;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   margin-bottom: 0;
   color: #fff;
   opacity: 0.8;
@@ -4554,7 +4554,7 @@ body .enabled_custom_title .title_page .main_tit {
 .header.style_three .header_top .top_mid ul li small, .default_sickty_heaad.style_three .header_top .top_mid ul li small {
   font-size: 11px;
   font-weight: 500;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   text-transform: uppercase;
   margin-right: 5px;
   opacity: 0.8;
@@ -4793,7 +4793,7 @@ body .enabled_custom_title .title_page .main_tit {
   color: var(--primary-color-one);
   font-size: 16px;
   font-weight: 500;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   margin-right: 6px;
 }
 .header.style_five .header_content_collapse .header_right_content .contntent.phone small i, .default_sickty_heaad.style_five .header_content_collapse .header_right_content .contntent.phone small i {
@@ -4806,7 +4806,7 @@ body .enabled_custom_title .title_page .main_tit {
 .header.style_five .header_content_collapse .header_right_content .contntent.phone a, .default_sickty_heaad.style_five .header_content_collapse .header_right_content .contntent.phone a {
   font-size: 16px;
   font-weight: 600;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   color: var(--primary-color-two);
 }
 .header.style_five .header_content_collapse .header_right_content .round_btn, .default_sickty_heaad.style_five .header_content_collapse .header_right_content .round_btn {
@@ -4903,7 +4903,7 @@ body .enabled_custom_title .title_page .main_tit {
   color: var(--primary-color-two);
   text-transform: uppercase;
   font-weight: 600;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
 }
 .header_boxed.style_four .top_bar .theme-btn i {
   position: relative;
@@ -5108,7 +5108,7 @@ body .enabled_custom_title .title_page .main_tit {
   color: #fff;
   font-size: 15px;
   line-height: 25px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   display: block;
   padding-left: 28px;
   position: relative;
@@ -5355,7 +5355,7 @@ body .enabled_custom_title .title_page .main_tit {
 }
 .header_default.style_seven .header_right_content ul li .login {
   position: relative;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-size: 16px;
   font-weight: 500;
   padding-left: 26px;
@@ -5778,7 +5778,7 @@ body.single-header {
 }
 .floating_menu_box ul li a {
   font-size: 15px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-weight: 600;
   color: var(--heading-dark);
   padding: 7px 12px;
@@ -6370,7 +6370,7 @@ header .flaticon-list {
   color: var(--heading-dark);
   line-height: 26px;
   margin-bottom: 3px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
 }
 .header_v14 .header_mid .contact_info li span {
   position: absolute;
@@ -6729,7 +6729,7 @@ header .flaticon-list {
   position: absolute;
   background: var(--primary-color-one);
   font-size: 10px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-weight: 700;
   width: 16px;
   top: -10px;
@@ -7441,7 +7441,6 @@ header .flaticon-list {
 .slider.style_four .slide-item-content {
   position: relative;
   overflow: hidden;
-  border-radius: var(--border-radius-lg);
 }
 .slider.style_four .slide-item-content .image-layer {
   position: absolute;
@@ -7573,7 +7572,7 @@ header .flaticon-list {
 .slider.slider_version_v4 .slide-item-content .slider_content .tag_content {
   position: relative;
   font-size: 30px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-weight: 700;
   line-height: 40px;
   display: flex;
@@ -7833,7 +7832,7 @@ header .flaticon-list {
 .slider_version_v2.style_two .slide-item-content .slider_content a.theme-btn {
   font-size: 12px;
   font-weight: 600;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   text-transform: uppercase;
 }
 .slider_version_v2.style_two .owl-prev::before {
@@ -7875,7 +7874,7 @@ header .flaticon-list {
 .slider_version_v2.style_three .slide-item-content .slider_content a.theme-btn {
   font-size: 12px;
   font-weight: 600;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   color: #fff;
   background: var(--primary-color-one);
   text-transform: uppercase;
@@ -7933,7 +7932,7 @@ header .flaticon-list {
 .slider_version_v2.style_five .slide-item-content .slider_content a.theme-btn {
   font-size: 12px;
   font-weight: 600;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   text-transform: uppercase;
   border-radius: 8px;
 }
@@ -8068,7 +8067,7 @@ header .flaticon-list {
 .slider_version_v3.style_one .slide-item-content .slider_content a.theme-btn {
   font-size: 12px;
   font-weight: 600;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   text-transform: uppercase;
 }
 .slider_version_v3.style_one .slide-item-content .slider_image {
@@ -8123,7 +8122,7 @@ header .flaticon-list {
 .slider_version_v4.slider.style_one .tag_content {
   position: relative;
   font-size: 30px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-weight: 700;
   line-height: 40px;
   display: flex;
@@ -8887,7 +8886,7 @@ header .flaticon-list {
 .news_box.style_one .content_box .date span {
   display: block;
   color: #fff;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-weight: 600;
   font-size: 12px;
   text-transform: uppercase;
@@ -8900,7 +8899,7 @@ header .flaticon-list {
   font-size: 12px;
   display: block;
   color: var(--text-color-dark);
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   text-transform: uppercase;
   font-weight: 600;
   margin-bottom: 15px;
@@ -8977,7 +8976,7 @@ header .flaticon-list {
   text-transform: uppercase;
   line-height: 26px;
   border-radius: 0px 0px 10px 0px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   transition: 0.9s ease-in-out;
   -moz-transition: 0.9s ease-in-out;
   -o-transition: 0.9s ease-in-out;
@@ -8997,7 +8996,7 @@ header .flaticon-list {
 .news_box.default_style.list_view .content_box .date span {
   display: block;
   color: var(--primary-color-one);
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-weight: 600;
   font-size: 12px;
   text-transform: uppercase;
@@ -9019,7 +9018,7 @@ header .flaticon-list {
 .news_box.default_style.list_view .content_box a.link__go {
   display: block;
   color: var(--text-color-dark);
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-weight: 600;
   font-size: 12px;
   text-transform: uppercase;
@@ -9045,7 +9044,7 @@ header .flaticon-list {
   padding: 6px 0px 0px 0px;
 }
 .news_box.default_style.list_view .content_box .auhtour_box .contnet_a p {
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-size: 12px;
   line-height: 18px;
   font-weight: 600;
@@ -9128,7 +9127,7 @@ header .flaticon-list {
 }
 .news_box.style_two .content_box .category a {
   font-size: 12px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-weight: 600;
   text-transform: uppercase;
   color: #fff;
@@ -9146,7 +9145,7 @@ header .flaticon-list {
 .news_box.style_two .content_box .content_mid .date_in_number {
   display: block;
   color: #fff;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-weight: 600;
   font-size: 12px;
   text-transform: uppercase;
@@ -9184,7 +9183,7 @@ header .flaticon-list {
   padding: 6px 0px 0px 0px;
 }
 .news_box.style_two .content_box .auhtour_box .contnet_a p {
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-size: 12px;
   line-height: 18px;
   font-weight: 600;
@@ -9246,7 +9245,7 @@ header .flaticon-list {
 .news_box.style_four .date span {
   display: block;
   font-size: 12px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-weight: 600;
   line-height: 20px;
   color: #fff;
@@ -9279,7 +9278,7 @@ header .flaticon-list {
 }
 .news_box.style_four .content_box .category a {
   font-size: 12px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-weight: 600;
   text-transform: uppercase;
   color: #fff;
@@ -9321,7 +9320,7 @@ header .flaticon-list {
   padding: 6px 0px 0px 0px;
 }
 .news_box.style_four .auhtour_box .contnet_a p {
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-size: 12px;
   line-height: 18px;
   font-weight: 600;
@@ -9425,7 +9424,7 @@ header .flaticon-list {
   -moz-transition: all var(--animation-speed) ease-in-out;
   -ms-transition: all var(--animation-speed) ease-in-out;
   -o-transition: all var(--animation-speed) ease-in-out;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-size: 15px;
   display: block;
   font-weight: 500;
@@ -9515,7 +9514,7 @@ header .flaticon-list {
 }
 .news_box.style_six .content_box .category a {
   font-size: 12px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-weight: 600;
   text-transform: uppercase;
   color: var(--text-color-dark);
@@ -9534,7 +9533,7 @@ header .flaticon-list {
 .news_box.style_six .content_box .content_mid .date_in_number {
   display: block;
   color: var(--text-color-dark);
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-weight: 600;
   font-size: 12px;
   text-transform: uppercase;
@@ -9569,7 +9568,7 @@ header .flaticon-list {
   padding: 6px 0px 0px 0px;
 }
 .news_box.style_six .content_box .auhtour_box .contnet_a p {
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-size: 12px;
   line-height: 18px;
   font-weight: 600;
@@ -9699,7 +9698,7 @@ header .flaticon-list {
   border-top: 1px solid var(--border-color-dark);
   font-size: 15px;
   line-height: 25px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-weight: 600;
 }
 .news_box.style_seven .content_box a.read_more i {
@@ -9984,7 +9983,7 @@ header .flaticon-list {
 .news_box.style_nine .content_box .date span {
   display: block;
   color: #fff;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-weight: 600;
   font-size: 12px;
   text-transform: uppercase;
@@ -10240,7 +10239,7 @@ header .flaticon-list {
   color: #fff;
   font-size: 15px;
   font-weight: 400;
-  font-family: var(--creote-family-two);
+  font-family: var(--font-family-two);
   text-transform: uppercase;
   display: inline-block;
   margin-left: -4px;
@@ -10269,7 +10268,7 @@ header .flaticon-list {
   font-weight: 600;
   color: #fff;
   text-transform: uppercase;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   margin-bottom: 10px;
   transition: all 0.45s ease;
   -moz-transition: all 0.45s ease;
@@ -10367,7 +10366,7 @@ header .flaticon-list {
   right: 0;
   left: 0;
   width: 100%;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   text-align: center;
   transition: all 0.9s ease-in-out;
   -moz-transition: all 0.9s ease-in-out;
@@ -10462,7 +10461,7 @@ header .flaticon-list {
 }
 .team_box.style_two .team_box_outer .content_box p.job_details {
   font-weight: 600;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-size: 16px;
   color: var(--primary-color-one);
   margin-bottom: 15px;
@@ -10798,7 +10797,7 @@ header .flaticon-list {
 }
 .team_intro_box .team_intro_inner .team_intro_start .authour_dtls h4 span {
   color: var(--primary-color-one);
-  font-family: var(--creote-family-two);
+  font-family: var(--font-family-two);
   font-size: 16px;
   font-weight: 400;
 }
@@ -10979,7 +10978,6 @@ header .flaticon-list {
   cursor: pointer;
   padding: var(--padding-md);
   box-shadow: var(--box-shadow);
-  border-radius: var(--border-radius-lg);
   transition: 0.5s ease-in-out;
   -ms-transition: 0.5s ease-in-out;
   -moz-transition: 0.5s ease-in-out;
@@ -10989,15 +10987,15 @@ header .flaticon-list {
   position: absolute;
   top: 0px;
   right: 0px;
-  background: var(--color-white);
+  background: var(--primary-color-one);
   padding: var(--padding-sm);
   width: 40px;
   height: auto;
   border-radius: 50px;
+  border: 2px solid var(--color-white);
 }
 .service_box .service_content .icon-topic img {
   aspect-ratio: 1/1;
-  filter: invert(1);
 }
 .service_box .service_content p {
   color: var(--primary-color-one);
@@ -11108,7 +11106,7 @@ header .flaticon-list {
   font-weight: 600;
   text-transform: uppercase;
   margin: auto;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   bottom: -24px;
 }
 .service_post.style_one .service_content a.read_more i {
@@ -11526,7 +11524,7 @@ header .flaticon-list {
   margin-bottom: 10px;
   font-weight: 700;
   color: var(--heading-dark);
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   margin-top: 30px;
 }
 .service_post.style_four p {
@@ -11535,7 +11533,7 @@ header .flaticon-list {
 .service_post.style_four a.read_more {
   font-size: 15px;
   line-height: 25px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   color: var(--primary-color-two);
   display: block;
   font-weight: 600;
@@ -11670,7 +11668,7 @@ header .flaticon-list {
   -ms-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-size: 15px;
   line-height: 25px;
 }
@@ -11826,6 +11824,13 @@ header .flaticon-list {
   height: 110%;
 }
 
+.news-articles .react-reveal {
+  height: 100%;
+}
+.news-articles .react-reveal .article-card {
+  height: 100%;
+}
+
 /*---==========================================-----
 -----==================project_caro_section ===============-----
 -----=========================================-----*/
@@ -11889,7 +11894,7 @@ header .flaticon-list {
 }
 .project_post.style_one .project_caro_content p {
   font-size: 12px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-weight: 600;
   text-transform: uppercase;
   color: var(--primary-color-one);
@@ -11980,6 +11985,8 @@ header .flaticon-list {
 .project_all.filt_style_one .fliter_group, .project_all.filt_style_six .fliter_group {
   position: relative;
   margin-bottom: var(--padding-lg);
+  display: inline-flex;
+  align-items: center;
 }
 .project_all.filt_style_one .fliter_group .project_filter, .project_all.filt_style_six .fliter_group .project_filter {
   position: relative;
@@ -12000,7 +12007,7 @@ header .flaticon-list {
   cursor: pointer;
   font-size: 12px;
   text-transform: uppercase;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-weight: 600;
   margin-bottom: 0;
   border: 1px solid var(--primary-color-one);
@@ -12048,7 +12055,7 @@ header .flaticon-list {
   text-transform: uppercase;
   font-weight: 600;
   background: transparent;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-weight: 700;
   transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
@@ -12094,7 +12101,7 @@ header .flaticon-list {
   line-height: 20px;
   font-weight: 600;
   background: transparent;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-weight: 700;
   transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
@@ -12188,7 +12195,7 @@ header .flaticon-list {
 }
 .project_box.style_two .content_inner h2 a {
   position: relative;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-size: 18px;
   font-weight: 700;
   line-height: 26px;
@@ -12235,7 +12242,7 @@ header .flaticon-list {
   line-height: 16px;
   font-weight: 600;
   color: var(--primary-color-one);
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   text-transform: uppercase;
   margin-bottom: 15px;
   padding: 9px 11px 4px;
@@ -12366,7 +12373,7 @@ header .flaticon-list {
 .project_box.style_three .image .text ul li span {
   font-size: 16px;
   line-height: 26px;
-  font-family: var(--creote-family-two);
+  font-family: var(--font-family-two);
   font-weight: 400;
   display: inline-block;
   text-transform: none;
@@ -12499,7 +12506,7 @@ header .flaticon-list {
 }
 .project_post.style_four .project_caro_content p {
   font-size: 12px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-weight: 600;
   text-transform: uppercase;
   color: var(--primary-color-one);
@@ -12596,7 +12603,7 @@ header .flaticon-list {
 }
 .project_post.style_five .project_caro_content p {
   font-size: 12px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-weight: 600;
   text-transform: uppercase;
   color: #fff;
@@ -12745,7 +12752,7 @@ header .flaticon-list {
   border: 1px solid #fff;
   color: #fff;
   font-size: 12px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-weight: 600;
   text-transform: uppercase;
 }
@@ -13034,7 +13041,7 @@ header .flaticon-list {
   line-height: 26px;
   display: block;
   margin-bottom: 6px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
 }
 .project_post.style_nine .project_caro_content h2 {
   line-height: normal;
@@ -13045,7 +13052,7 @@ header .flaticon-list {
   color: #fff;
   line-height: 30px;
   display: block;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
 }
 .project_post.style_nine:hover .image::after {
   bottom: 0;
@@ -13200,7 +13207,7 @@ header .flaticon-list {
   content: "";
   font-size: 11px;
   text-transform: uppercase;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   color: #fff;
   font-weight: 600;
   padding: 6px 12px;
@@ -13374,7 +13381,7 @@ header .flaticon-list {
   font-weight: 700;
   line-height: 26px;
   color: var(--heading-dark);
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
 }
 .widgets_grid_box .widget-title:before,
 .widgets_grid_box .wp-block-search__label:before,
@@ -13420,7 +13427,7 @@ header .flaticon-list {
   -ms-transition: 0.5s ease-in-out;
   display: block;
   text-transform: uppercase;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-weight: 600;
   font-size: 12px;
 }
@@ -13518,7 +13525,7 @@ header .flaticon-list {
   display: block;
   text-transform: capitalize;
   font-size: 15px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-weight: 500;
   line-height: 26px;
 }
@@ -13568,7 +13575,7 @@ header .flaticon-list {
   color: var(--text-color-dark);
   margin-bottom: 9px;
   margin-right: 5px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   line-height: 10px;
   transition: 0.5s ease-in-out;
   -moz-transition: 0.5s ease-in-out;
@@ -13615,7 +13622,7 @@ header .flaticon-list {
   color: var(--text-color-dark);
   line-height: 22px;
   font-weight: 600;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   margin-bottom: 6px;
 }
 .widget_post_box .blog_in .content_inner .post-date span {
@@ -13629,7 +13636,7 @@ header .flaticon-list {
   font-size: 16px;
   line-height: 26px;
   color: var(--heading-dark);
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-weight: 700;
   margin-bottom: 6px;
   text-transform: none;
@@ -13660,7 +13667,7 @@ header .flaticon-list {
   font-weight: 700;
   line-height: 26px;
   color: var(--heading-dark);
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
 }
 .widgets_grid_box .widget-title:before {
   position: absolute;
@@ -13718,7 +13725,7 @@ header .flaticon-list {
   background: var(--primary-color-one);
   text-transform: uppercase;
   font-weight: 600;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   color: #fff;
   display: inline-block;
   position: relative;
@@ -13755,7 +13762,7 @@ header .flaticon-list {
   font-size: 16px !important;
   line-height: 26px !important;
   color: var(--heading-dark) !important;
-  font-family: var(--creote-family-one) !important;
+  font-family: var(--font-family-one) !important;
   font-weight: 700 !important;
   margin-bottom: 6px;
   text-transform: none !important;
@@ -13766,7 +13773,7 @@ header .flaticon-list {
 .widgets_grid_box .widget_recent_entries .wp-block-latest-posts li .wp-block-latest-posts__post-excerpt {
   font-size: 15px;
   line-height: 26px;
-  font-family: var(--creote-family-two);
+  font-family: var(--font-family-two);
   font-weight: 400;
   margin-bottom: 0px;
   text-transform: none;
@@ -13777,7 +13784,7 @@ header .flaticon-list {
   color: var(--text-color-dark);
   line-height: 22px;
   font-weight: 600;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   margin-bottom: 6px;
 }
 .widgets_grid_box .widget_recent_entries .wp-block-latest-posts.has-author .wp-block-latest-posts__post-author {
@@ -13785,7 +13792,7 @@ header .flaticon-list {
   color: var(--primary-color-one);
   line-height: 24px;
   font-weight: 600;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   margin-bottom: 6px;
   text-transform: none;
 }
@@ -13816,7 +13823,7 @@ header .flaticon-list {
   font-size: 16px !important;
   line-height: 26px !important;
   color: var(--heading-dark) !important;
-  font-family: var(--creote-family-one) !important;
+  font-family: var(--font-family-one) !important;
   font-weight: 600 !important;
   margin-bottom: 6px;
   text-transform: none !important;
@@ -13827,7 +13834,7 @@ header .flaticon-list {
 .widgets_grid_box .wp-block-latest-posts li .wp-block-latest-posts__post-excerpt {
   font-size: 15px;
   line-height: 26px;
-  font-family: var(--creote-family-two);
+  font-family: var(--font-family-two);
   font-weight: 400;
   margin-bottom: 0px;
   text-transform: none;
@@ -13838,7 +13845,7 @@ header .flaticon-list {
   color: var(--text-color-dark);
   line-height: 22px;
   font-weight: 600;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   margin-bottom: 6px;
 }
 .widgets_grid_box .wp-block-latest-posts.has-author .wp-block-latest-posts__post-author {
@@ -13846,7 +13853,7 @@ header .flaticon-list {
   color: var(--primary-color-one);
   line-height: 24px;
   font-weight: 600;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   margin-bottom: 6px;
   text-transform: none;
 }
@@ -14036,7 +14043,7 @@ header .flaticon-list {
 .widget_rss ul li .rsswidget {
   margin-bottom: 10px;
   font-size: 16px !important;
-  font-family: var(--creote-family-one) !important;
+  font-family: var(--font-family-one) !important;
   color: var(--heading-dark);
   line-height: 26px !important;
   font-weight: 600;
@@ -14052,12 +14059,12 @@ header .flaticon-list {
   font-size: 15px;
   line-height: 25px;
   font-weight: 400;
-  font-family: var(--creote-family-two);
+  font-family: var(--font-family-two);
   margin-bottom: 8px;
 }
 .widget_rss ul li cite {
   font-style: normal;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-size: 16px;
   line-height: 26px;
   font-weight: 600;
@@ -14216,7 +14223,7 @@ header .flaticon-list {
 
 /* style switcher */
 .style-switcher {
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   position: fixed;
   top: 100px;
   right: 0;
@@ -14259,7 +14266,7 @@ header .flaticon-list {
   color: var(--heading-dark);
   font-size: 20px;
   line-height: 1;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   margin-bottom: 15px;
   font-weight: 800;
 }
@@ -14393,7 +14400,7 @@ header .flaticon-list {
   background: #fff !important;
   font-size: 14px !important;
   font-weight: 700 !important;
-  font-family: var(--creote-family-one) !important;
+  font-family: var(--font-family-one) !important;
   line-height: 46px !important;
   color: var(--text-color-dark) !important;
   text-align: center !important;
@@ -14441,7 +14448,7 @@ header .flaticon-list {
   background: var(--primary-color-three);
   font-size: 14px;
   font-weight: 700;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   line-height: 46px;
   color: var(--text-color-dark);
   text-align: center;
@@ -14546,7 +14553,7 @@ header .flaticon-list {
   color: var(--primary-color-one);
   padding: 0px 0px 10px 0px;
   text-decoration: underline;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
 }
 .title_all_box.style_one .title_sections p, .title_all_box.style_two .title_sections p {
   font-size: 17px;
@@ -14565,7 +14572,7 @@ header .flaticon-list {
   text-transform: capitalize;
   display: inline-block;
   font-weight: 600;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   padding: 0px 10px 3px 10px;
   border-left: 1px solid var(--border-color-dark);
   border-bottom: 1px solid var(--border-color-dark);
@@ -14588,7 +14595,7 @@ header .flaticon-list {
   font-size: 18px;
   font-weight: 700;
   color: var(--primary-color-one);
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   margin-bottom: 10px;
   display: inline-block;
   padding-left: 38px;
@@ -14622,7 +14629,7 @@ header .flaticon-list {
 }
 .title_all_box.style_three .title_sections .title, .title_all_box.style_three .title_sections h1, .title_all_box.style_three .title_sections h2, .title_all_box.style_three .title_sections h3, .title_all_box.style_three .title_sections h4, .title_all_box.style_three .title_sections h5, .title_all_box.style_three .title_sections h6 {
   font-size: 40px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   line-height: 48px;
   color: var(--heading-dark);
   font-weight: 700;
@@ -14647,11 +14654,11 @@ header .flaticon-list {
   background: var(--primary-color-three);
   padding: 5px 15px;
   border-radius: 5px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
 }
 .title_all_box.style_four .title_sections .title, .title_all_box.style_four .title_sections h1, .title_all_box.style_four .title_sections h2, .title_all_box.style_four .title_sections h3, .title_all_box.style_four .title_sections h4, .title_all_box.style_four .title_sections h5, .title_all_box.style_four .title_sections h6 {
   font-size: 40px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   line-height: 48px;
   color: var(--heading-dark);
   font-weight: 700;
@@ -14675,12 +14682,12 @@ header .flaticon-list {
   color: var(--primary-color-one);
   padding: 0px 0px 12px 0px;
   letter-spacing: 3px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
 }
 .title_all_box.style_five .title_sections .title, .title_all_box.style_five .title_sections h1, .title_all_box.style_five .title_sections h2, .title_all_box.style_five .title_sections h3, .title_all_box.style_five .title_sections h4, .title_all_box.style_five .title_sections h5, .title_all_box.style_five .title_sections h6 {
   font-size: 38px;
   line-height: 50px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-weight: 700;
   color: var(--heading-dark);
   padding: 0px 0px 10px 0px;
@@ -14700,7 +14707,7 @@ header .flaticon-list {
   position: relative;
   font-size: 16px;
   font-weight: 500;
-  font-family: var(--creote-family-two);
+  font-family: var(--font-family-two);
   color: var(--primary-color-one);
   text-transform: uppercase;
   padding-bottom: 18px;
@@ -14716,7 +14723,7 @@ header .flaticon-list {
   font-weight: 700;
   color: var(--heading-dark);
   padding: 0px 0px 10px 0px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
 }
 .title_all_box.style_six .title_sections p {
   font-size: 17px;
@@ -14740,7 +14747,7 @@ header .flaticon-list {
   line-height: 54px;
   font-weight: 700;
   color: var(--heading-dark);
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
 }
 .title_all_box.style_seven .title span, .title_all_box.style_seven h1 span, .title_all_box.style_seven h2 span, .title_all_box.style_seven h3 span, .title_all_box.style_seven h4 span, .title_all_box.style_seven h5 span, .title_all_box.style_seven h6 span {
   font-weight: 500;
@@ -14749,7 +14756,7 @@ header .flaticon-list {
   font-size: 18px;
   padding-bottom: 10px;
   color: var(--primary-color-one);
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   text-transform: uppercase;
   font-weight: 500;
   padding-top: 23px;
@@ -14762,7 +14769,7 @@ header .flaticon-list {
   opacity: 0.1;
   font-size: 60px;
   line-height: 60px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-weight: 700;
   -webkit-text-stroke: 1px var(--heading-dark);
   text-shadow: 1px 1px 0 var(--heading-dark), -1px -1px 0 var(--heading-dark), 1px -1px 0 1px var(--heading-dark), -1px 1px 0 var(--heading-dark), 1px 1px 0 var(--heading-dark);
@@ -14944,7 +14951,7 @@ header .flaticon-list {
   padding: 8px 11px 3px;
   border-radius: 30px;
   background: var(--primary-color-one);
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   color: #fff;
   font-weight: 600;
   font-size: 12px;
@@ -14987,7 +14994,7 @@ header .flaticon-list {
 .process_box.style_two .process_box_outer_two a.theme-btn {
   text-transform: uppercase;
   font-size: 12px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-weight: 600;
   padding: 3px 25px 0px;
   min-height: 50px;
@@ -15137,7 +15144,7 @@ header .flaticon-list {
   position: relative;
 }
 .extra_content .download_box_content a {
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-size: 18px;
   line-height: 28px;
   font-weight: 600;
@@ -15170,14 +15177,14 @@ header .flaticon-list {
   margin-top: 5px;
 }
 .extra_content .authour_box_content .text h6 {
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-size: 18px;
   line-height: 28px;
   font-weight: 600;
   color: var(--heading-dark);
 }
 .extra_content .authour_box_content .text h6 a, .extra_content .authour_box_content .text h6 span {
-  font-family: var(--creote-family-two);
+  font-family: var(--font-family-two);
   color: var(--primary-color-one);
   font-size: 16px;
   font-weight: 400;
@@ -15607,7 +15614,7 @@ header .flaticon-list {
 }
 .testimonial_sec.style_one .testimonial_box .authour_details .details span {
   font-size: 12px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-weight: 600;
   text-transform: uppercase;
   color: var(--primary-color-one);
@@ -15644,7 +15651,7 @@ header .flaticon-list {
   font-size: 18px;
   line-height: 28px;
   font-weight: 500;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
 }
 .testimonial_sec.style_one .arrows {
   position: absolute;
@@ -15691,7 +15698,7 @@ header .flaticon-list {
   display: inline-block;
   padding: 0px 65px;
   font-size: 18px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-weight: 700;
   text-transform: uppercase;
 }
@@ -15840,7 +15847,7 @@ header .flaticon-list {
   font-size: 17px;
   line-height: 27px;
   font-weight: 500;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
 }
 .testimonial_sec.style_two .single_swiper .swiper-slide .testimonial_box {
   opacity: 0.2;
@@ -15962,7 +15969,7 @@ header .flaticon-list {
   font-weight: 400;
   font-size: 15px;
   margin-bottom: 20px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
 }
 .testimonial_sec.style_three .testimonial_box .rating {
   position: relative;
@@ -16330,7 +16337,7 @@ header .flaticon-list {
   font-weight: 500;
   color: #fff;
   display: block;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   margin-bottom: 15px;
 }
 .testimonial_sec.style_v2_two .testimonial_box .rating li {
@@ -16489,7 +16496,7 @@ header .flaticon-list {
   background: var(--primary-color-one);
   color: #fff;
   text-align: center;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   margin: auto;
 }
 .image_boxes .year_of_experience .year::before {
@@ -16585,7 +16592,7 @@ header .flaticon-list {
   margin-bottom: 8px;
 }
 .image_boxes.style_two .authour_quotes p {
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-weight: 600;
   color: #fff;
   opacity: 0.8;
@@ -16848,7 +16855,7 @@ header .flaticon-list {
   color: #fff;
   font-weight: 600;
   margin-bottom: 0px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
 }
 .image_boxes.style_six .image_box .experience {
   left: 0px;
@@ -17031,7 +17038,7 @@ header .flaticon-list {
   line-height: 48px;
   font-weight: 700;
   color: var(--primary-color-one);
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
 }
 .counter-block.style_one .icon_box .coun_ter small {
   font-size: 20px;
@@ -17089,7 +17096,7 @@ header .flaticon-list {
   line-height: 46px;
   font-weight: 700;
   color: var(--primary-color-one);
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
 }
 .counter-block.style_two .coun_ter small {
   font-size: 20px;
@@ -17596,7 +17603,7 @@ header .flaticon-list {
   line-height: 60px;
   color: var(--primary-color-three);
   right: 20px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   top: 45px;
   font-weight: 700;
 }
@@ -17636,7 +17643,7 @@ header .flaticon-list {
   text-align: center;
 }
 .icon_box_all.style_five .icon_content .hover_content .content .inner a {
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-size: 15px;
   line-height: 25px;
   display: block;
@@ -17701,7 +17708,7 @@ header .flaticon-list {
 }
 .icon_box_all.style_six .icon_content h2 a {
   display: block;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-size: 20px;
   margin-bottom: 10px;
   line-height: 32px;
@@ -17845,7 +17852,7 @@ header .flaticon-list {
 }
 .icon_box_all.style_nine .icon_content h2 a {
   display: block;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-size: 20px;
   margin-bottom: 10px;
   line-height: 32px;
@@ -17997,7 +18004,7 @@ header .flaticon-list {
   background: transparent;
   margin-bottom: 40px;
   border: 0px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-size: 18px;
   color: var(--heading-dark);
   font-weight: 600;
@@ -18049,7 +18056,7 @@ header .flaticon-list {
   padding: 25px 70px 22px 20px;
   border: 1px solid var(--border-color-dark);
   margin-bottom: 15px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-size: 18px;
   font-weight: 600;
   line-height: 26px;
@@ -18119,7 +18126,7 @@ header .flaticon-list {
 }
 .progress_bar h2 {
   position: relative;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-size: 18px;
   font-weight: 700;
   line-height: 26px;
@@ -18246,7 +18253,7 @@ header .flaticon-list {
 }
 .progress_bar.style_three h2 {
   position: relative;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-size: 18px;
   font-weight: 700;
   line-height: 26px;
@@ -18409,7 +18416,7 @@ header .flaticon-list {
 }
 .time_line_section.style_one .time_line_box .time_inner .content h2 a {
   position: relative;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-size: 22px;
   font-weight: 700;
   line-height: 30px;
@@ -18438,7 +18445,7 @@ header .flaticon-list {
   height: 80px;
   line-height: 80px;
   font-weight: 700;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   color: var(--heading-dark);
   border-radius: 50%;
   background: #fff;
@@ -18683,7 +18690,7 @@ header .flaticon-list {
   font-weight: 700;
   color: var(--heading-dark);
   line-height: 28px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   padding: 20px 0px;
   border-bottom: 1px solid var(--border-color-dark);
   background: transparent;
@@ -18718,7 +18725,7 @@ header .flaticon-list {
   font-weight: 600;
   color: #fff;
   line-height: 26px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
 }
 .tabs_all_box.type_one .tabs_header .toll_free a i {
   background: #fff;
@@ -18788,7 +18795,7 @@ header .flaticon-list {
   text-transform: uppercase;
   color: #fff;
   font-size: 12px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-weight: 500;
   opacity: 0.8;
   transition: all 0.5s ease;
@@ -18839,7 +18846,7 @@ header .flaticon-list {
   color: var(--heading-dark);
   line-height: 28px;
   text-transform: uppercase;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   padding: 12px 25px 9px;
   border-radius: 10px;
   border: 1px solid var(--border-color-dark);
@@ -18929,7 +18936,7 @@ header .flaticon-list {
   color: var(--heading-dark);
   line-height: 28px;
   text-transform: capitalize;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   border-radius: 10px;
   border: 0px;
   background: transparent;
@@ -19475,7 +19482,7 @@ header .flaticon-list {
   border-radius: 10px;
   background: var(--primary-color-one);
   color: #fff;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-size: 15px;
 }
 .price_plan_box.style_two:hover {
@@ -19520,7 +19527,7 @@ header .flaticon-list {
   background: var(--primary-color-two);
   font-size: 15px;
   font-weight: 600;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   z-index: 1;
   top: 0;
   right: 0;
@@ -19542,7 +19549,7 @@ header .flaticon-list {
   padding: 0px 15px;
   background: var(--primary-color-one);
   color: #fff;
-  font-family: var(--creote-family-two);
+  font-family: var(--font-family-two);
   font-weight: 700;
   font-size: 22px;
   line-height: 70px;
@@ -19555,7 +19562,7 @@ header .flaticon-list {
   background: #fff;
   font-size: 15px;
   font-weight: 600;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   z-index: 1;
   color: var(--primary-color-two);
   border-radius: 10px 0px 0px 0px;
@@ -19614,7 +19621,7 @@ header .flaticon-list {
 .price_plan_box.style_three .inner_box .bottom a.theme-btn {
   background: var(--primary-color-one);
   color: #fff;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-size: 15px;
 }
 .price_plan_box.style_three .inner_box .bottom a.theme-btn:hover {
@@ -19657,7 +19664,7 @@ header .flaticon-list {
   padding: 14px 20px 10px;
   box-shadow: none;
   font-size: 13px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   line-height: 23px;
   font-weight: 600;
   text-transform: uppercase;
@@ -19711,7 +19718,7 @@ header .flaticon-list {
   box-shadow: none;
   border: 0px;
   font-size: 13px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   line-height: 23px;
   font-weight: 600;
   text-transform: uppercase;
@@ -19840,7 +19847,7 @@ header .flaticon-list {
   margin-top: 3px;
   text-transform: uppercase;
   line-height: 23px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
 }
 
 /*--====================================================--
@@ -19999,7 +20006,7 @@ header .flaticon-list {
 input::placeholder, textarea::placeholder {
   font-size: 14px;
   font-weight: 400;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   color: var(--text-color-dark);
   text-transform: capitalize;
 }
@@ -20045,7 +20052,7 @@ form br {
 .contact_form_box_all.type_one .contact_form_box_inner .contact_form_shortcode label {
   font-size: 12px;
   font-weight: 600;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   line-height: 12px;
   color: var(--heading-dark);
   width: 100%;
@@ -20084,7 +20091,7 @@ form br {
 .contact_form_box_all.type_one .contact_form_box_inner .contact_form_shortcode .wpcf7-not-valid-tip {
   font-size: 15px;
   font-weight: 400;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   line-height: 26px;
   color: var(--primary-color-one);
   text-transform: none;
@@ -20096,7 +20103,7 @@ form br {
   text-align: center;
   font-size: 16px;
   font-weight: 400;
-  font-family: var(--creote-family-two);
+  font-family: var(--font-family-two);
   color: #fff;
   padding: 20px;
   border-radius: 5px;
@@ -20177,7 +20184,7 @@ form br {
   font-size: 14px;
   font-weight: 500;
   color: var(--text-color-dark);
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   position: relative;
 }
 .contact_form_box_all.type_two .contact_form_shortcode form p label input,
@@ -20224,7 +20231,7 @@ form br {
   color: var(--primary-color-one);
   text-transform: uppercase;
   font-size: 12px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-weight: 500;
   width: 100%;
   position: relative;
@@ -20271,7 +20278,7 @@ form br {
   color: var(--primary-color-one);
   text-transform: uppercase;
   font-size: 12px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-weight: 500;
   width: 100%;
   position: relative;
@@ -20320,7 +20327,7 @@ form .wpcf7-response-output {
   text-align: center;
   font-size: 13px;
   line-height: 22px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-weight: 600;
   color: #fff;
   bottom: -76px;
@@ -20495,7 +20502,7 @@ form .wpcf7-response-output {
   font-size: 16px;
   line-height: 26px;
   font-weight: 500;
-  font-family: var(--creote-family-two);
+  font-family: var(--font-family-two);
   color: var(--primary-color-one);
   margin-bottom: 0px;
 }
@@ -20546,7 +20553,7 @@ form .wpcf7-response-output {
   line-height: 26px;
   font-weight: 600;
   color: var(--link-color-dark);
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
 }
 .link_box_contents.style_one .link_content_bx .con_box a i {
   position: relative;
@@ -20589,7 +20596,7 @@ form .wpcf7-response-output {
   line-height: 26px;
   font-weight: 600;
   color: #fff;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
 }
 .link_box_contents.style_two .link_content_bx .con_box a i {
   position: relative;
@@ -20801,7 +20808,7 @@ form .wpcf7-response-output {
 }
 .mg_image_box h2 a {
   font-size: 18px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-weight: 600;
   line-height: 28px;
   color: #fff;
@@ -20919,7 +20926,7 @@ form .wpcf7-response-output {
   font-size: 12px;
   line-height: 22px;
   text-transform: uppercase;
-  font-family: var(--creote-family-two);
+  font-family: var(--font-family-two);
 }
 .list_item_box.style_two {
   position: relative;
@@ -20972,7 +20979,7 @@ form .wpcf7-response-output {
   font-size: 12px;
   line-height: 20px;
   text-transform: uppercase;
-  font-family: var(--creote-family-two);
+  font-family: var(--font-family-two);
 }
 .list_item_box.light_color.style_one ul li a {
   color: var(--color-white) !important;
@@ -21059,25 +21066,17 @@ form .wpcf7-response-output {
   border-radius: 15px;
 }
 
-.headline {
-  position: relative;
-  border-radius: var(--border-radius-lg);
-  margin-bottom: var(--padding-lg);
-  text-align: center;
+h1.headline {
+  font-size: calc(1.5rem + 1vw);
 }
-.headline h1 {
-  position: relative;
-  z-index: 1;
-  font-size: calc(2rem + 1vw);
-  color: var(--color-white);
-}
+
 a.read_more {
   font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
   display: inline-flex;
   align-items: center;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
 }
 a.read_more i {
   margin-left: 3px;
@@ -21089,6 +21088,7 @@ a.read_more i {
   letter-spacing: 1px;
   margin-bottom: var(--padding-sm);
   font-weight: 600;
+  font-family: var(--font-family-one);
 }
 
 .bg-one {
@@ -21814,7 +21814,7 @@ a.read_more i {
   background: var(--primary-color-one);
   color: var(--color-white);
   text-align: center;
-  font-family: var(--creote-family-two);
+  font-family: var(--font-family-two);
   padding: 10px 25px;
 }
 .image_box_new.type_one .image_one img {
@@ -22189,7 +22189,7 @@ a.read_more i {
   line-height: 28px;
   border: 1px solid var(--border-color-dark);
   font-weight: 600;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   margin-bottom: 10px;
 }
 .faqs_accordion.type_one .article-title .title_box {
@@ -23166,7 +23166,7 @@ a.read_more i {
   margin-left: auto;
   z-index: 1;
   margin-right: auto;
-  font-family: var(--creote-family-two);
+  font-family: var(--font-family-two);
   font-weight: 400;
   text-align: center;
   box-shadow: 0px 5px 32px 0px rgba(0, 0, 0, 0.05);
@@ -24411,7 +24411,7 @@ a.read_more i {
   color: var(--primary-color-one);
 }
 .testimonial_box.type_two .lower_content .authour_name h6 {
-  font-family: var(--creote-family-two);
+  font-family: var(--font-family-two);
   font-size: 16px;
   font-weight: 400;
   margin: 0px;
@@ -24465,7 +24465,7 @@ a.read_more i {
   font-weight: 600;
   transition: all 0.5s ease;
   text-align: center;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   -webkit-transition: all 0.6s ease-in-out;
   -moz-transition: all 0.6s ease-in-out;
   -ms-transition: all 0.6s ease-in-out;
@@ -25085,7 +25085,7 @@ a.read_more i {
   padding-top: 11px;
   font-size: 15px;
   color: #fff;
-  font-family: var(--creote-family-two);
+  font-family: var(--font-family-one);
 }
 
 /*---==========================================-----
@@ -25219,7 +25219,7 @@ a.read_more i {
 }
 .footer_widgets.get_in_touch_foo .foo_cont_inner .bottom .con_content h5 {
   display: inline-block;
-  font-family: var(--creote-family-two);
+  font-family: var(--font-family-one);
   font-size: 16px;
   font-weight: 400;
   color: #fff;
@@ -25513,7 +25513,7 @@ a.read_more i {
   border-color: rgba(255, 255, 255, 0.06);
   color: #fff;
   font-size: 14px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
 }
 .foo_subscribe.style_one .shortcodes input::placeholder {
   color: rgba(255, 255, 255, 0.5);
@@ -25525,7 +25525,7 @@ a.read_more i {
   width: auto;
   height: 45px;
   font-size: 12px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   text-transform: uppercase;
   padding: 10px 15px;
   text-align: center;
@@ -25559,7 +25559,7 @@ a.read_more i {
   padding: 8px 10px 6px;
   text-align: center;
   font-size: 12px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   display: block;
   bottom: -50px;
   transition: all 0.5s ease;
@@ -25591,7 +25591,7 @@ a.read_more i {
   background: #fff !important;
   border-color: var(--border-color-dark) !important;
   color: var(--text-color-dark) !important;
-  font-family: var(--creote-family-one) !important;
+  font-family: var(--font-family-one) !important;
 }
 .foo_subscribe.dark_color.style_one .shortcodes input::placeholder {
   color: var(--text-color-dark) !important;
@@ -25611,7 +25611,7 @@ a.read_more i {
   position: relative;
   color: var(--text-color-light);
   margin: 0px;
-  font-family: var(--creote-family-two);
+  font-family: var(--font-family-one);
   display: inline-block;
   margin-right: 2em;
 }
@@ -25635,7 +25635,7 @@ a.read_more i {
   color: var(--text-color-light);
   font-size: 15px;
   font-weight: 400;
-  font-family: var(--creote-family-two);
+  font-family: var(--font-family-one);
 }
 
 @media (max-width: 992px) {
@@ -25687,7 +25687,7 @@ a.read_more i {
   color: rgba(255, 255, 255, 0.6);
   font-size: 14px;
   font-weight: 400;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
 }
 .footer_contact_form.light_c .form_box_foo form input[type=submit] {
   background: var(--primary-color-one);
@@ -25723,7 +25723,7 @@ a.read_more i {
   color: var(--text-color-dark);
   font-size: 14px;
   font-weight: 400;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
 }
 
 /*---footer_contact_list -----*/
@@ -25895,7 +25895,7 @@ input[type=checkbox]:checked:after {
 }
 
 b, strong {
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
 }
 
 .woocommerce span.onsale {
@@ -25904,7 +25904,7 @@ b, strong {
   height: 60px;
   line-height: 60px !important;
   font-size: 12px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   background-color: var(--primary-color-one) !important;
 }
 
@@ -25920,7 +25920,7 @@ b, strong {
   background-color: var(--primary-color-one) !important;
   font-size: 12px !important;
   font-weight: 600 !important;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   line-height: 55px !important;
   padding: 0px 25px !important;
   font-weight: 600 !important;
@@ -26158,7 +26158,7 @@ select {
   height: 50px;
   line-height: 50px !important;
   font-size: 10px !important;
-  font-family: var(--creote-family-one) !important;
+  font-family: var(--font-family-one) !important;
   background-color: var(--primary-color-one) !important;
   z-index: 9;
   font-weight: 600 !important;
@@ -26171,7 +26171,7 @@ select {
   color: var(--text-color-dark);
   font-size: 12px;
   font-weight: 500;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   margin-bottom: 10px;
   text-decoration: underline;
 }
@@ -26203,7 +26203,7 @@ select {
   padding: 0px;
   font-weight: 400;
   color: var(--text-color-dark);
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
 }
 .product_box.type_one .product_attributes ul li:first-child {
   color: var(--primary-color-one);
@@ -26253,7 +26253,7 @@ select {
 }
 .product_box.type_one .content_box .pro_cat a {
   display: block;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-size: 12px;
   font-weight: 600;
   line-height: 22px;
@@ -26277,7 +26277,7 @@ select {
   margin: auto !important;
   text-align: center !important;
   position: relative;
-  font-family: var(--creote-family-one) !important;
+  font-family: var(--font-family-one) !important;
   padding: 10px 25px !important;
 }
 .product_box.type_one .content_box .cart_btn a::after {
@@ -26323,7 +26323,7 @@ select {
   display: block;
   margin-bottom: 10px;
   font-size: 16px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   color: var(--heading-dark);
   font-weight: 600;
 }
@@ -26348,7 +26348,7 @@ select {
   border: 1px solid var(--border-color-dark) !important;
   border-radius: 5px !important;
   font-size: 14px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   color: var(--heading-dark);
   font-weight: 600;
 }
@@ -26478,7 +26478,7 @@ select {
   font-size: 14px;
   line-height: 25px;
   border-radius: 5px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   display: inline-block;
   z-index: 11;
 }
@@ -26520,7 +26520,7 @@ select {
   font-weight: 600;
   font-size: 14px;
   text-align: center;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
@@ -26636,7 +26636,7 @@ select {
   font-size: 12px !important;
   line-height: 35px !important;
   background: var(--primary-color-one) !important;
-  font-family: var(--creote-family-one) !important;
+  font-family: var(--font-family-one) !important;
   padding: 0px 20px !important;
   border-radius: 30px !important;
   color: #fff !important;
@@ -26684,7 +26684,7 @@ select {
   display: inline-block;
   font-size: 16px;
   font-weight: 600;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   transition: 0.5s ease-in-out;
   -ms-transition: 0.5s ease-in-out;
   -moz-transition: 0.5s ease-in-out;
@@ -26742,7 +26742,7 @@ select {
   margin-bottom: 10px !important;
   position: relative;
   font-size: 16px;
-  font-family: var(--creote-family-one) !important;
+  font-family: var(--font-family-one) !important;
   font-weight: 600;
   display: inline-block !important;
 }
@@ -26787,7 +26787,7 @@ select {
   -moz-transition: 0.5s ease-in-out;
   -o-transition: 0.5s ease-in-out;
   font-size: 12px !important;
-  font-family: var(--creote-family-one) !important;
+  font-family: var(--font-family-one) !important;
   font-weight: 600 !important;
   text-transform: uppercase;
 }
@@ -26820,7 +26820,7 @@ select {
   line-height: 26px;
   font-weight: 600;
   color: var(--heading-dark);
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   margin: 0px 0 -1px 0 !important;
   background: var(--primary-color-three) !important;
 }
@@ -26922,13 +26922,13 @@ select {
   font-weight: 700;
   color: var(--heading-dark);
   padding: 15px 15px !important;
-  font-family: var(--creote-family-one) !important;
+  font-family: var(--font-family-one) !important;
   line-height: 28px !important;
 }
 .woocommerce .woocommerce-cart-form table.shop_table td, .woocommerce .yith-wcwl-form.wishlist-fragment table.shop_table td, .woocommerce_plugin_on .woocommerce-cart-form table.shop_table td, .woocommerce_plugin_on .yith-wcwl-form.wishlist-fragment table.shop_table td {
   position: relative !important;
   padding: 15px 15px !important;
-  font-family: var(--creote-family-two) !important;
+  font-family: var(--font-family-two) !important;
   line-height: 28px !important;
   font-size: 16px !important;
   font-weight: 400;
@@ -26962,7 +26962,7 @@ select {
   color: #fff !important;
   line-height: 56px !important;
   font-weight: 600 !important;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   padding: 0px 20px !important;
   border-radius: 8px !important;
   transition: 0.5s ease-in-out;
@@ -26984,13 +26984,13 @@ select {
   font-weight: 700;
   color: var(--heading-dark);
   padding: 15px 15px !important;
-  font-family: var(--creote-family-one) !important;
+  font-family: var(--font-family-one) !important;
   line-height: 28px !important;
 }
 .woocommerce-MyAccount-content table td {
   position: relative !important;
   padding: 15px 15px !important;
-  font-family: var(--creote-family-two) !important;
+  font-family: var(--font-family-two) !important;
   line-height: 28px !important;
   font-size: 16px !important;
   font-weight: 400;
@@ -27024,7 +27024,7 @@ select {
   color: #fff !important;
   line-height: 56px !important;
   font-weight: 600 !important;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   padding: 0px 20px !important;
   border-radius: 8px !important;
   transition: 0.5s ease-in-out;
@@ -27105,7 +27105,7 @@ select {
   color: #fff !important;
   line-height: 56px !important;
   font-weight: 600 !important;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   padding: 0px 20px !important;
   border-radius: 8px !important;
   transition: 0.5s ease-in-out;
@@ -27120,13 +27120,13 @@ select {
 }
 .woocommerce .shop_table td::before,
 .woocommerce_plugin_on .shop_table td::before {
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-weight: 500;
   color: var(--heading-dark);
 }
 .woocommerce .shop_table th,
 .woocommerce_plugin_on .shop_table th {
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-weight: 500;
   color: var(--heading-dark);
 }
@@ -27138,7 +27138,7 @@ select {
   color: #fff !important;
   line-height: 56px !important;
   font-weight: 600 !important;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   padding: 0px 20px !important;
   border-radius: 8px !important;
   transition: 0.5s ease-in-out;
@@ -27181,7 +27181,7 @@ select {
   font-weight: 500;
   color: var(--heading-dark) !important;
   line-height: 26px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   margin-bottom: 5px;
 }
 .woocommerce-checkout .form-row {
@@ -27239,7 +27239,7 @@ select {
   color: #fff !important;
   line-height: 56px !important;
   font-weight: 600 !important;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   padding: 0px 20px !important;
   border-radius: 8px !important;
   transition: 0.5s ease-in-out;
@@ -27280,7 +27280,7 @@ select {
   font-weight: 600;
   color: var(--heading-dark);
   margin-bottom: 10px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
 }
 .woocommerce-checkout-review-order .shop_table .product-name img {
   margin-right: 8px;
@@ -27299,13 +27299,13 @@ select {
   font-size: 18px;
   line-height: 28px;
   font-weight: 600;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   color: var(--heading-dark);
 }
 .woocommerce-checkout-review-order .shop_table tfoot .woocommerce-Price-amount.amount {
   font-size: 16px;
   color: var(--primary-color-one);
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-weight: 600;
 }
 .woocommerce-checkout-review-order .shop_table tbody td {
@@ -27430,7 +27430,7 @@ select {
   font-size: 18px;
   color: #fff;
   font-weight: 600;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   line-height: 28px;
   padding: 16px 0px;
 }
@@ -27498,7 +27498,7 @@ select {
   padding: 0px 30px !important;
   line-height: 56px !important;
   font-size: 16px !important;
-  font-family: var(--creote-family-one) !important;
+  font-family: var(--font-family-one) !important;
   font-weight: 600 !important;
   color: #fff !important;
   background: var(--primary-color-two) !important;
@@ -27515,7 +27515,7 @@ select {
   padding: 8px 20px;
   font-size: 14px;
   font-weight: 600;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   color: var(--primary-color-one);
   color: #fff;
   background: var(--primary-color-one);
@@ -27531,7 +27531,7 @@ select {
   font-weight: 600;
   color: var(--heading-dark);
   margin-bottom: 20px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
 }
 .woocommerce-MyAccount-content .password-input {
   position: relative;
@@ -27663,7 +27663,7 @@ select {
 .whole_login_content .register_login .login_left_side .login_forms_box .nav-pills .nav-item .nav-link {
   position: relative;
   display: inline-block;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   padding: 10px 30px;
   font-weight: 600;
   border-radius: 5px;
@@ -27687,7 +27687,7 @@ select {
   line-height: 26px;
   display: block;
   margin-bottom: 8px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   color: #fff;
 }
 .whole_login_content .register_login .login_left_side .login_forms_box .login-register-form .form-row {
@@ -27941,7 +27941,7 @@ select {
   padding: 6px 25px !important;
   line-height: 35px !important;
   font-size: 14px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-weight: 600;
   color: #fff;
   background: var(--primary-color-one);
@@ -27995,7 +27995,7 @@ select {
 }
 .comment-respond .form-submit input {
   font-size: 12px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
 }
 
 @media (max-width: 768px) {
@@ -28224,7 +28224,7 @@ select {
   border-radius: 5px;
   font-size: 15px;
   font-weight: 500;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   color: var(--text-color-dark);
   border: 1px solid var(--border-color-dark);
   transition: 0.5s ease-in-out;
@@ -28288,7 +28288,7 @@ select {
 .woocommerce .widgets_grid_box .cart_list li .woocommerce-Price-amount.amount {
   margin-left: 14px;
   font-size: 12px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   color: var(--primary-color-one);
 }
 .woocommerce .widgets_grid_box .product_list_widget li del,
@@ -28310,7 +28310,7 @@ select {
 .woocommerce .widgets_grid_box .cart_list li ins {
   float: left;
   font-size: 12px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   color: var(--primary-color-one);
 }
 .woocommerce .widgets_grid_box .product_list_widget li del .woocommerce-Price-amount.amount, .woocommerce .widgets_grid_box .product_list_widget li ins .woocommerce-Price-amount.amount,
@@ -28354,7 +28354,7 @@ select {
   margin-left: 75px;
   font-weight: 600;
   text-transform: capitalize;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-size: 16px;
 }
 .woocommerce .widgets_grid_box .wc-block-grid__products li .wc-block-grid__product-price {
@@ -28362,7 +28362,7 @@ select {
 }
 .woocommerce .widgets_grid_box .wc-block-grid__products li .wc-block-grid__product-price del, .woocommerce .widgets_grid_box .wc-block-grid__products li .wc-block-grid__product-price ins {
   font-size: 12px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   color: var(--primary-color-one);
 }
 .woocommerce .widgets_grid_box .wc-block-grid__products li .wc-block-grid__product-price del {
@@ -28465,7 +28465,7 @@ select {
   font-size: 12px;
   line-height: 26px;
   font-weight: 600;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   color: var(--heading-dark);
   line-height: 35px;
 }
@@ -28488,7 +28488,7 @@ select {
   font-weight: 700;
   line-height: 26px;
   color: var(--heading-dark);
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
 }
 .wc-block-product-search__label:before {
   position: absolute;
@@ -28710,12 +28710,12 @@ select {
 
 .rp4wp-related-job_listing > ul li.job_listing a .meta .job-type, .rp4wp-related-job_listing > ul li.no_job_listings_found a .meta .job-type, ul.job_listings li.job_listing a .meta .job-type, ul.job_listings li.no_job_listings_found a .meta .job-type {
   font-size: 15px;
-  font-family: var(--creote-family-one) !important;
+  font-family: var(--font-family-one) !important;
 }
 
 .rp4wp-related-job_listing > ul li.job_listing a div.location, .rp4wp-related-job_listing > ul li.no_job_listings_found a div.location, ul.job_listings li.job_listing a div.location, ul.job_listings li.no_job_listings_found a div.location {
   text-transform: capitalize;
-  font-family: var(--creote-family-one) !important;
+  font-family: var(--font-family-one) !important;
 }
 .rp4wp-related-job_listing > ul li.job_listing a div.location strong, .rp4wp-related-job_listing > ul li.no_job_listings_found a div.location strong, ul.job_listings li.job_listing a div.location strong, ul.job_listings li.no_job_listings_found a div.location strong {
   color: var(--primary-color-one) !important;
@@ -28750,7 +28750,7 @@ ul.job_listings li.job_listing.job_position_featured, ul.job_listings li.no_job_
   color: var(--heading-dark);
   line-height: 28px;
   font-weight: 600;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
 }
 
 .job-manager-form .spinner {
@@ -28947,11 +28947,9 @@ body.side_menu_toggled .style-switcher {
 }
 
 .article-card {
-  margin-bottom: var(--padding-lg);
   position: relative;
   overflow: hidden;
   background-color: var(--color-light);
-  border-radius: var(--border-radius-lg);
   transition: all var(--animation-speed) ease-in-out;
 }
 .article-card.image-left {
@@ -28987,8 +28985,7 @@ body.side_menu_toggled .style-switcher {
   font-size: 12px;
   text-transform: uppercase;
   line-height: 26px;
-  border-radius: 0px 0px var(--border-radius-lg) 0px;
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   transition: var(--animation-speed) ease-in-out;
   -moz-transition: var(--animation-speed) ease-in-out;
   -o-transition: var(--animation-speed) ease-in-out;
@@ -29008,7 +29005,7 @@ body.side_menu_toggled .style-switcher {
 }
 .article-card .content_box {
   position: relative;
-  padding: 1.5rem;
+  padding: var(--padding-md);
   flex: 1 1 50%;
 }
 .article-card .content_box .date {
@@ -29018,7 +29015,7 @@ body.side_menu_toggled .style-switcher {
 .article-card .content_box .date span {
   display: block;
   color: var(--primary-color-one);
-  font-family: var(--creote-family-one);
+  font-family: var(--font-family-one);
   font-weight: 600;
   font-size: 12px;
   text-transform: uppercase;
@@ -29040,14 +29037,17 @@ body.side_menu_toggled .style-switcher {
   transform: translateY(-5px);
   box-shadow: 0 5px 0 var(--highlight-color);
 }
-.article-card:hover .image .categories {
-  background: var(--highlight-color);
-}
 .article-card a {
   color: var(--primary-color-one);
 }
 .article-card a:hover {
-  color: var(--highlight-color);
+  color: var(--primary-color-three);
+}
+
+.featured-articles {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 /*------===============-responsive scs-==============------*/
@@ -29816,13 +29816,9 @@ body.side_menu_toggled .style-switcher {
     background-position: top 1% center !important;
     background-size: 105% auto;
   }
-  .headline {
-    border-radius: var(--border-radius-lg);
-    padding: 1.5rem;
-  }
   .headline h1 {
     position: relative;
-    font-size: calc(1rem + 4vw);
+    font-size: calc(1rem + 2vw);
     font-weight: 600;
   }
 }

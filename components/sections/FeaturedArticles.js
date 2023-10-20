@@ -6,7 +6,7 @@ import ArticleCard from "@/components/elements/ArticleCard"
 export default function FeaturedArticles({ title="Key Insights", articles=[] }) {
     return (
         <div className="blog_post_section one_column news_wrapper_grid style_five">
-            <div className="grid_show_case grid_layout clearfix row">
+            <div className="featured-articles">
                 {
                     articles.map((article, index) => {
                         return (
@@ -22,6 +22,7 @@ export default function FeaturedArticles({ title="Key Insights", articles=[] }) 
                     })
                 }
             </div>
+            <div className="pd_top_20" />
             <Link href={`/articles`} className="read_more">Explore the issues <i className="icon-right-arrow" /></Link >
         </div>
     )

@@ -742,7 +742,7 @@
                     color        : var(--color-white);
                     text-align   : center;
 
-                    font-family: var(--creote-family-two);
+                    font-family: var(--font-family-two);
                     padding    : 10px 25px;
                 }
             }
@@ -1247,7 +1247,7 @@
             line-height  : 28px;
             border       : 1px solid var(--border-color-dark);
             font-weight  : 600;
-            font-family  : var(--creote-family-one);
+            font-family  : var(--font-family-one);
             margin-bottom: 10px;
 
             &.active,
@@ -2444,7 +2444,7 @@
             margin-left  : auto;
             z-index      : 1;
             margin-right : auto;
-            font-family  : var(--creote-family-two);
+            font-family  : var(--font-family-two);
             font-weight  : 400;
             text-align   : center;
             box-shadow   : 0px 5px 32px 0px rgba(0, 0, 0, 0.05);
@@ -3960,7 +3960,7 @@
                 }
 
                 h6 {
-                    font-family: var(--creote-family-two);
+                    font-family: var(--font-family-two);
                     font-size  : 16px;
                     font-weight: 400;
                     margin     : 0px;
@@ -4034,7 +4034,7 @@
         font-weight       : 600;
         transition        : all .5s ease;
         text-align        : center;
-        font-family       : var(--creote-family-one);
+        font-family       : var(--font-family-one);
         -webkit-transition: all .6s ease-in-out;
         -moz-transition   : all .6s ease-in-out;
         -ms-transition    : all .6s ease-in-out;

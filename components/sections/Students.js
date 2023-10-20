@@ -18,7 +18,7 @@ export default function Students({title, before_title, subtitle, description, im
                     </div>
                     <div className="row students-section">
                         <div className="col-12 col-lg-6">
-                            <div className="bg-one rounded-lg padding-lg mb-40">
+                            <div className="bg-one padding-lg mb-40">
                                 <div className="title_all_box style_one">
                                     <div className="title_sections">
                                         <div className="title-small">{before_title} </div>

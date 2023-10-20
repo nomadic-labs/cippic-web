@@ -129,7 +129,7 @@ export default function OurWork({ content, layout }) {
                         <div className="mr_bottom_10" />
                         {/*===============spacing==============*/}
                     </div>
-                    <div className="row">
+                    <div className="row news-articles">
                     {
                             latestArticles.map((article, index) => {
                                 const categories = article.categories.data || []

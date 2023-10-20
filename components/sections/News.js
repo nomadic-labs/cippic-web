@@ -8,7 +8,7 @@ export default function News({title, before_title, subtitle, articles=[]}) {
         <>
             <section className="service-section bg-light">
                 {/*===============spacing==============*/}
-                <div className="pd_top_80" />
+                <div className="pd_top_40" />
                 {/*===============spacing==============*/}
                 <div className="container-xl">
                     <div className="row">
@@ -24,7 +24,7 @@ export default function News({title, before_title, subtitle, articles=[]}) {
                         <div className="mr_bottom_10" />
                         {/*===============spacing==============*/}
                     </div>
-                    <div className="row">
+                    <div className="row news-articles">
                     {
                             articles.map((article, index) => {
                                 const categories = article.categories.data || []
@@ -35,7 +35,7 @@ export default function News({title, before_title, subtitle, articles=[]}) {
                                 const image = article.main_image.data ? article.main_image.data.url : null
 
                                 return (
-                                    <div key={article.id} className="col-12 col-lg-6 col-xl-4">
+                                    <div key={article.id} className="col-12 col-lg-6 col-xl-4 mr_bottom_30">
                                         <Fade bottom delay={index * 60}>
                                             <ArticleCard article={article} />
                                         </Fade>
@@ -47,7 +47,7 @@ export default function News({title, before_title, subtitle, articles=[]}) {
                     </div>
                 </div>
                 {/*===============spacing==============*/}
-                <div className="pd_bottom_80" />
+                <div className="pd_bottom_60" />
                 {/*===============spacing==============*/}
             </section>
 

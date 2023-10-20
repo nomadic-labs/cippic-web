@@ -78,7 +78,7 @@ export default function ArticlePage({ content, layout }) {
                   <div className="container">
                     <div className="row">
                       <div className="col-12">
-                        <div className="padding-xl bg-one rounded-lg">
+                        <div className="padding-xl bg-one">
                           <div className="title-small">{dateString}</div>
                           <h1 className="title-med">{article.title}</h1>
                           <ReactMarkdown className="text-lg">{`By ${article.author}`}</ReactMarkdown>

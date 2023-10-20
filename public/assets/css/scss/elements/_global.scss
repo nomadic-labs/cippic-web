@@ -1,6 +1,6 @@
 /*------===============-css-start-==============------*/
 body {
-    font-family           : var(--creote-family-two);
+    font-family           : var(--font-family-one);
     font-size             : 16px;
     color                 : var(--text-color-dark);
     font-weight           : 400;
@@ -170,8 +170,7 @@ h6 a,
 h6 {
     font-weight    : 400;
     margin         : 0;
-    // color          : var(--primary-color-two);
-    font-family    : var(--creote-family-one);
+    font-family    : var(--font-family-two);
     transition     : 0.5s ease-in-out;
     -ms-transition : 0.5s ease-in-out;
     -moz-transition: 0.5s ease-in-out;
@@ -222,7 +221,7 @@ h6 {
 p {
     font-size      : 16px;
     line-height    : 26px;
-    font-family    : var(--creote-family-two);
+    font-family    : var(--font-family-one);
     font-weight    : 400;
     margin-bottom  : 15px;
     transition     : 0.5s ease-in-out;
@@ -295,7 +294,7 @@ body button[type="submit"] {
     border-radius : 10px 0px 10px 0px;
     border        : 1px solid var(--border-color-one);
     background    : var(--primary-color-one);
-    font-family   : var(--creote-family-one);
+    font-family   : var(--font-family-one);
     color         : #fff;
     font-weight   : 600;
     text-transform: uppercase;
@@ -366,7 +365,7 @@ a {
 }
 
 a:hover {
-    color: var(--highlight-color);
+    color: var(--primary-color-three);
 }
 
 p {
@@ -526,7 +525,7 @@ body.error404 {
                 font-size  : 60px;
                 line-height: 70px;
                 font-weight: 700;
-                font-family: var(--creote-family-one);
+                font-family: var(--font-family-one);
             }
         }
     }
@@ -569,7 +568,7 @@ body.error404 {
                 /*var(--primary-color-one)*/
                 #fff;
             position      : relative;
-            font-family   : var(--creote-family-one);
+            font-family   : var(--font-family-one);
             font-size     : 12px;
             line-height   : 18px;
             font-weight   : 600;
@@ -579,7 +578,7 @@ body.error404 {
                 color          : rgba($color: #fff, $alpha: 0.7);
                 position       : relative;
                 text-decoration: none;
-                font-family    : var(--creote-family-one);
+                font-family    : var(--font-family-one);
                 font-size      : 12px;
                 line-height    : 18px;
                 text-transform : uppercase;
@@ -652,7 +651,7 @@ body.error404 {
             .date {
                 span {
                     color         : #fff;
-                    font-family   : var(--creote-family-one);
+                    font-family   : var(--font-family-one);
                     font-weight   : 600;
                     text-transform: uppercase;
                     font-size     : 12px;
@@ -685,7 +684,7 @@ body.error404 {
                 a,
                 span {
                     color         : #fff;
-                    font-family   : var(--creote-family-one);
+                    font-family   : var(--font-family-one);
                     font-weight   : 600;
                     text-transform: uppercase;
                     font-size     : 12px;
@@ -716,7 +715,7 @@ body.error404 {
 
                     h6 {
                         color         : #fff;
-                        font-family   : var(--creote-family-one);
+                        font-family   : var(--font-family-one);
                         font-weight   : 600;
                         text-transform: uppercase;
                         font-size     : 12px;
@@ -726,7 +725,7 @@ body.error404 {
 
                     h4 {
                         color      : #fff;
-                        font-family: var(--creote-family-one);
+                        font-family: var(--font-family-one);
                         font-weight: 700;
                         font-size  : 14px;
                         line-height: 22px;
@@ -818,7 +817,7 @@ body.error404 {
                 line-height  : 32px;
                 font-weight  : 700;
                 color        : var(--primary-color-two);
-                font-family  : var(--creote-family-one);
+                font-family  : var(--font-family-one);
             }
         }
 
@@ -858,7 +857,7 @@ body.error404 {
                             line-height: 28px;
                             font-weight: 700;
                             color      : var(--primary-color-two);
-                            font-family: var(--creote-family-one);
+                            font-family: var(--font-family-one);
                             margin     : 15px 0px;
                         }
 
@@ -876,7 +875,7 @@ body.error404 {
                             font-size     : 12px;
                             font-weight   : 600;
                             color         : var(--primary-color-one);
-                            font-family   : var(--creote-family-one);
+                            font-family   : var(--font-family-one);
                             text-transform: uppercase;
                             top           : 7px;
                         }
@@ -890,7 +889,7 @@ body.error404 {
                                 font-size     : 12px;
                                 font-weight   : 600;
                                 color         : var(--primary-color-one);
-                                font-family   : var(--creote-family-one);
+                                font-family   : var(--font-family-one);
                                 text-transform: uppercase;
                             }
                         }
@@ -948,7 +947,7 @@ body.error404 {
             line-height: 32px;
             font-weight: 700;
             color      : var(--heading-dark);
-            font-family: var(--creote-family-one);
+            font-family: var(--font-family-one);
 
             small {
                 margin : 5px 0px;
@@ -1036,7 +1035,7 @@ body.error404 {
             font-weight   : 600;
             text-transform: uppercase;
             color         : var(--text-color-dark);
-            font-family   : var(--creote-family-one);
+            font-family   : var(--font-family-one);
             margin-bottom : 8px;
         }
 
@@ -1047,7 +1046,7 @@ body.error404 {
                 font-weight   : 700;
                 text-transform: capitalize;
                 color         : var(--heading-dark);
-                font-family   : var(--creote-family-one);
+                font-family   : var(--font-family-one);
                 display       : block;
             }
         }
@@ -1198,7 +1197,7 @@ body.error404 {
                 font-weight   : 600;
                 text-transform: uppercase;
                 color         : var(--text-color-dark);
-                font-family   : var(--creote-family-one);
+                font-family   : var(--font-family-one);
                 margin-bottom : 8px;
             }
         }
@@ -1244,7 +1243,7 @@ body.error404 {
                 text-transform    : uppercase;
                 color             : var(--text-color-dark);
                 background-color  : var(--color-white);
-                font-family       : var(--creote-family-one);
+                font-family       : var(--font-family-one);
                 border            : 1px solid var(--border-color-dark);
                 border-radius     : 5px;
                 line-height       : 30px;

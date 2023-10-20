@@ -57,14 +57,14 @@ export default function Contact({ content, layout }) {
                             </div>
 
                             <div className="row">
-                                <div className="col-xl-6 col-lg-6 col-12">
+                                <div className="col-xl-6 col-lg-6 col-12 mr_bottom_30">
                                     <Card>
                                         <div className="contact_box_inner icon_yes">
                                             <div className="icon_bx">
                                                 <span className="icon-send" />
                                             </div>
                                             <div className="contnet">
-                                                <h3> {content.email_label} </h3>
+                                                <h3 className="title-small"> {content.email_label} </h3>
                                                 <p>
                                                     {contact.email}
                                                 </p>
@@ -73,14 +73,14 @@ export default function Contact({ content, layout }) {
                                     </Card>
                                 </div>
 
-                                <div className="col-xl-6 col-lg-6 col-12">
+                                <div className="col-xl-6 col-lg-6 col-12 mr_bottom_30">
                                     <Card>
                                         <div className="contact_box_inner icon_yes">
                                             <div className="icon_bx">
                                                 <span className="icon-phone-call" />
                                             </div>
                                             <div className="contnet">
-                                                <h3> {content.phone_number_label} </h3>
+                                                <h3 className="title-small"> {content.phone_number_label} </h3>
                                                 <p>
                                                     {contact.phone}
                                                 </p>
@@ -89,14 +89,14 @@ export default function Contact({ content, layout }) {
                                     </Card>
                                 </div>
                                     
-                                <div className="col-xl-6 col-lg-6 col-12">
+                                <div className="col-xl-6 col-lg-6 col-12 mr_bottom_30">
                                     <Card>
                                         <div className="contact_box_inner icon_yes">
                                             <div className="icon_bx">
                                                 <span className=" icon-placeholder" />
                                             </div>
                                             <div className="contnet">
-                                                <h3> {content.physical_address_label} </h3>
+                                                <h3 className="title-small"> {content.physical_address_label} </h3>
                                                 <ReactMarkdown>
                                                     {contact.location}
                                                 </ReactMarkdown>
@@ -106,14 +106,14 @@ export default function Contact({ content, layout }) {
                                 </div>
 
 
-                                <div className="col-xl-6 col-lg-6 col-12">
+                                <div className="col-xl-6 col-lg-6 col-12 mr_bottom_30">
                                     <Card>
                                         <div className="contact_box_inner icon_yes">
                                             <div className="icon_bx">
                                                 <span className=" icon-mail" />
                                             </div>
                                             <div className="contnet">
-                                                <h3> {content.mailing_address_label} </h3>
+                                                <h3 className="title-small"> {content.mailing_address_label} </h3>
                                                 <ReactMarkdown>
                                                     {contact.mailing_address}
                                                 </ReactMarkdown>
@@ -126,7 +126,7 @@ export default function Contact({ content, layout }) {
                             </div>
                         </div>
                         {/*===============spacing==============*/}
-                        <div className="pd_top_70" />
+                        <div className="pd_top_40" />
                         {/*===============spacing==============*/}
                     </section>
                     <section className="contact-map-section bg-two">
@@ -136,7 +136,7 @@ export default function Contact({ content, layout }) {
                                     {/*===============spacing==============*/}
                                     <div className="pd_top_80" />
                                     {/*===============spacing==============*/}   
-                                    <div className="bg-faded rounded-lg padding-lg text-white">
+                                    <div className="bg-faded  padding-lg text-white">
                                         <ReactMarkdown>
                                             {content.land_acknowledgement}
                                         </ReactMarkdown>
@@ -144,8 +144,8 @@ export default function Contact({ content, layout }) {
                                     {/*===============spacing==============*/}
                                     <div className="pd_top_40" />
                                     {/*===============spacing==============*/}                              
-                                    <div className="map-outer rounded-lg">
-                                        <iframe src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=100%20Thomas%20More%20Private,%20Ottawa,%20ON%20K1N%206N5+(CIPPIC)&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" height={570} style={{ border: 0, borderRadius: '1rem' }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
+                                    <div className="map-outer ">
+                                        <iframe src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=100%20Thomas%20More%20Private,%20Ottawa,%20ON%20K1N%206N5+(CIPPIC)&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" height={570} style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
                                     </div>
                                 </div>  
                             </div>

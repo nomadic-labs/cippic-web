@@ -94,7 +94,7 @@
         content: "";
         font-size: 11px;
         text-transform: uppercase;
-        font-family: var(--creote-family-one);
+        font-family: var(--font-family-one);
         color: #fff;
         font-weight: 600;
         padding: 6px 12px;
@@ -338,7 +338,7 @@
             font-weight: 700;
             line-height: 26px;
             color: var(--heading-dark);
-            font-family: var(--creote-family-one);
+            font-family: var(--font-family-one);
 
             &:before {
                 position: absolute;
@@ -381,7 +381,7 @@
                 -ms-transition: 0.5s ease-in-out;
                 display: block;
                 text-transform: uppercase;
-                font-family: var(--creote-family-one);
+                font-family: var(--font-family-one);
                 font-weight: 600;
                 font-size: 12px;
 
@@ -520,7 +520,7 @@
                 display: block;
                 text-transform: capitalize;
                 font-size: 15px;
-                font-family: var(--creote-family-one);
+                font-family: var(--font-family-one);
                 font-weight: 500;
                 line-height: 26px;
 
@@ -584,7 +584,7 @@
             color: var(--text-color-dark);
             margin-bottom: 9px;
             margin-right: 5px;
-            font-family: var(--creote-family-one);
+            font-family: var(--font-family-one);
             line-height: 10px;
             transition: 0.5s ease-in-out;
             -moz-transition: 0.5s ease-in-out;
@@ -638,7 +638,7 @@
                 color: var(--text-color-dark);
                 line-height: 22px;
                 font-weight: 600;
-                font-family: var(--creote-family-one);
+                font-family: var(--font-family-one);
                 margin-bottom: 6px;
 
                 span {
@@ -654,7 +654,7 @@
                 font-size: 16px;
                 line-height: 26px;
                 color: var(--heading-dark);
-                font-family: var(--creote-family-one);
+                font-family: var(--font-family-one);
                 font-weight: 700;
                 margin-bottom: 6px;
                 text-transform: none;
@@ -695,7 +695,7 @@
         font-weight: 700;
         line-height: 26px;
         color: var(--heading-dark);
-        font-family: var(--creote-family-one);
+        font-family: var(--font-family-one);
 
         &:before {
             position: absolute;
@@ -761,7 +761,7 @@
         background: var(--primary-color-one);
         text-transform: uppercase;
         font-weight: 600;
-        font-family: var(--creote-family-one);
+        font-family: var(--font-family-one);
         color: #fff;
         display: inline-block;
         position: relative;
@@ -806,7 +806,7 @@
                     font-size: 16px !important;
                     line-height: 26px !important;
                     color: var(--heading-dark) !important;
-                    font-family: var(--creote-family-one) !important;
+                    font-family: var(--font-family-one) !important;
                     font-weight: 700 !important;
                     margin-bottom: 6px;
                     text-transform: none !important;
@@ -818,7 +818,7 @@
                 .wp-block-latest-posts__post-excerpt {
                     font-size: 15px;
                     line-height: 26px;
-                    font-family: var(--creote-family-two);
+                    font-family: var(--font-family-two);
                     font-weight: 400;
                     margin-bottom: 0px;
                     text-transform: none;
@@ -833,7 +833,7 @@
                     color: var(--text-color-dark);
                     line-height: 22px;
                     font-weight: 600;
-                    font-family: var(--creote-family-one);
+                    font-family: var(--font-family-one);
                     margin-bottom: 6px;
                 }
             }
@@ -844,7 +844,7 @@
                     color: var(--primary-color-one);
                     line-height: 24px;
                     font-weight: 600;
-                    font-family: var(--creote-family-one);
+                    font-family: var(--font-family-one);
                     margin-bottom: 6px;
                     text-transform: none;
                 }
@@ -883,7 +883,7 @@
                 font-size: 16px !important;
                 line-height: 26px !important;
                 color: var(--heading-dark) !important;
-                font-family: var(--creote-family-one) !important;
+                font-family: var(--font-family-one) !important;
                 font-weight: 600 !important;
                 margin-bottom: 6px;
                 text-transform: none !important;
@@ -895,7 +895,7 @@
             .wp-block-latest-posts__post-excerpt {
                 font-size: 15px;
                 line-height: 26px;
-                font-family: var(--creote-family-two);
+                font-family: var(--font-family-two);
                 font-weight: 400;
                 margin-bottom: 0px;
                 text-transform: none;
@@ -910,7 +910,7 @@
                 color: var(--text-color-dark);
                 line-height: 22px;
                 font-weight: 600;
-                font-family: var(--creote-family-one);
+                font-family: var(--font-family-one);
                 margin-bottom: 6px;
             }
         }
@@ -921,7 +921,7 @@
                 color: var(--primary-color-one);
                 line-height: 24px;
                 font-weight: 600;
-                font-family: var(--creote-family-one);
+                font-family: var(--font-family-one);
                 margin-bottom: 6px;
                 text-transform: none;
             }
@@ -1166,7 +1166,7 @@
             .rsswidget {
                 margin-bottom: 10px;
                 font-size: 16px !important;
-                font-family: var(--creote-family-one) !important;
+                font-family: var(--font-family-one) !important;
                 color: var(--heading-dark);
                 line-height: 26px !important;
                 font-weight: 600;
@@ -1184,13 +1184,13 @@
                 font-size: 15px;
                 line-height: 25px;
                 font-weight: 400;
-                font-family: var(--creote-family-two);
+                font-family: var(--font-family-two);
                 margin-bottom: 8px;
             }
 
             cite {
                 font-style: normal;
-                font-family: var(--creote-family-one);
+                font-family: var(--font-family-one);
                 font-size: 16px;
                 line-height: 26px;
                 font-weight: 600;

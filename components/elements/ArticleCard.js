@@ -34,6 +34,7 @@ export default function ArticleCard ({
     const hasImage = showImage && image
 
     return (
+        
         <div className={`article-card ${imageTop ? 'image-top' : 'image-left'} bg-white`}>
             <div className={`image`}>
                 { hasImage && <Image width={image.width} height={image.height} src={`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${image.url}`} alt={image.alternativeText} className="img-fluid" alt="img" /> }

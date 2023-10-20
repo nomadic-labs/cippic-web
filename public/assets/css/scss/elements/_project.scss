@@ -62,7 +62,7 @@
             padding: 20px 60px 0px 0px;
             p{
                 font-size: 12px;
-                font-family: var(--creote-family-one);
+                font-family: var(--font-family-one);
                 font-weight: 600;
                 text-transform: uppercase;
                 color: var(--primary-color-one);
@@ -169,6 +169,8 @@
     .fliter_group {
         position: relative;
         margin-bottom: var(--padding-lg);
+        display: inline-flex;
+        align-items: center;
 
 
         .project_filter{
@@ -190,7 +192,7 @@
                 cursor: pointer;
                 font-size: 12px;
                 text-transform: uppercase;
-                font-family: var(--creote-family-one);
+                font-family: var(--font-family-one);
                 font-weight: 600;
                 margin-bottom: 0;
                 border: 1px solid var(--primary-color-one);
@@ -251,7 +253,7 @@
                     text-transform: uppercase;
                     font-weight: 600;
                     background: transparent;
-                    font-family: var(--creote-family-one);
+                    font-family: var(--font-family-one);
                     font-weight: 700;
                     transition:all .5s ease;
                     -moz-transition: all .5s ease;
@@ -301,7 +303,7 @@
                     line-height: 20px;
                     font-weight: 600;
                     background: transparent;
-                    font-family: var(--creote-family-one);
+                    font-family: var(--font-family-one);
                     font-weight: 700;
                     transition:all .5s ease;
                     -moz-transition: all .5s ease;
@@ -401,7 +403,7 @@
                 h2 {
                     a{
                         position: relative;
-                        font-family: var(--creote-family-one);
+                        font-family: var(--font-family-one);
                         font-size: 18px;
                         font-weight: 700;
                         line-height: 26px;
@@ -458,7 +460,7 @@
                         line-height: 16px;
                         font-weight: 600;
                         color: var(--primary-color-one);
-                        font-family: var(--creote-family-one);
+                        font-family: var(--font-family-one);
                         text-transform: uppercase;
                         margin-bottom: 15px;
                         padding: 9px 11px 4px;
@@ -590,7 +592,7 @@
                                 span{
                                     font-size: 16px;
                                     line-height: 26px;
-                                    font-family: var(--creote-family-two);
+                                    font-family: var(--font-family-two);
                                     font-weight: 400;
                                     display: inline-block;
                                     text-transform: none;
@@ -735,7 +737,7 @@
             padding: 20px 0px 0px 0px!important;
             p{
                 font-size: 12px;
-                font-family: var(--creote-family-one);
+                font-family: var(--font-family-one);
                 font-weight: 600;
                 text-transform: uppercase;
                 color: var(--primary-color-one);
@@ -845,7 +847,7 @@
             z-index: 11;
             p{
                 font-size: 12px;
-                font-family: var(--creote-family-one);
+                font-family: var(--font-family-one);
                 font-weight: 600;
                 text-transform: uppercase;
                 color: #fff;
@@ -1006,7 +1008,7 @@
                         border: 1px solid #fff;
                         color: #fff;
                         font-size: 12px;
-                        font-family: var(--creote-family-one);
+                        font-family: var(--font-family-one);
                         font-weight: 600;
                         text-transform: uppercase;
                     }
@@ -1316,7 +1318,7 @@
                 line-height: 26px;
                 display: block;
                 margin-bottom: 6px;
-                font-family: var(--creote-family-one);
+                font-family: var(--font-family-one);
             }
             h2{
                 line-height: normal;
@@ -1326,7 +1328,7 @@
                     color: #fff;
                     line-height: 30px;
                     display: block;
-                    font-family: var(--creote-family-one);
+                    font-family: var(--font-family-one);
                 }
             }
         }

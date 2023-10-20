@@ -8,7 +8,7 @@
     color: #fff;
     border: 1px solid var(--primary-color-one);
     line-height: 56px;
-    font-family: var(--creote-family-one);
+    font-family: var(--font-family-one);
     min-height: 56px;
     min-width: 160px;
     font-weight: 600;
@@ -27,7 +27,7 @@
 
 .theme-btn{
     position: relative;
-    font-family: var(--creote-family-one);
+    font-family: var(--font-family-one);
     
     /*----theme-btn one-----*/
     &.one{
@@ -158,7 +158,7 @@
         color: var(--heading-dark);
         text-transform: uppercase;
         background: none!important;
-        font-family: var(--creote-family-one);
+        font-family: var(--font-family-one);
         font-weight: 600;
         i{
             position: relative;

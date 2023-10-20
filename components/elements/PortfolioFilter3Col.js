@@ -46,8 +46,8 @@ export default function PortfolioFilter3Col({articles, filters, filterField="con
         <>
             <div className="row">
                 <div className="col-lg-12">
-                    <div className="fliter_group bg-white rounded-lg padding-lg">
-                        <p className="title-small text-dark">Filters</p>
+                    <div className="fliter_group bg-white padding-md">
+                        <p className="title-small text-dark mb-0 mr_right_10">Filters</p>
                         <ul className="project_filter dark clearfix">
                             <li className={activeBtn("*")} onClick={handleFilterKeyChange("*")}>All</li>
                             {
@@ -70,8 +70,8 @@ export default function PortfolioFilter3Col({articles, filters, filterField="con
                             const tagsClasses = filterOptions.map(t => t.attributes.slug).join(' ')
 
                             return (
-                                <div key={article.id} className={`project-wrapper grid-item col-xl-4 col-lg-6 col-md-12 col-sm-12 ${tagsClasses}`}>
-                                    <ArticleCard article={article} tagsAttribute={filterField} showImage={false} />
+                                <div key={article.id} className={`project-wrapper grid-item col-xl-4 col-lg-6 col-md-12 col-sm-12 ${tagsClasses} mr_bottom_30`}>
+                                    <ArticleCard article={article} tagsAttribute={filterField} />
                                 </div>
                             )
                         })

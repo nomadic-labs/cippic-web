@@ -74,7 +74,7 @@ export default function StudentPage({ content, layout }) {
                       <div className="container">
                         <div className="row">
                           <div className="col-12">
-                            <div className="padding-xl bg-one rounded-lg">
+                            <div className="padding-xl bg-one ">
                               <div className="title-small">{page.before_title}</div>
                               <h1>{page.title}</h1>
                               <ReactMarkdown className="text-lg">{page.intro}</ReactMarkdown>

@@ -171,11 +171,11 @@
 
 .rp4wp-related-job_listing>ul li.job_listing a .meta .job-type, .rp4wp-related-job_listing>ul li.no_job_listings_found a .meta .job-type, ul.job_listings li.job_listing a .meta .job-type, ul.job_listings li.no_job_listings_found a .meta .job-type{
     font-size: 15px;
-    font-family: var(--creote-family-one)!important;
+    font-family: var(--font-family-one)!important;
 }
 .rp4wp-related-job_listing>ul li.job_listing a div.location, .rp4wp-related-job_listing>ul li.no_job_listings_found a div.location, ul.job_listings li.job_listing a div.location, ul.job_listings li.no_job_listings_found a div.location{
     text-transform: capitalize;
-    font-family: var(--creote-family-one)!important;
+    font-family: var(--font-family-one)!important;
     strong{
         color: var(--primary-color-one)!important;
     }
@@ -211,7 +211,7 @@
        color: var(--heading-dark);
        line-height: 28px;
        font-weight: 600;
-       font-family: var(--creote-family-one);
+       font-family: var(--font-family-one);
    }
 }
 .job-manager-form .spinner {

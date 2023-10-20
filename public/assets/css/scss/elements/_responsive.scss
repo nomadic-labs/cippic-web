@@ -843,12 +843,9 @@
         }
 
         .headline {
-            border-radius: var(--border-radius-lg);
-            padding: 1.5rem;
-
             h1 {
                 position: relative;
-                font-size: calc(1rem + 4vw);
+                font-size: calc(1rem + 2vw);
                 font-weight: 600;
             }
         }

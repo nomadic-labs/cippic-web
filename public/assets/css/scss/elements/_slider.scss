@@ -764,7 +764,7 @@
         .slide-item-content {
             position: relative;
             overflow: hidden;
-            border-radius: var(--border-radius-lg);
+            // border-radius: var(--border-radius-lg);
 
             .image-layer {
                 position           : absolute;
@@ -937,7 +937,7 @@
                 .tag_content {
                     position   : relative;
                     font-size  : 30px;
-                    font-family: var(--creote-family-one);
+                    font-family: var(--font-family-one);
                     font-weight: 700;
                     line-height: 40px;
                     display    : flex;
@@ -1272,7 +1272,7 @@
                 a.theme-btn {
                     font-size     : 12px;
                     font-weight   : 600;
-                    font-family   : var(--creote-family-one);
+                    font-family   : var(--font-family-one);
                     text-transform: uppercase;
                 }
             }
@@ -1332,7 +1332,7 @@
                 a.theme-btn {
                     font-size     : 12px;
                     font-weight   : 600;
-                    font-family   : var(--creote-family-one);
+                    font-family   : var(--font-family-one);
                     color         : #fff;
                     background    : var(--primary-color-one);
                     text-transform: uppercase;
@@ -1406,7 +1406,7 @@
                 a.theme-btn {
                     font-size     : 12px;
                     font-weight   : 600;
-                    font-family   : var(--creote-family-one);
+                    font-family   : var(--font-family-one);
                     text-transform: uppercase;
                     border-radius : 8px;
                 }
@@ -1600,7 +1600,7 @@
                 a.theme-btn {
                     font-size     : 12px;
                     font-weight   : 600;
-                    font-family   : var(--creote-family-one);
+                    font-family   : var(--font-family-one);
                     text-transform: uppercase;
                 }
 
@@ -1673,7 +1673,7 @@
         .tag_content {
             position   : relative;
             font-size  : 30px;
-            font-family: var(--creote-family-one);
+            font-family: var(--font-family-one);
             font-weight: 700;
             line-height: 40px;
             display    : flex;

@@ -42,7 +42,7 @@ export default function Contact({ content, layout }) {
         >
             <section className="contact-section">
                 {/*===============spacing==============*/}
-                <div className="pd_top_90" />
+                <div className="pd_top_80" />
                 {/*===============spacing==============*/}
                 <div className="container">
                     <div className="row">
@@ -69,6 +69,7 @@ export default function Contact({ content, layout }) {
                     })}
                     </div>
                 </div>
+                <div className="pd_top_80" />
             </section>
         </Layout>
     )

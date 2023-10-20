@@ -49,7 +49,7 @@ export default function Donate({ content, layout }) {
                       <div className="container">
                         <div className="row">
                           <div className="col-12">
-                            <div className="padding-xl bg-one rounded-lg">
+                            <div className="padding-xl bg-one">
                               <div className="title-small">{content.before_title}</div>
                               <h1>{content.title}</h1>
                               <ReactMarkdown className="text-lg">{content.intro}</ReactMarkdown>

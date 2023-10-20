@@ -43,7 +43,9 @@ export const getStaticProps = async ({ params }) => {
           'icon.media',
           'articles',
           'articles.categories',
-          'articles.content_types'
+          'articles.content_types',
+          'articles.main_image',
+          'articles.main_image.media',
         ],
       },
       {
@@ -96,7 +98,7 @@ export default function TopicsPage({ content, layout }) {
                   <div className="container-xl">
                     <div className="row">
                       <div className="col-12">
-                        <div className="padding-xl bg-one rounded-lg">
+                        <div className="padding-xl bg-one">
                           <h1>{category.name}</h1>
                           <ReactMarkdown className="text-lg">{category.description}</ReactMarkdown>
                         </div>

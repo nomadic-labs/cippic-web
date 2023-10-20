@@ -93,7 +93,7 @@ export default function Home5({content, layout}) {
                     articles={content.articles}
                 />
                 <Topics 
-                    topics={content.categories}
+                    topics={layout.categories}
                     title={content.topics_section_title}
                     before_title={content.topics_section_before_title}
                     subtitle={content.topics_section_subtitle}

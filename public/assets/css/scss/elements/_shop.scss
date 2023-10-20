@@ -43,7 +43,7 @@ input[type=checkbox] , input[type=radio] {
     border-top: 8px solid  var(--primary-color-one);
   }
 b, strong{
-    font-family: var(--creote-family-one);
+    font-family: var(--font-family-one);
 }
 
 .woocommerce span.onsale{
@@ -52,7 +52,7 @@ b, strong{
     height: 60px;
     line-height: 60px!important;
     font-size: 12px;
-    font-family: var(--creote-family-one);
+    font-family: var(--font-family-one);
     background-color: var(--primary-color-one)!important;
 }
 .woocommerce ,
@@ -67,7 +67,7 @@ b, strong{
             background-color: var(--primary-color-one)!important;
             font-size: 12px!important;
             font-weight: 600!important;
-            font-family: var(--creote-family-one);
+            font-family: var(--font-family-one);
             line-height: 55px!important;
             padding: 0px 25px!important;
             font-weight: 600!important;
@@ -332,7 +332,7 @@ select {
                 height: 50px;
                 line-height: 50px!important;
                 font-size: 10px!important;
-                font-family: var(--creote-family-one)!important;
+                font-family: var(--font-family-one)!important;
                 background-color: var(--primary-color-one)!important;
                 z-index: 9;
                 font-weight: 600!important;
@@ -344,7 +344,7 @@ select {
                     color: var(--text-color-dark);
                     font-size: 12px;
                     font-weight: 500;
-                    font-family: var(--creote-family-one);
+                    font-family: var(--font-family-one);
                     margin-bottom: 10px;
                     text-decoration: underline;
                 }
@@ -379,7 +379,7 @@ select {
                     padding: 0px;
                     font-weight: 400;
                     color: var(--text-color-dark);
-                    font-family: var(--creote-family-one);
+                    font-family: var(--font-family-one);
                     &:first-child{
                         color: var(--primary-color-one);
                         font-weight: 600;
@@ -441,7 +441,7 @@ select {
             .pro_cat{
                 a{
                     display: block;
-                    font-family: var(--creote-family-one);
+                    font-family: var(--font-family-one);
                     font-size: 12px;
                     font-weight: 600;
                     line-height: 22px;
@@ -465,7 +465,7 @@ select {
                     margin: auto !important;
                     text-align: center !important; 
                     position: relative;
-                    font-family: var(--creote-family-one) !important;
+                    font-family: var(--font-family-one) !important;
                     padding: 10px 25px!important;
                     &::after{
                         position: absolute;
@@ -524,7 +524,7 @@ select {
                  display: block;
                  margin-bottom: 10px;
                  font-size: 16px;
-                 font-family: var(--creote-family-one);
+                 font-family: var(--font-family-one);
                  color: var(--heading-dark);
                  font-weight: 600;
              }
@@ -547,7 +547,7 @@ select {
                         border: 1px solid var(--border-color-dark) !important;
                         border-radius: 5px !important;
                         font-size: 14px;
-                        font-family: var(--creote-family-one);
+                        font-family: var(--font-family-one);
                         color: var(--heading-dark);
                         font-weight: 600;
                     }
@@ -688,7 +688,7 @@ select {
                 font-size: 14px;
                 line-height: 25px;
                 border-radius: 5px;
-                font-family: var(--creote-family-one);
+                font-family: var(--font-family-one);
                 display: inline-block;
                 z-index: 11;
             }
@@ -728,7 +728,7 @@ select {
                         font-weight: 600;
                         font-size: 14px;
                         text-align: center;
-                        font-family: var(--creote-family-one);
+                        font-family: var(--font-family-one);
                         -webkit-transition: all 0.5s ease;
                         transition: all 0.5s ease;
                         -moz-transition: all 0.5s ease;
@@ -869,7 +869,7 @@ select {
     font-size: 12px!important;
     line-height: 35px !important;
     background: var(--primary-color-one)!important;
-    font-family: var(--creote-family-one)!important;
+    font-family: var(--font-family-one)!important;
     padding: 0px 20px!important;
     border-radius: 30px!important;
     color: #fff!important;
@@ -913,7 +913,7 @@ select {
             display: inline-block;
             font-size: 16px;
             font-weight: 600;
-            font-family: var(--creote-family-one);
+            font-family: var(--font-family-one);
             transition: 0.5s ease-in-out;
             -ms-transition: 0.5s ease-in-out;
            -moz-transition: 0.5s ease-in-out;
@@ -973,7 +973,7 @@ select {
            margin-bottom: 10px!important;
            position: relative;
            font-size: 16px;
-           font-family: var(--creote-family-one)!important;
+           font-family: var(--font-family-one)!important;
            font-weight: 600;
            display: inline-block!important;
            i{
@@ -1022,7 +1022,7 @@ select {
                -moz-transition: 0.5s ease-in-out;
                -o-transition: 0.5s ease-in-out;
                font-size: 12px!important;
-               font-family: var(--creote-family-one)!important;
+               font-family: var(--font-family-one)!important;
                font-weight: 600!important;
                text-transform: uppercase;
                &:hover{
@@ -1054,7 +1054,7 @@ select {
                     line-height: 26px;
                     font-weight: 600;
                     color: var(--heading-dark);
-                    font-family: var(--creote-family-one);
+                    font-family: var(--font-family-one);
                     margin: 0px 0 -1px 0!important;
                     background: var(--primary-color-three)!important;
                     &.active , &:hover{
@@ -1170,13 +1170,13 @@ select {
         font-weight: 700;
         color: var(--heading-dark);
         padding: 15px 15px!important;
-        font-family: var(--creote-family-one)!important;
+        font-family: var(--font-family-one)!important;
         line-height: 28px!important;
     }
     td{
         position: relative!important;
         padding: 15px 15px!important;
-        font-family: var(--creote-family-two)!important;
+        font-family: var(--font-family-two)!important;
         line-height: 28px!important;
         font-size: 16px!important;
         font-weight: 400;
@@ -1211,7 +1211,7 @@ select {
             color: #fff!important;
             line-height: 56px!important;
             font-weight: 600!important;
-            font-family: var(--creote-family-one);
+            font-family: var(--font-family-one);
             padding: 0px 20px!important;
             border-radius: 8px!important;
             transition: 0.5s ease-in-out;
@@ -1236,13 +1236,13 @@ font-size: 18px;
 font-weight: 700;
 color: var(--heading-dark);
 padding: 15px 15px!important;
-font-family: var(--creote-family-one)!important;
+font-family: var(--font-family-one)!important;
 line-height: 28px!important;
 }
 td{
 position: relative!important;
 padding: 15px 15px!important;
-font-family: var(--creote-family-two)!important;
+font-family: var(--font-family-two)!important;
 line-height: 28px!important;
 font-size: 16px!important;
 font-weight: 400;
@@ -1277,7 +1277,7 @@ button  {
     color: #fff!important;
     line-height: 56px!important;
     font-weight: 600!important;
-    font-family: var(--creote-family-one);
+    font-family: var(--font-family-one);
     padding: 0px 20px!important;
     border-radius: 8px!important;
     transition: 0.5s ease-in-out;
@@ -1359,7 +1359,7 @@ address{
             color: #fff!important;
             line-height: 56px!important;
             font-weight: 600!important;
-            font-family: var(--creote-family-one);
+            font-family: var(--font-family-one);
             padding: 0px 20px!important;
             border-radius: 8px!important;
             transition: 0.5s ease-in-out;
@@ -1376,13 +1376,13 @@ address{
     .shop_table  {
         td{
             &::before{
-                font-family: var(--creote-family-one);
+                font-family: var(--font-family-one);
                 font-weight: 500;
                 color: var(--heading-dark);
             }
         }
         th{
-            font-family: var(--creote-family-one);
+            font-family: var(--font-family-one);
             font-weight: 500;
             color: var(--heading-dark);
         }
@@ -1397,7 +1397,7 @@ address{
     color: #fff!important;
     line-height: 56px!important;
     font-weight: 600!important;
-    font-family: var(--creote-family-one);
+    font-family: var(--font-family-one);
     padding: 0px 20px!important;
     border-radius: 8px!important;
     transition: 0.5s ease-in-out;
@@ -1441,7 +1441,7 @@ address{
         font-weight: 500;
         color: var(--heading-dark)!important;
         line-height: 26px;
-        font-family: var(--creote-family-one);
+        font-family: var(--font-family-one);
         margin-bottom: 5px;
     }
     .form-row{
@@ -1502,7 +1502,7 @@ address{
             color: #fff!important;
             line-height: 56px!important;
             font-weight: 600!important;
-            font-family: var(--creote-family-one);
+            font-family: var(--font-family-one);
             padding: 0px 20px!important;
             border-radius: 8px!important;
             transition: 0.5s ease-in-out;
@@ -1547,7 +1547,7 @@ address{
             font-weight: 600;
             color: var(--heading-dark);
             margin-bottom: 10px;
-            font-family: var(--creote-family-one);
+            font-family: var(--font-family-one);
             }
         }
         .product-name{
@@ -1570,14 +1570,14 @@ address{
                     font-size: 18px;
                     line-height: 28px;
                     font-weight: 600;
-                    font-family: var(--creote-family-one);
+                    font-family: var(--font-family-one);
                     color: var(--heading-dark);
                 }
             }
             .woocommerce-Price-amount.amount{
                 font-size: 16px;
                 color: var(--primary-color-one);
-                font-family: var(--creote-family-one);
+                font-family: var(--font-family-one);
                 font-weight: 600;
             }
         }
@@ -1720,7 +1720,7 @@ address{
                 font-size: 18px;
                 color: #fff;
                 font-weight: 600;
-                font-family: var(--creote-family-one);
+                font-family: var(--font-family-one);
                 line-height: 28px;
                 padding: 16px 0px;
             }
@@ -1789,7 +1789,7 @@ address{
         padding: 0px 30px!important;
         line-height: 56px!important;
         font-size: 16px!important;
-        font-family: var(--creote-family-one)!important;
+        font-family: var(--font-family-one)!important;
         font-weight: 600!important;
         color: #fff!important;
         background: var(--primary-color-two)!important;
@@ -1806,7 +1806,7 @@ address{
         padding: 8px 20px;
         font-size: 14px;
         font-weight: 600;
-        font-family: var(--creote-family-one);
+        font-family: var(--font-family-one);
         color: var(--primary-color-one);
         color: #fff;
         background: var(--primary-color-one);
@@ -1821,7 +1821,7 @@ address{
             font-weight: 600;
             color: var(--heading-dark);
             margin-bottom: 20px;
-            font-family: var(--creote-family-one);
+            font-family: var(--font-family-one);
         }
     }
     .password-input{
@@ -1954,7 +1954,7 @@ address{
                      .nav-link{
                          position: relative;
                          display: inline-block;
-                         font-family: var(--creote-family-one);
+                         font-family: var(--font-family-one);
                          padding: 10px 30px;
                          font-weight: 600;
                          border-radius: 5px;
@@ -1979,7 +1979,7 @@ address{
                         line-height: 26px;
                         display: block;
                         margin-bottom: 8px;
-                        font-family: var(--creote-family-one);
+                        font-family: var(--font-family-one);
                         color: #fff;
                     }
                     .form-row {
@@ -2237,7 +2237,7 @@ address{
             padding: 6px 25px!important;
             line-height: 35px!important;
             font-size: 14px;
-            font-family: var(--creote-family-one);
+            font-family: var(--font-family-one);
             font-weight: 600;
             color: #fff;
             background: var(--primary-color-one);
@@ -2301,7 +2301,7 @@ address{
     .form-submit{
         input{
             font-size: 12px;
-            font-family: var(--creote-family-one);
+            font-family: var(--font-family-one);
         }
     }
 }

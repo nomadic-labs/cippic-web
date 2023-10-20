@@ -110,7 +110,7 @@
 /* style switcher */
 
 .style-switcher {
-	font-family: var(--creote-family-one);
+	font-family: var(--font-family-one);
 	position: fixed;
 	top: 100px;
 	right: 0;
@@ -153,7 +153,7 @@
 	color: var(--heading-dark);
 	font-size: 20px;
 	line-height: 1;
-	font-family: var(--creote-family-one);
+	font-family: var(--font-family-one);
 	margin-bottom: 15px;
 	font-weight: 800;
 }
@@ -292,7 +292,7 @@
             background: #fff!important;
             font-size: 14px!important;
             font-weight: 700!important;
-            font-family: var(--creote-family-one)!important;
+            font-family: var(--font-family-one)!important;
             line-height: 46px!important;
             color: var(--text-color-dark)!important;
             text-align: center!important;
@@ -335,7 +335,7 @@
         background: var(--primary-color-three);
         font-size: 14px;
         font-weight: 700;
-        font-family: var(--creote-family-one);
+        font-family: var(--font-family-one);
         line-height: 46px;
         color: var(--text-color-dark);
         text-align: center;
@@ -458,7 +458,7 @@
                 color: var(--primary-color-one);
                 padding: 0px 0px 10px 0px;
                 text-decoration: underline;
-                font-family: var(--creote-family-one);
+                font-family: var(--font-family-one);
             }
         
             p{
@@ -489,7 +489,7 @@
                 text-transform: capitalize;
                 display: inline-block;
                 font-weight: 600;
-                font-family: var(--creote-family-one);
+                font-family: var(--font-family-one);
                 padding: 0px 10px 3px 10px;
                 border-left: 1px solid var(--border-color-dark);
                 border-bottom: 1px solid var(--border-color-dark);
@@ -518,7 +518,7 @@
                 font-size: 18px;
                 font-weight: 700;
                 color: var(--primary-color-one);
-                font-family: var(--creote-family-one);
+                font-family: var(--font-family-one);
                 margin-bottom: 10px;
                 display: inline-block;
                 padding-left: 38px;
@@ -560,7 +560,7 @@
             }
             .title ,  h1 , h2 , h3 , h4 , h5 , h6 {
                 font-size: 40px;
-                font-family: var(--creote-family-one);
+                font-family: var(--font-family-one);
                 line-height: 48px;
                 color: var(--heading-dark);
                 font-weight: 700;
@@ -593,11 +593,11 @@
                 background: var(--primary-color-three);
                 padding: 5px 15px;
                 border-radius: 5px;
-                font-family: var(--creote-family-one);
+                font-family: var(--font-family-one);
             }
             .title ,  h1 , h2 , h3 , h4 , h5 , h6 {
                 font-size: 40px;
-                font-family: var(--creote-family-one);
+                font-family: var(--font-family-one);
                 line-height: 48px;
                 color: var(--heading-dark);
                 font-weight: 700;
@@ -626,12 +626,12 @@
                 color: var(--primary-color-one);
                 padding: 0px 0px 12px 0px;
                 letter-spacing: 3px;
-                font-family: var(--creote-family-one);
+                font-family: var(--font-family-one);
             }
             .title ,  h1 , h2 , h3 , h4 , h5 , h6 {
             font-size: 38px;
             line-height: 50px;
-            font-family: var(--creote-family-one);
+            font-family: var(--font-family-one);
             font-weight: 700;
             color: var(--heading-dark);
             padding: 0px 0px 10px 0px;
@@ -659,7 +659,7 @@
                 position: relative;
                 font-size: 16px;
                 font-weight: 500;
-                font-family: var(--creote-family-two);
+                font-family: var(--font-family-two);
                 color: var(--primary-color-one);
                 text-transform: uppercase;
                 padding-bottom: 18px;
@@ -675,7 +675,7 @@
                 font-weight: 700;
                 color: var(--heading-dark);
                 padding: 0px 0px 10px 0px;
-                font-family: var(--creote-family-one);
+                font-family: var(--font-family-one);
             }
             p{
                 font-size: 17px;
@@ -705,7 +705,7 @@
             line-height: 54px;
             font-weight: 700;
             color: var(--heading-dark);
-            font-family: var(--creote-family-one);
+            font-family: var(--font-family-one);
             span {
                 font-weight: 500;
             }
@@ -714,7 +714,7 @@
             font-size: 18px;
             padding-bottom: 10px;
             color: var(--primary-color-one);
-            font-family: var(--creote-family-one);
+            font-family: var(--font-family-one);
             text-transform: uppercase;
             font-weight: 500;
             padding-top: 23px;
@@ -727,7 +727,7 @@
             opacity: .1;
             font-size: 60px;
             line-height: 60px;
-            font-family: var(--creote-family-one);
+            font-family: var(--font-family-one);
             font-weight: 700;
             -webkit-text-stroke: 1px var(--heading-dark);
             text-shadow: 1px 1px 0 var(--heading-dark), -1px -1px 0 var(--heading-dark), 1px -1px 0  1px var(--heading-dark),
@@ -944,7 +944,7 @@
                 padding: 8px 11px 3px;
                 border-radius: 30px;
                 background: var(--primary-color-one);
-                font-family: var(--creote-family-one);
+                font-family: var(--font-family-one);
                 color: #fff;
                 font-weight: 600;
                 font-size: 12px;
@@ -988,7 +988,7 @@
             a.theme-btn{
                 text-transform: uppercase;
                 font-size: 12px;
-                font-family: var(--creote-family-one);
+                font-family: var(--font-family-one);
                 font-weight: 600;
                 padding: 3px 25px 0px;
                 min-height: 50px;
@@ -1162,7 +1162,7 @@
     .download_box_content{
         position: relative;
         a{
-            font-family: var(--creote-family-one);
+            font-family: var(--font-family-one);
             font-size: 18px;
             line-height: 28px;
             font-weight: 600;
@@ -1198,13 +1198,13 @@
            position: relative;
            margin-top: 5px;
          h6{  
-            font-family: var(--creote-family-one);
+            font-family: var(--font-family-one);
             font-size: 18px;
             line-height: 28px;
             font-weight: 600;
             color: var(--heading-dark);
             a , span{
-                font-family: var(--creote-family-two);
+                font-family: var(--font-family-two);
                 color: var(--primary-color-one);
                 font-size: 16px;
                 font-weight: 400;
@@ -1682,7 +1682,7 @@
                     }
                     span{
                         font-size: 12px;
-                        font-family: var(--creote-family-one);
+                        font-family: var(--font-family-one);
                         font-weight: 600;
                         text-transform: uppercase;
                         color: var(--primary-color-one);
@@ -1723,7 +1723,7 @@
                 font-size: 18px;
                 line-height: 28px;
                 font-weight: 500;
-                font-family: var(--creote-family-one);
+                font-family: var(--font-family-one);
             }
         }
         .arrows{
@@ -1773,7 +1773,7 @@
             display: inline-block;
             padding: 0px 65px;
             font-size: 18px;
-            font-family: var(--creote-family-one);
+            font-family: var(--font-family-one);
             font-weight: 700;
             text-transform: uppercase;
             .swiper-pagination-fraction{
@@ -1947,7 +1947,7 @@
                 font-size: 17px;
                 line-height: 27px;
                 font-weight: 500;
-                font-family: var(--creote-family-one);
+                font-family: var(--font-family-one);
             }
         }
 
@@ -2091,7 +2091,7 @@
                 font-weight: 400;
                 font-size: 15px;
                 margin-bottom: 20px;
-                font-family: var(--creote-family-one);
+                font-family: var(--font-family-one);
             }
             .rating{
                 position: relative;
@@ -2485,7 +2485,7 @@
                     font-weight: 500;
                     color: #fff;
                     display: block;
-                    font-family: var(--creote-family-one);
+                    font-family: var(--font-family-one);
                     margin-bottom: 15px;
                 }
             }
@@ -2672,7 +2672,7 @@
             background: var(--primary-color-one);
             color: #fff;
             text-align: center;
-            font-family: var(--creote-family-one);
+            font-family: var(--font-family-one);
             margin: auto;
             &::before{
                 position: absolute;
@@ -2768,7 +2768,7 @@
                 margin-bottom: 8px;
             }
             p{
-                font-family: var(--creote-family-one);
+                font-family: var(--font-family-one);
                 font-weight: 600;
                 color: #fff;
                 opacity: .8;
@@ -3038,7 +3038,7 @@
                     color: #fff;
                     font-weight: 600;
                     margin-bottom: 0px;
-                    font-family: var(--creote-family-one);
+                    font-family: var(--font-family-one);
                 }
                
             }
@@ -3235,7 +3235,7 @@
                     line-height: 48px;
                     font-weight: 700;
                     color: var(--primary-color-one);
-                    font-family: var(--creote-family-one);
+                    font-family: var(--font-family-one);
                 }
                 small{
                     font-size: 20px;
@@ -3299,7 +3299,7 @@
                 line-height: 46px;
                 font-weight: 700;
                 color: var(--primary-color-one);
-                font-family: var(--creote-family-one);
+                font-family: var(--font-family-one);
             }
             small{
                 font-size: 20px; 
@@ -3835,7 +3835,7 @@
                 line-height: 60px;
                 color: var(--primary-color-three);
                 right: 20px;
-                font-family: var(--creote-family-one);
+                font-family: var(--font-family-one);
                 top: 45px;
                 font-weight: 700;
             }
@@ -3873,7 +3873,7 @@
                         vertical-align: middle;
                         text-align: center;
                         a{
-                            font-family: var(--creote-family-one);
+                            font-family: var(--font-family-one);
                             font-size: 15px;
                             line-height: 25px;
                             display: block;
@@ -3942,7 +3942,7 @@
             }
             h2  { line-height: normal; a{
                 display: block;
-                font-family: var(--creote-family-one);
+                font-family: var(--font-family-one);
                 font-size: 20px;
                 margin-bottom: 10px;
                 line-height: 32px;
@@ -4106,7 +4106,7 @@
                 }
                 h2  { line-height: normal; a{
                     display: block;
-                    font-family: var(--creote-family-one);
+                    font-family: var(--font-family-one);
                     font-size: 20px;
                     margin-bottom: 10px;
                     line-height: 32px;
@@ -4331,7 +4331,7 @@
                 background: transparent;
                 margin-bottom: 40px;
                 border: 0px;
-                font-family: var(--creote-family-one);
+                font-family: var(--font-family-one);
                 font-size: 18px;
                 color: var(--heading-dark);
                 font-weight: 600;
@@ -4369,7 +4369,7 @@
             padding: 25px 70px 22px 20px;
             border: 1px solid var(--border-color-dark);
             margin-bottom: 15px;
-            font-family: var(--creote-family-one);
+            font-family: var(--font-family-one);
             font-size: 18px;
             font-weight: 600;
             line-height: 26px;
@@ -4441,7 +4441,7 @@
     }
     h2{
         position: relative;
-        font-family: var(--creote-family-one);
+        font-family: var(--font-family-one);
         font-size: 18px;
         font-weight: 700;
         line-height: 26px;
@@ -4573,7 +4573,7 @@
         }
         h2{
             position: relative;
-            font-family: var(--creote-family-one);
+            font-family: var(--font-family-one);
             font-size: 18px;
             font-weight: 700;
             line-height: 26px;
@@ -4750,7 +4750,7 @@
                 h2{
                     a{
                         position: relative;
-                        font-family: var(--creote-family-one);
+                        font-family: var(--font-family-one);
                         font-size: 22px;
                         font-weight: 700;
                         line-height: 30px;
@@ -4781,7 +4781,7 @@
                 height: 80px;
                 line-height: 80px;
                 font-weight: 700;
-                font-family: var(--creote-family-one);
+                font-family: var(--font-family-one);
                 color: var(--heading-dark);
                 border-radius: 50%;
                 background: #fff;
@@ -5057,7 +5057,7 @@
                         font-weight: 700;
                         color: var(--heading-dark);
                         line-height: 28px;
-                        font-family: var(--creote-family-one);
+                        font-family: var(--font-family-one);
                         padding: 20px 0px;
                         border-bottom: 1px solid var(--border-color-dark);
                         background: transparent;
@@ -5097,7 +5097,7 @@
                     font-weight: 600;
                     color: #fff;
                     line-height: 26px;
-                    font-family: var(--creote-family-one);
+                    font-family: var(--font-family-one);
                     i{
                         background: #fff;
                         width: 50px;
@@ -5168,7 +5168,7 @@
                     text-transform: uppercase;
                     color: #fff;
                     font-size: 12px;
-                    font-family: var(--creote-family-one);
+                    font-family: var(--font-family-one);
                     font-weight: 500;
                     opacity: .8;
                     transition:all .5s ease;
@@ -5220,7 +5220,7 @@
                         color: var(--heading-dark);
                         line-height: 28px;
                         text-transform: uppercase;
-                        font-family: var(--creote-family-one);
+                        font-family: var(--font-family-one);
                         padding:12px 25px 9px;
                         border-radius: 10px;
                         border: 1px solid var(--border-color-dark);
@@ -5316,7 +5316,7 @@
                         color: var(--heading-dark);
                         line-height: 28px;
                         text-transform: capitalize;
-                        font-family: var(--creote-family-one);
+                        font-family: var(--font-family-one);
                         border-radius: 10px;
                         border: 0px;
                         background: transparent;
@@ -5898,7 +5898,7 @@
                     border-radius: 10px;
                     background: var(--primary-color-one);
                     color: #fff;
-                    font-family: var(--creote-family-one);
+                    font-family: var(--font-family-one);
                     font-size: 15px;
                 }
             }
@@ -5946,7 +5946,7 @@
                 background: var(--primary-color-two);
                 font-size: 15px;
                 font-weight: 600;
-                font-family: var(--creote-family-one);
+                font-family: var(--font-family-one);
                 z-index: 1;
                 top: 0;
                 right: 0;
@@ -5968,7 +5968,7 @@
                     padding: 0px 15px;
                     background: var(--primary-color-one);
                     color: #fff;
-                    font-family: var(--creote-family-two);
+                    font-family: var(--font-family-two);
                     font-weight: 700;
                     font-size: 22px;
                     line-height: 70px;
@@ -5981,7 +5981,7 @@
                     background: #fff;
                     font-size: 15px;
                     font-weight: 600;
-                    font-family: var(--creote-family-one);
+                    font-family: var(--font-family-one);
                     z-index: 1;
                     color: var(--primary-color-two);
                     border-radius: 10px 0px 0px 0px;
@@ -6041,7 +6041,7 @@
                 a.theme-btn{
                     background: var(--primary-color-one);
                     color: #fff;
-                    font-family: var(--creote-family-one);
+                    font-family: var(--font-family-one);
                     font-size: 15px;
                     &:hover{
                         background: var(--primary-color-two);
@@ -6087,7 +6087,7 @@
                     padding: 14px 20px 10px;
                     box-shadow: none;
                     font-size: 13px;
-                    font-family: var(--creote-family-one);
+                    font-family: var(--font-family-one);
                     line-height: 23px;
                     font-weight: 600;
                     text-transform: uppercase;
@@ -6148,7 +6148,7 @@
                         box-shadow: none;
                         border:0px;
                         font-size: 13px;
-                        font-family: var(--creote-family-one);
+                        font-family: var(--font-family-one);
                         line-height: 23px;
                         font-weight: 600;
                         text-transform: uppercase;
@@ -6294,7 +6294,7 @@
                 margin-top: 3px;
                 text-transform: uppercase;
                 line-height: 23px;
-                font-family: var(--creote-family-one);
+                font-family: var(--font-family-one);
             }
         }
     }
@@ -6494,7 +6494,7 @@ input , textarea {
     &::placeholder{
         font-size: 14px;
         font-weight: 400;
-        font-family: var(--creote-family-one);
+        font-family: var(--font-family-one);
         color: var(--text-color-dark);
         text-transform: capitalize;
     }  
@@ -6543,7 +6543,7 @@ form{
                 label {
                     font-size: 12px;
                     font-weight: 600;
-                    font-family: var(--creote-family-one);
+                    font-family: var(--font-family-one);
                     line-height: 12px;
                     color: var(--heading-dark);
                     width: 100%;
@@ -6591,7 +6591,7 @@ form{
                 .wpcf7-not-valid-tip {
                     font-size: 15px;
                     font-weight: 400;
-                    font-family: var(--creote-family-one);
+                    font-family: var(--font-family-one);
                     line-height: 26px;
                     color: var(--primary-color-one);
                     text-transform: none;
@@ -6604,7 +6604,7 @@ form{
                     text-align: center;
                     font-size: 16px;
                     font-weight: 400;
-                    font-family: var(--creote-family-two);
+                    font-family: var(--font-family-two);
                     color: #fff;
                     padding: 20px;
                     border-radius: 5px;
@@ -6702,7 +6702,7 @@ form{
                         font-size: 14px;
                         font-weight: 500;
                         color: var(--text-color-dark);
-                        font-family: var(--creote-family-one);
+                        font-family: var(--font-family-one);
                         position: relative;
 
                         input,
@@ -6760,7 +6760,7 @@ form{
                 color: var(--primary-color-one);
                 text-transform: uppercase;
                 font-size: 12px;
-                font-family: var(--creote-family-one);
+                font-family: var(--font-family-one);
                 font-weight: 500;
                 width: 100%;
                 position: relative;
@@ -6814,7 +6814,7 @@ form{
             color: var(--primary-color-one);
             text-transform: uppercase;
             font-size: 12px;
-            font-family: var(--creote-family-one);
+            font-family: var(--font-family-one);
             font-weight: 500;
             width: 100%;
             position: relative;
@@ -6870,7 +6870,7 @@ form{
         text-align: center;
         font-size: 13px;
         line-height: 22px;
-        font-family: var(--creote-family-one);
+        font-family: var(--font-family-one);
         font-weight: 600;
         color: #fff;
         bottom: -76px;
@@ -7044,7 +7044,7 @@ form{
             font-size: 16px;
             line-height: 26px;
             font-weight: 500;
-            font-family: var(--creote-family-two);
+            font-family: var(--font-family-two);
             color: var(--primary-color-one);
             margin-bottom: 0px;
         }
@@ -7104,7 +7104,7 @@ form{
                     line-height: 26px;
                     font-weight: 600;
                     color: var(--link-color-dark);
-                    font-family: var(--creote-family-one);
+                    font-family: var(--font-family-one);
                     i{
                         position: relative;
                         top: 2px;
@@ -7149,7 +7149,7 @@ form{
                     line-height: 26px;
                     font-weight: 600;
                     color: #fff;
-                    font-family: var(--creote-family-one);
+                    font-family: var(--font-family-one);
                     i{
                         position: relative;
                         top: 2px;
@@ -7394,7 +7394,7 @@ form{
         left: -100%;
         a{
             font-size: 18px;
-            font-family: var(--creote-family-one);
+            font-family: var(--font-family-one);
             font-weight:  600;
             line-height: 28px;
             color: #fff;
@@ -7534,7 +7534,7 @@ form{
                     font-size: 12px;
                     line-height: 22px;
                     text-transform: uppercase;
-                    font-family: var(--creote-family-two);
+                    font-family: var(--font-family-two);
                 }
             }
         }
@@ -7593,7 +7593,7 @@ form{
                         font-size: 12px;
                         line-height: 20px;
                         text-transform: uppercase;
-                        font-family: var(--creote-family-two); 
+                        font-family: var(--font-family-two); 
                     }
                 }
                
@@ -7718,24 +7718,8 @@ form{
 // custom headline on home page
 
 
-.headline {
-    position: relative;
-    border-radius: var(--border-radius-lg);
-    margin-bottom: var(--padding-lg);
-    text-align: center;
-
-    h1 {
-        position: relative;
-        z-index: 1;
-        // text-align: center;
-        font-size: calc(2rem + 1vw);
-        color: var(--color-white);
-        // margin-bottom: 0;
-    }
-
-    p {
-        // margin-bottom: 0;
-    }
+h1.headline {
+    font-size: calc(1.5rem + 1vw);
 }
 
 a.read_more {
@@ -7744,7 +7728,7 @@ a.read_more {
     text-transform: uppercase;
     display: inline-flex;
     align-items: center;
-    font-family: var(--creote-family-one);
+    font-family: var(--font-family-one);
      i {
         margin-left: 3px;
      }
@@ -7758,6 +7742,7 @@ a.read_more {
     letter-spacing: 1px;
     margin-bottom: var(--padding-sm);
     font-weight: 600;
+    font-family: var(--font-family-one);
 }
 
 // backgrounds

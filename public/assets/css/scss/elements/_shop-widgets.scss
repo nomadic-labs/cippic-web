@@ -10,7 +10,7 @@
         border-radius: 5px;
         font-size: 15px;
         font-weight: 500;
-        font-family: var(--creote-family-one);
+        font-family: var(--font-family-one);
         color: var(--text-color-dark);
         border: 1px solid var(--border-color-dark);
         transition: 0.5s ease-in-out;
@@ -72,7 +72,7 @@
                 .woocommerce-Price-amount.amount{
                     margin-left: 14px;
                     font-size: 12px;
-                    font-family: var(--creote-family-one);
+                    font-family: var(--font-family-one);
                     color: var(--primary-color-one);
                 }
                 del{ 
@@ -91,7 +91,7 @@
               del,  ins {
                     float: left;
                     font-size: 12px;
-                    font-family: var(--creote-family-one);
+                    font-family: var(--font-family-one);
                     color: var(--primary-color-one);
                     .woocommerce-Price-amount.amount{
                         margin-left: 0px!important;
@@ -131,7 +131,7 @@
                         margin-left: 75px;
                         font-weight: 600;
                         text-transform: capitalize;
-                        font-family: var(--creote-family-one);
+                        font-family: var(--font-family-one);
                         font-size: 16px;
                     }
                 }
@@ -139,7 +139,7 @@
                     margin-left: 75px;
                     del,  ins {
                         font-size: 12px;
-                        font-family: var(--creote-family-one);
+                        font-family: var(--font-family-one);
                         color: var(--primary-color-one);
                         
                     }
@@ -249,7 +249,7 @@
             font-size: 12px;
             line-height: 26px;
             font-weight: 600;
-            font-family: var(--creote-family-one);
+            font-family: var(--font-family-one);
             color: var(--heading-dark);
             line-height: 35px;
             span{
@@ -279,7 +279,7 @@
     font-weight: 700;
     line-height: 26px;
     color: var(--heading-dark);
-    font-family: var(--creote-family-one);
+    font-family: var(--font-family-one);
     &:before{
         position: absolute;
         content: "";
