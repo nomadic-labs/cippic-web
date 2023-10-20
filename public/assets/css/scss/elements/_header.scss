@@ -259,7 +259,7 @@
         position: relative; 
         img{
             display: block;
-            max-width: 340px;
+            // max-width: 340px;
             height: auto; 
             margin-bottom: 0px;
             // filter: invert(1) hue-rotate(-36deg);
@@ -269,7 +269,7 @@
         }
         .logo__sticky{
             display: none;
-            // max-width: 200px;
+            max-width: 320px;
         }
         .site-description {
             position: absolute!important;
@@ -346,17 +346,15 @@
                     }
                      a.nav-link{
                          font-size:15px;
-                         line-height: 65px;
                          padding: 0;
+                         margin-bottom: 5px;
                          // font-weight: 600;
                          // color: var(--menu-color);
                          font-family: var(--font-family-one);
-                         transition: var(--animation-speed) ease-in-out;
-                         -ms-transition: var(--animation-speed) ease-in-out;
-                        -moz-transition: var(--animation-speed) ease-in-out;
-                        -o-transition: var(--animation-speed) ease-in-out;
+                         transition: none;
+                         // border-bottom: 1px solid transparent;
                          &:hover{
-                             color:var(--menu-active-color);
+                             // border-bottom: 1px solid var(--highlight-color);
                          }
                      }
                      &:last-child{
@@ -364,16 +362,16 @@
                      }
                      &.active {
                          a.nav-link{
-                            color:var(--menu-active-color)!important; 
+                            border-bottom: 1px solid var(--highlight-color)!important; 
                          }
-                         .dropdown-btn{
-                             span{
-                                color:var(--menu-active-color);
-                                &:before{
-                                    color:var(--menu-active-color);
-                                }
-                             }
-                         }
+                         // .dropdown-btn{
+                         //     span{
+                         //        color:var(--menu-active-color);
+                         //        &:before{
+                         //            color:var(--menu-active-color);
+                         //        }
+                         //     }
+                         // }
                          &.mega_menu{
                             a.nav-link{
                                 span.fa-angle-down{
@@ -395,10 +393,10 @@
                         -ms-transform: translateX(-10px);
                         -moz-transform: translateX(-10px);
                         -o-transform: translateX(-10px);
-                        transition: all .3s ease 0s;
-                        -ms-transition: all .3s ease 0s;
-                        -moz-transition: all .3s ease 0s;
-                        -o-transition: all .3s ease 0s;
+                        transition: all var(--animation-speed) ease 0s;
+                        -ms-transition: all var(--animation-speed) ease 0s;
+                        -moz-transition: all var(--animation-speed) ease 0s;
+                        -o-transition: all var(--animation-speed) ease 0s;
                         opacity: 0;
                         visibility: hidden;
                         border-radius: 10px;
@@ -417,11 +415,12 @@
                                 line-height: 25px;
                                 font-weight: 400;
                                 font-family: var(--font-family-one);
-                                display: block;
+                                display: inline;
                                 white-space: inherit; 
+                                transition: unset;
 
                                 &:hover {
-                                    color: var(--highlight-color);
+                                    border-bottom: 1px solid var(--highlight-color);
                                 }
                             }
                         }

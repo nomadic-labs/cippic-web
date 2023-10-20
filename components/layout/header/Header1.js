@@ -8,7 +8,7 @@ export default function Header1({ handleSearch, handleContactPopup, handleMobile
                 <header className="header header_default bg-one get_sticky_header">
                     <div className="container-xl">
                         <div className="row align-items-center">
-                            <div className="col-lg-4 col-md-8 col-sm-8 col-xs-8 logo_column">
+                            <div className="col-lg-5 col-md-8 col-sm-8 col-xs-8 logo_column">
                                 <div className="header_logo_box">
                                     <Link href="/" className="logo navbar-brand">
                                         <img src="/assets/images/cippic-logo-full-dark.svg" alt="CIPPIC" className="logo_default" />
@@ -16,7 +16,7 @@ export default function Header1({ handleSearch, handleContactPopup, handleMobile
                                     </Link>
                                 </div>
                             </div>
-                            <div className="col-lg-8 col-md-4 col-sm-4 col-xs-4 menu_column">
+                            <div className="col-lg-7 col-md-4 col-sm-4 col-xs-4 menu_column">
                                 <button onClick={handleMobileMenu} className="theme-btn one navbar_togglers"> 
                                     <div className="hamburger_menu">
                                         <span className="line" />

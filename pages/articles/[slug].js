@@ -1,6 +1,7 @@
 import Layout from "@/components/layout/Layout"
 import Breadcrumb from '@/components/layout/Breadcrumb'
 import Link from "next/link"
+import Image from "next/image"
 import { Autoplay, Navigation, Pagination } from "swiper"
 import { Swiper, SwiperSlide } from "swiper/react"
 import ReactMarkdown from 'react-markdown'
@@ -58,8 +59,7 @@ export default function ArticlePage({ content, layout }) {
     const { article } = content;
     const categories = article.categories.data || []
     const content_types = article.content_types.data || []
-    const mainImage = article.main_image?.data
-    const imagePath = mainImage ? mainImage.attributes.url : null
+    const image = article.main_image?.data?.attributes
     const datePublished = new Date(article.date_published)
     const dateString = datePublished.toLocaleDateString('en-CA', { year: 'numeric', month: 'short', day: 'numeric' })
     
@@ -91,13 +91,22 @@ export default function ArticlePage({ content, layout }) {
                   {/*===============spacing==============*/}
                 </section>
 
-                <div className="container-reading">
+                <div className="container container-reading">
                     <div className="row">
                         <div id="primary" className="content-area service col-12">
                             <main id="main" className="site-main" role="main">
                                 {/*===============spacing==============*/}
                                 <div className="pd_top_60" />
                                 {/*===============spacing==============*/}
+                                { image &&
+                                <Image 
+                                  width={image.width} 
+                                  height={image.height} 
+                                  src={`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${image.url}`} 
+                                  alt={image.alternativeText} 
+                                  className="img-fluid highlight-shadow mr_bottom_40" 
+                                />
+                                }
                                 <div className="blog_single_details_outer">
                                     <div className="single_content_upper">
                                         <ReactMarkdown>
@@ -110,8 +119,8 @@ export default function ArticlePage({ content, layout }) {
                                                 <div className="tags_content left_one">
                                                     <div className="box_tags_psot">
                                                         <div className="title">Filed under</div>
-                                                        { categories.map(cat => <Link key={cat.id} className="btn" href={`/${cat.attributes.slug}`}>{cat.attributes.name}</Link>)}
-                                                        { content_types.map(ct => <Link key={ct.id} className="btn" href={`/${ct.attributes.slug}`}>{ct.attributes.name}</Link>)}
+                                                        { categories.map(cat => <Link key={cat.id} className="btn" href={`/topics/${cat.attributes.slug}`}>{cat.attributes.name}</Link>)}
+                                                        { content_types.map(ct => <Link key={ct.id} className="btn" href={`/our-work/${ct.attributes.slug}`}>{ct.attributes.name}</Link>)}
                                                     </div>
                                                 </div>
                                                 

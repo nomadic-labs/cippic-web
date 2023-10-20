@@ -189,6 +189,7 @@
         padding: 0.8em 1.6em;
         line-height: 1.8em;
         font-weight: 600;
+        border: none;
         transition: all var(--animation-speed) ease;
         -moz-transition: all var(--animation-speed) ease;
         -ms-transition: all var(--animation-speed) ease;
@@ -208,6 +209,7 @@
         &:hover{
             background: var(--primary-color-three);
             color: var(--color-white);
+            border: none;
             i{
                 left: 10px;
             }

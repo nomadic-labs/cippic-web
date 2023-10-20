@@ -1,6 +1,8 @@
 import Layout from "@/components/layout/Layout"
 import Breadcrumb from '@/components/layout/Breadcrumb'
 import FeaturedArticles from "@/components/sections/FeaturedArticles"
+import Image from "next/image"
+
 import Link from "next/link"
 import { Autoplay, Navigation, Pagination } from "swiper"
 import { Swiper, SwiperSlide } from "swiper/react"
@@ -41,6 +43,7 @@ export const getStaticProps = async ({ params }) => {
         populate: [
           '*',
           'icon.media',
+          'image.media',
           'articles',
           'articles.categories',
           'articles.content_types',
@@ -66,11 +69,12 @@ export const getStaticProps = async ({ params }) => {
 
 export default function TopicsPage({ content, layout }) {
     const { category } = content;
+    console.log({category})
 
     const categories = []
     const content_types = []
-    const mainImage = null
-    const imagePath = mainImage ? mainImage.attributes.url : null
+    const icon = category.icon?.data?.attributes
+    const image = category.image?.data?.attributes
     const articles = category.articles.data.map(art => ({ id: art.id, ...art.attributes }))
     const articleFilters = articles.reduce((filters, article) => {
         const articleContentTypes = article.content_types.data.map(ct => ct.attributes)
@@ -93,15 +97,29 @@ export default function TopicsPage({ content, layout }) {
             >
                 <section className="blog-section position-relative bg-two">
                   {/*===============spacing==============*/}
-                  <div className="pd_top_60" />
+                  <div className="pd_top_40" />
                   {/*===============spacing==============*/}
                   <div className="container-xl">
                     <div className="row">
                       <div className="col-12">
-                        <div className="padding-xl bg-one">
-                          <h1>{category.name}</h1>
-                          <ReactMarkdown className="text-lg">{category.description}</ReactMarkdown>
-                        </div>
+                        <h1 className="text-center">{category.name}</h1>
+                        <div className="pd_top_20" />
+                      </div>
+                    </div>
+                    <div className="row">
+                    {image &&
+                      <div className="col-6">
+                        <Image 
+                          width={image.width} 
+                          height={image.height} 
+                          src={`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${image.url}`} 
+                          alt={image.alternativeText} 
+                          className="img-fluid highlight-shadow" 
+                        />
+                      </div>
+                    }
+                      <div className={`${image ? "col-6" : "col-12"}`}>
+                        <ReactMarkdown className="text-lg">{category.description}</ReactMarkdown>
                       </div>
                     </div>
                   </div>

@@ -7729,8 +7729,20 @@ a.read_more {
     display: inline-flex;
     align-items: center;
     font-family: var(--font-family-one);
+    border-bottom: 1px solid transparent;
+    transition: var(--animation-speed) ease;
      i {
         margin-left: 3px;
+     }
+
+     &:hover {
+        i {
+            margin-left: 8px;
+            transition: all var(--animation-speed) ease;
+            -moz-transition: all var(--animation-speed) ease;
+            -ms-transition: all var(--animation-speed) ease;
+            -o-transition: all var(--animation-speed) ease;
+        }
      }
 }
 
@@ -7766,6 +7778,7 @@ a.read_more {
 .bg-two {
     background-color: var(--primary-color-two);
     color: var(--text-color-light);
+
     a {
         color: var(--text-color-light);
         &:hover {
@@ -7816,7 +7829,6 @@ a.read_more {
     margin-bottom: 1rem;
 }
 
-.container-reading {
-    max-width: 768px;
-    margin: auto;
+.highlight-shadow {
+    box-shadow: 0 5px 0 var(--highlight-color);
 }

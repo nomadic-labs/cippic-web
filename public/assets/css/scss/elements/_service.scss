@@ -12,26 +12,28 @@
     row-gap: var(--padding-sm);
 }
 // service box
-.service_box{
+a.service_box{
     display: block;
     position: relative;
     padding-top: var(--padding-md);
     padding-right: var(--padding-md);
     flex: 1 1 15%;
-    transition: 0.5s ease-in-out;
-    -ms-transition: 0.5s ease-in-out;
-    -moz-transition: 0.5s ease-in-out;
-    -o-transition: 0.5s ease-in-out;
+    transition: var(--animation-speed) ease-in-out;
+    -ms-transition: var(--animation-speed) ease-in-out;
+    -moz-transition: var(--animation-speed) ease-in-out;
+    -o-transition: var(--animation-speed) ease-in-out;
+    height: 100%;
 
         .service_content{
             cursor: pointer;
             padding: var(--padding-md);
-            box-shadow: var(--box-shadow);
+            box-shadow: 0 0 0 var(--highlight-color);
             // border-radius: var(--border-radius-lg);
-            transition: 0.5s ease-in-out;
-            -ms-transition: 0.5s ease-in-out;
-            -moz-transition: 0.5s ease-in-out;
-            -o-transition: 0.5s ease-in-out;
+            transition: var(--animation-speed) ease-in-out;
+            -ms-transition: var(--animation-speed) ease-in-out;
+            -moz-transition: var(--animation-speed) ease-in-out;
+            -o-transition: var(--animation-speed) ease-in-out;
+            height: 100%;
 
             .icon-topic {
                 position: absolute;

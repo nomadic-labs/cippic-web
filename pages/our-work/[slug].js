@@ -114,7 +114,7 @@ export default function OurWork({ content, layout }) {
 
                 <section className="service-section bg-two">
                 {/*===============spacing==============*/}
-                <div className="pd_top_60" />
+                <div className="pd_top_40" />
                 {/*===============spacing==============*/}
                 <div className="container">
                     <div className="row">

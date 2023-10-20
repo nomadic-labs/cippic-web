@@ -2,6 +2,14 @@
 
 /*---slider---cs----*/
 @media(max-width:1199px){
+    .header ,
+    .default_sickty_heaad {
+        .header_logo_box{
+            img{
+                max-width: 430px;
+            }
+        }
+    }
     .bg_pattern_1 {
         background-position: top center !important;
         background-size    : 100% auto;
@@ -1254,4 +1262,11 @@
         display: inline-block;
     }
 }
+}
+
+@media (min-width: 991px ) {
+    .container-reading {
+        max-width: 768px;
+        margin: auto;
+    }
 }

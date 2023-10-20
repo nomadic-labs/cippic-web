@@ -37,7 +37,7 @@ export default function ArticleCard ({
         
         <div className={`article-card ${imageTop ? 'image-top' : 'image-left'} bg-white`}>
             <div className={`image`}>
-                { hasImage && <Image width={image.width} height={image.height} src={`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${image.url}`} alt={image.alternativeText} className="img-fluid" alt="img" /> }
+                { hasImage && <Image width={image.width} height={image.height} src={`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${image.url}`} alt={image.alternativeText} className="img-fluid" /> }
                 <div className="categories">
                     <i className="icon-folder" />{tags}
                 </div>

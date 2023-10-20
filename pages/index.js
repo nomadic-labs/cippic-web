@@ -35,6 +35,7 @@ const articlesQuery = qs.stringify(
               $eq: true,
             },
         },
+        sort: "date_published:desc",
         populate: [
           '*',
           'main_image.media',
@@ -60,7 +61,7 @@ export const getStaticProps = async () => {
     const articles = data.map((article) => ({
       id: article.id,
       ...article.attributes
-    }))
+    })).slice(0,3)
 
     const content = { ...page, articles }
 

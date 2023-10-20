@@ -357,10 +357,10 @@ a {
     cursor         : pointer;
     color          : var(--primary-color-one);
 
-    transition     : var(--animation-speed) ease-in-out !important;
-    -moz-transition: var(--animation-speed) ease-in-out !important;
-    -o-transition  : var(--animation-speed) ease-in-out !important;
-    -ms-transition : var(--animation-speed) ease-in-out !important;
+    transition     : color var(--animation-speed) ease-in-out;
+    -moz-transition: color var(--animation-speed) ease-in-out;
+    -o-transition  : color var(--animation-speed) ease-in-out;
+    -ms-transition : color var(--animation-speed) ease-in-out;
 
 }
 

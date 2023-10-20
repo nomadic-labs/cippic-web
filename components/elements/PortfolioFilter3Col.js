@@ -46,18 +46,20 @@ export default function PortfolioFilter3Col({articles, filters, filterField="con
         <>
             <div className="row">
                 <div className="col-lg-12">
-                    <div className="fliter_group bg-white padding-md">
-                        <p className="title-small text-dark mb-0 mr_right_10">Filters</p>
-                        <ul className="project_filter dark clearfix">
-                            <li className={activeBtn("*")} onClick={handleFilterKeyChange("*")}>All</li>
-                            {
-                                filters.map(filter => {
-                                    return(
-                                        <li key={filter.slug} className={activeBtn(filter.slug)} onClick={handleFilterKeyChange(filter.slug)}>{filter.name}</li>
-                                    )
-                                })
-                            }
-                        </ul>
+                    <div className="bg-white padding-md mr_bottom_30">
+                        <div className="fliter_group">
+                            <p className="title-small text-dark mb-0 mr_right_15">Filters:</p>
+                            <ul className="project_filter dark clearfix">
+                                <li className={activeBtn("*")} onClick={handleFilterKeyChange("*")}>All</li>
+                                {
+                                    filters.map(filter => {
+                                        return(
+                                            <li key={filter.slug} className={activeBtn(filter.slug)} onClick={handleFilterKeyChange(filter.slug)}>{filter.name}</li>
+                                        )
+                                    })
+                                }
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
