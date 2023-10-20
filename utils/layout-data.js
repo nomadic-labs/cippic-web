@@ -19,6 +19,7 @@ const categoriesQuery = qs.stringify(
       '*',
       'icon.media'
     ],
+    sort: "name:asc"
   },
   {
     encodeValuesOnly: true, // prettify URL
@@ -31,6 +32,7 @@ const contentTypesQuery = qs.stringify(
       '*',
       'icon.media'
     ],
+    sort: "name:asc"
   },
   {
     encodeValuesOnly: true, // prettify URL

@@ -7720,6 +7720,7 @@ form{
 
 h1.headline {
     font-size: calc(1.5rem + 1vw);
+    font-weight: 600;
 }
 
 a.read_more {
@@ -7831,4 +7832,9 @@ a.read_more {
 
 .highlight-shadow {
     box-shadow: 0 5px 0 var(--highlight-color);
+}
+
+.img-full {
+    width: 100%;
+    object-fit: cover;
 }

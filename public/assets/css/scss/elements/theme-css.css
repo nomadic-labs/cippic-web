@@ -1642,6 +1642,7 @@ h6 {
   margin: 0;
   font-family: var(--font-family-two);
   transition: 0.5s ease-in-out;
+  font-weight: 600;
   -ms-transition: 0.5s ease-in-out;
   -moz-transition: 0.5s ease-in-out;
   -o-transition: 0.5s ease-in-out;
@@ -21050,6 +21051,7 @@ form .wpcf7-response-output {
 
 h1.headline {
   font-size: calc(1.5rem + 1vw);
+  font-weight: 600;
 }
 
 a.read_more {
@@ -21152,6 +21154,11 @@ a.read_more:hover i {
 
 .highlight-shadow {
   box-shadow: 0 5px 0 var(--highlight-color);
+}
+
+.img-full {
+  width: 100%;
+  object-fit: cover;
 }
 
 .owl_new_one .swiper .owl-nav .owl-prev {

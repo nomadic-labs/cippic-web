@@ -73,7 +73,7 @@ export default function ArticlePage({ content, layout }) {
             >
                 <section className="blog-section position-relative bg-two">
                   {/*===============spacing==============*/}
-                  <div className="pd_top_60" />
+                  <div className="pd_top_40" />
                   {/*===============spacing==============*/}
                   <div className="container">
                     <div className="row">
@@ -104,7 +104,7 @@ export default function ArticlePage({ content, layout }) {
                                   height={image.height} 
                                   src={`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${image.url}`} 
                                   alt={image.alternativeText} 
-                                  className="img-fluid highlight-shadow mr_bottom_40" 
+                                  className="img-full img-fluid highlight-shadow mr_bottom_40" 
                                 />
                                 }
                                 <div className="blog_single_details_outer">
