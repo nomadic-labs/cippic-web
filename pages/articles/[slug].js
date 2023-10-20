@@ -80,14 +80,14 @@ export default function ArticlePage({ content, layout }) {
                       <div className="col-12">
                         <div className="padding-xl bg-one rounded-lg">
                           <div className="title-small">{dateString}</div>
-                          <h1>{article.title}</h1>
+                          <h1 className="title-med">{article.title}</h1>
                           <ReactMarkdown className="text-lg">{`By ${article.author}`}</ReactMarkdown>
                         </div>
                       </div>
                     </div>
                   </div>
                     {/*===============spacing==============*/}
-                  <div className="pd_top_60" />
+                  <div className="pd_top_40" />
                   {/*===============spacing==============*/}
                 </section>
 
@@ -96,7 +96,7 @@ export default function ArticlePage({ content, layout }) {
                         <div id="primary" className="content-area service col-12">
                             <main id="main" className="site-main" role="main">
                                 {/*===============spacing==============*/}
-                                <div className="pd_top_90" />
+                                <div className="pd_top_60" />
                                 {/*===============spacing==============*/}
                                 <div className="blog_single_details_outer">
                                     <div className="single_content_upper">

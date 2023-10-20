@@ -2721,6 +2721,10 @@ body .enabled_custom_title .title_page .main_tit {
   font-size: 1.1em;
 }
 
+.title-med {
+  font-size: calc(1.25rem + 1vw);
+}
+
 /*----------theme-button-csss-------*/
 .application_button {
   display: inline-block;
