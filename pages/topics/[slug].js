@@ -95,11 +95,8 @@ export default function TopicsPage({ content, layout }) {
               contentTypes={layout.contentTypes}
               studentPages={layout.studentPages}
             >
-                <section className="blog-section position-relative bg-two">
-                  {/*===============spacing==============*/}
-                  <div className="pd_top_40" />
-                  {/*===============spacing==============*/}
-                  <div className="container-xl">
+                <section className="position-relative bg-two section-default">
+                  <div className="container">
                     <div className="row">
                       <div className="col-12">
                         <h1 className="text-center">{category.name}</h1>
@@ -123,23 +120,15 @@ export default function TopicsPage({ content, layout }) {
                       </div>
                     </div>
                   </div>
-                    {/*===============spacing==============*/}
-                  <div className="pd_top_60" />
-                  {/*===============spacing==============*/}
                 </section>
 
-
-                <div className="container-xl">
-                    {/*===============spacing==============*/}
-                    <div className="pd_top_60" />
-                    {/*===============spacing==============*/}
-                    <div className="project_all filt_style_one filter_enabled">
-                        <PortfolioFilter3Col articles={articles} filters={articleFilters} />
-                    </div>
-                    {/*===============spacing==============*/}
-                    <div className="pd_top_60" />
-                    {/*===============spacing==============*/}
-                </div>
+                <section className="position-relative bg-light section-default">
+                  <div className="container">
+                      <div className="project_all filt_style_one filter_enabled">
+                          <PortfolioFilter3Col articles={articles} filters={articleFilters} />
+                      </div>
+                  </div>
+                </section>
 
             </Layout>
         </>

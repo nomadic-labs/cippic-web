@@ -34,7 +34,13 @@ export default function News({title, before_title, subtitle, articles=[]}) {
                                 return (
                                     <div key={article.id} className="col-12 col-lg-6 col-xl-4 mr_bottom_30">
                                         <Fade bottom delay={index * 60}>
-                                            <ArticleCard article={article} imageTop />
+                                            <ArticleCard 
+                                                article={article} 
+                                                showImage
+                                                showTeaser
+                                                showDate
+                                                imageTop 
+                                            />
                                         </Fade>
                                     </div>
                                 )

@@ -83,7 +83,7 @@ export const getStaticProps = async ({ params }) => {
             },
             {
               slug: {
-                $ne: 'test'
+                $ne: slug
               }
             },
           ]
@@ -121,7 +121,7 @@ export default function ArticlePage({ content, layout }) {
     const image = article.main_image?.data?.attributes
     const datePublished = new Date(article.date_published)
     const dateString = datePublished.toLocaleDateString('en-CA', { year: 'numeric', month: 'short', day: 'numeric' })
-
+    const tags = categories.map(cat => cat.attributes.name).concat(content_types.map(ct => ct.attributes.name)).join(", ")
     return (
         <>
             <Layout 
@@ -131,40 +131,42 @@ export default function ArticlePage({ content, layout }) {
               studentPages={layout.studentPages}
             >
               <main id="main" className="site-main" role="main">
-                <section className="blog-section position-relative bg-two">
-                  {/*===============spacing==============*/}
-                  <div className="pd_top_40" />
-                  {/*===============spacing==============*/}
+                <section className="blog-section position-relative bg-two section-md">
                   <div className="container">
                     <div className="row">
                       <div className="col-12">
-                        <div className="padding-xl bg-one">
-                          <div className="title-small">{dateString}</div>
-                          <h1 className="title-med">{article.title}</h1>
-                          { article.author && <ReactMarkdown className="text-lg">{`By ${article.author}`}</ReactMarkdown> }
-                          <ReactMarkdown>{article.teaser}</ReactMarkdown>
+                        <div className="d-flex article-header">
+                        <div className="categories">
+                            <i className="icon-folder" />
+                            {tags}
+                        </div>
+                          <div className="bg-one padding-lg pd_top_40">
+                            <div className="title_sections">
+                              <div className="title-small">{dateString}</div>
+                              <h1 className="title-med">{article.title}</h1>
+                            </div>
+                            { article.author && <ReactMarkdown>{`By ${article.author}`}</ReactMarkdown> }
+                            { article.teaser && <ReactMarkdown className="text-lg">{article.teaser}</ReactMarkdown> }
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                    {/*===============spacing==============*/}
-                  <div className="pd_top_40" />
-                  {/*===============spacing==============*/}
                 </section>
 
                 <section className="section-default">
                     <div className="container container-reading">
                         <div className="row">
                             <div className="col-12">
-                                { image &&
-                                <Image 
-                                    width={image.width} 
-                                    height={image.height} 
-                                    src={`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${image.url}`} 
-                                    alt={image.alternativeText} 
-                                  className="img-full img-fluid highlight-shadow mr_bottom_40" 
-                                />}
                                 <div className="single_content_upper">
+                                  { image &&
+                                    <Image 
+                                        width={image.width} 
+                                        height={image.height} 
+                                        src={`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${image.url}`} 
+                                        alt={image.alternativeText} 
+                                        className="mr_bottom_40 img-fluid img-full highlight-shadow" 
+                                    />}
                                     <ReactMarkdown>
                                         {article.body}
                                     </ReactMarkdown>
@@ -183,10 +185,10 @@ export default function ArticlePage({ content, layout }) {
                 })}
 
                 { (relatedArticles.length > 0) && 
-                  <section className="section-default">
+                  <section className="section-default bg-two">
                       <div className="container">
                           <div className="row">
-                            <div className="col-12 title_sections">
+                            <div className="col-12 title-section">
                               <h2 className="title-small">Related Articles</h2>
                             </div>
                           </div>

@@ -1654,14 +1654,14 @@ h1 {
   line-height: 1.25;
   font-size: calc(2.5rem + 1vw);
   margin-bottom: 0.5em;
-  margin-top: 0.5em;
+  margin-top: 0.25em;
 }
 
 .h2,
 h2 {
   line-height: 1.25;
   font-size: calc(1.75rem + 1vw);
-  margin-bottom: 1rem;
+  margin-bottom: 0.7em;
   margin-top: 1rem;
 }
 
@@ -2746,7 +2746,7 @@ body .enabled_custom_title .title_page .main_tit {
   padding-bottom: 1rem;
 }
 
-.title_sections {
+.title-section {
   margin-bottom: 1.5rem;
 }
 
@@ -21169,7 +21169,7 @@ a.read_more:hover i {
 }
 
 .highlight-shadow {
-  box-shadow: -5px 5px 0 var(--highlight-color);
+  box-shadow: 0 5px 0 var(--highlight-color);
 }
 
 .highlight-border {
@@ -21179,6 +21179,31 @@ a.read_more:hover i {
 .img-full {
   width: 100%;
   object-fit: cover;
+}
+
+.article-header {
+  position: relative;
+}
+.article-header .categories {
+  position: absolute;
+  top: 0;
+  right: 0;
+  max-width: 95%;
+  padding: var(--padding-xs) var(--padding-md);
+  background: var(--highlight-color);
+  color: var(--primary-color-one);
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  line-height: 26px;
+  font-family: var(--font-family-one);
+  transition: var(--animation-speed) ease-in-out;
+  -moz-transition: var(--animation-speed) ease-in-out;
+  -o-transition: var(--animation-speed) ease-in-out;
+  -ms-transition: var(--animation-speed) ease-in-out;
+}
+.article-header .categories i {
+  margin-right: 6px;
 }
 
 .owl_new_one .swiper .owl-nav .owl-prev {
@@ -29027,7 +29052,7 @@ body.side_menu_toggled .style-switcher {
 }
 .article-card .content_box .date {
   position: relative;
-  margin-bottom: 15px;
+  margin-bottom: 0.75rem;
 }
 .article-card .content_box .date span {
   display: block;

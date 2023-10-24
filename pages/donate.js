@@ -42,10 +42,7 @@ export default function Donate({ content, layout }) {
                 contentTypes={layout.contentTypes} 
                 studentPages={layout.studentPages}
             >
-                    <section className="blog-section position-relative bg-two">
-                      {/*===============spacing==============*/}
-                      <div className="pd_top_60" />
-                      {/*===============spacing==============*/}
+                    <section className="section-default position-relative bg-two">
                       <div className="container">
                         <div className="row">
                           <div className="col-12">
@@ -59,12 +56,8 @@ export default function Donate({ content, layout }) {
                           </div>
                         </div>
                       </div>
-                        {/*===============spacing==============*/}
-                      <div className="pd_top_60" />
-                      {/*===============spacing==============*/}
                     </section>
-                    <section className="contact-section bg-one">
-                        <div className="pd_top_60" />
+                    <section className="section-default bg-one">
                         <div className="container">
                             <div className="row">
                                 <div className="col-12">
@@ -91,7 +84,6 @@ export default function Donate({ content, layout }) {
                                 
                             </div>
                         </div>
-                        <div className="pd_top_60" />
                     </section>
                     <section className="contact-section">
                         <div className="pd_top_60" />

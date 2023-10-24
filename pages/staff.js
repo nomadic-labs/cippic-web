@@ -40,24 +40,17 @@ export default function Contact({ content, layout }) {
           contentTypes={layout.contentTypes}
           studentPages={layout.studentPages}
         >
-            <section className="contact-section">
-                {/*===============spacing==============*/}
-                <div className="pd_top_80" />
-                {/*===============spacing==============*/}
+            <section className="contact-section section-default">
                 <div className="container">
                     <div className="row">
                         <div className="col-12">
-                            <div className="title_sections">
+                            <div className="title-section">
                                 <div className="title-small text-dark">{content.page_before_title}</div>
                                 <h1>{content.page_title}</h1>
                                 <p>{content.page_description}</p>
                             </div>
                         </div>
                     </div>
-
-                    {/*===============spacing==============*/}
-                    <div className="pd_top_40" />
-                    {/*===============spacing==============*/}
 
                     <div className="row">
                     { content.team_members.map(tm => {
@@ -69,7 +62,6 @@ export default function Contact({ content, layout }) {
                     })}
                     </div>
                 </div>
-                <div className="pd_top_80" />
             </section>
         </Layout>
     )

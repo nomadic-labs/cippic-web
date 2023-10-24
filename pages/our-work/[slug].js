@@ -112,16 +112,12 @@ export default function OurWork({ content, layout }) {
               studentPages={layout.studentPages}
             >
 
-                <section className="service-section bg-two">
-                {/*===============spacing==============*/}
-                <div className="pd_top_40" />
-                {/*===============spacing==============*/}
+            <section className="service-section bg-two section-default">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12">
-                            <h1 className="">{contentType.name}</h1>
-                            <div className="pd_top_10" />
                             <div className="title-section">
+                                <h1 className="">{contentType.name}</h1>
                                 <h2 className="title-small">{`Latest ${contentType.name}`}</h2>
                             </div>
                         </div>
@@ -142,7 +138,12 @@ export default function OurWork({ content, layout }) {
                                 return (
                                     <div key={article.id} className="col-12 col-lg-6 col-xl-4">
                                         <Fade bottom delay={index * 60}>
-                                            <ArticleCard article={article} />
+                                            <ArticleCard 
+                                                article={article} 
+                                                showDate
+                                                showImage
+                                                imageTop
+                                            />
                                         </Fade>
                                     </div>
                                 )
@@ -151,12 +152,9 @@ export default function OurWork({ content, layout }) {
                         
                     </div>
                 </div>
-                {/*===============spacing==============*/}
-                <div className="pd_bottom_80" />
-                {/*===============spacing==============*/}
             </section>
 
-                <div className="auto-container">
+                <div className="container">
                     <div className="row default_row">
                         <div className="full_width_box">
                             <div className="pd_top_60" />

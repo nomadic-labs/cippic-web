@@ -73,7 +73,14 @@ export default function PortfolioFilter3Col({articles, filters, filterField="con
 
                             return (
                                 <div key={article.id} className={`project-wrapper grid-item col-xl-4 col-lg-6 col-md-12 col-sm-12 ${tagsClasses} mr_bottom_30`}>
-                                    <ArticleCard article={article} tagsAttribute={filterField} />
+                                    <ArticleCard 
+                                        article={article} 
+                                        tagsAttribute={filterField} 
+                                        showImage
+                                        imageTop
+                                        showTeaser
+                                        showDate
+                                    />
                                 </div>
                             )
                         })

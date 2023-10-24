@@ -2,7 +2,6 @@
     position: relative;
     overflow: hidden; 
     background-color: var(--color-light);
-    // border-radius: var(--border-radius-lg);
     transition: all var(--animation-speed) ease-in-out;
 
     &.image-left {
@@ -76,7 +75,7 @@
         flex: 1 1 50%;
         .date{
             position: relative;
-            margin-bottom: 15px;
+            margin-bottom: 0.75rem;
             span{
                display: block;
                color:var(--primary-color-one);
