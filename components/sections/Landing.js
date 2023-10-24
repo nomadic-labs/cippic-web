@@ -6,10 +6,11 @@ import ReactMarkdown from 'react-markdown'
 export default function Landing({ headline, before_headline, intro, insights_heading="Insights", articles, spotlightHeading, spotlightArticle }) {
     return (
         <>
-            <section id="landing" className="blog-section position-relative bg-two bg_pattern_1 section-default">
+            <section id="landing" className="blog-section position-relative bg-two bg_pattern_1 section-md">
               <div className="container-xl">
                 <div className="row">
                   <div className="col-12">
+                    {/*<p className="title-small text-center text-lg">{before_headline}</p>*/}
                     <h1 className="headline text-center">{headline}</h1>
                   </div>
                 </div>
