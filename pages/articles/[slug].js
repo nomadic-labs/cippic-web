@@ -6,6 +6,19 @@ import { Autoplay, Navigation, Pagination } from "swiper"
 import { Swiper, SwiperSlide } from "swiper/react"
 import ReactMarkdown from 'react-markdown'
 import getLayoutData from "@/utils/layout-data"
+import FaqSection from '@/components/sections/FaqSection';
+import RichTextSection from '@/components/sections/RichTextSection';
+import HighlightBox from '@/components/sections/HighlightBox';
+import ImageSliderSection from '@/components/sections/ImageSliderSection';
+import Fade from 'react-reveal/Fade';
+import ArticleCard from "@/components/elements/ArticleCard"
+
+const dynamicContentDict = {
+  'common.faq-section': FaqSection,
+  'common.paragraph-text-section': RichTextSection,
+  'common.highlight-section': HighlightBox,
+  'common.image-slider': ImageSliderSection
+}
 
 const qs = require('qs');
 
@@ -33,6 +46,53 @@ export const getStaticProps = async ({ params }) => {
               $eq: slug,
             },
         },
+        populate: {
+          '*': true,
+          main_image: {
+            populate: '*'
+          },
+          categories: true,
+          content_types: true,
+          dynamic_content: {
+            populate: '*'
+          }
+        }
+      },
+      {
+        encodeValuesOnly: true, // prettify URL
+      }
+    );
+
+
+    const articleRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/articles?${pageQuery}`)
+    const articleJson = await articleRes.json()
+    const articleData = articleJson.data[0]
+    const article = { id: articleData.id, ...articleData.attributes }
+    const categoriesArr = article.categories.data.map(c => c.attributes.slug)
+
+    const relatedArticlesQuery = qs.stringify(
+      {
+        filters: {
+          $and: [
+            {
+              categories: {
+                slug: {
+                  $in: categoriesArr
+                }
+              }
+            },
+            {
+              slug: {
+                $ne: 'test'
+              }
+            },
+          ]
+        },
+        sort: "date_published:desc",
+        pagination: {
+          start: 0,
+          limit: 3
+        },
         populate: [
           '*',
           'main_image.media',
@@ -45,24 +105,23 @@ export const getStaticProps = async ({ params }) => {
       }
     );
 
-    const articleRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/articles?${pageQuery}`)
-    const articleJson = await articleRes.json()
-    const articleData = articleJson.data[0]
-    const article = { id: articleData.id, ...articleData.attributes }
+    const relatedArticlesRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/articles?${relatedArticlesQuery}`)
+    const relatedArticlesJson = await relatedArticlesRes.json()
+    const relatedArticles = relatedArticlesJson.data.map(r => r.attributes)
 
-    const content = { article }
+    const content = { article, relatedArticles }
 
     return { props: { content, layout } }
 }
 
 export default function ArticlePage({ content, layout }) {
-    const { article } = content;
+    const { article, relatedArticles } = content;
     const categories = article.categories.data || []
     const content_types = article.content_types.data || []
     const image = article.main_image?.data?.attributes
     const datePublished = new Date(article.date_published)
     const dateString = datePublished.toLocaleDateString('en-CA', { year: 'numeric', month: 'short', day: 'numeric' })
-    
+
     return (
         <>
             <Layout 
@@ -71,6 +130,7 @@ export default function ArticlePage({ content, layout }) {
               contentTypes={layout.contentTypes}
               studentPages={layout.studentPages}
             >
+              <main id="main" className="site-main" role="main">
                 <section className="blog-section position-relative bg-two">
                   {/*===============spacing==============*/}
                   <div className="pd_top_40" />
@@ -81,7 +141,8 @@ export default function ArticlePage({ content, layout }) {
                         <div className="padding-xl bg-one">
                           <div className="title-small">{dateString}</div>
                           <h1 className="title-med">{article.title}</h1>
-                          <ReactMarkdown className="text-lg">{`By ${article.author}`}</ReactMarkdown>
+                          { article.author && <ReactMarkdown className="text-lg">{`By ${article.author}`}</ReactMarkdown> }
+                          <ReactMarkdown>{article.teaser}</ReactMarkdown>
                         </div>
                       </div>
                     </div>
@@ -91,53 +152,67 @@ export default function ArticlePage({ content, layout }) {
                   {/*===============spacing==============*/}
                 </section>
 
-                <div className="container container-reading">
-                    <div className="row">
-                        <div id="primary" className="content-area service col-12">
-                            <main id="main" className="site-main" role="main">
-                                {/*===============spacing==============*/}
-                                <div className="pd_top_60" />
-                                {/*===============spacing==============*/}
+                <section className="section-default">
+                    <div className="container container-reading">
+                        <div className="row">
+                            <div className="col-12">
                                 { image &&
                                 <Image 
-                                  width={image.width} 
-                                  height={image.height} 
-                                  src={`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${image.url}`} 
-                                  alt={image.alternativeText} 
+                                    width={image.width} 
+                                    height={image.height} 
+                                    src={`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${image.url}`} 
+                                    alt={image.alternativeText} 
                                   className="img-full img-fluid highlight-shadow mr_bottom_40" 
-                                />
-                                }
-                                <div className="blog_single_details_outer">
-                                    <div className="single_content_upper">
-                                        <ReactMarkdown>
-                                            {article.body}
-                                        </ReactMarkdown>
-                                    </div>
-                                    <div className="single_content_lower">
-                                        <div className="tags_and_share">
-                                            <div className="d-flex">
-                                                <div className="tags_content left_one">
-                                                    <div className="box_tags_psot">
-                                                        <div className="title">Filed under</div>
-                                                        { categories.map(cat => <Link key={cat.id} className="btn" href={`/topics/${cat.attributes.slug}`}>{cat.attributes.name}</Link>)}
-                                                        { content_types.map(ct => <Link key={ct.id} className="btn" href={`/our-work/${ct.attributes.slug}`}>{ct.attributes.name}</Link>)}
-                                                    </div>
-                                                </div>
-                                                
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    
+                                />}
+                                <div className="single_content_upper">
+                                    <ReactMarkdown>
+                                        {article.body}
+                                    </ReactMarkdown>
                                 </div>
-                                {/*===============spacing==============*/}
-                                <div className="pd_bottom_70" />
-                                {/*===============spacing==============*/}
-                            </main>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </section>
 
+                {article.dynamic_content.map((section, index) => {
+                  const Component = dynamicContentDict[section.__component];
+                  if (!Component) return null
+                  return(
+                    <Component key={`dynamic-section-${index}`} {...section} />
+                  )
+                })}
+
+                { (relatedArticles.length > 0) && 
+                  <section className="section-default">
+                      <div className="container">
+                          <div className="row">
+                            <div className="col-12 title_sections">
+                              <h2 className="title-small">Related Articles</h2>
+                            </div>
+                          </div>
+                          <div className="row news-articles">
+                          {
+                            relatedArticles.map((article, index) => {
+                                return (
+                                    <div key={article.slug} className="col-12 col-lg-6 col-xl-4">
+                                        <Fade bottom delay={index * 60}>
+                                            <ArticleCard 
+                                              article={article} 
+                                              tagsAttribute="content_types" 
+                                              showImage
+                                              imageTop
+                                            />
+                                        </Fade>
+                                    </div>
+                                )
+                            })
+                          }
+                        </div>
+                      </div>
+                  </section>
+                }
+
+              </main>
             </Layout>
         </>
     )

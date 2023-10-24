@@ -7,10 +7,7 @@ export default function Students({title, before_title, subtitle, description, im
     const imagesArr = images.data ? images.data.map(i => i.attributes) : []
     return (
         <>
-            <section className="service-section bg-two">
-                {/*===============spacing==============*/}
-                <div className="pd_top_80" />
-                {/*===============spacing==============*/}
+            <section className="service-section bg-two section-default">
                 <div className="container-xl">
                     <div className="row">
                         <div className="col-12">
@@ -42,9 +39,6 @@ export default function Students({title, before_title, subtitle, description, im
                         </div>
                     </div>
                 </div>
-                {/*===============spacing==============*/}
-                <div className="pd_bottom_80" />
-                {/*===============spacing==============*/}
             </section>
 
         </>

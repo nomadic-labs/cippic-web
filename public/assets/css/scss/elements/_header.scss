@@ -247,25 +247,19 @@
  
 .header ,
 .default_sickty_heaad {
-    position: relative;
-    background: #ffffff;
-    padding: 20px 0px 20px;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -ms-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
+    position: absolute;
+    width: 100%;
+    padding: 1rem 0px;
     .header_logo_box{
         position: relative; 
         img{
             display: block;
-            // max-width: 340px;
             height: auto; 
             margin-bottom: 0px;
-            // filter: invert(1) hue-rotate(-36deg);
         }
         .logo_default{
             display: block;
+            max-width: 435px;
         }
         .logo__sticky{
             display: none;
@@ -2971,14 +2965,12 @@ body.single-header{
 
 @keyframes slideInUp {
     0% {
-        -webkit-transform: translate3d(0, 100%, 0);
-        transform: translate3d(0, 100%, 0);
+        top: -100px;
         visibility: visible
     }
 
     to {
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0)
+        top: 0;
     }
 }
  
@@ -2991,15 +2983,7 @@ body.single-header{
         top: 0;
         padding: 10px 0px;
         width: 100%;
-        // background: #ffffff;
-        -webkit-box-shadow: 0 0 15px rgba(0 , 0 , 0 , .1);
-        box-shadow: 0 0 15px rgba(0 , 0 , 0 , .1); 
-        -ms-box-shadow: 0 0 15px rgba(0 , 0 , 0 , .1);
-        -o-box-shadow: 0 0 15px rgba(0 , 0 , 0 , .1);
-        -webkit-transition: top .3s ease;
-        -o-transition: top .3s ease;
-        transition: top .3s ease;
-        animation-name: slideInUp;
+        animation: slideInUp var(--animation-speed) ease;
         &.style_two {
             background: var(--primary-color-two);
         }

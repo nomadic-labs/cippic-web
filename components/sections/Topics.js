@@ -6,10 +6,7 @@ export default function Topics({title, before_title, subtitle, topics=[]}) {
     const keyTopics = topics.filter(t => t.featured)
     return (
         <>
-            <section className="service-section-two bg-one">
-                {/*===============spacing==============*/}
-                <div className="pd_top_60" />
-                {/*===============spacing==============*/}
+            <section className="service-section-two bg-one section-default">
                 <div className="container-xl">
                     <div className="row">
                         <div className="col-lg-12">
@@ -49,9 +46,6 @@ export default function Topics({title, before_title, subtitle, topics=[]}) {
                         </div>
                     </div>
                 </div>
-                {/*===============spacing==============*/}
-                <div className="pd_bottom_50" />
-                {/*===============spacing==============*/}
             </section>
 
         </>

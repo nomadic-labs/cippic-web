@@ -4,10 +4,11 @@ import ReactMarkdown from 'react-markdown'
 
 export default function ArticleCard ({ 
     article,
-    showImage=true, 
-    showTeaser=true, 
-    showDate=true, 
-    imageTop=true,
+    showImage=false, 
+    showTeaser=false, 
+    showDate=false, 
+    imageLeft=false,
+    imageTop=false,
     linkText="Keep reading",
     tagsAttribute="categories",
 }) {
@@ -35,7 +36,7 @@ export default function ArticleCard ({
 
     return (
         
-        <div className={`article-card ${imageTop ? 'image-top' : 'image-left'} bg-white`}>
+        <div className={`article-card ${(hasImage && imageLeft) ? 'image-left' : ''}  ${(hasImage && imageTop) ? 'image-top' : ''} bg-white`}>
             <div className={`image`}>
                 { hasImage && <Image width={image.width} height={image.height} src={`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${image.url}`} alt={image.alternativeText} className="img-fluid" /> }
                 <div className="categories">

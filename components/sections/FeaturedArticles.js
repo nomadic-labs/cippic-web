@@ -13,9 +13,6 @@ export default function FeaturedArticles({ title="Key Insights", articles=[] }) 
                             <Fade bottom delay={index * 60} key={article.id}>
                                 <ArticleCard 
                                     article={article} 
-                                    showImage={false}
-                                    showTeaser={false}
-                                    showDate={false}
                                 />
                             </Fade>
                         )

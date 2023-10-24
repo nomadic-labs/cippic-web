@@ -844,6 +844,11 @@
     }
 
     @media(max-width:660px){
+        #wrapper,
+        #content {
+            padding-top: 78px; // header
+        }
+
         .bg_pattern_1 {
             background-image: url('/assets/images/bg-pattern-2.svg');
             background-position: top 1% center !important;
@@ -857,6 +862,7 @@
                 font-weight: 600;
             }
         }
+
     }
     
     @media(max-width:550px){
@@ -1256,12 +1262,12 @@
         }
          
  
-.breadcrumbs ul{
-    display: block;
-    li{
-        display: inline-block;
+    .breadcrumbs ul {
+        display: block;
+        li{
+            display: inline-block;
+        }
     }
-}
 }
 
 @media (min-width: 991px ) {

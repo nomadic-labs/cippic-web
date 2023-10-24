@@ -31,11 +31,65 @@ const query = qs.stringify(
 const articlesQuery = qs.stringify(
       {
         filters: {
-            featured: {
+            featured_insights: {
               $eq: true,
             },
         },
         sort: "date_published:desc",
+        pagination: {
+          start: 0,
+          limit: 3
+        },
+        populate: [
+          '*',
+          'main_image.media',
+          'categories',
+          'content_types'
+        ],
+      },
+      {
+        encodeValuesOnly: true, // prettify URL
+      }
+    );
+
+const spotlightQuery = qs.stringify(
+      {
+        filters: {
+            featured_story: {
+              $eq: true,
+            },
+        },
+        pagination: {
+          start: 0,
+          limit: 1
+        },
+        sort: "date_published:desc",
+        populate: [
+          '*',
+          'main_image.media',
+          'categories',
+          'content_types'
+        ],
+      },
+      {
+        encodeValuesOnly: true, // prettify URL
+      }
+    );
+
+const newsQuery = qs.stringify(
+      {
+        filters: {
+            content_types: {
+                slug: {
+                    $eq: "news"
+                }
+            },
+        },
+        sort: "date_published:desc",
+        pagination: {
+          start: 0,
+          limit: 3
+        },
         populate: [
           '*',
           'main_image.media',
@@ -57,13 +111,24 @@ export const getStaticProps = async () => {
     const page = pageJson.data.attributes
 
     const articleRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/articles?${articlesQuery}`)
-    const { data, meta } = await articleRes.json()
-    const articles = data.map((article) => ({
+    const articleJson = await articleRes.json()
+    const articles = articleJson.data.map((article) => ({
       id: article.id,
       ...article.attributes
-    })).slice(0,3)
+    }))
 
-    const content = { ...page, articles }
+    const newsRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/articles?${newsQuery}`)
+    const newsJson = await newsRes.json()
+    const news = newsJson.data.map((article) => ({
+      id: article.id,
+      ...article.attributes
+    }))
+
+    const spotlightRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/articles?${spotlightQuery}`)
+    const spotlightJson = await spotlightRes.json()
+    const spotlight = spotlightJson.data.length > 0 ? spotlightJson.data[0].attributes : news[0]
+
+    const content = { ...page, articles, spotlight, news }
 
     return { props: { content, layout } }
 }
@@ -84,14 +149,14 @@ export default function Home5({content, layout}) {
                   key_insights_heading={content.key_insights_heading}
                   articles={content.articles}
                   spotlightHeading={content.spotlight_heading}
-                  spotlightArticle={content.articles[0]}
+                  spotlightArticle={content.spotlight}
                 />
                 <News 
                     topics={content.categories}
                     title={content.news_section_title}
                     before_title={content.news_section_before_title}
                     subtitle={content.news_section_subtitle}
-                    articles={content.articles}
+                    articles={content.news}
                 />
                 <Topics 
                     topics={layout.categories}

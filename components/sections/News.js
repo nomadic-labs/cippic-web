@@ -6,10 +6,7 @@ import ArticleCard from "@/components/elements/ArticleCard"
 export default function News({title, before_title, subtitle, articles=[]}) {
     return (
         <>
-            <section className="service-section bg-light">
-                {/*===============spacing==============*/}
-                <div className="pd_top_40" />
-                {/*===============spacing==============*/}
+            <section className="service-section bg-light section-default">
                 <div className="container-xl">
                     <div className="row">
                         <div className="col-lg-12">
@@ -37,7 +34,7 @@ export default function News({title, before_title, subtitle, articles=[]}) {
                                 return (
                                     <div key={article.id} className="col-12 col-lg-6 col-xl-4 mr_bottom_30">
                                         <Fade bottom delay={index * 60}>
-                                            <ArticleCard article={article} />
+                                            <ArticleCard article={article} imageTop />
                                         </Fade>
                                     </div>
                                 )
@@ -46,9 +43,6 @@ export default function News({title, before_title, subtitle, articles=[]}) {
                         
                     </div>
                 </div>
-                {/*===============spacing==============*/}
-                <div className="pd_bottom_60" />
-                {/*===============spacing==============*/}
             </section>
 
         </>

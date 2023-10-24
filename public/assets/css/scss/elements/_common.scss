@@ -7776,8 +7776,8 @@ a.read_more {
     background-color: transparentize(#ffffff, 0.85);
 }
 
-.bg-two {
-    background-color: var(--primary-color-two);
+.bg-two, .bg-dark {
+    background-color: var(--primary-color-two) !important;
     color: var(--text-color-light);
 
     a {
@@ -7806,6 +7806,11 @@ a.read_more {
     color: var(--text-color-dark);
 }
 
+.bg-inherit {
+    background-color: inherit;
+    color: inherit;
+}
+
 .rounded-lg {
     border-radius: var(--border-radius-lg);
 }
@@ -7831,7 +7836,11 @@ a.read_more {
 }
 
 .highlight-shadow {
-    box-shadow: 0 5px 0 var(--highlight-color);
+    box-shadow: -5px 5px 0 var(--highlight-color);
+}
+
+.highlight-border {
+    border: 2px solid var(--highlight-color);
 }
 
 .img-full {

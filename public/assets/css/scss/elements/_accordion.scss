@@ -1,0 +1,50 @@
+.accordion {
+	.accordion__item {
+		margin: var(--padding-md) 0;
+
+		.accordion__heading {
+			font-size: 1.2rem;
+			font-weight: 600;
+			margin-bottom: 0.5em;
+
+			.accordion__button {
+				display: flex;
+				align-items: flex-start;
+
+				.caret {
+					transform: rotate(-90deg);
+			    line-height: 30px;
+			    justify-content: center;
+			    align-items: center;
+			    margin-right: 10px;
+			    transition: all var(--animation-speed) ease;
+				}
+
+				i {
+					font-size: 14px;
+				}
+
+				&[aria-expanded=true] {
+					.caret {
+						transform: rotate(0deg);
+					}
+				}
+			}
+		}
+
+		.accordion__panel {
+			animation: fadein var(--animation-speed) ease-in;
+			padding-bottom: var(--padding-md);
+		}
+	}
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
