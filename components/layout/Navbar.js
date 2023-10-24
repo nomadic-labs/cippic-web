@@ -47,11 +47,11 @@ export default function Navbar({ topics=[], contentTypes=[], studentPages=[] }) 
                     </ul>
                 </li>
                 <li className="menu-item menu-item-has-children dropdown nav-item">
-                    <Link href="/" className="dropdown-toggle nav-link">
+                    <Link href="/students" className="dropdown-toggle nav-link">
                         <span>Students</span>
-                        <span className="fa fa-angle-down mr_left_5"></span>
+                        {/*<span className="fa fa-angle-down mr_left_5"></span>*/}
                     </Link>
-                    <ul className="dropdown-menu">
+                    {/*<ul className="dropdown-menu">
                         {
                             studentPages.map(page => {
                                 return(
@@ -63,7 +63,7 @@ export default function Navbar({ topics=[], contentTypes=[], studentPages=[] }) 
                                 )
                             })
                         }
-                    </ul>
+                    </ul>*/}
                 </li>
                 <li className="menu-item menu-item-has-children dropdown nav-item">
                     <Link href="/" className="dropdown-toggle nav-link">
