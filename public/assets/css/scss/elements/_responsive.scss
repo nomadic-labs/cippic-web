@@ -173,6 +173,11 @@
     }
     
     @media(max-width:992px){
+        .program-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
         .bg_pattern_1 {
             background-position: top 5% center !important;
             background-size    : 120% auto;
@@ -847,6 +852,11 @@
         #wrapper,
         #content {
             padding-top: 78px; // header
+        }
+
+        .program-cards {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
         }
 
         .bg_pattern_1 {

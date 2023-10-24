@@ -7869,8 +7869,20 @@ a.read_more {
         -moz-transition: var(--animation-speed) ease-in-out;
         -o-transition: var(--animation-speed) ease-in-out;
         -ms-transition: var(--animation-speed) ease-in-out;
-        i{
+        i {
             margin-right: 6px;
+        }
+    }
+}
+
+.program-cards {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(4, 1fr);
+
+    .program-card {
+        .article-card {
+            height: 100%;
         }
     }
 }

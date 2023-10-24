@@ -1,6 +1,6 @@
-export default function ButtonLink ({ href, target="", children }) {
+export default function ButtonLink ({ href, children, className="", ...rest }) {
     return (
-        <a href={href} target={target} rel="nofollow" className="theme-btn five">
+        <a href={href} rel="nofollow" className={`theme-btn five ${className}`} {...rest}>
             {children}
             <i className="icon-right-arrow"></i>
         </a>

@@ -2750,6 +2750,23 @@ body .enabled_custom_title .title_page .main_tit {
   margin-bottom: 1.5rem;
 }
 
+.section-separator:after {
+  content: "";
+  width: 100%;
+  height: 2rem;
+  display: block;
+  background: url("/logomark.svg") no-repeat bottom center;
+}
+.section-separator:nth-child(2n):after {
+  transform: rotate(200deg);
+}
+.section-separator:nth-child(3n):after {
+  transform: rotate(-40deg);
+}
+.section-separator:last-of-type:after {
+  background: unset;
+}
+
 /*----------theme-button-csss-------*/
 .application_button {
   display: inline-block;
@@ -21206,6 +21223,15 @@ a.read_more:hover i {
   margin-right: 6px;
 }
 
+.program-cards {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+}
+.program-cards .program-card .article-card {
+  height: 100%;
+}
+
 .owl_new_one .swiper .owl-nav .owl-prev {
   margin-right: 5px;
 }
@@ -29035,6 +29061,7 @@ body.side_menu_toggled .style-switcher {
 }
 .article-card .categories i {
   margin-right: 6px;
+  font-size: 14px;
 }
 .article-card .image {
   position: relative;
@@ -29278,6 +29305,10 @@ body.side_menu_toggled .style-switcher {
   }
 }
 @media (max-width: 992px) {
+  .program-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
   .bg_pattern_1 {
     background-position: top 5% center !important;
     background-size: 120% auto;
@@ -29903,6 +29934,10 @@ body.side_menu_toggled .style-switcher {
   #wrapper,
   #content {
     padding-top: 78px;
+  }
+  .program-cards {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
   }
   .bg_pattern_1 {
     background-image: url("/assets/images/bg-pattern-2.svg");

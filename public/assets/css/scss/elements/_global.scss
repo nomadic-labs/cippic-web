@@ -1481,3 +1481,32 @@ body {
 .title-section {
     margin-bottom: 1.5rem;
 }
+
+.section-separator {
+    &:after {
+        content: '';
+        width: 100%;
+        height: 2rem;
+        display: block;
+        background: url('/logomark.svg') no-repeat bottom center;
+    }
+
+    &:nth-child(2n) {
+        &:after {
+            transform: rotate(200deg);
+        }
+    }
+
+    &:nth-child(3n) {
+        &:after {
+            transform: rotate(-40deg);
+        }
+    }
+
+    &:last-of-type {
+        &:after {
+            background: unset;
+        }
+    }
+
+}
