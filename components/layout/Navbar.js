@@ -49,21 +49,21 @@ export default function Navbar({ topics=[], contentTypes=[], studentPages=[] }) 
                 <li className="menu-item menu-item-has-children dropdown nav-item">
                     <Link href="/students" className="dropdown-toggle nav-link">
                         <span>Students</span>
-                        {/*<span className="fa fa-angle-down mr_left_5"></span>*/}
+                        <span className="fa fa-angle-down mr_left_5"></span>
                     </Link>
-                    {/*<ul className="dropdown-menu">
+                    <ul className="dropdown-menu">
                         {
                             studentPages.map(page => {
                                 return(
                                     <li key={page.id} className="menu-item  nav-item">
-                                        <Link href={`/students/${page.slug}`} className="dropdown-item nav-link"> 
+                                        <Link href={`/students#${page.slug}`} className="dropdown-item nav-link"> 
                                             <span>{page.title}</span>
                                         </Link>
                                     </li>
                                 )
                             })
                         }
-                    </ul>*/}
+                    </ul>
                 </li>
                 <li className="menu-item menu-item-has-children dropdown nav-item">
                     <Link href="/" className="dropdown-toggle nav-link">

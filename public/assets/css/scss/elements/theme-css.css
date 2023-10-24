@@ -1509,9 +1509,6 @@ ul {
 .page_wapper {
   position: relative;
 }
-.page_wapper #wrapper_full {
-  overflow: hidden;
-}
 
 .footer_sticky_body .content_all_warpper {
   position: relative;
@@ -7625,12 +7622,13 @@ header .flaticon-list {
   font-family: "FontAwesome" !important;
   width: 40px;
   height: 40px;
-  line-height: 40px;
-  background: rgba(255, 255, 255, 0.6);
+  line-height: 34px;
+  background: var(--color-light);
   text-align: center;
   font-size: 26px;
   color: var(--primary-color-two);
   border-radius: 50%;
+  border: 2px solid var(--primary-color-two);
 }
 .slider .owl-prev::after,
 .slider .owl-next::after {

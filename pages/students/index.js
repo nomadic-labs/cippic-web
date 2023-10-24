@@ -58,7 +58,7 @@ export default function StudentsPage({ content, layout }) {
                               <div className="program-cards">
                                 { content.student_programs.map(program => {
                                     return (
-                                        <div className="program-card">
+                                        <div className="program-card" key={program.section_id}>
                                             <ContentCard icon={program.icon_class} tags={program.tag}>
                                                 <h3 className="title">{program.title}</h3>
                                                 <a href={`#${program.section_id}`} className="read_more">More information <i className="icon-right-arrow" /></a >
@@ -90,7 +90,7 @@ export default function StudentsPage({ content, layout }) {
                     {
                         content.student_programs.map(program => {
                             return (
-                                <section className={`bg-light section-separator`} id={program.section_id}>
+                                <section className={`bg-light section-separator`} id={program.section_id} key={program.section_id}>
                                     <div className="container container-reading section-md">
                                         <div className="row">
                                             <div className="col-12">
