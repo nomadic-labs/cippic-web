@@ -19,7 +19,6 @@ export default function FeaturedArticles({ title="Key Insights", articles=[] }) 
                     })
                 }
             </div>
-            <div className="pd_top_20" />
             <Link href={`/articles`} className="read_more">Explore the issues <i className="icon-right-arrow" /></Link >
         </div>
     )

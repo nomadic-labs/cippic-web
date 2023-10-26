@@ -1,6 +1,5 @@
 import Layout from "@/components/layout/Layout"
-import Breadcrumb from '@/components/layout/Breadcrumb'
-import FeaturedArticles from "@/components/sections/FeaturedArticles"
+import Header from "@/components/sections/Header"
 import Link from "next/link"
 import { Autoplay, Navigation, Pagination } from "swiper"
 import { Swiper, SwiperSlide } from "swiper/react"
@@ -112,70 +111,56 @@ export default function OurWork({ content, layout }) {
               studentPages={layout.studentPages}
             >
 
-            <section className="service-section bg-two section-default">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-lg-12">
-                            <div className="title-section">
-                                <h1 className="">{contentType.name}</h1>
-                                <h2 className="title-small">{`Latest ${contentType.name}`}</h2>
-                            </div>
-                        </div>
-                        {/*===============spacing==============*/}
-                        <div className="mr_bottom_10" />
-                        {/*===============spacing==============*/}
-                    </div>
-                    <div className="row news-articles">
-                    {
-                            latestArticles.map((article, index) => {
-                                const categories = article.categories.data || []
-                                const content_types = article.content_types.data || []
-                                const datePublished = new Date(article.date_published)
-                                const dateString = datePublished.toLocaleDateString('en-CA', { year: 'numeric', month: 'short', day: 'numeric' })
-                                const tags = categories.map(t => t.attributes.name).join(', ')
-                                const image = article.main_image.data ? article.main_image.data.url : null
-
-                                return (
-                                    <div key={article.id} className="col-12 col-lg-6 col-xl-4">
-                                        <Fade bottom delay={index * 60}>
-                                            <ArticleCard 
-                                                article={article} 
-                                                showDate
-                                                showImage
-                                                imageTop
-                                            />
-                                        </Fade>
-                                    </div>
-                                )
-                            })
-                        }
-                        
-                    </div>
+            <Header>
+                <div className="title-section ">
+                    <h1 className="mt-0">{contentType.name}</h1>
+                    <h2 className="title-small">{`Latest ${contentType.name}`}</h2>
                 </div>
-            </section>
+                            
+                <div className="row header-articles">
+                {
+                        latestArticles.map((article, index) => {
+                            const categories = article.categories.data || []
+                            const content_types = article.content_types.data || []
+                            const datePublished = new Date(article.date_published)
+                            const dateString = datePublished.toLocaleDateString('en-CA', { year: 'numeric', month: 'short', day: 'numeric' })
+                            const tags = categories.map(t => t.attributes.name).join(', ')
+                            const image = article.main_image.data ? article.main_image.data.url : null
 
-                <div className="container">
-                    <div className="row default_row">
-                        <div className="full_width_box">
-                            <div className="pd_top_60" />
-                            <div className="row">
-                        <div className="col-lg-12">
-                            <div className="title-section">
-                                <h2 className="title-small">{`All ${contentType.name}`}</h2>
+                            return (
+                                <div key={article.id} className="article">
+                                    <Fade bottom delay={index * 60}>
+                                        <ArticleCard 
+                                            article={article} 
+                                            showDate
+                                            showImage
+                                            imageTop
+                                        />
+                                    </Fade>
+                                </div>
+                            )
+                        })
+                    }
+                    
+                </div>
+            </Header>
+                <section className="section-md">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-12">
+                                <div className="title-section">
+                                    <h2 className="title-small">{`All ${contentType.name}`}</h2>
+                                </div>
                             </div>
-                        </div>
-                        {/*===============spacing==============*/}
-                        <div className="mr_bottom_10" />
-                        {/*===============spacing==============*/}
-                    </div>
+                            {/*===============spacing==============*/}
+                            <div className="mr_bottom_10" />
+                            {/*===============spacing==============*/}
                             <div className="project_all filt_style_one filter_enabled">
                                 <PortfolioFilter3Col articles={articles} filters={articleFilters} filterField="categories" />
                             </div>
-                            <div className="pd_top_60" />
                         </div>
                     </div>
-                </div>
-
+                </section>
             </Layout>
         </>
     )

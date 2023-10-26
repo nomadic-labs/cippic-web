@@ -12,6 +12,7 @@ import HighlightBox from '@/components/sections/HighlightBox';
 import ImageSliderSection from '@/components/sections/ImageSliderSection';
 import Fade from 'react-reveal/Fade';
 import ArticleCard from "@/components/elements/ArticleCard"
+import Header from "@/components/sections/Header"
 
 const dynamicContentDict = {
   'common.faq-section': FaqSection,
@@ -131,28 +132,18 @@ export default function ArticlePage({ content, layout }) {
               studentPages={layout.studentPages}
             >
               <main id="main" className="site-main" role="main">
-                <section className="blog-section position-relative bg-two section-md">
-                  <div className="container">
-                    <div className="row">
-                      <div className="col-12">
-                        <div className="d-flex article-header">
-                        <div className="categories">
-                            <i className="icon-folder" />
-                            {tags}
-                        </div>
-                          <div className="bg-one padding-lg pd_top_40">
-                            <div className="title_sections">
-                              <div className="title-small">{dateString}</div>
-                              <h1 className="title-med">{article.title}</h1>
-                            </div>
-                            { article.author && <ReactMarkdown>{`By ${article.author}`}</ReactMarkdown> }
-                            { article.teaser && <ReactMarkdown className="text-lg">{article.teaser}</ReactMarkdown> }
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                <Header>
+                  <div className="tags">
+                      <i className="icon-folder" />
+                      {tags}
                   </div>
-                </section>
+                  <div className="title_sections">
+                    <div className="title-small">{dateString}</div>
+                    <h1 className="title-md">{article.title}</h1>
+                  </div>
+                  { article.author && <ReactMarkdown>{`By ${article.author}`}</ReactMarkdown> }
+                  { article.teaser && <ReactMarkdown className="text-lg">{article.teaser}</ReactMarkdown> }
+                </Header>
 
                 <section className="section-default">
                     <div className="container container-reading">
@@ -165,7 +156,7 @@ export default function ArticlePage({ content, layout }) {
                                         height={image.height} 
                                         src={`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${image.url}`} 
                                         alt={image.alternativeText} 
-                                        className="mr_bottom_40 img-fluid img-full highlight-shadow" 
+                                        className="mr_bottom_40 img-fluid img-full highlight-shadow rounded-sm" 
                                     />}
                                     <ReactMarkdown>
                                         {article.body}

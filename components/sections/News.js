@@ -13,7 +13,7 @@ export default function News({title, before_title, subtitle, articles=[]}) {
                             <div className="title_all_box style_one text-center  dark_color">
                                 <div className="title_sections">
                                     <div className="before_title">{before_title} </div>
-                                    <h2>{title}</h2>
+                                    <h2 className="mt-0">{title}</h2>
                                 </div>
                             </div>
                         </div>

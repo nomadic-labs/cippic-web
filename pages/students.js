@@ -2,6 +2,7 @@ import Layout from "@/components/layout/Layout"
 import ContentCard from "@/components/elements/ContentCard"
 import ButtonLink from "@/components/elements/ButtonLink"
 import ImageSliderSection from "@/components/sections/ImageSliderSection"
+import FancyHeader from "@/components/sections/FancyHeader"
 import Link from "next/link"
 import ReactMarkdown from 'react-markdown'
 import getLayoutData from "@/utils/layout-data"
@@ -46,34 +47,25 @@ export default function StudentsPage({ content, layout }) {
                 contentTypes={layout.contentTypes} 
                 studentPages={layout.studentPages}
             >
-                    <section className="section-default position-relative bg-two">
-                      <div className="container">
-                        <div className="row">
-                          <div className="col-12">
-                            <div className="padding-xl bg-one">
-                              <div className="title-small">{content.before_title}</div>
-                              <h1>{content.title}</h1>
-                              <ReactMarkdown className="text-lg">{content.intro}</ReactMarkdown>
-                              <div className="pd_top_20" />
-                              <div className="program-cards">
-                                { content.student_programs.map(program => {
-                                    return (
-                                        <div className="program-card" key={program.section_id}>
-                                            <ContentCard icon={program.icon_class} tags={program.tag}>
-                                                <h3 className="title">{program.title}</h3>
-                                                <a href={`#${program.section_id}`} className="read_more">More information <i className="icon-right-arrow" /></a >
-                                            </ContentCard>
-                                        </div>
-                                    )
-                                })}
-
+                <FancyHeader
+                    before_title={content.before_title}
+                    title={content.title}
+                    subtitle={content.intro}
+                >
+                    <div className="program-cards mr_top_40">
+                        { content.student_programs.map(program => {
+                            return (
+                                <div className="program-card" key={program.section_id}>
+                                    <ContentCard icon={program.icon_class} tags={program.tag}>
+                                        <h3 className="title">{program.title}</h3>
+                                        <a href={`#${program.section_id}`} className="read_more">More information <i className="icon-right-arrow" /></a >
+                                    </ContentCard>
+                                </div>
+                            )
+                        })}
+                    </div>
+                </FancyHeader>
                                 
-                            </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </section>
 
                     <section className="section-default bg-light">
                         <div className="container container-reading">

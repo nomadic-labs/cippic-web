@@ -2,6 +2,7 @@ import Layout from "@/components/layout/Layout"
 import Breadcrumb from '@/components/layout/Breadcrumb'
 import FeaturedArticles from "@/components/sections/FeaturedArticles"
 import Image from "next/image"
+import FancyHeader from "@/components/sections/FancyHeader"
 
 import Link from "next/link"
 import { Autoplay, Navigation, Pagination } from "swiper"
@@ -95,33 +96,12 @@ export default function TopicsPage({ content, layout }) {
               contentTypes={layout.contentTypes}
               studentPages={layout.studentPages}
             >
-                <section className="position-relative bg-two section-default">
-                  <div className="container">
-                    <div className="row">
-                      <div className="col-12">
-                        <h1 className="text-center">{category.name}</h1>
-                        <div className="pd_top_20" />
-                      </div>
-                    </div>
-                    <div className="row">
-                    {image &&
-                      <div className="col-6">
-                        <Image 
-                          width={image.width} 
-                          height={image.height} 
-                          src={`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${image.url}`} 
-                          alt={image.alternativeText} 
-                          className="img-fluid highlight-shadow" 
-                        />
-                      </div>
-                    }
-                      <div className={`${image ? "col-6" : "col-12"}`}>
-                        <ReactMarkdown className="text-lg">{category.description}</ReactMarkdown>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-
+              <FancyHeader
+                title={category.name}
+                subtitle={category.description}
+                iconSrc={category.icon.data.attributes.url}
+              />
+                
                 <section className="position-relative bg-light section-default">
                   <div className="container">
                       <div className="project_all filt_style_one filter_enabled">

@@ -1133,14 +1133,14 @@
     background-repeat  : no-repeat !important;
     background-size    : 100% auto;
     transition         : background 0.3s !important;
-    // background-color   : var(--primary-color-three);
 }
 
 .bg_pattern_2 {
-    background-position: bottom left !important;
-    background-repeat  : no-repeat !important;
-    background-size    : 68% auto !important;
-    transition         : background 0.3s, border-radius 0.3s, opacity 0.3s !important;
+    background-image: url('/logomark.svg');
+    background-position: center;
+    background-repeat: no-repeat !important;
+    background-size: 100% auto;
+    transition: background 0.3s !important;
 }
 
 .bg_pattern_3 {

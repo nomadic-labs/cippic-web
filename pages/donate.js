@@ -1,6 +1,8 @@
 import Layout from "@/components/layout/Layout"
 import ContentCard from "@/components/elements/ContentCard"
 import ButtonLink from "@/components/elements/ButtonLink"
+import FancyHeader from "@/components/sections/FancyHeader"
+
 import Link from "next/link"
 import ReactMarkdown from 'react-markdown'
 import getLayoutData from "@/utils/layout-data"
@@ -42,21 +44,13 @@ export default function Donate({ content, layout }) {
                 contentTypes={layout.contentTypes} 
                 studentPages={layout.studentPages}
             >
-                    <section className="section-default position-relative bg-two">
-                      <div className="container">
-                        <div className="row">
-                          <div className="col-12">
-                            <div className="padding-xl bg-one">
-                              <div className="title-small">{content.before_title}</div>
-                              <h1>{content.title}</h1>
-                              <ReactMarkdown className="text-lg">{content.intro}</ReactMarkdown>
-                              <div className="pd_top_20" />
-                              <ButtonLink href={content.donate_button.button_link} target="_blank">{content.donate_button.button_text}</ButtonLink>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </section>
+                <FancyHeader
+                    before_title={content.before_title}
+                    title={content.title}
+                    subtitle={content.intro}
+                    button={content.donate_button}
+                />
+                    
                     <section className="section-default bg-one">
                         <div className="container">
                             <div className="row">
@@ -68,7 +62,7 @@ export default function Donate({ content, layout }) {
                                 </div>
                             </div>
                             <div className="pd_top_20" />
-                            <div className="row">
+                            <div className="row news-articles">
                                 { content.how_to_donate.map(card => {
                                     return (
                                         <div className="col-12 col-sm-6 col-md-3">
@@ -85,58 +79,66 @@ export default function Donate({ content, layout }) {
                             </div>
                         </div>
                     </section>
-                    <section className="contact-section">
-                        <div className="pd_top_60" />
-                        <div className="container-reading">
+                    <section className="section-separator">
+                        <div className="container container-reading section-md">
                             <div className="row">
                                 <div className="col-12">
                                         <div className="contnet">
-                                            <h2>{content.individual_section_title}</h2>
+                                            <h2 className="mt-0">{content.individual_section_title}</h2>
                                             <ReactMarkdown>
                                                 {content.individual_section_description}
                                             </ReactMarkdown>
                                         </div>
                                 </div>
                             </div>
+                        </div>
+                    </section>
 
+                    <section className="section-separator">
+                        <div className="container container-reading section-md">
                             <div className="row">
                                 <div className="col-12">
                                         <div className="contnet">
-                                            <h2>{content.corporate_section_title}</h2>
+                                            <h2 className="mt-0">{content.corporate_section_title}</h2>
                                             <ReactMarkdown>
                                                 {content.corporate_section_description}
                                             </ReactMarkdown>
                                         </div>
                                 </div>
                             </div>
+                        </div>
+                    </section>
 
+                    <section className="section-separator">
+                        <div className="container container-reading section-md">
                             <div className="row">
                                 <div className="col-12">
                                         <div className="contnet">
-                                            <h2>{content.tax_section_title}</h2>
+                                            <h2 className="mt-0">{content.tax_section_title}</h2>
                                             <ReactMarkdown>
                                                 {content.tax_section_description}
                                             </ReactMarkdown>
                                         </div>
                                 </div>
                             </div>
+                        </div>
+                    </section>
 
+                    <section className="section-separator">
+                        <div className="container container-reading section-md">
                             <div className="row">
                                 <div className="col-12">
                                         <div className="contnet">
-                                            <h2>{content.contacts_section_title}</h2>
+                                            <h2 className="mt-0">{content.contacts_section_title}</h2>
                                             <ReactMarkdown>
                                                 {content.contacts_section_description}
                                             </ReactMarkdown>
                                         </div>
                                 </div>
                             </div>
-
                         </div>
-                        {/*===============spacing==============*/}
-                        <div className="pd_top_60" />
-                        {/*===============spacing==============*/}
                     </section>
+
             </Layout>
         </>
     )

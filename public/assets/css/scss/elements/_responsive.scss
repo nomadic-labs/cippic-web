@@ -2,6 +2,7 @@
 
 /*---slider---cs----*/
 @media(max-width:1199px){
+
     .header ,
     .default_sickty_heaad {
         .header_logo_box{
@@ -173,6 +174,13 @@
     }
     
     @media(max-width:992px){
+
+        .header-articles {
+            display: flex;
+            flex-direction: vertical;
+            gap: 1rem;
+        }
+
         .program-cards {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -298,7 +306,7 @@
             }
         }
         .project_all.filt_style_one .fliter_group .project_filter li{
-            margin-bottom: 5px;
+            // margin-bottom: 5px;
         }
         .slider.style_one .slide-item-content .slider_image{
             display: none!important;

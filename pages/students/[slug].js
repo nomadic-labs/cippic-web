@@ -76,7 +76,7 @@ export default function StudentPage({ content, layout }) {
                           <div className="col-12">
                             <div className="padding-xl bg-one ">
                               <div className="title-small">{page.before_title}</div>
-                              <h1>{page.title}</h1>
+                              <h1 className="mt-0">{page.title}</h1>
                               <ReactMarkdown className="text-lg">{page.intro}</ReactMarkdown>
                               <div className="pd_top_20" />
                               <ButtonLink href={page.cta_button.button_link}>{page.cta_button.button_text}</ButtonLink>

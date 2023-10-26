@@ -126,7 +126,7 @@ export default function Contact({ content, layout }) {
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-12">
-                                <div className="bg-one padding-lg text-white">
+                                <div className="bg-one padding-lg text-white rounded-sm">
                                     <ReactMarkdown>
                                         {content.land_acknowledgement}
                                     </ReactMarkdown>
@@ -134,8 +134,8 @@ export default function Contact({ content, layout }) {
                                 {/*===============spacing==============*/}
                                 <div className="pd_top_40" />
                                 {/*===============spacing==============*/}                              
-                                <div className="map-outer ">
-                                    <iframe src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=100%20Thomas%20More%20Private,%20Ottawa,%20ON%20K1N%206N5+(CIPPIC)&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" height={570} style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
+                                <div className="map-outer rounded-sm">
+                                    <iframe src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=100%20Thomas%20More%20Private,%20Ottawa,%20ON%20K1N%206N5+(CIPPIC)&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" height={570} style={{ border: 0, borderRadius: '0.5rem' }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
                                 </div>
                             </div>  
                         </div>

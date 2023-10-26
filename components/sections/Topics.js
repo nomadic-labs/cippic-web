@@ -19,18 +19,17 @@ export default function Topics({title, before_title, subtitle, topics=[]}) {
                                             <Fade bottom delay={index * 60} key={topic.id}>
                                                 <div>
                                                     <Link className="service_box" href={`/topics/${topic.slug}`}>
-                                                        <div className="service_content bg-white">
+                                                        <div className="service_content bg-white rounded-sm">
                                                             <div className="content_inner">
                                                                 {
                                                                     topic.icon?.data?.attributes && (
                                                                         <div className="icon-topic">
                                                                             <Image
                                                                               src={`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${topic.icon.data.attributes.url}`}
-                                                                              width={30}
-                                                                              height={30}
+                                                                              width={40}
+                                                                              height={40}
                                                                               alt={`${topic.name} icon`}
                                                                             />
-                                                                            <i />
                                                                         </div>
                                                                     )
                                                                 }

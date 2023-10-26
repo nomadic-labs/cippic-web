@@ -41,7 +41,7 @@ a.service_box{
                 right: 0px;
                 background: var(--primary-color-one);
                 padding: var(--padding-sm);
-                width: 40px;
+                width: 45px;
                 height: auto;
                 border-radius: 50px;
                 border: 2px solid var(--color-white);
@@ -926,13 +926,4 @@ a.service_box{
     }
 
    }
-}
-
-.news-articles {
-    .react-reveal {
-        height: 100%;
-        .article-card {
-            height: 100%;
-        }
-    }
 }
