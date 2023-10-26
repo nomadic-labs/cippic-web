@@ -99,7 +99,7 @@ export default function TopicsPage({ content, layout }) {
               <FancyHeader
                 title={category.name}
                 subtitle={category.description}
-                iconSrc={category.icon.data.attributes.url}
+                iconSrc={category.icon?.data?.attributes?.url}
               />
                 
                 <section className="position-relative bg-light section-default">
