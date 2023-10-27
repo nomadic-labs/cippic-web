@@ -37,17 +37,18 @@ export default function ImageSlider({ images=[], slidesPerView=1 }) {
     return (
         <div className="slider style_four nav_position_one ">
 
-            <Swiper {...swiperOptions} breakpoints={breakpoints} className=" owl_nav_block owl_dots_none theme_carousel rounded-sm">
+            <Swiper {...swiperOptions} breakpoints={breakpoints} className=" owl_nav_block owl_dots_none theme_carousel">
                 { images.map(image => {
                     return (
                         <SwiperSlide className="slide-item-content" key={image.url}>
-                            <div className="slide-item rounded-sm">
-                                <div className="img-fluid">
+                            <div className="slide-item highlight-border bg-transparent">
+                                <div className="img-fluid img-grow">
                                     <Image 
                                         src={`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${image.url}`}
                                         height={image.height}
                                         width={image.width}
                                         alt={image.alternativeText}
+                                        className=""
                                     />
                                 </div>
                             </div>

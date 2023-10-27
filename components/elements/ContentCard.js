@@ -7,6 +7,8 @@ export default function ContentCard ({
     showTeaser=true, 
     showDate=true, 
     imageTop=true,
+    bgLight=false,
+    noAnimate=false,
     icon="icon-star", // icons from icomoon, see /public/assets/css/icomoon.css
     tags,
     image,
@@ -16,13 +18,9 @@ export default function ContentCard ({
     const hasImage = showImage && image
 
     return (
-        <div className={`article-card ${imageTop ? 'image-top' : 'image-left'} bg-white`}>
+        <div className={`article-card ${(hasImage && imageLeft) ? 'image-left' : ''}  ${(hasImage && imageTop) ? 'image-top' : ''} ${bgLight ? 'bg-white' : ''} ${noAnimate ? 'static' : ''}`}>
             <div className={`image`}>
                 { hasImage && <Image width={image.width} height={image.height} src={`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${image.url}`} alt={image.alternativeText} className="img-fluid" alt="img" /> }
-                <div className="categories">
-                    <i className={icon} />
-                    {tags}
-                </div>
             </div>
             <div className="content_box">
                 {children}

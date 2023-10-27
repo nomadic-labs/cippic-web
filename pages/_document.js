@@ -4,12 +4,9 @@ export default function Document() {
         <Html lang="en">
             <Head />
             <link rel="shortcut icon" href="/logomark.svg" />
-            <link rel="preconnect" href="https://fonts.bunny.net" />
-            <meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests" />
-            <link
-                href="https://fonts.bunny.net/css?family=inter:300,400,500,600,700,800,900|family=dm-sans:400,400i,500,500i,700,700i"
-                rel="stylesheet"
-            />
+            <link rel="preconnect" href="https://fonts.googleapis.com" />
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
+            <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display&display=swap" rel="stylesheet" />
             <body className="theme-creote">
                 <Main />
                 <NextScript />

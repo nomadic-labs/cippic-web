@@ -30,15 +30,12 @@ export const getStaticProps = async () => {
     
     const pageRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/students-page?${pageQuery}`)
     const page = await pageRes.json()
-    console.log({page})
-
     const content = { ...page.data.attributes }
 
     return { props: { content, layout } }
 }
 
 export default function StudentsPage({ content, layout }) {
-    console.log({content})
     return (
         <>
             <Layout 
@@ -57,7 +54,7 @@ export default function StudentsPage({ content, layout }) {
                             return (
                                 <div className="program-card" key={program.section_id}>
                                     <ContentCard icon={program.icon_class} tags={program.tag}>
-                                        <h3 className="title">{program.title}</h3>
+                                        <h3 className="mt-0">{program.title}</h3>
                                         <a href={`#${program.section_id}`} className="read_more">More information <i className="icon-right-arrow" /></a >
                                     </ContentCard>
                                 </div>
@@ -68,9 +65,9 @@ export default function StudentsPage({ content, layout }) {
                                 
 
                     <section className="section-default bg-light">
-                        <div className="container container-reading">
+                        <div className="container">
                             <div className="row">
-                                <div className="col-12">
+                                <div className="col-12 col-lg-8 mx-auto">
                                     <ReactMarkdown>{content.description}</ReactMarkdown>
                                 </div>
                             </div>
@@ -83,9 +80,9 @@ export default function StudentsPage({ content, layout }) {
                         content.student_programs.map(program => {
                             return (
                                 <section className={`bg-light section-separator`} id={program.section_id} key={program.section_id}>
-                                    <div className="container container-reading section-md">
+                                    <div className="container section-md">
                                         <div className="row">
-                                            <div className="col-12">
+                                            <div className="col-12 col-lg-8 mx-auto">
                                                 <div className="title_sections">
                                                     <h2>{program.title}</h2>
                                                     {program.subtitle && <p className="text-lg">{program.subtitle}</p>}
@@ -99,7 +96,7 @@ export default function StudentsPage({ content, layout }) {
                                                     <ReactMarkdown>{program.how_to_apply_description}</ReactMarkdown >
                                                 </>
                                                 }
-                                                { program.apply_button && <ButtonLink href={program.apply_button.button_link} target="_blank" className="mr_top_20">{program.apply_button.button_text}</ButtonLink>}
+                                                { program.apply_button && <div className="text-center"><ButtonLink href={program.apply_button.button_link} target="_blank" className="mr_top_20">{program.apply_button.button_text}</ButtonLink></div>}
 
                                             </div>
                                         </div>

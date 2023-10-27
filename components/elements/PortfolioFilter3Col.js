@@ -9,44 +9,31 @@ export default function PortfolioFilter3Col({articles, filters, filterField="con
     // Isotope
     const isotope = useRef()
     const [filterKey, setFilterKey] = useState("*")
-    useEffect(() => {
-        setTimeout(() => {
-            isotope.current = new Isotope(".project_container", {
-                itemSelector: ".grid-item",
-                // layoutMode: "fitRows",
-                percentPosition: true,
-                masonry: {
-                    columnWidth: ".grid-item",
-                },
-                animationOptions: {
-                    duration: 750,
-                    easing: "linear",
-                    queue: false,
-                },
+    const [filteredArticles, setFilteredArticles] = useState(articles)
+
+    const handleFilterKeyChange = useCallback((key) => () => {
+        let filtered = articles;
+
+        if (key !== "*") {
+            filtered = articles.filter(article => {
+                const filterOptions = article[filterField]?.data || []
+                const tagsClasses = filterOptions.map(t => t.attributes.slug)
+                return tagsClasses.includes(key)
             })
-        }, 1000)
+        }
+
+        setFilterKey(key)
+        setFilteredArticles(filtered)
     }, [])
 
-    useEffect(() => {
-        if (isotope.current) {
-            filterKey === "*"
-                ? isotope.current.arrange({ filter: `*` })
-                : isotope.current.arrange({ filter: `.${filterKey}` })
-        }
-    }, [filterKey])
-    const handleFilterKeyChange = useCallback((key) => () => {
-        setFilterKey(key)
-    },
-        []
-    )
-
     const activeBtn = (value) => (value === filterKey ? "current" : "")
+
 
     return (
         <>
             <div className="row">
                 <div className="col-12">
-                    <div className="bg-white padding-md mr_bottom_30 rounded-sm">
+                    <div className="bg-white padding-md mr_bottom_20">
                         <div className="fliter_group">
                             <p className="title-small text-dark mb-0 mr_right_15">Filters:</p>
                             <ul className="project_filter dark clearfix">
@@ -63,28 +50,29 @@ export default function PortfolioFilter3Col({articles, filters, filterField="con
                     </div>
                 </div>
             </div>
-            <div className="project_container clearfix" style={{ position: 'relative', height: 776 }}>
 
-                <div className="row clearfix">
-                    {
-                        articles.map(article => {
-                            const filterOptions = article[filterField]?.data || []
-                            const tagsClasses = filterOptions.map(t => t.attributes.slug).join(' ')
+            <div className="row">
+                <div className="col-12">
 
-                            return (
-                                <div key={article.id} className={`project-wrapper grid-item col-xl-4 col-lg-6 col-md-12 col-sm-12 ${tagsClasses} mr_bottom_30`}>
-                                    <ArticleCard 
-                                        article={article} 
-                                        tagsAttribute={filterField} 
-                                        showImage
-                                        imageTop
-                                        showTeaser
-                                        showDate
-                                    />
-                                </div>
-                            )
-                        })
-                    }
+                    <div className="grid-wrapper">
+                        {
+                            filteredArticles.map(article => {
+                                return (
+                                    <div key={article.id} className={`grid-item`}>
+                                        <ArticleCard 
+                                            article={article} 
+                                            tagsAttribute={filterField} 
+                                            showImage
+                                            imageTop
+                                            showTeaser
+                                            showDate
+                                            bgLight
+                                        />
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
                 </div>
 
             </div>

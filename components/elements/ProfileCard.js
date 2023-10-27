@@ -24,7 +24,7 @@ export default function ProfileCard ({
                 <div className="categories">{profile.title}</div>
             </div>
             <div className="content_box">
-                <div className="title">{profile.name}</div>
+                <h3 className="mt-0">{profile.name}</h3>
                 <div className="social_media_v_one pd_top_10">
                     <ul>
                     {profile.linkedin &&

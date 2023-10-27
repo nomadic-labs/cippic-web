@@ -70,7 +70,6 @@ export const getStaticProps = async ({ params }) => {
 
 export default function TopicsPage({ content, layout }) {
     const { category } = content;
-    console.log({category})
 
     const categories = []
     const content_types = []

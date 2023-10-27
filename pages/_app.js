@@ -1,5 +1,6 @@
 import Preloader from "@/components/elements/Preloader"
 import { useEffect, useState } from "react"
+import AOS from 'aos';
 
 import '../styles/globals.css'
 import 'swiper/css'
@@ -19,6 +20,12 @@ import "../public/assets/css/woocommerce.css"
 
 
 function MyApp({ Component, pageProps }) {
+    useEffect(() => {
+        AOS.init({
+          delay: 100,
+          duration: 250,
+        });
+      });
     
     return (
         <Component {...pageProps} />

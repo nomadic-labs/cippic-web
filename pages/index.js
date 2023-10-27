@@ -7,8 +7,12 @@ import Students from "@/components/sections/Students"
 import Tab1 from "@/components/sections/Tab1"
 import Landing from "@/components/sections/Landing"
 import SpotlightArticle from "@/components/elements/SpotlightArticle"
+import ArticleCard from "@/components/elements/ArticleCard"
+import Underline from "@/components/elements/Underline"
 import Fade from 'react-reveal/Fade';
 import getLayoutData from "@/utils/layout-data"
+import Link from "next/link"
+import Image from "next/image"
 
 const qs = require('qs');
 
@@ -84,6 +88,9 @@ const newsQuery = qs.stringify(
                     $eq: "news"
                 }
             },
+            featured_story: {
+              $null: true
+            }
         },
         sort: "date_published:desc",
         pagination: {
@@ -102,6 +109,18 @@ const newsQuery = qs.stringify(
       }
     );
 
+const studentsQuery = qs.stringify(
+    {
+      populate: [
+        '*',
+        'student_programs'
+      ],
+    },
+    {
+      encodeValuesOnly: true, // prettify URL
+    }
+  );
+
 
 export const getStaticProps = async () => {
     const layout = await getLayoutData()
@@ -109,6 +128,11 @@ export const getStaticProps = async () => {
     const pageRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/home-page?${query}`)
     const pageJson = await pageRes.json()
     const page = pageJson.data.attributes
+
+    const studentsRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/students-page?${studentsQuery}`)
+    const studentsJson = await studentsRes.json()
+    const studentsPage = studentsJson.data.attributes
+    const studentPrograms = studentsPage.student_programs
 
     const articleRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/articles?${articlesQuery}`)
     const articleJson = await articleRes.json()
@@ -128,12 +152,13 @@ export const getStaticProps = async () => {
     const spotlightJson = await spotlightRes.json()
     const spotlight = spotlightJson.data.length > 0 ? spotlightJson.data[0].attributes : news[0]
 
-    const content = { ...page, articles, spotlight, news }
+    const content = { ...page, articles, spotlight, news, studentPrograms }
 
     return { props: { content, layout } }
 }
 
 export default function Home5({content, layout}) {
+  const keyTopics = layout.categories.filter(t => t.featured)
     return (
         <>
             <Layout 
@@ -141,28 +166,22 @@ export default function Home5({content, layout}) {
               topics={layout.categories} 
               contentTypes={layout.contentTypes} 
               studentPages={layout.studentPages}
-            >
+            > 
                 <Landing 
                   headline={content.headline}
                   before_headline={content.before_headline}
                   intro={content.intro}
-                  key_insights_heading={content.key_insights_heading}
-                  articles={content.articles}
+                  insights_heading={"Latest News"}
+                  articles={content.news}
                   spotlightHeading={content.spotlight_heading}
                   spotlightArticle={content.spotlight}
                 />
                 <News 
                     topics={content.categories}
-                    title={content.news_section_title}
+                    title={"Insights"}
                     before_title={content.news_section_before_title}
                     subtitle={content.news_section_subtitle}
-                    articles={content.news}
-                />
-                <Topics 
-                    topics={layout.categories}
-                    title={content.topics_section_title}
-                    before_title={content.topics_section_before_title}
-                    subtitle={content.topics_section_subtitle}
+                    articles={content.articles}
                 />
                 <Students 
                     images={content.students_images}
@@ -171,6 +190,7 @@ export default function Home5({content, layout}) {
                     subtitle={content.students_section_subtitle}
                     description={content.students_description}
                     links={content.students_pages}
+                    programs={content.studentPrograms}
                 />
             </Layout>
         </>

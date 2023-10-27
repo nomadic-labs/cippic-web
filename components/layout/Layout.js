@@ -75,7 +75,7 @@ export default function Layout({
             <div id="page" className={`page_wapper hfeed site ${scroll ? "fixed-header floating-menu" : ""} ${isMobileMenu ? "crt_mobile_menu-visible" : ""}`}>
                 <div id="wrapper_full" className="content_all_warpper">
 
-                    <Header1 handleSearch={handleSearch} handleContactPopup={handleContactPopup} handleMobileMenu={handleMobileMenu} topics={topics} contentTypes={contentTypes} studentPages={studentPages}/>
+                    <Header1 handleSearch={handleSearch} handleContactPopup={handleContactPopup} handleMobileMenu={handleMobileMenu} topics={topics} contentTypes={contentTypes} studentPages={studentPages} />
 
                     {breadcrumbTitle && <Breadcrumb breadcrumbTitle={breadcrumbTitle} blogMetaSingle={blogMetaSingle}/>}
                     <div id="content" className="site-content">
@@ -84,7 +84,7 @@ export default function Layout({
                 </div>
                 < Footer8 contact={contact} topics={topics} actions={actions} />
 
-                <MobileMenu isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} topics={topics} />
+                <MobileMenu isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} topics={topics} contentTypes={contentTypes} />
                 <SearchPopup isSearch={isSearch} handleSearch={handleSearch} />
 
             </div>

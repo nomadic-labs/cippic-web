@@ -113,20 +113,13 @@ export default function OurWork({ content, layout }) {
 
             <Header>
                 <div className="title-section ">
-                    <h1 className="mt-0">{contentType.name}</h1>
+                    <h1 className="mt-0 underline">{contentType.name}</h1>
                     <h2 className="title-small">{`Latest ${contentType.name}`}</h2>
                 </div>
                             
                 <div className="row header-articles">
                 {
                         latestArticles.map((article, index) => {
-                            const categories = article.categories.data || []
-                            const content_types = article.content_types.data || []
-                            const datePublished = new Date(article.date_published)
-                            const dateString = datePublished.toLocaleDateString('en-CA', { year: 'numeric', month: 'short', day: 'numeric' })
-                            const tags = categories.map(t => t.attributes.name).join(', ')
-                            const image = article.main_image.data ? article.main_image.data.url : null
-
                             return (
                                 <div key={article.id} className="article">
                                     <Fade bottom delay={index * 60}>
@@ -135,6 +128,7 @@ export default function OurWork({ content, layout }) {
                                             showDate
                                             showImage
                                             imageTop
+                                            showTags
                                         />
                                     </Fade>
                                 </div>

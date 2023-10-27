@@ -3,11 +3,12 @@ import Fade from 'react-reveal/Fade';
 import ReactMarkdown from 'react-markdown'
 import ImageSlider from "@/components/elements/ImageSlider"
 
-export default function Students({title, before_title, subtitle, description, images, links=[]}) {
+export default function Students({title, before_title, subtitle, description, images, links=[], programs=[]}) {
     const imagesArr = images.data ? images.data.map(i => i.attributes) : []
+
     return (
         <>
-            <section className="service-section bg-two section-default">
+            <section className="service-section bg-light section-default">
                 <div className="container-xl">
                     <div className="row">
                         <div className="col-12">
@@ -15,23 +16,29 @@ export default function Students({title, before_title, subtitle, description, im
                     </div>
                     <div className="row students-section">
                         <div className="col-12 col-lg-6">
-                            <div className="bg-one padding-lg mb-40 rounded-sm">
+                            <div className="mb-40 ">
                                 <div className="title_all_box style_one">
                                     <div className="title_sections">
-                                        <div className="title-small">{before_title} </div>
-                                        <h2>{title}</h2>
+                                        <h2 className="underline">{title}</h2>
                                     </div>
                                 </div>
                                 <ReactMarkdown>{description}</ReactMarkdown>
-                                <ul>
+                                <Fade bottom cascade delay={200}>
+                                <ul className="list-unstyled mr_top_20">
                                     {
-                                        links.map(link => {
+                                        programs.map(program => {
                                             return (
-                                                <li key={link.id}><Link href={link.link_path}>{link.link_text}</Link></li>
+                                                <li key={program.section_id} className="">
+                                                    <Link href={`/students#${program.section_id}`}>
+                                                        <i className={`mr_right_10 ${program.icon_class || "icon-star"}`} />
+                                                        {program.title}
+                                                    </Link>
+                                                </li>
                                             )
                                         })
                                     }
                                 </ul>
+                                </Fade>
                             </div>
                         </div>
                         <div className="col-12 col-lg-6">

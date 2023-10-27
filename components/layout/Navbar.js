@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { useRouter } from "next/router"
 export default function Navbar({ topics=[], contentTypes=[], studentPages=[] }) {
     const router = useRouter()
@@ -38,6 +39,13 @@ export default function Navbar({ topics=[], contentTypes=[], studentPages=[] }) 
                                 return(
                                     <li key={topic.id} className="menu-item  nav-item">
                                         <Link href={`/topics/${topic.slug}`} className="dropdown-item nav-link"> 
+                                            <Image
+                                                src={`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${topic.icon.data?.attributes?.url}`}
+                                                height={22}
+                                                width={22}
+                                                alt=""
+                                                className="icon-dark"
+                                            />
                                             <span>{topic.name} </span>
                                         </Link>
                                     </li>
@@ -49,43 +57,16 @@ export default function Navbar({ topics=[], contentTypes=[], studentPages=[] }) 
                 <li className="menu-item menu-item-has-children dropdown nav-item">
                     <Link href="/students" className="dropdown-toggle nav-link">
                         <span>Students</span>
-                        <span className="fa fa-angle-down mr_left_5"></span>
                     </Link>
-                    <ul className="dropdown-menu">
-                        {
-                            studentPages.map(page => {
-                                return(
-                                    <li key={page.id} className="menu-item  nav-item">
-                                        <Link href={`/students#${page.slug}`} className="dropdown-item nav-link"> 
-                                            <span>{page.title}</span>
-                                        </Link>
-                                    </li>
-                                )
-                            })
-                        }
-                    </ul>
                 </li>
                 <li className="menu-item menu-item-has-children dropdown nav-item">
-                    <Link href="/" className="dropdown-toggle nav-link">
+                    <Link href="/about-us" className="dropdown-toggle nav-link">
                         <span>About Us</span>
-                        <span className="fa fa-angle-down mr_left_5"></span>
                     </Link>
-                    <ul className="dropdown-menu">
-                        <li className="menu-item  nav-item">
-                            <Link href={`/staff`} className="dropdown-item nav-link"> 
-                                <span>Staff</span>
-                            </Link>
-                        </li>
-                        <li className="menu-item  nav-item">
-                            <Link href={`/contact`} className="dropdown-item nav-link"> 
-                                <span>Contact Us</span>
-                            </Link>
-                        </li>
-                    </ul>
                 </li>
                 <li className="menu-item menu-item-has-children dropdown nav-item">
-                    <Link href={router.route} locale={router.locale === 'en' ? 'fr' : 'en'} className="dropdown-toggle nav-link">
-                        <span>{`${router.locale === 'en' ? 'FR' : 'EN'}`}</span>
+                    <Link href="/contact" className="dropdown-toggle nav-link">
+                        <span>Contact</span>
                     </Link>
                 </li>
                 <li className="menu-item menu-item-has-children dropdown nav-item">
@@ -93,7 +74,11 @@ export default function Navbar({ topics=[], contentTypes=[], studentPages=[] }) 
                         <span>Donate</span>
                     </Link>
                 </li>
-                
+                <li className="menu-item menu-item-has-children dropdown nav-item">
+                    <Link href={router.route} locale={router.locale === 'en' ? 'fr' : 'en'} className="dropdown-toggle nav-link">
+                        <span>{`${router.locale === 'en' ? 'FR' : 'EN'}`}</span>
+                    </Link>
+                </li>
             </ul>
         </>
     )
