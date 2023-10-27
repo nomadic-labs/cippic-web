@@ -1347,7 +1347,7 @@
 :root {
   --font-family-one: "Inter", sans-serif!important;
   --font-family-two: "Playfair Display", serif!important;
-  --primary-color-one: #001d3d;
+  --primary-color-one: #002752;
   --primary-color-two: #003566;
   --primary-color-three: #0B6291;
   --primary-color-four: #98e5cf;
@@ -2727,7 +2727,7 @@ body .enabled_custom_title .title_page .main_tit {
 }
 
 .title-md {
-  font-size: calc(1.5rem + 1vw);
+  font-size: calc(1.75rem + 1vw);
 }
 
 .section-default {
@@ -21455,6 +21455,19 @@ h1.headline {
 }
 .tags i {
   margin-right: 0.5rem;
+}
+
+.tags-links a.tag {
+  margin-left: 0.5rem;
+}
+
+.btn-simple {
+  border: 1px solid;
+  font-size: 0.8em;
+  border-radius: 40px;
+}
+.btn-simple:hover {
+  background: var(--color-white);
 }
 
 .owl_new_one .swiper .owl-nav .owl-prev {

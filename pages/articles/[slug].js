@@ -122,7 +122,7 @@ export default function ArticlePage({ content, layout }) {
     const image = article.main_image?.data?.attributes
     const datePublished = new Date(article.date_published)
     const dateString = datePublished.toLocaleDateString('en-CA', { year: 'numeric', month: 'short', day: 'numeric' })
-    const tags = categories.map(cat => cat.attributes.name).concat(content_types.map(ct => ct.attributes.name)).join(", ")
+    const tags = categories.map(cat => cat.attributes.name).concat(content_types.map(ct => ct.attributes.name))
 
     return (
         <>
@@ -173,6 +173,28 @@ export default function ArticlePage({ content, layout }) {
                     <Component key={`dynamic-section-${index}`} {...section} />
                   )
                 })}
+
+                <section className="section-md bg-white">
+                    <div className="container">
+                        <div className="row">
+                          <div className="col-12 col-md-8 mx-auto">
+                            <div className="title-small tags-links m-0">
+                              {`Tags:`}
+                              {
+                                categories.map(tag => {
+                                  return <Link href={`/topics/${tag.attributes.slug}`} className="tag btn btn-simple">{tag.attributes.name}</Link>
+                                })
+                              }
+                              {
+                                content_types.map(tag => {
+                                  return <Link href={`/our-work/${tag.attributes.slug}`} className="tag btn btn-simple">{tag.attributes.name}</Link>
+                                })
+                              }
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </section>
 
                 { (relatedArticles.length > 0) && 
                   <section className="section-default bg-two">

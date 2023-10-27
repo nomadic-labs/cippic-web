@@ -8058,3 +8058,19 @@ h1.headline {
         margin-right: 0.5rem;
     }
 }
+
+.tags-links {
+    a.tag {
+        margin-left: 0.5rem;
+    }
+}
+
+.btn-simple {
+    border: 1px solid;
+    font-size: 0.8em;
+    border-radius: 40px;
+
+    &:hover {
+        background: var(--color-white);
+    }
+}
