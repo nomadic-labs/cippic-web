@@ -29369,9 +29369,6 @@ a.article-card:hover .read_more i, .article-card:hover .read_more i {
 a.article-card a:hover, .article-card a:hover {
   color: inherit;
 }
-a.article-card:last-of-type, .article-card:last-of-type {
-  border-bottom: none;
-}
 
 .bg-one a.article-card:hover .title, .bg-two a.article-card:hover .title, .bg-dark a.article-card:hover .title {
   color: var(--primary-color-four);

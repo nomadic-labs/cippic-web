@@ -42,7 +42,7 @@ export default function ImageSlider({ images=[], slidesPerView=1 }) {
                     return (
                         <SwiperSlide className="slide-item-content" key={image.url}>
                             <div className="slide-item highlight-border bg-transparent">
-                                <div className="img-fluid img-grow">
+                                <div className="img-fluid">
                                     <Image 
                                         src={`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${image.url}`}
                                         height={image.height}

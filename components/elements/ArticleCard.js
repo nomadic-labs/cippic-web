@@ -42,7 +42,7 @@ export default function ArticleCard ({
     return (
         <Fade delay={100*order}>
             <Link href={url} className={`article-card ${(hasImage && imageLeft) ? 'image-left' : ''}  ${(hasImage && imageTop) ? 'image-top' : ''} ${bgLight ? 'bg-white' : ''}`}>
-                <div className={`image img-grow`}>
+                <div className={`image`}>
                     { hasImage && <Image width={image.width} height={image.height} src={`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${image.url}`} alt={image.alternativeText} className="img-fluid" /> }
                 </div>
                 <div className={`content_box`}>
