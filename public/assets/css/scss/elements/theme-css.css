@@ -29337,37 +29337,25 @@ a.article-card .tags:before, .article-card .tags:before {
   margin-bottom: 2px;
   background: var(--primary-color-three);
 }
-a.article-card .read_more, .article-card .read_more {
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  display: inline-flex;
-  align-items: center;
-  font-family: var(--font-family-one);
-  border-bottom: 1px solid transparent;
-  transition: var(--animation-speed) ease;
-}
-a.article-card .read_more i, .article-card .read_more i {
-  margin-left: 3px;
-}
-a.article-card:hover, .article-card:hover {
+a.article-card a:hover, .article-card a:hover {
   color: inherit;
 }
-a.article-card:hover .title, .article-card:hover .title {
+
+a.article-card:hover {
+  color: inherit;
+}
+a.article-card:hover .title {
   color: var(--primary-color-three);
 }
-a.article-card:hover .read_more, .article-card:hover .read_more {
+a.article-card:hover .read_more {
   color: var(--primary-color-three);
 }
-a.article-card:hover .read_more i, .article-card:hover .read_more i {
+a.article-card:hover .read_more i {
   margin-left: 8px;
   transition: all var(--animation-speed) ease;
   -moz-transition: all var(--animation-speed) ease;
   -ms-transition: all var(--animation-speed) ease;
   -o-transition: all var(--animation-speed) ease;
-}
-a.article-card a:hover, .article-card a:hover {
-  color: inherit;
 }
 
 .bg-one a.article-card:hover .title, .bg-two a.article-card:hover .title, .bg-dark a.article-card:hover .title {

@@ -121,38 +121,6 @@ a.article-card, .article-card {
         }
     }
 
-    .read_more {
-        font-size: 12px;
-        font-weight: 600;
-        text-transform: uppercase;
-        display: inline-flex;
-        align-items: center;
-        font-family: var(--font-family-one);
-        border-bottom: 1px solid transparent;
-        transition: var(--animation-speed) ease;
-         i {
-            margin-left: 3px;
-         }
-    }
-
-    &:hover{
-        color: inherit;
-        .title {
-            color: var(--primary-color-three);
-        }
-
-        .read_more {
-            color: var(--primary-color-three);
-            i {
-                margin-left: 8px;
-                transition: all var(--animation-speed) ease;
-                -moz-transition: all var(--animation-speed) ease;
-                -ms-transition: all var(--animation-speed) ease;
-                -o-transition: all var(--animation-speed) ease;
-            }
-        }
-    }
-
     a {
         &:hover {
             color: inherit;
@@ -160,8 +128,26 @@ a.article-card, .article-card {
     }
 }
 
+a.article-card:hover {
+    color: inherit;
+    .title {
+        color: var(--primary-color-three);
+    }
+
+    .read_more {
+        color: var(--primary-color-three);
+        i {
+            margin-left: 8px;
+            transition: all var(--animation-speed) ease;
+            -moz-transition: all var(--animation-speed) ease;
+            -ms-transition: all var(--animation-speed) ease;
+            -o-transition: all var(--animation-speed) ease;
+        }
+    }
+}
+
 .bg-one, .bg-two, .bg-dark {
-    a.article-card {
+    a.article-card, {
         &:hover {
             .title {
                 color: var(--primary-color-four);
