@@ -1,17 +1,17 @@
 :root{
-    --font-family-one: 'DM Sans', sans-serif!important;
-    --font-family-two: 'Lora', serif!important;
-    --primary-color-one: #00163D; 
-    --primary-color-two: #001F54; 
-    --primary-color-three: #00518F; 
-    --primary-color-four: #FEFCFB;
+    --font-family-one: 'Inter', sans-serif!important;
+    --font-family-two: 'Playfair Display', serif!important;
+    --primary-color-one: #002752; 
+    --primary-color-two: #003566; 
+    --primary-color-three: #0B6291; 
+    --primary-color-four: #98e5cf;
     --primary-color-five: #1f2530;
     --highlight-color: #06d6a0; 
-    --highlight-color-alt: #077d73; 
+    --highlight-color-alt: #06d6a080; 
     --color-light: #EFF2FB;
-    --color-dark: #0A1128;
+    --color-dark: #000814;
     --color-white: #ffffff;
-    --text-color-dark: #0A1128;
+    --text-color-dark: #000814;
     --text-color-dark-two: #888888;
     --text-color-light: #EFF2FB;
     --heading-dark: #28343E;
@@ -23,7 +23,7 @@
     --menu-color-white: #ffffff;
     --menu-dropdown-color: #282f3b;
     --menu-active-color: #00457A; 
-    --box-shadow: 0px 0px 40px 0px rgba(0,0,0,.09);
+    --box-shadow: 0px 0px 40px 0px rgba(0,0,0,.15);
     --box-shadow-two: 0px 3px 16px 0px rgba(0 , 0 , 0 , .05);
     --footer-default-bgcolor: #1f2530;
     --preloader-background-color: #078586;

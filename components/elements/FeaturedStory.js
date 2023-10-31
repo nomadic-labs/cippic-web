@@ -3,7 +3,7 @@ import Image from "next/image"
 import ReactMarkdown from 'react-markdown'
 import {Fade} from 'react-reveal';
 
-export default function ArticleCard ({ 
+export default function FeaturedStory ({ 
     article,
     showImage=false, 
     showTeaser=false, 
@@ -42,11 +42,11 @@ export default function ArticleCard ({
     return (
         <Fade delay={100*order}>
             <Link href={url} className={`article-card ${(hasImage && imageLeft) ? 'image-left' : ''}  ${(hasImage && imageTop) ? 'image-top' : ''} ${bgLight ? 'bg-white' : ''}`}>
+                <h1 href={url} className="title mt-0">{article.title}</h1>
                 <div className={`image`}>
                     { hasImage && <Image width={image.width} height={image.height} src={`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${image.url}`} alt={image.alternativeText} className="img-fluid" /> }
                 </div>
                 <div className={`content_box`}>
-                    <h3 href={url} className="title mt-0">{article.title}</h3>
 
                     <div className="byline">
                     {

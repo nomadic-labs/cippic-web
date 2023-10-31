@@ -152,8 +152,8 @@ ul {
 .col-xl-9,
 .col-xl-auto {
 
-    padding-right: 15px;
-    padding-left : 15px;
+    padding-right: 1.5rem;
+    padding-left : 1.5rem;
 }
 
 h1 a,
@@ -171,11 +171,10 @@ h6 {
     font-weight    : 400;
     margin         : 0;
     font-family    : var(--font-family-two);
-    transition     : 0.5s ease-in-out;
-    font-weight    : 600;
-    -ms-transition : 0.5s ease-in-out;
-    -moz-transition: 0.5s ease-in-out;
-    -o-transition  : 0.5s ease-in-out;
+    transition     : var(--animation-speed) ease-in-out;
+    -ms-transition : var(--animation-speed) ease-in-out;
+    -moz-transition: var(--animation-speed) ease-in-out;
+    -o-transition  : var(--animation-speed) ease-in-out;
     word-break     : break-word;
 }
 
@@ -360,7 +359,7 @@ body button[type="submit"] {
 a {
     text-decoration: none;
     cursor         : pointer;
-    color          : var(--primary-color-one);
+    color          : inherit;
 
     transition     : color var(--animation-speed) ease-in-out;
     -moz-transition: color var(--animation-speed) ease-in-out;
@@ -383,7 +382,7 @@ p {
 #content {
     width : 100%;
     height: 100%;
-    padding-top: 99px; // header
+    padding-top: 76px; // header
     overflow: hidden;
 }
 
@@ -1453,7 +1452,7 @@ body {
 }
 
 .text-lg {
-    font-size: 1.2em;
+    font-size: 1.25em;
 }
 
 .text-lg p {
@@ -1461,7 +1460,7 @@ body {
 }
 
 .title-md {
-    font-size: calc(1.25rem + 1vw);
+    font-size: calc(1.75rem + 1vw)
 }
 
 .section-default {
@@ -1486,28 +1485,69 @@ body {
 .section-separator {
     &:after {
         content: '';
-        width: 100%;
-        height: 2rem;
         display: block;
-        background: url('/logomark.svg') no-repeat bottom center;
+        width: 15vw;
+        height: 4px;
+        margin: 0 auto;
+        background-color: var(--highlight-color-alt);
     }
 
-    &:nth-child(2n) {
-        &:after {
-            transform: rotate(200deg);
+}
+
+.underline {
+    display: inline-block;
+    padding-bottom: 0.5rem;
+    border-bottom: 4px solid var(--highlight-color-alt);
+    position: relative;
+}
+
+.text-color-one {
+    color: var(--primary-color-one)
+}
+
+.text-color-two {
+    color: var(--primary-color-two)
+}
+
+.text-color-three {
+    color: var(--primary-color-three)
+}
+
+.text-color-highlight {
+    color: var(--highlight-color)
+}
+
+.text-faded {
+    opacity: 0.65;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.border-right {
+    border-right: 1px solid var(--primary-color-three);
+}
+
+.img-grow {
+    overflow: hidden;
+    img {
+        transition: all var(--animation-speed) ease-in-out;
+    }
+
+    &:hover {
+        img {
+            transform: scale(1.05);
         }
     }
+}
 
-    &:nth-child(3n) {
-        &:after {
-            transform: rotate(-40deg);
-        }
-    }
+.grid-wrapper {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 1fr 1fr 1fr;
+}
 
-    &:last-of-type {
-        &:after {
-            background: unset;
-        }
-    }
-
+.icon-dark {
+    filter: invert(1);
 }

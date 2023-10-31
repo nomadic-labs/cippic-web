@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
-export default function MobileMenu({ handleMobileMenu, topics }) {
+import Fade from 'react-reveal/Fade';
+export default function MobileMenu({ handleMobileMenu, topics, contentTypes }) {
     const router = useRouter()
     const [isActive, setIsActive] = useState({
         status: false,
@@ -35,53 +36,66 @@ export default function MobileMenu({ handleMobileMenu, topics }) {
                     </form>
                     <div className="menu-outer">
                         <ul id="myNavbar" className="navbar_nav">
-                            <li className="menu-item  menu-item-has-children dropdown dropdown_full mega_menu nav-item">
-                                <Link href="/" className="dropdown-toggle nav-link">
+                            <li className="menu-item mega_menu nav-item">
+                                <Link href="/" className="nav-link">
                                     <span>Home</span>
                                 </Link>
                             </li>
-                            <li className="menu-item  menu-item-has-children dropdown dropdown_full mega_menu nav-item">
-                                <Link href="/about-us" className="dropdown-toggle nav-link">
-                                    <span>About</span>
-                                </Link>
-                            </li>
-                            <li className="menu-item  menu-item-has-children dropdown dropdown_full mega_menu nav-item">
-                                <Link href="/news" className="dropdown-toggle nav-link">
-                                    <span>News</span>
-                                </Link>
-                            </li>
-                            <li className="menu-item  menu-item-has-children dropdown dropdown_full mega_menu nav-item">
-                                <Link href="/blog" className="dropdown-toggle nav-link">
-                                    <span>Blog</span>
-                                </Link>
-                            </li>
-                            <li className="menu-item  menu-item-has-children dropdown dropdown_full mega_menu nav-item">
-                                <Link href="/students" className="dropdown-toggle nav-link">
-                                    <span>Student Program</span>
-                                </Link>
-                            </li>
                             <li className="menu-item menu-item-has-children dropdown nav-item">
-                                <Link href="#" className="dropdown-toggle nav-link">
-                                    <span>Key Topics</span>
-                                </Link>
-                                <ul className="dropdown-menu" style={{ display: `${isActive.key == 2 ? "block" : "none"}` }}>
-                                    { keyTopics.map(topic => (
-                                        <li key={topic.id} className="menu-item nav-item">
-                                            <Link href={`/topics/${topic.slug}`} className="dropdown-item nav-link">
-                                                <span>{topic.name}</span>
-                                            </Link>
-                                        </li>
+                                <button onClick={() => handleToggle(1)} className="nav-link dropdown-toggle">
+                                    <span>Our Work</span>
+                                </button>
+                                <ul className="dropdown-menu" style={{ display: `${isActive.key == 1 ? "block" : "none"}` }}>
+                                    { contentTypes.map((item, index) => (
+                                        <Fade key={item.id} delay={60*index}>
+                                            <li className="menu-item nav-item">
+                                                <Link href={`/our-work/${item.slug}`} className="dropdown-item nav-link">
+                                                    <span className="text-faded">{item.name}</span>
+                                                </Link>
+                                            </li>
+                                        </Fade>
                                     ))}
                                 </ul>
-                                <div className="dropdown-btn" onClick={() => handleToggle(2)}><span className="fa fa-angle-down" /></div>
                             </li>
-                            <li className="menu-item  menu-item-has-children dropdown dropdown_full mega_menu nav-item">
-                                <Link href="/contact" className="dropdown-toggle nav-link">
-                                    <span>Contact us</span>
+                            <li className="menu-item menu-item-has-children dropdown nav-item">
+                                <button onClick={() => handleToggle(2)} className="nav-link dropdown-toggle">
+                                    <span>Issues</span>
+                                </button>
+                                <ul className="dropdown-menu" style={{ display: `${isActive.key == 2 ? "block" : "none"}` }}>
+                                    { keyTopics.map((topic, index) => (
+                                        <Fade key={topic.id} delay={60*index}>
+                                            <li className="menu-item nav-item">
+                                                <Link href={`/topics/${topic.slug}`} className="dropdown-item nav-link">
+                                                    <span className="text-faded">{topic.name}</span>
+                                                </Link>
+                                            </li>
+                                        </Fade>
+                                    ))}
+                                </ul>
+                            </li>
+                            <li className="menu-item  mega_menu nav-item">
+                                <Link href="/students" className="nav-link">
+                                    <span>Students</span>
                                 </Link>
                             </li>
-                            <li className="menu-item  menu-item-has-children dropdown dropdown_full mega_menu nav-item">
-                                <Link href={router.route} locale={router.locale === 'en' ? 'fr' : 'en'} className="dropdown-toggle nav-link">
+                            <li className="menu-item  mega_menu nav-item">
+                                <Link href="/about-us" className="nav-link">
+                                    <span>About us</span>
+                                </Link>
+                            </li>
+                            <li className="menu-item mega_menu nav-item">
+                                <Link href="/contact" className="nav-link">
+                                    <span>Contact</span>
+                                </Link>
+                            </li>
+                        
+                            <li className="menu-item mega_menu nav-item">
+                                <Link href="/donate" className="nav-link">
+                                    <span>Donate</span>
+                                </Link>
+                            </li>
+                            <li className="menu-item mega_menu nav-item">
+                                <Link href={router.route} locale={router.locale === 'en' ? 'fr' : 'en'} className="nav-link">
                                     <span>{`${router.locale === 'en' ? 'FR' : 'EN'}`}</span>
                                 </Link>
                             </li>

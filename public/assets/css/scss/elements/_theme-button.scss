@@ -207,8 +207,8 @@
             -o-transition: all var(--animation-speed) ease;
         }
         &:hover{
-            background: var(--primary-color-three);
-            color: var(--color-white);
+            opacity: 0.8;
+            color: var(--primary-color-one);
             border: none;
             i{
                 left: 10px;
