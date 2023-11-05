@@ -59,8 +59,8 @@ export default function PortfolioFilter3Col({articles, filters, filterField="con
                         {
                             filteredArticles.map(article => {
                                 return (
-                                    <div key={article.id} className={`grid-item`}>
                                         <ArticleCard 
+                                            key={article.id}
                                             article={article} 
                                             tagsAttribute={filterField} 
                                             showImage
@@ -70,7 +70,6 @@ export default function PortfolioFilter3Col({articles, filters, filterField="con
                                             bgLight
                                             showTags
                                         />
-                                    </div>
                                 )
                             })
                         }

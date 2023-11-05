@@ -443,6 +443,26 @@
             display: grid;
             gap: 0;
             grid-template-columns: 1fr;
+            grid-auto-rows: unset;
+
+            .grid-item {
+                margin-bottom: 1rem;
+
+                &.image-top {
+                    grid-row-end: span 2;
+
+                    .image {
+                        flex: 1 1 auto;
+                        img {
+                            aspect-ratio: 2/1;
+                        }
+                    }
+
+                    .content_box {
+                        flex: 1 1 auto;
+                    }
+                }
+            }
         }
 
         .bg_pattern_1 {
@@ -908,6 +928,8 @@
         .program-cards {
             display: grid;
             grid-template-columns: repeat(1, 1fr);
+            grid-auto-rows: auto;
+            gap: 1.5rem;
         }
 
         .bg_pattern_1 {

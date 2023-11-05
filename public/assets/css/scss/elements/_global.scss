@@ -1550,11 +1550,29 @@ body {
     display: grid;
     gap: 1.5rem;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-auto-rows: 1fr;
 
     .grid-item {
-        .article-card, .react-reveal {
+        &.article-card {
             height: 100%;
+        }
+        
+        &.image-top {
+            grid-row-end: span 2;
+
+            .image {
+                flex: 0 1 50%;
+                img {
+                    aspect-ratio: unset;
+                }
+            }
+
+            .content_box {
+                flex: 1 1 auto;
+            }
+        }
+
+        &.image-left {
+            grid-column-end: span 2;
         }
     }
 }

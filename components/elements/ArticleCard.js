@@ -40,8 +40,7 @@ export default function ArticleCard ({
     const hasImage = showImage && image
 
     return (
-        <Fade delay={100*order}>
-            <Link href={url} className={`article-card ${(hasImage && imageLeft) ? 'image-left' : ''}  ${(hasImage && imageTop) ? 'image-top' : ''} ${bgLight ? 'bg-white' : ''}`}>
+            <Link href={url} className={`grid-item article-card ${(hasImage && imageLeft) ? 'image-left' : ''}  ${(hasImage && imageTop) ? 'image-top' : ''} ${bgLight ? 'bg-white' : ''}`}>
                 <div className={`image`}>
                     { hasImage && <Image width={image.width} height={image.height} src={`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${image.url}`} alt={image.alternativeText} className="img-fluid" /> }
                 </div>
@@ -71,6 +70,5 @@ export default function ArticleCard ({
 
                 </div>
             </Link>
-        </Fade>
     )
 }

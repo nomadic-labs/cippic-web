@@ -102,7 +102,7 @@ export default function Donate({ content, layout }) {
                                             <div className="program-card">
                                                 <ContentCard icon={card.icon_class} tags={card.tag}>
                                                     <div>
-                                                        <h3 className="">{card.title}</h3>
+                                                        <h3 className="mt-0">{card.title}</h3>
                                                         <p>{card.description}</p>
                                                     </div>
                                                     <a href={card.url} className="read_more">{card.link_text} <i className="icon-right-arrow" /></a >
