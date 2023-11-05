@@ -9,7 +9,6 @@ export default function ContentCard ({
     imageTop=true,
     bgLight=false,
     noAnimate=false,
-    icon="icon-star", // icons from icomoon, see /public/assets/css/icomoon.css
     tags,
     image,
     children

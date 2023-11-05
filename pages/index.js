@@ -1,7 +1,7 @@
 import Layout from "@/components/layout/Layout"
 import FeaturedArticles from "@/components/sections/FeaturedArticles"
 import LatestNews from "@/components/sections/LatestNews"
-import News from "@/components/sections/News"
+import Articles from "@/components/sections/Articles"
 import Topics from "@/components/sections/Topics"
 import Students from "@/components/sections/Students"
 import Tab1 from "@/components/sections/Tab1"
@@ -16,39 +16,18 @@ import Image from "next/image"
 
 const qs = require('qs');
 
-const query = qs.stringify(
-  {
-    populate: [
-      '*',
-      'about_cippic',
-      'topics',
-      'students_pages',
-      'students_images.media',
-      'about_section_image.media'
-    ],
-  },
-  {
-    encodeValuesOnly: true, // prettify URL
-  }
-);
 
-const articlesQuery = qs.stringify(
+export const getStaticProps = async ({ locale }) => {
+    const query = qs.stringify(
       {
-        filters: {
-            featured_insights: {
-              $eq: true,
-            },
-        },
-        sort: "date_published:desc",
-        pagination: {
-          start: 0,
-          limit: 3
-        },
+        locale: locale,
         populate: [
           '*',
-          'main_image.media',
-          'categories',
-          'content_types'
+          'about_cippic',
+          'topics',
+          'students_pages',
+          'students_images.media',
+          'about_section_image.media'
         ],
       },
       {
@@ -56,74 +35,99 @@ const articlesQuery = qs.stringify(
       }
     );
 
-const spotlightQuery = qs.stringify(
-      {
-        filters: {
-            featured_story: {
-              $eq: true,
+    const articlesQuery = qs.stringify(
+          {
+            locale: locale,
+            filters: {
+                featured_insights: {
+                  $eq: true,
+                },
             },
-        },
-        pagination: {
-          start: 0,
-          limit: 1
-        },
-        sort: "date_published:desc",
-        populate: [
-          '*',
-          'main_image.media',
-          'categories',
-          'content_types'
-        ],
-      },
-      {
-        encodeValuesOnly: true, // prettify URL
-      }
-    );
+            sort: "date_published:desc",
+            pagination: {
+              start: 0,
+              limit: 3
+            },
+            populate: [
+              '*',
+              'main_image.media',
+              'categories',
+              'content_types'
+            ],
+          },
+          {
+            encodeValuesOnly: true, // prettify URL
+          }
+        );
 
-const newsQuery = qs.stringify(
-      {
-        filters: {
-            content_types: {
-                slug: {
-                    $eq: "news"
+    const spotlightQuery = qs.stringify(
+          {
+            locale: locale,
+            filters: {
+                featured_story: {
+                  $eq: true,
+                },
+            },
+            pagination: {
+              start: 0,
+              limit: 1
+            },
+            sort: "date_published:desc",
+            populate: [
+              '*',
+              'main_image.media',
+              'categories',
+              'content_types'
+            ],
+          },
+          {
+            encodeValuesOnly: true, // prettify URL
+          }
+        );
+
+    const newsQuery = qs.stringify(
+          {
+            locale: locale,
+            filters: {
+                content_types: {
+                    slug: {
+                        $eq: locale === "fr" ? "nouvelles" : "news"
+                    }
+                },
+                featured_story: {
+                  $null: true
                 }
             },
-            featured_story: {
-              $null: true
-            }
+            sort: "date_published:desc",
+            pagination: {
+              start: 0,
+              limit: 3
+            },
+            populate: [
+              '*',
+              'main_image.media',
+              'categories',
+              'content_types'
+            ],
+          },
+          {
+            encodeValuesOnly: true, // prettify URL
+          }
+        );
+
+    const studentsQuery = qs.stringify(
+        {
+          locale: locale,
+          populate: [
+            '*',
+            'student_programs'
+          ],
         },
-        sort: "date_published:desc",
-        pagination: {
-          start: 0,
-          limit: 3
-        },
-        populate: [
-          '*',
-          'main_image.media',
-          'categories',
-          'content_types'
-        ],
-      },
-      {
-        encodeValuesOnly: true, // prettify URL
-      }
-    );
-
-const studentsQuery = qs.stringify(
-    {
-      populate: [
-        '*',
-        'student_programs'
-      ],
-    },
-    {
-      encodeValuesOnly: true, // prettify URL
-    }
-  );
-
-
-export const getStaticProps = async () => {
-    const layout = await getLayoutData()
+        {
+          encodeValuesOnly: true, // prettify URL
+        }
+      );
+    const layout = await getLayoutData(locale)
 
     const pageRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/home-page?${query}`)
     const pageJson = await pageRes.json()
@@ -162,34 +166,28 @@ export default function Home5({content, layout}) {
     return (
         <>
             <Layout 
-              contact={layout.contact} 
+              layout={layout.layout}
               topics={layout.categories} 
-              contentTypes={layout.contentTypes} 
-              studentPages={layout.studentPages}
+              contentTypes={layout.contentTypes}
             > 
                 <Landing 
                   headline={content.headline}
                   before_headline={content.before_headline}
                   intro={content.intro}
-                  insights_heading={"Latest News"}
+                  insights_heading={content.insights_heading}
                   articles={content.news}
                   spotlightHeading={content.spotlight_heading}
                   spotlightArticle={content.spotlight}
                 />
-                <News 
-                    topics={content.categories}
-                    title={"Insights"}
-                    before_title={content.news_section_before_title}
-                    subtitle={content.news_section_subtitle}
+                <Articles 
+                    title={content.articles_section_title}
+                    subtitle={content.articles_section_subtitle}
                     articles={content.articles}
                 />
                 <Students 
                     images={content.students_images}
-                    before_title={content.students_section_before_title}
                     title={content.students_section_title}
-                    subtitle={content.students_section_subtitle}
                     description={content.students_description}
-                    links={content.students_pages}
                     programs={content.studentPrograms}
                 />
             </Layout>

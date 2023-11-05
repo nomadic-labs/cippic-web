@@ -9,15 +9,16 @@ export default function FeaturedArticles({ title="Key Insights", articles=[] }) 
             {
                 articles.map((article, index) => {
                     return (
-                        <ArticleCard 
-                            order={index}
-                            key={article.id}
-                            article={article} 
-                            showTeaser
-                            showDate
-                            showTags
-                            showLink
-                        />
+                        <div className="mb-3" key={article.id}>
+                            <ArticleCard 
+                                order={index}
+                                article={article} 
+                                showTeaser
+                                showDate
+                                showTags
+                                showLink
+                            />
+                        </div>
                     )
                 })
             }

@@ -10,74 +10,59 @@ import getLayoutData from "@/utils/layout-data"
 const qs = require('qs');
 
 
-export const getStaticProps = async () => {
-    const layout = await getLayoutData()
+export const getStaticProps = async ({locale}) => {
+    const layout = await getLayoutData(locale)
 
-    const staffPageQuery = qs.stringify(
+    const pageQuery = qs.stringify(
       {
+        locale,
         populate: [
             '*',
             'team_members',
             'team_members.photo',
             'team_members.photo.media',
-        ],
-      },
-      {
-        encodeValuesOnly: true, // prettify URL
-      }
-    );
-
-    const staffRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/staff-page?${staffPageQuery}`)
-    const staffPage = await staffRes.json()
-
-    const contactQuery = qs.stringify(
-      {
-        populate: '*'
+        ]
       },
       {
         encodeValuesOnly: true, // prettify URL
       }
     );
     
-    const contactRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/contact-page?${contactQuery}`)
-    const contactPage = await contactRes.json()
+    const pageRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/about-page?${pageQuery}`)
+    const page = await pageRes.json()
 
-    const content = { staff: staffPage.data.attributes, contact: contactPage.data.attributes }
-
-    return { props: { content, layout } }
+    return { props: { content: page.data.attributes, layout } }
 }
 
 export default function Donate({ content, layout }) {
-    const { contact } = layout
-
     return (
         <>
             <Layout 
-                contact={layout.contact} 
+                layout={layout.layout} 
                 topics={layout.categories} 
                 contentTypes={layout.contentTypes} 
                 studentPages={layout.studentPages}
             >
                 <FancyHeader
-                    title={"About Us"}
-                    subtitle={"The Samuelson-Glushko Canadian Internet Policy and Public Interest Clinic (CIPPIC) is Canada’s first and only public interest technology law clinic. Based at the University of Ottawa’s Faculty of Law, our team of legal experts and law students works together to advance the public interest on critical law and technology issues."}
+                    title={content.title}
+                    subtitle={content.subtitle}
                 />
                     
-                    <section className="contact-section">
-                        <div className="container section-default">
+                    <section className="contact-section section-default">
+                        <div className="container">
                             <div className="row">
                                 <div className="col-12">
                                     <div className="title-section">
-                                        <h2 className="underline">{content.staff.page_title}</h2>
-                                        <p>{content.staff.page_description}</p>
+                                        <h2 className="underline mt-0">{content.team_section_title}</h2>
+                                        <ReactMarkdown>{content.team_section_subtitle}</ReactMarkdown>
                                     </div>
                                 </div>
                             </div>
 
                             <div className="row">
-                            { content.staff.team_members.map(tm => {
+                            { content.team_members.map(tm => {
                                 return (
-                                    <div key={tm.id} className="col-xl-6 col-lg-6 col-12">
+                                    <div key={tm.id} className="col-12 mb-4">
                                         <ProfileCard profile={tm} />
                                     </div>
                                 )

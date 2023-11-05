@@ -1,7 +1,7 @@
 /*------===============-css-start-==============------*/
 body {
     font-family           : var(--font-family-one);
-    font-size             : 16px;
+    font-size             : 15px;
     color                 : var(--text-color-dark);
     font-weight           : 400;
     background            : var(--color-light);
@@ -152,8 +152,8 @@ ul {
 .col-xl-9,
 .col-xl-auto {
 
-    padding-right: 1.5rem;
-    padding-left : 1.5rem;
+    padding-right: 1rem;
+    padding-left : 1rem;
 }
 
 h1 a,
@@ -182,7 +182,7 @@ h6 {
 h1 {
     line-height: 1.25;
     font-size: calc(2.5rem + 1vw);
-    margin-bottom: 0.5em;
+    margin-bottom: 1rem;
     margin-top: 0.25em;
 }
 
@@ -190,7 +190,7 @@ h1 {
 h2 {
     line-height: 1.25;
     font-size: calc(1.75rem + 1vw);
-    margin-bottom: 0.7em;
+    margin-bottom: 1rem;
     margin-top: 1rem;
 }
 
@@ -223,7 +223,7 @@ h6 {
 }
 
 p {
-    font-size      : 1rem;
+    font-size      : 15px;
     line-height    : 1.4em;
     font-family    : var(--font-family-one);
     font-weight    : 400;
@@ -304,6 +304,10 @@ body button[type="submit"] {
     text-transform: uppercase;
 }
 
+pre {
+    text-wrap: wrap;
+}
+
 @media (min-width:1200px) {
     .container {
         max-width: 1170px;
@@ -382,7 +386,7 @@ p {
 #content {
     width : 100%;
     height: 100%;
-    padding-top: 76px; // header
+    padding-top: 87px; // header
     overflow: hidden;
 }
 
@@ -1456,7 +1460,7 @@ body {
 }
 
 .text-lg p {
-    font-size: 1.1em;
+    font-size: 1.1rem;
 }
 
 .title-md {
@@ -1464,13 +1468,13 @@ body {
 }
 
 .section-default {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
 }
 
 .section-md {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
 .section-sm {
@@ -1546,6 +1550,13 @@ body {
     display: grid;
     gap: 1.5rem;
     grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: 1fr;
+
+    .grid-item {
+        .article-card, .react-reveal {
+            height: 100%;
+        }
+    }
 }
 
 .icon-dark {

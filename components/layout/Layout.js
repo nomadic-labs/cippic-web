@@ -12,17 +12,13 @@ import Footer8 from "./footer/Footer8"
 
 
 export default function Layout({ 
-    breadcrumbTitle, 
     children, 
-    blogMetaSingle,
     title="CIPPIC | Canadian Internet Policy and Public Interest Clinic",
     description="The Samuelson-Glushko Canadian Internet Policy and Public Interest Clinic (CIPPIC) is Canada’s first and only public interest technology law clinic.",
     image="/assets/images/test-image.jpg", 
-    contact={},
+    layout={},
     topics=[],
-    contentTypes=[],
-    actions=[],
-    studentPages=[]
+    contentTypes=[]
 }) {
     // Search
     const [isSearch, setSearch] = useState(false)
@@ -50,6 +46,7 @@ export default function Layout({
     // Current URL
     const router = useRouter()
     const url = `https://www.cippic.ca{router.pathname}`
+    const favicon = layout.favicon.data?.attributes?.url ? `${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${layout.favicon.data.attributes.url}` : "/logomark.svg"
 
 
     return (
@@ -57,7 +54,7 @@ export default function Layout({
             <Head>
                 <title>{title}</title>
                 <meta name="description" content={description} />
-                <link rel="icon" href="/logomark.svg" />
+                <link rel="icon" href={favicon} />
                 <meta name="image" content={image} />
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content={title} />
@@ -75,16 +72,15 @@ export default function Layout({
             <div id="page" className={`page_wapper hfeed site ${scroll ? "fixed-header floating-menu" : ""} ${isMobileMenu ? "crt_mobile_menu-visible" : ""}`}>
                 <div id="wrapper_full" className="content_all_warpper">
 
-                    <Header1 handleSearch={handleSearch} handleContactPopup={handleContactPopup} handleMobileMenu={handleMobileMenu} topics={topics} contentTypes={contentTypes} studentPages={studentPages} />
+                    <Header1 handleSearch={handleSearch} handleContactPopup={handleContactPopup} handleMobileMenu={handleMobileMenu} layout={layout} topics={topics} contentTypes={contentTypes} />
 
-                    {breadcrumbTitle && <Breadcrumb breadcrumbTitle={breadcrumbTitle} blogMetaSingle={blogMetaSingle}/>}
                     <div id="content" className="site-content">
                         {children}
                     </div>
                 </div>
-                < Footer8 contact={contact} topics={topics} actions={actions} />
+                < Footer8 layout={layout} />
 
-                <MobileMenu isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} topics={topics} contentTypes={contentTypes} />
+                <MobileMenu isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} layout={layout} topics={topics} contentTypes={contentTypes} />
                 <SearchPopup isSearch={isSearch} handleSearch={handleSearch} />
 
             </div>

@@ -1,7 +1,9 @@
 import Link from "next/link"
 import Navbar from "../Navbar"
 
-export default function Header1({ handleSearch, handleContactPopup, handleMobileMenu, topics, contentTypes, studentPages }) {
+export default function Header1({ handleSearch, handleContactPopup, handleMobileMenu, topics, contentTypes, layout }) {
+    const mainLogoSrc = layout.main_logo.data?.attributes?.url ? `${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${layout.main_logo.data.attributes.url}` : "/assets/images/cippic-logo-combined-dark.svg"
+    const altLogoSrc = layout.alternate_logo.data?.attributes?.url ? `${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${layout.alternate_logo.data.attributes.url}` : "/assets/images/cippic-logo-alt-dark.svg"
     return (
         <>
             <div className="header_area" id="header_contents">
@@ -11,8 +13,8 @@ export default function Header1({ handleSearch, handleContactPopup, handleMobile
                             <div className="col-lg-5 col-md-8 col-sm-8 col-xs-8 logo_column">
                                 <div className="header_logo_box">
                                     <Link href="/" className="logo navbar-brand">
-                                        <img src="/assets/images/cippic-logo-combined-dark.svg" alt="CIPPIC" className="logo_default" />
-                                        <img src="/assets/images/cippic-logo-alt-dark.svg" alt="CIPPIC" className="logo__sticky" />
+                                        <img src={mainLogoSrc} alt="CIPPIC" className="logo_default" />
+                                        <img src={altLogoSrc} alt="CIPPIC" className="logo__sticky" />
                                     </Link>
                                 </div>
                             </div>
@@ -27,7 +29,7 @@ export default function Header1({ handleSearch, handleContactPopup, handleMobile
                                 <div className="header_content_collapse d-flex justify-content-end">
                                     <div className="header_menu_box">
                                         <div className="navigation_menu">
-                                            <Navbar topics={topics} contentTypes={contentTypes} studentPages={studentPages} />
+                                            <Navbar topics={topics} contentTypes={contentTypes} links={layout.header_links} />
                                         </div>
                                     </div>
                                     <div className="header_right_content">

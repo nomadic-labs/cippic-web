@@ -3,34 +3,29 @@ import Fade from 'react-reveal/Fade';
 import ReactMarkdown from 'react-markdown'
 import ImageSlider from "@/components/elements/ImageSlider"
 
-export default function Students({title, before_title, subtitle, description, images, links=[], programs=[]}) {
+export default function Students({title, description, images, programs=[]}) {
     const imagesArr = images.data ? images.data.map(i => i.attributes) : []
 
     return (
         <>
             <section className="service-section bg-light section-default">
                 <div className="container-xl">
-                    <div className="row">
-                        <div className="col-12">
-                        </div>
-                    </div>
                     <div className="row students-section">
                         <div className="col-12 col-lg-6">
-                            <div className="mb-40 ">
-                                <div className="title_all_box style_one">
-                                    <div className="title_sections">
-                                        <h2 className="underline">{title}</h2>
-                                    </div>
+                            <div className="title_all_box style_one">
+                                <div className="title-section">
+                                    <h2 className="underline m-0">{title}</h2>
                                 </div>
-                                <ReactMarkdown>{description}</ReactMarkdown>
-                                <Fade bottom cascade delay={200}>
+                            </div>
+                            <ReactMarkdown>{description}</ReactMarkdown>
+                            <Fade bottom cascade delay={200}>
                                 <ul className="list-unstyled mr_top_20">
                                     {
                                         programs.map(program => {
                                             return (
                                                 <li key={program.section_id} className="">
                                                     <Link href={`/students#${program.section_id}`}>
-                                                        <i className={`mr_right_10 ${program.icon_class || "icon-star"}`} />
+                                                        <i className={`mr_right_10 fa-solid fas ${program.icon_class || "fa-star"}`} />
                                                         {program.title}
                                                     </Link>
                                                 </li>
@@ -38,8 +33,7 @@ export default function Students({title, before_title, subtitle, description, im
                                         })
                                     }
                                 </ul>
-                                </Fade>
-                            </div>
+                            </Fade>
                         </div>
                         <div className="col-12 col-lg-6">
                             <ImageSlider images={imagesArr} />

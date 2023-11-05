@@ -1,7 +1,16 @@
 /*------===============-responsive scs-==============------*/
 
+@media(max-width: 1400px) {
+    #wrapper, #content {
+        padding-top: 76px;
+    }
+}
+
 /*---slider---cs----*/
 @media(max-width:1199px){
+    #wrapper, #content {
+        padding-top: 87px;
+    }
 
     .header ,
     .default_sickty_heaad {
@@ -406,6 +415,30 @@
     }
     
     @media(max-width:768px){ 
+        .article-card.profile-card {
+            flex-direction: column;
+
+            .image {
+                padding: 2rem;
+                text-align: center;
+                margin: 0 auto;
+                flex: 1 0 auto;
+                padding-bottom: 0;
+                aspect-ratio: unset;
+
+                img {
+                    border-radius: 100%;
+                    aspect-ratio: 1/1;
+                    width: 220px;
+                    height: auto;
+                }
+            }
+
+            .content_box {
+                flex: 1 1 auto;
+            }
+        }
+
         .grid-wrapper {
             display: grid;
             gap: 0;

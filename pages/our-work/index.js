@@ -15,30 +15,12 @@ const PortfolioFilter3Col = dynamic(() => import('@/components/elements/Portfoli
 
 const qs = require('qs');
 
-export async function getStaticPaths({locale}) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/content-types?locale=all`)
-  const { data, meta } = await res.json()
-  const paths = data.map((cat) => ({
-    params: { slug: cat.attributes.slug },
-  }))
- 
-  // We'll pre-render only these paths at build time.
-  // { fallback: false } means other routes should 404.
-  return { paths, fallback: false }
-}
-
 export const getStaticProps = async ({ params, locale }) => {
     const layout = await getLayoutData(locale)
-    const { slug } = params;
 
     const contentTypeQuery = qs.stringify(
       {
         locale,
-        filters: {
-            slug: {
-              $eq: slug,
-            },
-        },
         populate: [
           '*',
           'icon.media'
@@ -52,13 +34,6 @@ export const getStaticProps = async ({ params, locale }) => {
     const articlesQuery = qs.stringify(
       {
         locale,
-        filters: {
-            content_types: {
-                slug: {
-                    $eq: slug
-                }
-            },
-        },
         sort: "date_published:desc",
         populate: [
           '*',
@@ -89,8 +64,6 @@ export const getStaticProps = async ({ params, locale }) => {
 
 export default function OurWork({ content, layout }) {
     const { contentType, articles } = content;
-    const mainImage = null
-    const imagePath = mainImage ? mainImage.attributes.url : null
     const latestArticles = articles.slice(0,3)
 
     const articleFilters = articles.reduce((filters, article) => {
@@ -115,7 +88,7 @@ export default function OurWork({ content, layout }) {
 
             <Header>
                 <div className="title-section ">
-                    <h1 className="mt-0 underline">{contentType.name}</h1>
+                    <h1 className="mt-0 underline">{`Our Work`}</h1>
                     <h2 className="title-small">{`Latest`}</h2>
                 </div>
                             
@@ -124,14 +97,15 @@ export default function OurWork({ content, layout }) {
                         latestArticles.map((article, index) => {
                             return (
                                 <div key={article.id} className="article">
-                                    <ArticleCard 
-                                        article={article} 
-                                        showDate
-                                        showImage
-                                        imageTop
-                                        showTags
-                                        order={index}
-                                    />
+                                    <Fade bottom delay={index * 60}>
+                                        <ArticleCard 
+                                            article={article} 
+                                            showDate
+                                            showImage
+                                            imageTop
+                                            showTags
+                                        />
+                                    </Fade>
                                 </div>
                             )
                         })

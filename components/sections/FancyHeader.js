@@ -7,7 +7,7 @@ import ReactMarkdown from 'react-markdown'
 export default function FancyHeader({ before_title, title, subtitle, byline, iconSrc, button, tags, children }) {
 
     return (
-      <section className="section-default bg-two">
+      <section className="section-md bg-two">
         <div className="container position-relative">
           <div className="row">
             <div className="col-12">

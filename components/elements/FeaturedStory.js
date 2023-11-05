@@ -48,22 +48,20 @@ export default function FeaturedStory ({
                 </div>
                 <div className={`content_box`}>
 
-                    <div className="byline">
+                    <p className="byline">
                     {
                         showDate && dateString &&
-                        <div className="text-faded">{dateString}</div>
+                        <span className="text-faded">{dateString}</span>
                     }
                     {
                         showTags && tags &&
-                        <div className="text-faded">{tags}</div>
+                        <span className="text-faded">{tags}</span>
                     }
-                    </div>
+                    </p>
 
                     { 
-                        showTeaser && article.teaser &&
-                        <ReactMarkdown>
-                            {article.teaser}
-                        </ReactMarkdown>
+                        showTeaser && article.preview &&
+                        <p>{article.preview}</p>
                     }
 
 

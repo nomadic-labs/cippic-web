@@ -7727,10 +7727,10 @@ h1.headline {
     font-weight: 600;
     text-transform: uppercase;
     font-family: var(--font-family-one);
-    display: inline-flex;
+    display: inline-block;
     gap: 0.5rem;
 
-    > div {
+    > span {
         margin-bottom: 0.5rem;
 
         &:after {
@@ -7740,6 +7740,7 @@ h1.headline {
             width: 4px;
             background: var(--highlight-color);
             margin-left: 0.5rem;
+            margin-right: 0.5rem;
             margin-bottom: 3px;
 
         }
@@ -7838,6 +7839,11 @@ h1.headline {
 
 .bg-light {
     background-color: var(--color-light) !important;
+    color: var(--text-color-dark);
+}
+
+.bg-medium {
+    background-color: var(--color-medium) !important;
     color: var(--text-color-dark);
 }
 
@@ -8015,11 +8021,11 @@ h1.headline {
     grid-template-columns: repeat(3, 1fr);
 }
 
-.featured-articles, .news-articles, .header-articles {
-    .react-reveal, .article-card {
-        height: 100%;
-    }
-}
+// .featured-articles, .news-articles, .header-articles {
+//     .react-reveal, .article-card {
+//         height: 100%;
+//     }
+// }
 
 .topic {
     display: block;

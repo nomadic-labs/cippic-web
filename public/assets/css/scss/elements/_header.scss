@@ -291,9 +291,9 @@
                   margin: 0px;
 
 
-                 li{
+                 li {
                      position: relative;
-                     margin-right:30px;
+                     margin-right: 1.4rem;
                      padding: 0px 0px;
                      margin-bottom: 0px!important;
                      display: inline-block;
@@ -302,7 +302,7 @@
                     -moz-transition: var(--animation-speed) ease-in-out;
                     -o-transition: var(--animation-speed) ease-in-out;
                     &.dropdown{
-                        margin-right: 1.5rem;
+                        margin-right: 1.4rem;
 
                         .dropdown-toggle:after {
                             content: '';
@@ -370,21 +370,24 @@
                         }
                     }
 
-                     a.nav-link{
-                         font-size:15px;
+                     .nav-link {
+                         font-size: 14px;
                          padding: 0;
                          margin-bottom: 5px;
                          // font-weight: 600;
-                         // color: var(--menu-color);
+                         color: var(--color-light);
                          font-family: var(--font-family-one);
                          transition: none;
+                         background: transparent;
+                         border: none;
+                         cursor: pointer;
                          // border-bottom: 1px solid transparent;
                      }
                      &:last-child{
                          margin-right: 0px;
                      }
                      &.active {
-                         a.nav-link{
+                         .nav-link{
                             border-bottom: 1px solid var(--highlight-color)!important; 
                          }
                          // .dropdown-btn{
@@ -432,7 +435,7 @@
                             // padding: 5px 0px;  
                             margin: 0!important;
                            
-                            a.nav-link{
+                            a.nav-link, button.nav-link{
                                 color: var(--text-color-dark);
                                 font-size: 15px;
                                 line-height: 25px;
@@ -443,6 +446,7 @@
                                 transition: unset;
                                 padding: 0.5rem 1rem;
                                 margin: 0;
+                                background: transparent;
 
                                 span {
                                     margin-left: 0.5rem;

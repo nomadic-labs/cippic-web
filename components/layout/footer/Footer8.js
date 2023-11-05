@@ -1,8 +1,7 @@
 import ReactMarkdown from "react-markdown"
 import Link from "next/link"
-export default function Footer8({ contact, topics }) {
-    const keyTopics = topics.filter(t => t.featured)
-    const { main_logo, full_name, description, linkedin, twitter, email, phone, mailing_address, location, license, uottawa_logo } = contact;
+export default function Footer8({ layout }) {
+    const { twitter, footer_links, social_media_links } = layout;
     return (
         <>
             <div className="footer_area footer_sticky_enable_foo bg-one" id="footer_contents">
@@ -14,29 +13,33 @@ export default function Footer8({ contact, topics }) {
                     <div className="container-xl">
                         <div className="row align-items-center">
                             <div className="col-lg-8 col-md-12 mb-3 mb-lg-0 mb-xl-0">
-                                <div className="footer_copy_content color_dark">
-                                    <Link href="/privacy">Privacy Policy</Link>
-                                </div>
-                                <div className="footer_copy_content color_dark">
-                                    <Link href="http://creativecommons.org/licenses/by-nc/2.5/ca/">CC BY-NC 2.5</Link>
-                                </div>
-                                <div className="footer_copy_content color_dark">
-                                    <Link href="https://techlaw.uottawa.ca/">CLTS</Link>
-                                </div>
-                                <div className="footer_copy_content color_dark">
-                                    <Link href="https://www.uottawa.ca/">uOttawa</Link>
-                                </div>
+                                {
+                                    footer_links.map(link => {
+                                        return (
+                                        <div key={link.link_path} className="footer_copy_content color_dark">
+                                            <Link href={link.link_path}>{link.link_text}</Link>
+                                        </div>
+                                        )
+                                    })
+                                }
                             </div>
                             <div className="col-lg-4 col-md-12">
                                 <div className="footer_copy_content_right text-md-end">
                                     <div className="social_media_v_one">
                                         <ul>
-                                            <li>
-                                                <a href={twitter}>
-                                                    <span className="fa fa-twitter" />
-                                                    <small>Twitter</small>
-                                                </a>
-                                            </li>
+                                            {
+                                                social_media_links.map(link => {
+                                                    const target = link.target === "new window" ? "_blank" : "_self"
+                                                    return (
+                                                    <li key={link.link_path}>
+                                                        <a href={link.link_path} target={target}>
+                                                            <span className={`fa ${link.icon_class}`} />
+                                                            <small>{link.link_text}</small>
+                                                        </a>
+                                                    </li>
+                                                    )
+                                                })
+                                            }
                                         </ul>
                                     </div>
                                 </div>

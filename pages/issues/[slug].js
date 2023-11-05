@@ -18,10 +18,11 @@ const PortfolioFilter3Col = dynamic(() => import('@/components/elements/Portfoli
 const qs = require('qs');
 
 export async function getStaticPaths() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/categories`)
+  const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/categories?locale=all`)
   const { data, meta } = await res.json()
   const paths = data.map((cat) => ({
     params: { slug: cat.attributes.slug },
+    locale: cat.attributes.locale
   }))
  
   // We'll pre-render only these paths at build time.
@@ -29,13 +30,14 @@ export async function getStaticPaths() {
   return { paths, fallback: false }
 }
 
-export const getStaticProps = async ({ params }) => {
-    const layout = await getLayoutData()
+export const getStaticProps = async ({ params, locale }) => {
+    const layout = await getLayoutData(locale)
 
     const { slug } = params;
 
     const categoryArticlesQuery = qs.stringify(
       {
+        locale: locale,
         filters: {
             slug: {
               $eq: slug,
@@ -78,19 +80,19 @@ export default function TopicsPage({ content, layout }) {
     const articles = category.articles.data.map(art => ({ id: art.id, ...art.attributes }))
     const articleFilters = articles.reduce((filters, article) => {
         const articleContentTypes = article.content_types.data.map(ct => ct.attributes)
-        const newFitlers = articleContentTypes.map(act => {
+        const newFilters = articleContentTypes.map(act => {
             const filterExists = filters.find(f => f?.slug === act.slug)
             if (!filterExists) {
                 return act
             }
         }).filter(i => i)
-        return filters.concat(newFitlers)
+        return filters.concat(newFilters)
     }, [])
 
     return (
         <>
             <Layout 
-              contact={layout.contact} 
+              layout={layout.layout} 
               topics={layout.categories} 
               contentTypes={layout.contentTypes}
               studentPages={layout.studentPages}

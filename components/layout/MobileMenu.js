@@ -65,7 +65,7 @@ export default function MobileMenu({ handleMobileMenu, topics, contentTypes }) {
                                     { keyTopics.map((topic, index) => (
                                         <Fade key={topic.id} delay={60*index}>
                                             <li className="menu-item nav-item">
-                                                <Link href={`/topics/${topic.slug}`} className="dropdown-item nav-link">
+                                                <Link href={`/issues/${topic.slug}`} className="dropdown-item nav-link">
                                                     <span className="text-faded">{topic.name}</span>
                                                 </Link>
                                             </li>

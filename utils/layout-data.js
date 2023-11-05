@@ -1,48 +1,58 @@
 const qs = require('qs');
 
-const contactQuery = qs.stringify(
-  {
-    populate: [
-      '*',
-      'main_logo.media',
-      'uottawa_logo.media'
-    ],
-  },
-  {
-    encodeValuesOnly: true, // prettify URL
-  }
-);
 
-const categoriesQuery = qs.stringify(
-  {
-    populate: [
-      '*',
-      'icon.media'
-    ],
-    sort: "name:asc"
-  },
-  {
-    encodeValuesOnly: true, // prettify URL
-  }
-);
+export default async function getLayoutData(locale="en") {
+  const layoutQuery = qs.stringify(
+    {
+      locale: locale,
+      populate: [
+        '*',
+        'main_logo.media',
+        'alternate_logo.media',
+        'favicon.media',
+        'header_links',
+        'footer_links',
+        'social_media_links',
+        'footer_logo_links',
+        'footer_logo_links.media',
+      ],
+    },
+    {
+      encodeValuesOnly: true, // prettify URL
+    }
+  );
 
-const contentTypesQuery = qs.stringify(
-  {
-    populate: [
-      '*',
-      'icon.media'
-    ],
-    sort: "name:asc"
-  },
-  {
-    encodeValuesOnly: true, // prettify URL
-  }
-);
+  const categoriesQuery = qs.stringify(
+    {
+      locale: locale,
+      populate: [
+        '*',
+        'icon.media'
+      ],
+      sort: "name:asc"
+    },
+    {
+      encodeValuesOnly: true, // prettify URL
+    }
+  );
 
-export default async function getLayoutData() {
-	const contactRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/organization-information?${contactQuery}`)
-	const contactJson = await contactRes.json()
-	const contact = { ...contactJson.data.attributes }
+  const contentTypesQuery = qs.stringify(
+    {
+      locale: locale,
+      populate: [
+        '*',
+        'icon.media'
+      ],
+      sort: "name:asc"
+    },
+    {
+      encodeValuesOnly: true, // prettify URL
+    }
+  );
+
+	const layoutRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/layout?${layoutQuery}`)
+	const layoutJson = await layoutRes.json()
+	const layout = { ...layoutJson.data.attributes }
 
 	const categoriesRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/categories?${categoriesQuery}`)
 	const categoriesJson = await categoriesRes.json()
@@ -52,10 +62,6 @@ export default async function getLayoutData() {
 	const contentTypesJson = await contentTypesRes.json()
 	const contentTypes = contentTypesJson.data.map(t => ({ id: t.id, ...t.attributes}))
 
-	const studentPagesRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/student-pages?sort=title`)
-	const studentPagesJson = await studentPagesRes.json()
-	const studentPages = studentPagesJson.data.map(t => ({ id: t.id, ...t.attributes}))
-
-	return { contact, categories, contentTypes, studentPages }
+	return { layout, categories, contentTypes }
 }
 

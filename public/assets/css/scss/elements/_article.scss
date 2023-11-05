@@ -2,8 +2,8 @@ a.article-card, .article-card {
     position: relative;
     display: block;
     transition: all var(--animation-speed) ease-in-out;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    // margin-top: 1rem;
+    // margin-bottom: 1rem;
 
     .image {
         position: relative;
@@ -20,6 +20,8 @@ a.article-card, .article-card {
         position: relative;
         flex: 1 1 50%;
         padding-bottom: 0.75rem;
+        display: flex;
+        flex-direction: column;
         
         .date{
             position: relative;
@@ -30,6 +32,13 @@ a.article-card, .article-card {
             font-weight: 600;
             margin-bottom: 0.5em;
             font-family: var(--font-family-one);
+        }
+
+        .preview {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical; 
+            overflow: hidden;
         }
 
         .tags {
@@ -49,28 +58,41 @@ a.article-card, .article-card {
     }
 
     &.image-top {
-        display: block;
+        display: flex;
+        flex-direction: column;
 
         .image {
             img {
                 aspect-ratio: 2/1;
-                // margin-bottom: 1.5rem;
             }
         }
 
         .content_box {
-            padding-top: 1.5rem;
+            padding-top: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
     }
 
-    &.profile-pic {
-        display: block;
-
+    &.profile-card {
         .image {
+            padding: 2rem;
+            text-align: center;
+            margin: 0 auto;
+            flex: 1 0 auto;
+
             img {
-                aspect-ratio: 16/9;
+                border-radius: 100%;
+                aspect-ratio: 1/1;
+                width: 220px;
+                height: auto;
             }
+        }
+
+        .content_box {
+            flex: 1 1 auto;
         }
     }
 
@@ -94,7 +116,6 @@ a.article-card, .article-card {
         font-size: 12px;
         text-transform: uppercase;
         line-height: 26px;
-        // border-radius: 0px 0px var(--border-radius-sm) 0px;
         font-family: var(--font-family-one);
         transition: var(--animation-speed) ease-in-out;
         -moz-transition: var(--animation-speed) ease-in-out;
@@ -114,7 +135,6 @@ a.article-card, .article-card {
             display: inline-block;
             height: 6px;
             width: 6px;
-            // border-radius: 6px;
             margin-right: 6px;
             margin-bottom: 2px;
             background: var(--primary-color-three);

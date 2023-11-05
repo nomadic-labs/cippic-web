@@ -67,6 +67,7 @@ export default function PortfolioFilter3Col({articles, filters, filterField="con
                                             showTeaser
                                             showDate
                                             bgLight
+                                            showTags
                                         />
                                     </div>
                                 )

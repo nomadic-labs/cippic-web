@@ -6,14 +6,15 @@ import getLayoutData from "@/utils/layout-data"
 const qs = require('qs');
 
 
-export const getStaticProps = async () => {
-    const layout = await getLayoutData()
+export const getStaticProps = async ({ locale }) => {
+    const layout = await getLayoutData(locale)
 
     const pageQuery = qs.stringify(
       {
+        locale,
         populate: [
           '*',
-          'background_image.media'
+          'contact_options'
         ],
       },
       {
@@ -35,88 +36,45 @@ export default function Contact({ content, layout }) {
     return (
         <>
             <Layout 
-              contact={layout.contact} 
+              layout={layout.layout} 
               topics={layout.categories} 
               contentTypes={layout.contentTypes}
               studentPages={layout.studentPages}
             >
-                <section className="contact-section section-default">
+                <section className="section-default">
                     <div className="container">
                         <div className="row">
                             <div className="col-12">
                                 <div className="title-section">
-                                    <h1 className="underline">{content.section_title}</h1>
-                                    <p className="text-lg">{content.section_description}</p>
+                                    <h1 className="underline mt-0">{content.title}</h1>
                                 </div>
+                                <ReactMarkdown className="text-lg">{content.subtitle}</ReactMarkdown>
                             </div>
                         </div>
 
                         <div className="row mr_top_20">
-                            <div className="col-xl-6 col-lg-6 col-12">
-                                <ContentCard noAnimate>
-                                    <div className="contact_box_inner icon_yes">
-                                        <div className="icon_bx">
-                                            <span className="icon-send" />
-                                        </div>
-                                        <div className="contnet">
-                                            <h3 className="title-small mt-0"> {content.email_label} </h3>
-                                            <p>
-                                                {contact.email}
-                                            </p>
-                                        </div>
-                                    </div>
-                                </ContentCard>
-                            </div>
 
-                            <div className="col-xl-6 col-lg-6 col-12">
-                                <ContentCard noAnimate>
-                                    <div className="contact_box_inner icon_yes">
-                                        <div className="icon_bx">
-                                            <span className="icon-phone-call" />
+                            {
+                                content.contact_options.map(option => {
+                                    return(
+                                        <div className="col-xl-6 col-lg-6 col-12 mb-4">
+                                            <ContentCard noAnimate>
+                                                <div className="contact_box_inner icon_yes">
+                                                    <div className="icon_bx">
+                                                        <span className={`fa-solid ${option.icon_class}`} />
+                                                    </div>
+                                                    <div className="contnet">
+                                                        <h3 className="title-small mt-0"> {option.label} </h3>
+                                                        <ReactMarkdown>
+                                                            {option.body}
+                                                        </ReactMarkdown>
+                                                    </div>
+                                                </div>
+                                            </ContentCard>
                                         </div>
-                                        <div className="contnet">
-                                            <h3 className="title-small mt-0"> {content.phone_number_label} </h3>
-                                            <p>
-                                                {contact.phone}
-                                            </p>
-                                        </div>
-                                    </div>
-                                </ContentCard>
-                            </div>
-                                
-                            <div className="col-xl-6 col-lg-6 col-12">
-                                <ContentCard noAnimate>
-                                    <div className="contact_box_inner icon_yes">
-                                        <div className="icon_bx">
-                                            <span className=" icon-placeholder" />
-                                        </div>
-                                        <div className="contnet">
-                                            <h3 className="title-small mt-0"> {content.physical_address_label} </h3>
-                                            <ReactMarkdown>
-                                                {contact.location}
-                                            </ReactMarkdown>
-                                        </div>
-                                    </div>
-                                </ContentCard>
-                            </div>
-
-
-                            <div className="col-xl-6 col-lg-6 col-12">
-                                <ContentCard noAnimate>
-                                    <div className="contact_box_inner icon_yes">
-                                        <div className="icon_bx">
-                                            <span className=" icon-mail" />
-                                        </div>
-                                        <div className="contnet">
-                                            <h3 className="title-small mt-0"> {content.mailing_address_label} </h3>
-                                            <ReactMarkdown>
-                                                {contact.mailing_address}
-                                            </ReactMarkdown>
-                                        </div>
-                                    </div>
-                                </ContentCard>
-                            </div>
-                                
+                                    )
+                                })
+                            }
 
                         </div>
                     </div>
@@ -126,7 +84,7 @@ export default function Contact({ content, layout }) {
                     <div className="container">
                         <div className="row">
                             <div className="col-12">
-                                <h3 className="title-small mb-4 mt-0"> Land acknowledgement </h3>
+                                <h3 className="title-small mb-4 mt-0">{content.land_acknowledgement_heading}</h3>
                                 <ReactMarkdown>
                                     {content.land_acknowledgement}
                                 </ReactMarkdown>

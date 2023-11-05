@@ -1,7 +1,7 @@
 import Layout from "@/components/layout/Layout"
 import ContentCard from "@/components/elements/ContentCard"
 import ButtonLink from "@/components/elements/ButtonLink"
-import ImageSliderSection from "@/components/sections/ImageSliderSection"
+import ImageSlider from "@/components/elements/ImageSlider"
 import FancyHeader from "@/components/sections/FancyHeader"
 import Link from "next/link"
 import ReactMarkdown from 'react-markdown'
@@ -9,11 +9,12 @@ import getLayoutData from "@/utils/layout-data"
 const qs = require('qs');
 
 
-export const getStaticProps = async () => {
-    const layout = await getLayoutData()
+export const getStaticProps = async ({locale}) => {
+    const layout = await getLayoutData(locale)
 
     const pageQuery = qs.stringify(
       {
+        locale,
         populate: [
           '*',
           'student_programs',
@@ -36,18 +37,17 @@ export const getStaticProps = async () => {
 }
 
 export default function StudentsPage({ content, layout }) {
+    const imgArr = content.image_slider.images.data.map(i => i.attributes)
     return (
         <>
             <Layout 
-                contact={layout.contact} 
+                layout={layout.layout} 
                 topics={layout.categories} 
                 contentTypes={layout.contentTypes} 
-                studentPages={layout.studentPages}
             >
                 <FancyHeader
-                    before_title={content.before_title}
                     title={content.title}
-                    subtitle={content.intro}
+                    subtitle={content.subtitle}
                 >
                     <div className="program-cards mr_top_40">
                         { content.student_programs.map(program => {
@@ -63,48 +63,48 @@ export default function StudentsPage({ content, layout }) {
                     </div>
                 </FancyHeader>
                                 
-
-                    <section className="section-default bg-light">
-                        <div className="container">
-                            <div className="row">
-                                <div className="col-12 col-lg-8 mx-auto">
-                                    <ReactMarkdown>{content.description}</ReactMarkdown>
-                                </div>
+                <section className="section-default bg-light">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-12 col-lg-6">
+                                <ReactMarkdown>{content.description}</ReactMarkdown>
+                            </div>
+                            <div className="col-12 col-lg-6">
+                                <ImageSlider images={imgArr} slidesPerView={1} />
                             </div>
                         </div>
-                    </section>
+                    </div>
+                </section>
 
-                    <ImageSliderSection { ...content.image_slider } />
-
-                    {
-                        content.student_programs.map(program => {
-                            return (
-                                <section className={`bg-light section-separator`} id={program.section_id} key={program.section_id}>
-                                    <div className="container section-md">
-                                        <div className="row">
-                                            <div className="col-12 col-lg-8 mx-auto">
-                                                <div className="title_sections">
-                                                    <h2>{program.title}</h2>
-                                                    {program.subtitle && <p className="text-lg">{program.subtitle}</p>}
-                                                </div>
-                                                <ReactMarkdown>{program.description}</ReactMarkdown >
-                                                { program.how_to_apply_description && 
-                                                <>
-                                                    <div className="title_sections">
-                                                        <h3>{program.how_to_apply_title}</h3>
-                                                    </div>
-                                                    <ReactMarkdown>{program.how_to_apply_description}</ReactMarkdown >
-                                                </>
-                                                }
-                                                { program.apply_button && <div className="text-center"><ButtonLink href={program.apply_button.button_link} target="_blank" className="mr_top_20">{program.apply_button.button_text}</ButtonLink></div>}
-
+                {
+                    content.student_programs.map(program => {
+                        return (
+                            <section className={`bg-${program.background_colour}`} id={program.section_id} key={program.section_id}>
+                                <div className="container section-default">
+                                    <div className="row">
+                                        <div className="col-12 col-lg-8 mx-auto">
+                                            <div className="title_sections">
+                                                <h2>{program.title}</h2>
+                                                {program.subtitle && <p className="text-lg">{program.subtitle}</p>}
                                             </div>
+                                            <ReactMarkdown>{program.description}</ReactMarkdown >
+                                            { program.how_to_apply_description && 
+                                            <>
+                                                <div className="title_sections">
+                                                    <h3>{program.how_to_apply_title}</h3>
+                                                </div>
+                                                <ReactMarkdown>{program.how_to_apply_description}</ReactMarkdown >
+                                            </>
+                                            }
+                                            { program.apply_button && <div className="text-center"><ButtonLink href={program.apply_button.button_link} target="_blank" className="mr_top_20">{program.apply_button.button_text}</ButtonLink></div>}
+
                                         </div>
                                     </div>
-                                </section>
-                            )
-                        })
-                    }
+                                </div>
+                            </section>
+                        )
+                    })
+                }
             </Layout>
         </>
     )

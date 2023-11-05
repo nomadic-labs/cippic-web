@@ -23,25 +23,55 @@ const dynamicContentDict = {
 
 const qs = require('qs');
 
-export async function getStaticPaths() {
-  // Call an external API endpoint to get posts
-  const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/articles`)
-  const { data, meta } = await res.json()
-  const paths = data.map((article) => ({
-    params: { slug: article.attributes.slug },
-  }))
+async function fetchAllArticles(articles, pagination) {
+  try {
+    const query = qs.stringify(
+        {
+          locale: "all",
+          populate: "*",
+          pagination: {
+            page: pagination.page + 1,
+            pageSize: 100
+          }
+        },
+        {
+          encodeValuesOnly: true, // prettify URL
+        }
+      );
+    const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/articles?${query}`)
+    const { data, meta } = await res.json()
+    const accumulator = articles.concat(data)
+
+    if (meta.pagination.page < meta.pagination.pageCount) {
+      return await fetchAllArticles(accumulator, meta.pagination)
+    } else {
+      return accumulator
+    }
+  } catch (e) {
+    console.log(e)
+    return []
+  }
+}
+
+export async function getStaticPaths({ locales }) {
+  // Call an external API endpoint to get posts  
+  const allArticles = await fetchAllArticles([], {page: 0})
+
+  const paths = allArticles.map((article) => {
+    return { params: { slug: article.attributes.slug }, locale: article.attributes.locale }
+  })
  
-  // We'll pre-render only these paths at build time.
-  // { fallback: false } means other routes should 404.
   return { paths, fallback: false }
 }
 
-export const getStaticProps = async ({ params }) => {
+export const getStaticProps = async ({ params, locale }) => {
     const { slug } = params;
-    const layout = await getLayoutData()
+
+    const layout = await getLayoutData(locale)
 
     const pageQuery = qs.stringify(
       {
+        locale: locale,
         filters: {
             slug: {
               $eq: slug,
@@ -127,7 +157,7 @@ export default function ArticlePage({ content, layout }) {
     return (
         <>
             <Layout 
-              contact={layout.contact} 
+              layout={layout.layout} 
               topics={layout.categories} 
               contentTypes={layout.contentTypes}
               studentPages={layout.studentPages}
@@ -137,9 +167,11 @@ export default function ArticlePage({ content, layout }) {
                   <div className="title_sections">
                     <h1 className="title-md mb-4">{article.title}</h1>
                   </div>
-                  { article.teaser && <ReactMarkdown className="text-lg mb-4">{article.teaser}</ReactMarkdown> }
-                  { article.date_published && <p className="text-color-one">{`Published ${dateString}`}</p> }
-                  { article.author && <p className="text-color-one">{`By ${article.author}`}</p> }
+                  { article.preview && <p className="text-lg mb-4">{article.preview}</p> }
+                  <p className="byline">
+                  { article.date_published && <span className="byline">{`Published ${dateString}`}</span> }
+                  { article.author && <span className="byline">{`By ${article.author}`}</span> }
+                  </p>
                 </Header>
 
                 <section className="section-default">
@@ -182,12 +214,12 @@ export default function ArticlePage({ content, layout }) {
                               {`Tags:`}
                               {
                                 categories.map(tag => {
-                                  return <Link href={`/topics/${tag.attributes.slug}`} className="tag btn btn-simple">{tag.attributes.name}</Link>
+                                  return <Link key={tag.attributes.slug} href={`/issues/${tag.attributes.slug}`} className="tag btn btn-simple">{tag.attributes.name}</Link>
                                 })
                               }
                               {
                                 content_types.map(tag => {
-                                  return <Link href={`/our-work/${tag.attributes.slug}`} className="tag btn btn-simple">{tag.attributes.name}</Link>
+                                  return <Link key={tag.attributes.slug} href={`/our-work/${tag.attributes.slug}`} className="tag btn btn-simple">{tag.attributes.name}</Link>
                                 })
                               }
                             </div>

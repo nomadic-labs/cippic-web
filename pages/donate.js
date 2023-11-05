@@ -9,14 +9,15 @@ import getLayoutData from "@/utils/layout-data"
 const qs = require('qs');
 
 
-export const getStaticProps = async () => {
-    const layout = await getLayoutData()
+export const getStaticProps = async ({locale}) => {
+    const layout = await getLayoutData(locale)
 
     const pageQuery = qs.stringify(
       {
+        locale,
         populate: [
           '*',
-          'main_image.media',
+          'donation_sections',
           'donate_button',
           'how_to_donate'
         ],
@@ -39,86 +40,57 @@ export default function Donate({ content, layout }) {
     return (
         <>
             <Layout 
-                contact={layout.contact} 
+                layout={layout.layout} 
                 topics={layout.categories} 
                 contentTypes={layout.contentTypes} 
-                studentPages={layout.studentPages}
             >
                 <FancyHeader
-                    before_title={content.before_title}
                     title={content.title}
-                    subtitle={content.intro}
-                    button={content.donate_button}
-                />
-                    
-                    <section className="section-separator">
-                        <div className="container section-md">
-                            <div className="row">
-                                <div className="col-12 col-lg-8 mx-auto">
-                                        <div className="contnet">
-                                            <h2 className="mt-0">{content.individual_section_title}</h2>
-                                            <ReactMarkdown>
-                                                {content.individual_section_description}
-                                            </ReactMarkdown>
-                                        </div>
+                    subtitle={content.subtitle}
+                >
+                    <div className="program-cards mr_top_40">
+                        { content.donation_sections.map(section => {
+                            return (
+                                <div className="program-card" key={section.section_id}>
+                                    <ContentCard>
+                                        <h3 className="mt-0">{section.heading}</h3>
+                                        <a href={`#${section.section_id}`} className="read_more">More information <i className="icon-right-arrow" /></a >
+                                    </ContentCard>
                                 </div>
-                            </div>
-                        </div>
-                    </section>
+                            )
+                        })}
+                    </div>
+                </FancyHeader>
 
-                    <section className="section-separator">
-                        <div className="container section-md">
-                            <div className="row">
-                                <div className="col-12 col-lg-8 mx-auto">
-                                        <div className="contnet">
-                                            <h2 className="mt-0">{content.corporate_section_title}</h2>
-                                            <ReactMarkdown>
-                                                {content.corporate_section_description}
-                                            </ReactMarkdown>
+                    {
+                        content.donation_sections.map(section => {
+                            return (
+                                <section id={section.section_id} key={section.section_id} className={`bg-${section.background_colour.toLowerCase()}`}>
+                                    <div className="container section-default">
+                                        <div className="row">
+                                            <div className="col-12 col-lg-8 mx-auto">
+                                                <div className="contnet">
+                                                    <h2 className="mt-0">{section.heading}</h2>
+                                                    <ReactMarkdown>
+                                                        {section.body}
+                                                    </ReactMarkdown>
+                                                </div>
+                                            </div>
                                         </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <section className="section-separator">
-                        <div className="container section-md">
-                            <div className="row">
-                                <div className="col-12 col-lg-8 mx-auto">
-                                        <div className="contnet">
-                                            <h2 className="mt-0">{content.tax_section_title}</h2>
-                                            <ReactMarkdown>
-                                                {content.tax_section_description}
-                                            </ReactMarkdown>
-                                        </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <section className="">
-                        <div className="container section-md">
-                            <div className="row">
-                                <div className="col-12 col-lg-8 mx-auto">
-                                        <div className="contnet">
-                                            <h2 className="mt-0">{content.contacts_section_title}</h2>
-                                            <ReactMarkdown>
-                                                {content.contacts_section_description}
-                                            </ReactMarkdown>
-                                        </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+                                    </div>
+                                </section>
+                            )
+                        })
+                    }
 
                     <section className="section-default bg-two">
                         <div className="container">
                             <div className="row">
                                 <div className="col-12">
-                                        <div className="content">
-                                            <h2>{content.instructions_title}</h2>
-                                            <ReactMarkdown>{content.instructions_description}</ReactMarkdown>
-                                        </div>
+                                    <div className="content">
+                                        <h2>{content.instructions_title}</h2>
+                                        <ReactMarkdown>{content.instructions_description}</ReactMarkdown>
+                                    </div>
                                 </div>
                             </div>
                             <div className="pd_top_20" />

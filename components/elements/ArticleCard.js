@@ -46,28 +46,28 @@ export default function ArticleCard ({
                     { hasImage && <Image width={image.width} height={image.height} src={`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${image.url}`} alt={image.alternativeText} className="img-fluid" /> }
                 </div>
                 <div className={`content_box`}>
+                    <div>
                     <h3 href={url} className="title mt-0">{article.title}</h3>
 
-                    <div className="byline">
+                    <p className="byline">
                     {
                         showDate && dateString &&
-                        <div className="text-faded">{dateString}</div>
+                        <span className="text-faded">{dateString}</span>
                     }
                     {
                         showTags && tags &&
-                        <div className="text-faded">{tags}</div>
+                        <span className="text-faded">{tags}</span>
+                    }
+                    </p>
+
+                    { 
+                        showTeaser && article.preview &&
+                        <p className="preview">{article.preview}</p>
                     }
                     </div>
 
-                    { 
-                        showTeaser && article.teaser &&
-                        <ReactMarkdown>
-                            {article.teaser}
-                        </ReactMarkdown>
-                    }
 
-
-                    {showLink && <p className="read_more">{linkText} <i className="icon-right-arrow" /></p>}
+                    {showLink && <p className="read_more mb-0">{linkText} <i className="icon-right-arrow" /></p>}
 
                 </div>
             </Link>
