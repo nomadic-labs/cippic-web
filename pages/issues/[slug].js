@@ -24,7 +24,6 @@ export async function getStaticPaths() {
     params: { slug: cat.attributes.slug },
     locale: cat.attributes.locale
   }))
-  console.log(paths)
  
   // We'll pre-render only these paths at build time.
   // { fallback: false } means other routes should 404.

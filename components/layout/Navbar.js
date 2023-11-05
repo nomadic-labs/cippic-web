@@ -24,9 +24,9 @@ export default function Navbar({ topics=[], contentTypes=[], links=[] }) {
                             ourWork.map(item => {
                                 return(
                                     <li key={item.id} className="menu-item  nav-item">
-                                        <Link href={`/our-work/${item.slug}`} className="dropdown-item nav-link"> 
+                                        <a href={`/our-work/${item.slug}`} className="dropdown-item nav-link"> 
                                             <span>{item.name} </span>
-                                        </Link>
+                                        </a>
                                     </li>
                                 )
                             })
@@ -43,7 +43,7 @@ export default function Navbar({ topics=[], contentTypes=[], links=[] }) {
                             keyTopics.map(topic => {
                                 return(
                                     <li key={topic.id} className="menu-item  nav-item">
-                                        <Link href={`/issues/${topic.slug}`} className="dropdown-item nav-link"> 
+                                        <a href={`/issues/${topic.slug}`} className="dropdown-item nav-link"> 
                                             <Image
                                                 src={`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${topic.icon.data?.attributes?.url}`}
                                                 height={22}
@@ -52,7 +52,7 @@ export default function Navbar({ topics=[], contentTypes=[], links=[] }) {
                                                 className="icon-dark"
                                             />
                                             <span>{topic.name} </span>
-                                        </Link>
+                                        </a>
                                     </li>
                                 )
                             })

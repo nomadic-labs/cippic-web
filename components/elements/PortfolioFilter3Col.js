@@ -13,6 +13,7 @@ export default function PortfolioFilter3Col({articles, filters, filterField="con
 
     const handleFilterKeyChange = useCallback((key) => () => {
         let filtered = articles;
+        setFilteredArticles([])
 
         if (key !== "*") {
             filtered = articles.filter(article => {
