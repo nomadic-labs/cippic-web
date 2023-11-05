@@ -21360,9 +21360,17 @@ h1.headline {
   display: grid;
   gap: 2rem;
   grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 1fr;
 }
 .program-cards .program-card .article-card {
   height: 100%;
+  display: flex;
+}
+.program-cards .program-card .article-card .content_box {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  justify-content: space-between;
 }
 
 .circles-svg {

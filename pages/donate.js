@@ -94,20 +94,24 @@ export default function Donate({ content, layout }) {
                                 </div>
                             </div>
                             <div className="pd_top_20" />
-                            <div className="row news-articles">
-                                { content.how_to_donate.map(card => {
-                                    return (
-                                        <div className="col-12 col-sm-6 col-lg-3">
-                                            <ContentCard icon={card.icon_class} tags={card.tag}>
-                                                <h3 className="">{card.title}</h3>
-                                                <p>{card.description}</p>
-                                                <a href={card.url} className="read_more">{card.link_text} <i className="icon-right-arrow" /></a >
-                                            </ContentCard>
-                                        </div>
-                                    )
-                                })}
-
-                                
+                            <div className="row">
+                                <div className="col-12">
+                                    <div className="program-cards">
+                                    { content.how_to_donate.map(card => {
+                                        return (
+                                            <div className="program-card">
+                                                <ContentCard icon={card.icon_class} tags={card.tag}>
+                                                    <div>
+                                                        <h3 className="">{card.title}</h3>
+                                                        <p>{card.description}</p>
+                                                    </div>
+                                                    <a href={card.url} className="read_more">{card.link_text} <i className="icon-right-arrow" /></a >
+                                                </ContentCard>
+                                            </div>
+                                        )
+                                    })}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </section>

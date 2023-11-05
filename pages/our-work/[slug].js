@@ -20,6 +20,7 @@ export async function getStaticPaths({locale}) {
   const { data, meta } = await res.json()
   const paths = data.map((cat) => ({
     params: { slug: cat.attributes.slug },
+    locale: cat.attributes.locale
   }))
  
   // We'll pre-render only these paths at build time.
