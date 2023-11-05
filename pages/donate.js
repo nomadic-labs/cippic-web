@@ -65,7 +65,7 @@ export default function Donate({ content, layout }) {
                     {
                         content.donation_sections.map(section => {
                             return (
-                                <section id={section.section_id} key={section.section_id} className={`bg-${section.background_colour.toLowerCase()}`}>
+                                <section id={section.section_id} key={section.section_id} className={`bg-${section.background_colour}`}>
                                     <div className="container section-default">
                                         <div className="row">
                                             <div className="col-12 col-lg-8 mx-auto">
