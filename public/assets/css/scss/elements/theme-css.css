@@ -12109,12 +12109,13 @@ a.service_box:hover {
   padding-left: 0px;
   display: inline-flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 0.5rem;
   margin-bottom: 0;
 }
 .project_all.filt_style_one .fliter_group .project_filter li, .project_all.filt_style_six .fliter_group .project_filter li {
   display: inline-block;
   position: relative;
+  padding: 0 4px;
   color: var(--primary-color-one);
   cursor: pointer;
   font-family: var(--font-family-one);
@@ -12126,7 +12127,7 @@ a.service_box:hover {
   border-color: var(--primary-color-three);
 }
 .project_all.filt_style_one .fliter_group .project_filter li.current, .project_all.filt_style_six .fliter_group .project_filter li.current {
-  border-color: var(--highlight-color);
+  background: var(--highlight-color-alt);
 }
 .project_all.filt_style_six .fliter_group .project_filter {
   padding-left: 0px;
@@ -29442,6 +29443,14 @@ a.article-card:hover .read_more i {
   transform: translateY(-5px);
 }
 
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .accordion .accordion__item {
   margin: var(--padding-md) 0;
 }
@@ -30328,6 +30337,10 @@ a.article-card:hover .read_more i {
   }
 }
 @media (max-width: 550px) {
+  .project_all.filt_style_one .fliter_group .project_filter {
+    display: flex;
+    flex-direction: column;
+  }
   .process_box.style_two .process_box_outer_two .content_box .icon {
     float: unset;
     margin-bottom: 15px;

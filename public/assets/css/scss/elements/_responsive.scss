@@ -949,6 +949,11 @@
     }
     
     @media(max-width:550px){
+
+        .project_all.filt_style_one .fliter_group .project_filter {
+            display: flex;
+            flex-direction: column;
+        }
     //start mediaqueries   
     .process_box.style_two .process_box_outer_two .content_box .icon{
         float: unset;

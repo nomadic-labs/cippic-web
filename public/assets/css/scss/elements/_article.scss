@@ -2,8 +2,6 @@ a.article-card, .article-card {
     position: relative;
     display: block;
     transition: all var(--animation-speed) ease-in-out;
-    // margin-top: 1rem;
-    // margin-bottom: 1rem;
 
     .image {
         position: relative;
@@ -186,4 +184,12 @@ a.article-card:hover {
     }
 }
 
+@keyframes appear {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
 
