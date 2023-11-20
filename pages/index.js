@@ -167,6 +167,7 @@ export default function Home5({content, layout}) {
         <>
             <Layout 
               layout={layout.layout}
+              translation={layout.translation}
               topics={layout.categories} 
               contentTypes={layout.contentTypes}
             > 
@@ -176,7 +177,8 @@ export default function Home5({content, layout}) {
                   intro={content.intro}
                   insights_heading={content.insights_heading}
                   articles={content.news}
-                  spotlightHeading={content.spotlight_heading}
+                  featured_story_heading={content.featured_story_heading}
+                  latest_news_heading={content.latest_news_heading}
                   spotlightArticle={content.spotlight}
                 />
                 <Articles 

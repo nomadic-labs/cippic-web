@@ -2636,6 +2636,7 @@ __metadata:
     sass: ^1.62.1
     slick-carousel: ^1.8.1
     swiper: ^9.2.4
+    yet-another-react-lightbox: ^3.15.2
   languageName: unknown
   linkType: soft
 
@@ -10647,6 +10648,16 @@ __metadata:
     y18n: ^5.0.5
     yargs-parser: ^21.1.1
   checksum: 73b572e863aa4a8cbef323dd911d79d193b772defd5a51aab0aca2d446655216f5002c42c5306033968193bdbf892a7a4c110b0d77954a7fdf563e653967b56a
+  languageName: node
+  linkType: hard
+
+"yet-another-react-lightbox@npm:^3.15.2":
+  version: 3.15.2
+  resolution: "yet-another-react-lightbox@npm:3.15.2"
+  peerDependencies:
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+  checksum: f73ee40dd314865b23c70d103c2d2db17400f25419a306374af34c51e28fc246def19985978e59ee305470bdc03dd82bdbaca494a03a639897438f8abd270427
   languageName: node
   linkType: hard
 

@@ -62,6 +62,10 @@ export default async function getLayoutData(locale="en") {
 	const contentTypesJson = await contentTypesRes.json()
 	const contentTypes = contentTypesJson.data.map(t => ({ id: t.id, ...t.attributes}))
 
-	return { layout, categories, contentTypes }
+  const translationsRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/translation?locale=${locale}`)
+  const translationJson = await translationsRes.json()
+  const translation = { id: translationJson.data.id, ...translationJson.data.attributes} 
+
+	return { layout, categories, contentTypes, translation }
 }
 

@@ -38,10 +38,10 @@ export default function Donate({ content, layout }) {
     return (
         <>
             <Layout 
-                layout={layout.layout} 
+                layout={layout.layout}
+                translation={layout.translation}
                 topics={layout.categories} 
-                contentTypes={layout.contentTypes} 
-                studentPages={layout.studentPages}
+                contentTypes={layout.contentTypes}
             >
                 <FancyHeader
                     title={content.title}

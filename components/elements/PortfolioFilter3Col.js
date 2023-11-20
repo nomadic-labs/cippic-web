@@ -3,11 +3,14 @@ import Link from "next/link"
 import { useEffect, useMemo, useState } from "react"
 import ReactMarkdown from 'react-markdown'
 import ArticleCard from '@/components/elements/ArticleCard'
+import { useContext } from 'react'
+import { TranslationContext } from '@/contexts/TranslationContext'
 
 export default function PortfolioFilter3Col({articles, filters, filterField="content_types"}) {
 
     const [selectedFilters, setSelectedFilters] = useState([])
     const [filteredArticles, setFilteredArticles] = useState(articles)
+    const terms = useContext(TranslationContext)
 
     useEffect(() => {
         filterArticles()
@@ -77,9 +80,9 @@ export default function PortfolioFilter3Col({articles, filters, filterField="con
                 <div className="col-12">
                     <div className="bg-white padding-md mr_bottom_20">
                         <div className="fliter_group">
-                            <p className="title-small text-dark mb-0 mr_right_15">Filters:</p>
+                            <p className="title-small text-dark mb-0 mr_right_15">{`${terms.filters}:`}</p>
                             <ul className="project_filter dark clearfix">
-                                <li className={activeBtn('*')} onClick={handleSelectFilter("*")}>All</li>
+                                <li className={activeBtn('*')} onClick={handleSelectFilter("*")}>{terms.all}</li>
                                 {
                                     filters.map(filter => {
                                         return(

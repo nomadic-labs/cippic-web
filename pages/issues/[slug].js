@@ -92,10 +92,10 @@ export default function TopicsPage({ content, layout }) {
     return (
         <>
             <Layout 
-              layout={layout.layout} 
-              topics={layout.categories} 
-              contentTypes={layout.contentTypes}
-              studentPages={layout.studentPages}
+                layout={layout.layout}
+                translation={layout.translation}
+                topics={layout.categories} 
+                contentTypes={layout.contentTypes}
             >
               <FancyHeader
                 title={category.name}

@@ -8082,10 +8082,27 @@ h1.headline {
 
 .btn-simple {
     border: 1px solid;
+    border-color: inherit;
+    color: inherit;
     font-size: 0.8em;
     border-radius: 40px;
 
     &:hover {
         background: var(--color-white);
+        color: var(--primary-color-one);
+    }
+}
+
+.thumbnails {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+    img {
+        aspect-ratio: 1/1;
+        object-fit: cover;
+        max-height: 40px;
+        max-width: 40px;
+        min-width: 0;
     }
 }

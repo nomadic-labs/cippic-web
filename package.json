@@ -29,7 +29,8 @@
         "react-slick": "^0.29.0",
         "sass": "^1.62.1",
         "slick-carousel": "^1.8.1",
-        "swiper": "^9.2.4"
+        "swiper": "^9.2.4",
+        "yet-another-react-lightbox": "^3.15.2"
     },
     "resolutions": {
         "react-countup/countup.js": "2.5.0"

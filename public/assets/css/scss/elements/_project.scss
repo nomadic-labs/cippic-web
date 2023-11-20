@@ -191,15 +191,15 @@
                 border-bottom: 2px solid transparent;
                 transition: var(--animation-speed) ease;
 
-                &:hover {
-                    // color: var(--highlight-color);
+                &.current{
                     border-color: var(--primary-color-three);
+                    // background: var(--highlight-color-alt);
+                    // color: var(--primary-color-three);
                 }
 
-                &.current{
-                    // border-color: var(--highlight-color);
-                    background: var(--highlight-color-alt);
-                    // color: var(--primary-color-three);
+                &:hover {
+                    // color: var(--highlight-color);
+                    border-color: var(--highlight-color);
                 }
             }
         }

@@ -5,7 +5,7 @@ import ReactMarkdown from 'react-markdown'
 import Circles from '@/components/svgs/circles'
 import FeaturedStory from '@/components/elements/FeaturedStory'
 
-export default function Landing({ headline, before_headline, intro, insights_heading="Latest News", articles, spotlightHeading, spotlightArticle }) {
+export default function Landing({ featured_story_heading, latest_news_heading, articles, spotlightArticle }) {
     return (
         <>
           <section id="landing" className="landing-section position-relative bg-light section-md overflow-hidden">
@@ -14,7 +14,7 @@ export default function Landing({ headline, before_headline, intro, insights_hea
               <div className="row">
                 <div className="col-12 col-md-7">
                   <div className="title-section">
-                      <h2 className="mt-0 title-small underline">Featured Story</h2>
+                      <h2 className="mt-0 title-small underline">{featured_story_heading}</h2>
                   </div>
                   <div className="featured-story">
                     <FeaturedStory 
@@ -30,7 +30,7 @@ export default function Landing({ headline, before_headline, intro, insights_hea
                 </div>
                 <div className="col-12 col-md-5">
                   <div className="title-section">
-                      <h2 className="mt-0 title-small underline">{insights_heading}</h2>
+                      <h2 className="mt-0 title-small underline">{latest_news_heading}</h2>
                   </div>
                   <FeaturedArticles articles={articles} />
                 </div>

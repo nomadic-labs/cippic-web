@@ -17,6 +17,7 @@ export default function FeaturedArticles({ title="Key Insights", articles=[] }) 
                                 showDate
                                 showTags
                                 showLink
+                                imageLeft
                             />
                         </div>
                     )

@@ -49,7 +49,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-slick", "virtual:745f2c62c4da978c0d653ab6e52cfa4031d9d92e4a9f32d4e3422c5bb758f412243bf851c8e97b9c3421659e78b824d54e2e96d72237a309c82e5fc52e98f795#npm:0.29.0"],\
             ["sass", "npm:1.63.4"],\
             ["slick-carousel", "virtual:745f2c62c4da978c0d653ab6e52cfa4031d9d92e4a9f32d4e3422c5bb758f412243bf851c8e97b9c3421659e78b824d54e2e96d72237a309c82e5fc52e98f795#npm:1.8.1"],\
-            ["swiper", "npm:9.4.1"]\
+            ["swiper", "npm:9.4.1"],\
+            ["yet-another-react-lightbox", "virtual:745f2c62c4da978c0d653ab6e52cfa4031d9d92e4a9f32d4e3422c5bb758f412243bf851c8e97b9c3421659e78b824d54e2e96d72237a309c82e5fc52e98f795#npm:3.15.2"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -3191,7 +3192,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-slick", "virtual:745f2c62c4da978c0d653ab6e52cfa4031d9d92e4a9f32d4e3422c5bb758f412243bf851c8e97b9c3421659e78b824d54e2e96d72237a309c82e5fc52e98f795#npm:0.29.0"],\
             ["sass", "npm:1.63.4"],\
             ["slick-carousel", "virtual:745f2c62c4da978c0d653ab6e52cfa4031d9d92e4a9f32d4e3422c5bb758f412243bf851c8e97b9c3421659e78b824d54e2e96d72237a309c82e5fc52e98f795#npm:1.8.1"],\
-            ["swiper", "npm:9.4.1"]\
+            ["swiper", "npm:9.4.1"],\
+            ["yet-another-react-lightbox", "virtual:745f2c62c4da978c0d653ab6e52cfa4031d9d92e4a9f32d4e3422c5bb758f412243bf851c8e97b9c3421659e78b824d54e2e96d72237a309c82e5fc52e98f795#npm:3.15.2"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -12445,6 +12447,32 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["decamelize", "npm:4.0.0"],\
             ["flat", "npm:5.0.2"],\
             ["is-plain-obj", "npm:2.1.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["yet-another-react-lightbox", [\
+        ["npm:3.15.2", {\
+          "packageLocation": "./.yarn/cache/yet-another-react-lightbox-npm-3.15.2-5ab350215f-f73ee40dd3.zip/node_modules/yet-another-react-lightbox/",\
+          "packageDependencies": [\
+            ["yet-another-react-lightbox", "npm:3.15.2"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:745f2c62c4da978c0d653ab6e52cfa4031d9d92e4a9f32d4e3422c5bb758f412243bf851c8e97b9c3421659e78b824d54e2e96d72237a309c82e5fc52e98f795#npm:3.15.2", {\
+          "packageLocation": "./.yarn/__virtual__/yet-another-react-lightbox-virtual-f2973e4964/0/cache/yet-another-react-lightbox-npm-3.15.2-5ab350215f-f73ee40dd3.zip/node_modules/yet-another-react-lightbox/",\
+          "packageDependencies": [\
+            ["yet-another-react-lightbox", "virtual:745f2c62c4da978c0d653ab6e52cfa4031d9d92e4a9f32d4e3422c5bb758f412243bf851c8e97b9c3421659e78b824d54e2e96d72237a309c82e5fc52e98f795#npm:3.15.2"],\
+            ["@types/react", null],\
+            ["@types/react-dom", null],\
+            ["react", "npm:18.2.0"],\
+            ["react-dom", "virtual:745f2c62c4da978c0d653ab6e52cfa4031d9d92e4a9f32d4e3422c5bb758f412243bf851c8e97b9c3421659e78b824d54e2e96d72237a309c82e5fc52e98f795#npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react-dom",\
+            "@types/react",\
+            "react-dom",\
+            "react"\
           ],\
           "linkType": "HARD"\
         }]\

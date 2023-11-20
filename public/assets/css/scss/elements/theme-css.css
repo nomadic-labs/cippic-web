@@ -1841,7 +1841,7 @@ a:hover {
   color: var(--primary-color-three);
 }
 
-p a {
+p a, ul a, ol a, article a {
   text-decoration: underline;
 }
 
@@ -12123,11 +12123,11 @@ a.service_box:hover {
   border-bottom: 2px solid transparent;
   transition: var(--animation-speed) ease;
 }
-.project_all.filt_style_one .fliter_group .project_filter li:hover, .project_all.filt_style_six .fliter_group .project_filter li:hover {
+.project_all.filt_style_one .fliter_group .project_filter li.current, .project_all.filt_style_six .fliter_group .project_filter li.current {
   border-color: var(--primary-color-three);
 }
-.project_all.filt_style_one .fliter_group .project_filter li.current, .project_all.filt_style_six .fliter_group .project_filter li.current {
-  background: var(--highlight-color-alt);
+.project_all.filt_style_one .fliter_group .project_filter li:hover, .project_all.filt_style_six .fliter_group .project_filter li:hover {
+  border-color: var(--highlight-color);
 }
 .project_all.filt_style_six .fliter_group .project_filter {
   padding-left: 0px;
@@ -21505,11 +21505,27 @@ h1.headline {
 
 .btn-simple {
   border: 1px solid;
+  border-color: inherit;
+  color: inherit;
   font-size: 0.8em;
   border-radius: 40px;
 }
 .btn-simple:hover {
   background: var(--color-white);
+  color: var(--primary-color-one);
+}
+
+.thumbnails {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.thumbnails img {
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  max-height: 40px;
+  max-width: 40px;
+  min-width: 0;
 }
 
 .owl_new_one .swiper .owl-nav .owl-prev {
@@ -29480,6 +29496,7 @@ a.article-card:hover .read_more i {
 .accordion .accordion__item .accordion__panel {
   animation: fadein var(--animation-speed) ease-in;
   padding-bottom: var(--padding-md);
+  padding-left: 24px;
 }
 
 @keyframes fadein {

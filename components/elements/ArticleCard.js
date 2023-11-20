@@ -2,6 +2,8 @@ import Link from "next/link"
 import Image from "next/image"
 import ReactMarkdown from 'react-markdown'
 import {Fade} from 'react-reveal';
+import { useContext } from 'react'
+import { TranslationContext } from '@/contexts/TranslationContext'
 
 export default function ArticleCard ({ 
     article,
@@ -12,13 +14,15 @@ export default function ArticleCard ({
     imageTop=false,
     showLink=false,
     showTags=false,
-    linkText="Keep reading",
+    linkText,
     tagsAttribute="categories",
     bgLight=false,
     order=0
 }) {
 
     if (!article) return null
+
+    const terms = useContext(TranslationContext)
 
     let dateString, image;
 
@@ -66,7 +70,7 @@ export default function ArticleCard ({
                     </div>
 
 
-                    {showLink && <p className="read_more mb-0">{linkText} <i className="icon-right-arrow" /></p>}
+                    {showLink && <p className="read_more mb-0">{linkText || terms.keep_reading} <i className="icon-right-arrow" /></p>}
 
                 </div>
             </Link>

@@ -10,7 +10,6 @@ import ModalPopup from './ModalPopup'
 import SearchPopup from './SearchPopup'
 import Footer8 from "./footer/Footer8"
 
-
 export default function Layout({ 
     children, 
     title="CIPPIC | Canadian Internet Policy and Public Interest Clinic",
@@ -18,7 +17,8 @@ export default function Layout({
     image="/assets/images/test-image.jpg", 
     layout={},
     topics=[],
-    contentTypes=[]
+    contentTypes=[],
+    translation={},
 }) {
     // Search
     const [isSearch, setSearch] = useState(false)
