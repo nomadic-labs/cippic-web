@@ -4,6 +4,8 @@ import Image from "next/image"
 
 export default function Footer8({ layout }) {
     const { twitter, footer_links, social_media_links, main_logo, uottawa_logo } = layout;
+    const cippicLogo = main_logo?.data?.attributes 
+    const cltsLogo = uottawa_logo?.data?.attributes 
 
     return (
         <>
@@ -16,16 +18,20 @@ export default function Footer8({ layout }) {
                     <div className="container-xl">
                         <div className="row align-items-center pd_bottom_20">
                             <div className="col-lg-6 col-md-12 mb-3 mb-lg-0 mb-xl-0">
+                            {
+                                cippicLogo && 
                                 <Image 
                                     width={main_logo.data.attributes.width} 
                                     height={main_logo.data.attributes.height} 
                                     src={`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${main_logo.data.attributes.url}`} 
                                     alt={main_logo.data.attributes.alternativeText} className="img-fluid" 
                                 />
+                            }
                             </div>
                             <div className="col-lg-6 col-md-12">
                                 <div className="footer_copy_content_right text-md-end">
-                                    <div className="social_media_v_one">
+                                    {
+                                        cltsLogo &&
                                         <Image 
                                             width={255} 
                                             height={83} 
@@ -33,8 +39,7 @@ export default function Footer8({ layout }) {
                                             alt={uottawa_logo.data.attributes.alternativeText} 
                                             className="img-fluid uottawa-logo" 
                                         />
-                                        
-                                    </div>
+                                    }
                                 </div>
                             </div>
                         </div>

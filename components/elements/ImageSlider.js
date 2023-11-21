@@ -52,6 +52,7 @@ export default function ImageSlider({ images=[], slidesPerView=1 }) {
                                     />
                                 </div>
                             </div>
+                            { image.caption && <p className="text-center text-sm mr_top_10">{image.caption}</p> }
                         </SwiperSlide>
                     )
                 })}

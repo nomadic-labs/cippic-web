@@ -41,7 +41,7 @@ function MyApp({ Component, pageProps }) {
       }
 
       fetchTranslation()
-    }, [])
+    }, [locale])
     
     return (
         <TranslationContext.Provider value={translation}>
