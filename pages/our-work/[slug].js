@@ -44,7 +44,7 @@ export const getStaticProps = async ({ params, locale }) => {
           '*',
           'icon.media'
         ],
-        publicationState: 'preview'
+        publicationState: process.env.NEXT_PUBLIC_SHOW_DRAFTS ? 'preview' : 'live'
       },
       {
         encodeValuesOnly: true, // prettify URL
@@ -69,7 +69,7 @@ export const getStaticProps = async ({ params, locale }) => {
           'categories',
           'content_types'
         ],
-        publicationState: 'preview'
+        publicationState: process.env.NEXT_PUBLIC_SHOW_DRAFTS ? 'preview' : 'live'
       },
       {
         encodeValuesOnly: true, // prettify URL

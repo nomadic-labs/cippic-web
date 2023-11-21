@@ -29,7 +29,7 @@ export const getStaticProps = async ({ locale }) => {
           'students_images.media',
           'about_section_image.media'
         ],
-        publicationState: 'preview'
+        publicationState: process.env.NEXT_PUBLIC_SHOW_DRAFTS ? 'preview' : 'live'
       },
       {
         encodeValuesOnly: true, // prettify URL
@@ -55,7 +55,7 @@ export const getStaticProps = async ({ locale }) => {
           'categories',
           'content_types'
         ],
-        publicationState: 'preview'
+        publicationState: process.env.NEXT_PUBLIC_SHOW_DRAFTS ? 'preview' : 'live'
       },
       {
         encodeValuesOnly: true, // prettify URL
@@ -81,7 +81,7 @@ export const getStaticProps = async ({ locale }) => {
           'categories',
           'content_types'
         ],
-        publicationState: 'preview'
+        publicationState: process.env.NEXT_PUBLIC_SHOW_DRAFTS ? 'preview' : 'live'
       },
       {
         encodeValuesOnly: true, // prettify URL
@@ -112,7 +112,7 @@ export const getStaticProps = async ({ locale }) => {
           'categories',
           'content_types'
         ],
-        publicationState: 'preview'
+        publicationState: process.env.NEXT_PUBLIC_SHOW_DRAFTS ? 'preview' : 'live'
       },
       {
         encodeValuesOnly: true, // prettify URL
@@ -126,7 +126,7 @@ export const getStaticProps = async ({ locale }) => {
             '*',
             'student_programs'
           ],
-          publicationState: 'preview'
+          publicationState: process.env.NEXT_PUBLIC_SHOW_DRAFTS ? 'preview' : 'live'
         },
         {
           encodeValuesOnly: true, // prettify URL
