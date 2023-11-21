@@ -3,9 +3,8 @@ import Link from "next/link"
 import Image from "next/image"
 
 export default function Footer8({ layout }) {
-    console.log({layout})
     const { twitter, footer_links, social_media_links, main_logo, uottawa_logo } = layout;
-    console.log({main_logo})
+
     return (
         <>
             <div className="footer_area footer_sticky_enable_foo bg-one" id="footer_contents">
