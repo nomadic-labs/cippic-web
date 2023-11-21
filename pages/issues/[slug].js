@@ -18,6 +18,13 @@ const PortfolioFilter3Col = dynamic(() => import('@/components/elements/Portfoli
 const qs = require('qs');
 
 export async function getStaticPaths() {
+  if (process.env.NEXT_PUBLIC_PREVIEW_MODE) {
+    return {
+      paths: [],
+      fallback: 'blocking',
+    }
+  }
+  
   const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/categories?locale=all`)
   const { data, meta } = await res.json()
   const paths = data.map((cat) => ({
@@ -53,7 +60,7 @@ export const getStaticProps = async ({ params, locale }) => {
           'articles.main_image',
           'articles.main_image.media',
         ],
-        publicationState: process.env.NEXT_PUBLIC_SHOW_DRAFTS ? 'preview' : 'live'
+        publicationState: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 'preview' : 'live'
       },
       {
         encodeValuesOnly: true, // prettify URL
@@ -68,7 +75,10 @@ export const getStaticProps = async ({ params, locale }) => {
 
     const content = { category }
 
-    return { props: { content, layout } }
+    return { 
+      props: { content, layout },
+      revalidate: process.env.NEXT_PUBLIC_PREVIEW_MODE ? '10' : false 
+    }
 }
 
 export default function TopicsPage({ content, layout }) {

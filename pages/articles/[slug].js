@@ -41,7 +41,7 @@ async function fetchAllArticles(articles, pagination) {
             page: pagination.page + 1,
             pageSize: 100
           },
-          publicationState: process.env.NEXT_PUBLIC_SHOW_DRAFTS ? 'preview' : 'live'
+          publicationState: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 'preview' : 'live'
         },
         {
           encodeValuesOnly: true, // prettify URL
@@ -65,7 +65,7 @@ async function fetchAllArticles(articles, pagination) {
 export async function getStaticPaths({ locales }) {
   // Call an external API endpoint to get posts  
 
-  if (process.env.SKIP_BUILD_STATIC_GENERATION) {
+  if (process.env.NEXT_PUBLIC_PREVIEW_MODE) {
     return {
       paths: [],
       fallback: 'blocking',
@@ -107,7 +107,7 @@ export const getStaticProps = async ({ params, locale }) => {
             populate: '*'
           }
         },
-        publicationState: process.env.NEXT_PUBLIC_SHOW_DRAFTS ? 'preview' : 'live'
+        publicationState: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 'preview' : 'live'
       },
       {
         encodeValuesOnly: true, // prettify URL
@@ -150,7 +150,7 @@ export const getStaticProps = async ({ params, locale }) => {
           'categories',
           'content_types'
         ],
-        publicationState: process.env.NEXT_PUBLIC_SHOW_DRAFTS ? 'preview' : 'live'
+        publicationState: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 'preview' : 'live'
       },
       {
         encodeValuesOnly: true, // prettify URL
@@ -164,7 +164,8 @@ export const getStaticProps = async ({ params, locale }) => {
     const content = { article, relatedArticles }
 
     return { 
-      props: { content, layout }
+      props: { content, layout },
+      revalidate: process.env.NEXT_PUBLIC_PREVIEW_MODE ? '10' : false
     }
 }
 

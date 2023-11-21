@@ -16,16 +16,22 @@ const PortfolioFilter3Col = dynamic(() => import('@/components/elements/Portfoli
 const qs = require('qs');
 
 export async function getStaticPaths({locale}) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/content-types?locale=all`)
-  const { data, meta } = await res.json()
-  const paths = data.map((cat) => ({
-    params: { slug: cat.attributes.slug },
-    locale: cat.attributes.locale
-  }))
- 
-  // We'll pre-render only these paths at build time.
-  // { fallback: false } means other routes should 404.
-  return { paths, fallback: false }
+    if (process.env.NEXT_PUBLIC_PREVIEW_MODE) {
+        return {
+          paths: [],
+          fallback: 'blocking',
+        }
+    }
+    const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/content-types?locale=all`)
+    const { data, meta } = await res.json()
+    const paths = data.map((cat) => ({
+        params: { slug: cat.attributes.slug },
+        locale: cat.attributes.locale
+    }))
+
+    // We'll pre-render only these paths at build time.
+    // { fallback: false } means other routes should 404.
+    return { paths, fallback: false }
 }
 
 export const getStaticProps = async ({ params, locale }) => {
@@ -44,7 +50,7 @@ export const getStaticProps = async ({ params, locale }) => {
           '*',
           'icon.media'
         ],
-        publicationState: process.env.NEXT_PUBLIC_SHOW_DRAFTS ? 'preview' : 'live'
+        publicationState: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 'preview' : 'live'
       },
       {
         encodeValuesOnly: true, // prettify URL
@@ -69,7 +75,7 @@ export const getStaticProps = async ({ params, locale }) => {
           'categories',
           'content_types'
         ],
-        publicationState: process.env.NEXT_PUBLIC_SHOW_DRAFTS ? 'preview' : 'live'
+        publicationState: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 'preview' : 'live'
       },
       {
         encodeValuesOnly: true, // prettify URL
@@ -87,7 +93,10 @@ export const getStaticProps = async ({ params, locale }) => {
 
     const content = { contentType, articles }
 
-    return { props: { content, layout } }
+    return { 
+        props: { content, layout },
+        revalidate: process.env.NEXT_PUBLIC_PREVIEW_MODE ? '10' : false 
+    }
 }
 
 export default function OurWork({ content, layout }) {

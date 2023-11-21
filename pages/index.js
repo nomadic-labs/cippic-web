@@ -163,7 +163,10 @@ export const getStaticProps = async ({ locale }) => {
 
     const content = { ...page, articles, spotlight, news, studentPrograms }
 
-    return { props: { content, layout } }
+    return { 
+      props: { content, layout },
+      revalidate: process.env.NEXT_PUBLIC_PREVIEW_MODE ? '10' : false 
+    }
 }
 
 export default function Home5({content, layout}) {

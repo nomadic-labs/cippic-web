@@ -31,7 +31,10 @@ export const getStaticProps = async ({locale}) => {
     const pageRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/about-page?${pageQuery}`)
     const page = await pageRes.json()
 
-    return { props: { content: page.data.attributes, layout } }
+    return { 
+        props: { content: page.data.attributes, layout },
+        revalidate: process.env.NEXT_PUBLIC_PREVIEW_MODE ? '10' : false 
+    }
 }
 
 export default function Donate({ content, layout }) {

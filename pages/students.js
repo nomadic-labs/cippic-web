@@ -33,7 +33,10 @@ export const getStaticProps = async ({locale}) => {
     const page = await pageRes.json()
     const content = { ...page.data.attributes }
 
-    return { props: { content, layout } }
+    return { 
+        props: { content, layout },
+        revalidate: process.env.NEXT_PUBLIC_PREVIEW_MODE ? '10' : false 
+    }
 }
 
 export default function StudentsPage({ content, layout }) {

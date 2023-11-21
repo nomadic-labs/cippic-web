@@ -61,7 +61,10 @@ export const getStaticProps = async ({ params, locale }) => {
 
     const content = { contentType, articles }
 
-    return { props: { content, layout } }
+    return { 
+        props: { content, layout }, 
+        revalidate: process.env.NEXT_PUBLIC_PREVIEW_MODE ? '10' : false
+    }
 }
 
 export default function OurWork({ content, layout }) {
