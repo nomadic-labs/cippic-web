@@ -1,6 +1,7 @@
 import Link from "next/link"
 import Fade from 'react-reveal/Fade';
 import ReactMarkdown from 'react-markdown'
+import rehypeRaw from 'rehype-raw'
 
 export default function HighlightBox({ title, subtitle, body, background_colour }) {
     return (
@@ -13,7 +14,7 @@ export default function HighlightBox({ title, subtitle, body, background_colour 
                                 {title && <h2>{title}</h2>}
                                 {subtitle && <p className="text-lg">{subtitle}</p>}
                             </div>
-                            <ReactMarkdown>{body}</ReactMarkdown >
+                            <ReactMarkdown rehypePlugins={[rehypeRaw]}>{body}</ReactMarkdown >
                         </div>
                     </div>
                 </div>

@@ -16,6 +16,7 @@ import Header from "@/components/sections/Header"
 import { useContext, useState } from 'react'
 import { TranslationContext } from '@/contexts/TranslationContext'
 import { useRouter } from 'next/router'
+import rehypeRaw from 'rehype-raw'
 import Lightbox from "yet-another-react-lightbox";
 import Captions from "yet-another-react-lightbox/plugins/captions";
 import "yet-another-react-lightbox/styles.css";
@@ -266,7 +267,7 @@ export default function ArticlePage({ content, layout }) {
                             </div>
                           }
                             <div className="col-12 col-lg-8 mx-auto order-lg-1">
-                                <ReactMarkdown>
+                                <ReactMarkdown rehypePlugins={[rehypeRaw]}>
                                     {article.body}
                                 </ReactMarkdown>
                             </div>

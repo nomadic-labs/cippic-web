@@ -1,6 +1,5 @@
 import Link from "next/link"
 import Fade from 'react-reveal/Fade';
-import ReactMarkdown from 'react-markdown'
 import ImageSlider from "@/components/elements/ImageSlider"
 
 const DEFAULT_SLIDES_PER_VIEW = 3
