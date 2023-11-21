@@ -53,6 +53,7 @@ export const getStaticProps = async ({ params, locale }) => {
           'articles.main_image',
           'articles.main_image.media',
         ],
+        publicationState: 'preview'
       },
       {
         encodeValuesOnly: true, // prettify URL

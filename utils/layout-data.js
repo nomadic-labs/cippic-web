@@ -29,7 +29,8 @@ export default async function getLayoutData(locale="en") {
         '*',
         'icon.media'
       ],
-      sort: "name:asc"
+      sort: "name:asc",
+      publicationState: 'preview'
     },
     {
       encodeValuesOnly: true, // prettify URL
@@ -43,7 +44,8 @@ export default async function getLayoutData(locale="en") {
         '*',
         'icon.media'
       ],
-      sort: "name:asc"
+      sort: "name:asc",
+      publicationState: 'preview'
     },
     {
       encodeValuesOnly: true, // prettify URL

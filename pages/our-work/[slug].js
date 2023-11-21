@@ -44,6 +44,7 @@ export const getStaticProps = async ({ params, locale }) => {
           '*',
           'icon.media'
         ],
+        publicationState: 'preview'
       },
       {
         encodeValuesOnly: true, // prettify URL
@@ -68,6 +69,7 @@ export const getStaticProps = async ({ params, locale }) => {
           'categories',
           'content_types'
         ],
+        publicationState: 'preview'
       },
       {
         encodeValuesOnly: true, // prettify URL
