@@ -30,7 +30,7 @@ export default async function getLayoutData(locale="en") {
         'icon.media'
       ],
       sort: "name:asc",
-      publicationState: process.env.NEXT_PUBLIC_SHOW_DRAFTS ? 'preview' : 'live'
+      publicationState: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 'preview' : 'live'
     },
     {
       encodeValuesOnly: true, // prettify URL
@@ -45,7 +45,7 @@ export default async function getLayoutData(locale="en") {
         'icon.media'
       ],
       sort: "name:asc",
-      publicationState: process.env.NEXT_PUBLIC_SHOW_DRAFTS ? 'preview' : 'live'
+      publicationState: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 'preview' : 'live'
     },
     {
       encodeValuesOnly: true, // prettify URL

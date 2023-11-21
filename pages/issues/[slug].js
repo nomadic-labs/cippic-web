@@ -77,7 +77,7 @@ export const getStaticProps = async ({ params, locale }) => {
 
     return { 
       props: { content, layout },
-      revalidate: process.env.NEXT_PUBLIC_PREVIEW_MODE ? '10' : false 
+      revalidate: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 10 : false 
     }
 }
 
