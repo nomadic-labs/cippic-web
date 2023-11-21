@@ -2,6 +2,8 @@ import { useState, useMemo } from 'react'
 import Link from "next/link"
 import Fade from 'react-reveal/Fade';
 import ReactMarkdown from 'react-markdown'
+import rehypeRaw from 'rehype-raw'
+
 import ArticleCard from "@/components/elements/ArticleCard"
 import {
     Accordion,
@@ -52,7 +54,7 @@ export default function FaqSection({ FAQs, before_title, title, subtitle, backgr
                                             </AccordionItemButton>
                                         </AccordionItemHeading>
                                         <AccordionItemPanel>
-                                            <ReactMarkdown>{faq.Body}</ReactMarkdown>
+                                            <ReactMarkdown rehypePlugins={[rehypeRaw]}>{faq.Body}</ReactMarkdown>
                                         </AccordionItemPanel>
                                     </AccordionItem>
                                 )

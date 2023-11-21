@@ -2,6 +2,7 @@ import Preloader from "@/components/elements/Preloader"
 import { useEffect, useState } from "react"
 import { TranslationContext } from '@/contexts/TranslationContext'
 import { useRouter } from 'next/router'
+import { Analytics } from '@vercel/analytics/react'
 import AOS from 'aos';
 
 import '../styles/globals.css'
@@ -46,6 +47,7 @@ function MyApp({ Component, pageProps }) {
     return (
         <TranslationContext.Provider value={translation}>
             <Component {...pageProps} />
+            <Analytics />
         </TranslationContext.Provider>
     )
 } 
