@@ -25,7 +25,7 @@ export const getStaticProps = async ({ params, locale }) => {
           '*',
           'icon.media'
         ],
-        publicationState: process.env.NEXT_PUBLIC_SHOW_DRAFTS ? 'preview' : 'live'
+        publicationState: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 'preview' : 'live'
       },
       {
         encodeValuesOnly: true, // prettify URL
@@ -43,7 +43,7 @@ export const getStaticProps = async ({ params, locale }) => {
           'categories',
           'content_types'
         ],
-        publicationState: process.env.NEXT_PUBLIC_SHOW_DRAFTS ? 'preview' : 'live'
+        publicationState: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 'preview' : 'live'
       },
       {
         encodeValuesOnly: true, // prettify URL
@@ -63,7 +63,7 @@ export const getStaticProps = async ({ params, locale }) => {
 
     return { 
         props: { content, layout }, 
-        revalidate: process.env.NEXT_PUBLIC_PREVIEW_MODE ? '10' : false
+        revalidate: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 10 : false
     }
 }
 
