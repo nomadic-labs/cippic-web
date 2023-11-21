@@ -43,6 +43,11 @@ export default function Navbar({ topics=[], contentTypes=[], links=[] }) {
                         <span className="fa fa-angle-down mr_left_5"></span>
                     </div>
                     <ul className="dropdown-menu">
+                        <li key={"all-issues"} className="menu-item  nav-item">
+                            <Link href={`/${router.locale}/issues`} className="dropdown-item nav-link"> 
+                                <span>{terms.all_issues}</span>
+                            </Link>
+                        </li>
                         {
                             keyTopics.map(topic => {
                                 return(

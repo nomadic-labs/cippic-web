@@ -19968,6 +19968,9 @@ a.service_box:hover {
 .social_media_v_one ul {
   padding: 0;
   margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 .social_media_v_one ul li {
   position: relative;
@@ -19998,6 +20001,10 @@ a.service_box:hover {
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   -ms-transition: all 0.5s ease;
+}
+.social_media_v_one ul li a span.fa-creative-commons {
+  font-size: 24px;
+  margin-top: 8px;
 }
 .social_media_v_one ul li a small {
   position: absolute;
@@ -21526,6 +21533,11 @@ h1.headline {
   max-height: 40px;
   max-width: 40px;
   min-width: 0;
+}
+
+.uottawa-logo {
+  filter: grayscale(1) brightness(6);
+  max-width: 220px;
 }
 
 .owl_new_one .swiper .owl-nav .owl-prev {

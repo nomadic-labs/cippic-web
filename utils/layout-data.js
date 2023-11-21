@@ -8,6 +8,7 @@ export default async function getLayoutData(locale="en") {
       populate: [
         '*',
         'main_logo.media',
+        'uottawa_logo.media',
         'alternate_logo.media',
         'favicon.media',
         'header_links',
