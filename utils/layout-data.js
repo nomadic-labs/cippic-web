@@ -8,6 +8,7 @@ export default async function getLayoutData(locale="en") {
       populate: [
         '*',
         'main_logo.media',
+        'uottawa_logo.media',
         'alternate_logo.media',
         'favicon.media',
         'header_links',
@@ -29,7 +30,8 @@ export default async function getLayoutData(locale="en") {
         '*',
         'icon.media'
       ],
-      sort: "name:asc"
+      sort: "name:asc",
+      publicationState: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 'preview' : 'live'
     },
     {
       encodeValuesOnly: true, // prettify URL
@@ -43,7 +45,8 @@ export default async function getLayoutData(locale="en") {
         '*',
         'icon.media'
       ],
-      sort: "name:asc"
+      sort: "name:asc",
+      publicationState: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 'preview' : 'live'
     },
     {
       encodeValuesOnly: true, // prettify URL

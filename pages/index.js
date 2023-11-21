@@ -29,6 +29,7 @@ export const getStaticProps = async ({ locale }) => {
           'students_images.media',
           'about_section_image.media'
         ],
+        publicationState: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 'preview' : 'live'
       },
       {
         encodeValuesOnly: true, // prettify URL
@@ -36,84 +37,87 @@ export const getStaticProps = async ({ locale }) => {
     );
 
     const articlesQuery = qs.stringify(
-          {
-            locale: locale,
-            filters: {
-                featured_insights: {
-                  $eq: true,
-                },
+      {
+        locale: locale,
+        filters: {
+            featured_insights: {
+              $eq: true,
             },
-            sort: "date_published:desc",
-            pagination: {
-              start: 0,
-              limit: 3
-            },
-            populate: [
-              '*',
-              'main_image.media',
-              'categories',
-              'content_types'
-            ],
-          },
-          {
-            encodeValuesOnly: true, // prettify URL
-          }
-        );
+        },
+        sort: "date_published:desc",
+        pagination: {
+          start: 0,
+          limit: 3
+        },
+        populate: [
+          '*',
+          'main_image.media',
+          'categories',
+          'content_types'
+        ],
+        publicationState: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 'preview' : 'live'
+      },
+      {
+        encodeValuesOnly: true, // prettify URL
+      }
+    );
 
     const spotlightQuery = qs.stringify(
-          {
-            locale: locale,
-            filters: {
-                featured_story: {
-                  $eq: true,
-                },
+      {
+        locale: locale,
+        filters: {
+            featured_story: {
+              $eq: true,
             },
-            pagination: {
-              start: 0,
-              limit: 1
-            },
-            sort: "date_published:desc",
-            populate: [
-              '*',
-              'main_image.media',
-              'categories',
-              'content_types'
-            ],
-          },
-          {
-            encodeValuesOnly: true, // prettify URL
-          }
-        );
+        },
+        pagination: {
+          start: 0,
+          limit: 1
+        },
+        sort: "date_published:desc",
+        populate: [
+          '*',
+          'main_image.media',
+          'categories',
+          'content_types'
+        ],
+        publicationState: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 'preview' : 'live'
+      },
+      {
+        encodeValuesOnly: true, // prettify URL
+      }
+    );
 
     const newsQuery = qs.stringify(
-          {
-            locale: locale,
-            filters: {
-                content_types: {
-                    slug: {
-                        $eq: locale === "fr" ? "nouvelles" : "news"
-                    }
-                },
-                featured_story: {
-                  $null: true
+      {
+        locale: locale,
+        filters: {
+            content_types: {
+                slug: {
+                    $eq: locale === "fr" ? "nouvelles" : "news"
                 }
             },
-            sort: "date_published:desc",
-            pagination: {
-              start: 0,
-              limit: 3
-            },
-            populate: [
-              '*',
-              'main_image.media',
-              'categories',
-              'content_types'
-            ],
-          },
-          {
-            encodeValuesOnly: true, // prettify URL
-          }
-        );
+            featured_story: {
+              $null: true
+            }
+        },
+        sort: "date_published:desc",
+        pagination: {
+          start: 0,
+          limit: 3
+        },
+        populate: [
+          '*',
+          'main_image.media',
+          'categories',
+          'content_types'
+        ],
+        publicationState: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 'preview' : 'live'
+      },
+      {
+        encodeValuesOnly: true, // prettify URL
+      }
+    );
 
     const studentsQuery = qs.stringify(
         {
@@ -122,6 +126,7 @@ export const getStaticProps = async ({ locale }) => {
             '*',
             'student_programs'
           ],
+          publicationState: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 'preview' : 'live'
         },
         {
           encodeValuesOnly: true, // prettify URL
@@ -158,7 +163,10 @@ export const getStaticProps = async ({ locale }) => {
 
     const content = { ...page, articles, spotlight, news, studentPrograms }
 
-    return { props: { content, layout } }
+    return { 
+      props: { content, layout },
+      revalidate: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 10 : false 
+    }
 }
 
 export default function Home5({content, layout}) {

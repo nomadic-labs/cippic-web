@@ -40,7 +40,8 @@ async function fetchAllArticles(articles, pagination) {
           pagination: {
             page: pagination.page + 1,
             pageSize: 100
-          }
+          },
+          publicationState: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 'preview' : 'live'
         },
         {
           encodeValuesOnly: true, // prettify URL
@@ -63,6 +64,14 @@ async function fetchAllArticles(articles, pagination) {
 
 export async function getStaticPaths({ locales }) {
   // Call an external API endpoint to get posts  
+
+  if (process.env.NEXT_PUBLIC_PREVIEW_MODE) {
+    return {
+      paths: [],
+      fallback: 'blocking',
+    }
+  }
+
   const allArticles = await fetchAllArticles([], {page: 0})
 
   const paths = allArticles.map((article) => {
@@ -97,7 +106,8 @@ export const getStaticProps = async ({ params, locale }) => {
           dynamic_content: {
             populate: '*'
           }
-        }
+        },
+        publicationState: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 'preview' : 'live'
       },
       {
         encodeValuesOnly: true, // prettify URL
@@ -140,6 +150,7 @@ export const getStaticProps = async ({ params, locale }) => {
           'categories',
           'content_types'
         ],
+        publicationState: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 'preview' : 'live'
       },
       {
         encodeValuesOnly: true, // prettify URL
@@ -152,7 +163,10 @@ export const getStaticProps = async ({ params, locale }) => {
 
     const content = { article, relatedArticles }
 
-    return { props: { content, layout } }
+    return { 
+      props: { content, layout },
+      revalidate: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 10 : false
+    }
 }
 
 export default function ArticlePage({ content, layout }) {

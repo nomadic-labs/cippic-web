@@ -50,14 +50,14 @@ export const getStaticProps = async ({ params, locale }) => {
     }
 }
 
-export default function OurWork({ content, layout }) {
+export default function IssuesPage({ content, layout }) {
     const { articles } = content;
     const terms = useContext(TranslationContext)
     const latestArticles = articles.slice(0,3)
 
     const articleFilters = articles.reduce((filters, article) => {
-        const articleContentTypes = article.content_types.data.map(ct => ct.attributes)
-        const newFilters = articleContentTypes.map(act => {
+        const articleCategories = article.categories.data.map(ct => ct.attributes)
+        const newFilters = articleCategories.map(act => {
             const filterExists = filters.find(f => f?.slug === act.slug)
             if (!filterExists) {
                 return act
@@ -77,7 +77,7 @@ export default function OurWork({ content, layout }) {
 
             <Header>
                 <div className="title-section ">
-                    <h1 className="mt-0 underline">{terms.our_work}</h1>
+                    <h1 className="mt-0 underline">{terms.issues}</h1>
                     <h2 className="title-small">{terms.latest}</h2>
                 </div>
                             
@@ -93,7 +93,6 @@ export default function OurWork({ content, layout }) {
                                             showImage
                                             imageTop
                                             showTags
-                                            tagsAttribute="content_types"
                                         />
                                     </Fade>
                                 </div>
@@ -107,7 +106,7 @@ export default function OurWork({ content, layout }) {
                     <div className="container">
                         <div className="row">
                             <div className="project_all filt_style_one filter_enabled">
-                                <PortfolioFilter3Col articles={articles} filters={articleFilters} filterField="content_types" />
+                                <PortfolioFilter3Col articles={articles} filters={articleFilters} filterField="categories" />
                             </div>
                         </div>
                     </div>
