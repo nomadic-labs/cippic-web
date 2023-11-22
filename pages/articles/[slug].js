@@ -1,9 +1,6 @@
 import Layout from "@/components/layout/Layout"
-import Breadcrumb from '@/components/layout/Breadcrumb'
 import Link from "next/link"
 import Image from "next/image"
-import { Autoplay, Navigation, Pagination } from "swiper"
-import { Swiper, SwiperSlide } from "swiper/react"
 import ReactMarkdown from 'react-markdown'
 import getLayoutData from "@/utils/layout-data"
 import FaqSection from '@/components/sections/FaqSection';
@@ -95,20 +92,13 @@ export const getStaticProps = async ({ params, locale }) => {
               $eq: slug,
             },
         },
-        populate: {
-          '*': true,
-          main_image: {
-            populate: '*'
-          },
-          more_images: {
-            populate: '*'
-          },
-          categories: true,
-          content_types: true,
-          dynamic_content: {
-            populate: '*'
-          }
-        },
+        populate: [
+          'main_image',
+          'more_images',
+          'categories',
+          'content_types',
+          'dynamic_content'
+        ],
         publicationState: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 'preview' : 'live'
       },
       {
@@ -147,8 +137,7 @@ export const getStaticProps = async ({ params, locale }) => {
           limit: 3
         },
         populate: [
-          '*',
-          'main_image.media',
+          'main_image',
           'categories',
           'content_types'
         ],

@@ -99,7 +99,7 @@ export default function PortfolioFilter3Col({articles, filters, filterField="con
             <div className="row">
                 <div className="col-12">
 
-                    <div className="grid-wrapper">
+                    <div className="d-flex flex-column gap-4">
                         {
                             filteredArticles.map(article => {
                                 return (
@@ -108,7 +108,7 @@ export default function PortfolioFilter3Col({articles, filters, filterField="con
                                         article={article} 
                                         tagsAttribute={filterField} 
                                         showImage
-                                        imageTop
+                                        imageLeft
                                         showTeaser
                                         showDate
                                         bgLight

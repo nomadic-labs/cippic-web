@@ -4,19 +4,8 @@ const qs = require('qs');
 export default async function getLayoutData(locale="en") {
   const layoutQuery = qs.stringify(
     {
-      locale: locale,
-      populate: [
-        '*',
-        'main_logo.media',
-        'uottawa_logo.media',
-        'alternate_logo.media',
-        'favicon.media',
-        'header_links',
-        'footer_links',
-        'social_media_links',
-        'footer_logo_links',
-        'footer_logo_links.media',
-      ],
+      populate: '*',
+      locale: locale
     },
     {
       encodeValuesOnly: true, // prettify URL
@@ -26,11 +15,8 @@ export default async function getLayoutData(locale="en") {
   const categoriesQuery = qs.stringify(
     {
       locale: locale,
-      populate: [
-        '*',
-        'icon.media'
-      ],
       sort: "name:asc",
+      populate: ['icon'],
       publicationState: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 'preview' : 'live'
     },
     {
@@ -41,10 +27,6 @@ export default async function getLayoutData(locale="en") {
   const contentTypesQuery = qs.stringify(
     {
       locale: locale,
-      populate: [
-        '*',
-        'icon.media'
-      ],
       sort: "name:asc",
       publicationState: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 'preview' : 'live'
     },
@@ -69,6 +51,6 @@ export default async function getLayoutData(locale="en") {
   const translationJson = await translationsRes.json()
   const translation = { id: translationJson.data.id, ...translationJson.data.attributes} 
 
-	return { layout, categories, contentTypes, translation }
+	return { layout, contentTypes, categories, translation }
 }
 

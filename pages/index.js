@@ -21,14 +21,7 @@ export const getStaticProps = async ({ locale }) => {
     const query = qs.stringify(
       {
         locale: locale,
-        populate: [
-          '*',
-          'about_cippic',
-          'topics',
-          'students_pages',
-          'students_images.media',
-          'about_section_image.media'
-        ],
+        populate: '*',
         publicationState: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 'preview' : 'live'
       },
       {
@@ -50,8 +43,7 @@ export const getStaticProps = async ({ locale }) => {
           limit: 3
         },
         populate: [
-          '*',
-          'main_image.media',
+          'main_image',
           'categories',
           'content_types'
         ],
@@ -76,8 +68,7 @@ export const getStaticProps = async ({ locale }) => {
         },
         sort: "date_published:desc",
         populate: [
-          '*',
-          'main_image.media',
+          'main_image',
           'categories',
           'content_types'
         ],
@@ -107,8 +98,6 @@ export const getStaticProps = async ({ locale }) => {
           limit: 3
         },
         populate: [
-          '*',
-          'main_image.media',
           'categories',
           'content_types'
         ],
@@ -123,7 +112,6 @@ export const getStaticProps = async ({ locale }) => {
         {
           locale: locale,
           populate: [
-            '*',
             'student_programs'
           ],
           publicationState: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 'preview' : 'live'

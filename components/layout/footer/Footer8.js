@@ -2,7 +2,7 @@ import Link from "next/link"
 import Image from "next/image"
 
 export default function Footer8({ layout }) {
-    const { twitter, footer_links, social_media_links, main_logo, uottawa_logo } = layout;
+    const { twitter, footer_links=[], social_media_links=[], main_logo, uottawa_logo } = layout;
     const cippicLogo = main_logo?.data?.attributes 
     const cltsLogo = uottawa_logo?.data?.attributes 
 
@@ -44,6 +44,7 @@ export default function Footer8({ layout }) {
                         </div>
                         <div className="row align-items-center">
                             <div className="col-lg-8 col-md-12 mb-3 mb-lg-0 mb-xl-0">
+                                <div className="d-flex gap-4">
                                 {
                                     footer_links.map(link => {
                                         return (
@@ -53,6 +54,7 @@ export default function Footer8({ layout }) {
                                         )
                                     })
                                 }
+                                </div>
                             </div>
                             <div className="col-lg-4 col-md-12">
                                 <div className="footer_copy_content_right text-md-end">

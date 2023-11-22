@@ -2,8 +2,8 @@ import Link from "next/link"
 import Navbar from "../Navbar"
 
 export default function Header1({ handleSearch, handleContactPopup, handleMobileMenu, topics, contentTypes, layout }) {
-    const mainLogoSrc = layout.main_logo.data?.attributes?.url ? `${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${layout.main_logo.data.attributes.url}` : "/assets/images/cippic-logo-combined-dark.svg"
-    const altLogoSrc = layout.alternate_logo.data?.attributes?.url ? `${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${layout.alternate_logo.data.attributes.url}` : "/assets/images/cippic-logo-alt-dark.svg"
+    const mainLogoSrc = layout.main_logo?.data?.attributes?.url ? `${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${layout.main_logo.data.attributes.url}` : "/assets/images/cippic-logo-combined-dark.svg"
+    const altLogoSrc = layout.alternate_logo?.data?.attributes?.url ? `${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${layout.alternate_logo.data.attributes.url}` : "/assets/images/cippic-logo-alt-dark.svg"
     return (
         <>
             <div className="header_area" id="header_contents">

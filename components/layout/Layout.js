@@ -46,7 +46,7 @@ export default function Layout({
     // Current URL
     const router = useRouter()
     const url = `https://www.cippic.ca{router.pathname}`
-    const favicon = layout.favicon.data?.attributes?.url ? `${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${layout.favicon.data.attributes.url}` : "/logomark.svg"
+    const favicon = layout.favicon?.data?.attributes?.url ? `${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${layout.favicon.data.attributes.url}` : "/logomark.svg"
 
 
     return (
