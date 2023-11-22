@@ -13,7 +13,6 @@ export const getStaticProps = async ({ locale }) => {
       {
         locale,
         populate: [
-          '*',
           'contact_options'
         ],
       },

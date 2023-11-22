@@ -29,10 +29,10 @@ export default function MobileMenu({ handleMobileMenu, topics, contentTypes }) {
             <div className="crt_mobile_menu">
                 <div className="menu-backdrop" onClick={handleMobileMenu} />
                 <nav className="menu-box">
-                    <div className="close-btn" onClick={handleMobileMenu}><i className="icon-close" /></div>
-                    <form role="search" method="get" action="#">
-                        <input type="search" className="search" placeholder="Search..." name="s" title="Search" />
-                        <button type="submit" className="sch_btn"> <i className="icon-search" /></button>
+                    <div className="close-btn" onClick={handleMobileMenu}><i className="fa-solid fa-x" /></div>
+                    <form role="search" method="get" action="/search">
+                        <input type="search" className="search" placeholder="Search..." name="term" title="Search" />
+                        <button type="submit" className="sch_btn"> <i className="fa-solid fa-magnifying-glass"/></button>
                     </form>
                     <div className="menu-outer">
                         <ul id="myNavbar" className="navbar_nav">

@@ -35,7 +35,7 @@ export default function Header1({ handleSearch, handleContactPopup, handleMobile
                                     <div className="header_right_content">
                                         <ul>
                                             <li>
-                                                <button type="button" className="search-toggler" onClick={handleSearch}><i className="icon-search" /></button>
+                                                <button type="button" className="search-toggler" onClick={handleSearch}><i className="fa-solid fa-magnifying-glass"/></button>
                                             </li>
                                         </ul>
                                     </div>

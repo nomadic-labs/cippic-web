@@ -92,13 +92,20 @@ export const getStaticProps = async ({ params, locale }) => {
               $eq: slug,
             },
         },
-        populate: [
-          'main_image',
-          'more_images',
-          'categories',
-          'content_types',
-          'dynamic_content'
-        ],
+        populate: {
+          main_image: true,
+          more_images: true,
+          categories: true,
+          content_types: true,
+          dynamic_content: {
+            on: {
+              'common.faq-section': { populate: '*' },
+              'common.paragraph-text-section': { populate: '*' },
+              'common.highlight-section': { populate: '*' },
+              'common.image-slider': { populate: '*' },
+            }
+          }
+        },
         publicationState: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 'preview' : 'live'
       },
       {

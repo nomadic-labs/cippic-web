@@ -17,7 +17,6 @@ export const getStaticProps = async ({locale}) => {
       {
         locale,
         populate: [
-            '*',
             'team_members',
             'team_members.photo',
             'team_members.photo.media',
