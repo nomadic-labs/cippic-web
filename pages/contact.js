@@ -43,7 +43,7 @@ export default function Contact({ content, layout }) {
                 topics={layout.categories} 
                 contentTypes={layout.contentTypes}
             >
-                <section className="section-default">
+                <section className="section-default" role="banner">
                     <div className="container">
                         <div className="row">
                             <div className="col-12">
@@ -81,7 +81,7 @@ export default function Contact({ content, layout }) {
                         </div>
                     </div>
                 </section>
-
+                <main id="main" className="site-main" role="main">
                 <section className="contact-section section-default bg-one">
                     <div className="container">
                         <div className="row">
@@ -106,6 +106,7 @@ export default function Contact({ content, layout }) {
                         </div>
                     </div>
                 </section>
+                </main>
             </Layout>
         </>
     )

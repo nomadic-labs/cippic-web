@@ -99,15 +99,17 @@ export default function IssuesPage({ content, layout }) {
                     
                 </div>
             </Header>
-                <section className="section-md">
-                    <div className="container">
-                        <div className="row">
-                            <div className="project_all filt_style_one filter_enabled">
-                                <PortfolioFilter3Col articles={articles} filters={articleFilters} filterField="categories" />
+                <main id="main" className="site-main" role="main">
+                    <section className="section-md">
+                        <div className="container">
+                            <div className="row">
+                                <div className="project_all filt_style_one filter_enabled">
+                                    <PortfolioFilter3Col articles={articles} filters={articleFilters} filterField="categories" />
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
+                </main>
             </Layout>
         </>
     )

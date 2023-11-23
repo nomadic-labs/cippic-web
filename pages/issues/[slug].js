@@ -108,7 +108,7 @@ export default function TopicsPage({ content, layout }) {
                 subtitle={category.description}
                 iconSrc={category.icon?.data?.attributes?.url}
               />
-                
+                <main id="main" className="site-main" role="main">
                 <section className="position-relative bg-light section-default">
                   <div className="container">
                       <div className="project_all filt_style_one filter_enabled">
@@ -116,7 +116,7 @@ export default function TopicsPage({ content, layout }) {
                       </div>
                   </div>
                 </section>
-
+                </main>
             </Layout>
         </>
     )

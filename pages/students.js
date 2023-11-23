@@ -65,6 +65,8 @@ export default function StudentsPage({ content, layout }) {
                         })}
                     </div>
                 </FancyHeader>
+
+                <main id="main" className="site-main" role="main">
                                 
                 <section className="section-default bg-light">
                     <div className="container">
@@ -108,6 +110,7 @@ export default function StudentsPage({ content, layout }) {
                         )
                     })
                 }
+                </main>
             </Layout>
         </>
     )

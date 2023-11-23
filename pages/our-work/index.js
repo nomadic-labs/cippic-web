@@ -101,6 +101,7 @@ export default function OurWork({ content, layout }) {
                     
                 </div>
             </Header>
+            <main id="main" className="site-main" role="main">
                 <section className="section-md">
                     <div className="container">
                         <div className="row">
@@ -110,6 +111,7 @@ export default function OurWork({ content, layout }) {
                         </div>
                     </div>
                 </section>
+            </main>
             </Layout>
         </>
     )

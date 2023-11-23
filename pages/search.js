@@ -104,6 +104,7 @@ export default function Home5({content, layout, term}) {
               topics={layout.categories} 
               contentTypes={layout.contentTypes}
             > 
+            <main id="main" className="site-main" role="main">
             <section className="section-md">
               <div className="container">
                 <div className="row">
@@ -137,6 +138,7 @@ export default function Home5({content, layout, term}) {
                   </div>
                 </div>
               </section>
+              </main>
             </Layout>
         </>
     )

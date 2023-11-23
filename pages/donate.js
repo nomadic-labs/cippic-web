@@ -64,6 +64,7 @@ export default function Donate({ content, layout }) {
                         })}
                     </div>
                 </FancyHeader>
+                <main id="main" className="site-main" role="main">
 
                     {
                         content.donation_sections.map(section => {
@@ -118,7 +119,7 @@ export default function Donate({ content, layout }) {
                             </div>
                         </div>
                     </section>
-
+                </main>
             </Layout>
         </>
     )

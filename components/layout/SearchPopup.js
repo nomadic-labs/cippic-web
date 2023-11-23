@@ -22,7 +22,7 @@ export default function SearchPopup({ isSearch,handleSearch }) {
                     <div className="search-form">
                         <form role="search" method="get" action="/search">
                             <label className="search-label" htmlFor="search">{terms.search}</label>
-                            <input ref={inputRef} autoFocus id="search" type="text" className="search" placeholder={terms.search} name="term" title="Search" />
+                            <input ref={inputRef} autoFocus id="search" type="search" className="search" placeholder={terms.search} name="term" title="Search" />
                             <button type="submit" className="sch_btn"> <i className="fa-solid fa-magnifying-glass"/></button>
                         </form>
                     </div>
