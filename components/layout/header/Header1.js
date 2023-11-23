@@ -9,7 +9,7 @@ const Header1 = forwardRef(function Header1(props, ref) {
     return (
         <>
             <div className="header_area" id="header_contents">
-                <header role="navigation" className="header header_default bg-one get_sticky_header">
+                <header role="menu" className="header header_default bg-one get_sticky_header">
                     <div className="container-xl">
                         <div className="row align-items-center">
                             <div className="col-lg-5 col-md-8 col-sm-8 col-xs-8 logo_column">
