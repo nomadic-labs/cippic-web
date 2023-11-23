@@ -36,12 +36,12 @@ const MobileMenu = forwardRef(function MobileMenu(props, ref) {
                 <div className="menu-backdrop" onClick={handleMobileMenu} />
                 <nav className="menu-box">
                     <div className="text-end mb-3">
-                        <button ref={ref} ariaLabel="Close" className="btn btn-clear" onClick={handleMobileMenu}><i className="fa-solid fa-x" /></button>
+                        <button ref={ref} aria-label="Close" className="btn btn-clear" onClick={handleMobileMenu}><i className="fa-solid fa-x" /></button>
                     </div>
                     <form role="search" method="get" action="/search">
                         <label id="search-label" htmlFor="search">{terms.search}</label>
                         <input autoFocus id="search" type="text" className="search" placeholder={terms.search} name="term" title="Search" />
-                        <button ariaLabel={terms.search} type="submit" className="sch_btn"> <i className="fa-solid fa-magnifying-glass"/></button>
+                        <button type="submit" className="sch_btn"> <i className="fa-solid fa-magnifying-glass"/></button>
                     </form>
                     <div className="menu-outer">
                         <ul id="myNavbar" className="navbar_nav">
@@ -51,7 +51,7 @@ const MobileMenu = forwardRef(function MobileMenu(props, ref) {
                                 </Link>
                             </li>
                             <li className="menu-item menu-item-has-children dropdown nav-item">
-                                <button ariaLabel="toggle submenu" aria-expanded={Boolean(isActive.key == 1)} onClick={() => handleToggle(1)} className="nav-link dropdown-toggle">
+                                <button aria-label="toggle submenu" aria-expanded={Boolean(isActive.key == 1)} onClick={() => handleToggle(1)} className="nav-link dropdown-toggle">
                                     <span>{terms.our_work}</span>
                                 </button>
                                 <ul className="dropdown-menu" style={{ display: `${isActive.key == 1 ? "block" : "none"}` }}>
@@ -74,7 +74,7 @@ const MobileMenu = forwardRef(function MobileMenu(props, ref) {
                                 </ul>
                             </li>
                             <li className="menu-item menu-item-has-children dropdown nav-item">
-                                <button ariaLabel="toggle submenu" aria-expanded={Boolean(isActive.key == 2)} onClick={() => handleToggle(2)} className="nav-link dropdown-toggle">
+                                <button aria-label="toggle submenu" aria-expanded={Boolean(isActive.key == 2)} onClick={() => handleToggle(2)} className="nav-link dropdown-toggle">
                                     <span>Issues</span>
                                 </button>
                                 <ul className="dropdown-menu" style={{ display: `${isActive.key == 2 ? "block" : "none"}` }}>

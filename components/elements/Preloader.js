@@ -11,7 +11,7 @@ export default function Preloader() {
                       color="var(--color-white)"
                       secondaryColor="var(--color-white)"
                       radius='12.5'
-                      ariaLabel="mutating-dots-loading"
+                      aria-label="Loading"
                       wrapperStyle={{}}
                       wrapperClass=""
                       visible={true}

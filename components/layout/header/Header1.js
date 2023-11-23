@@ -21,7 +21,7 @@ const Header1 = forwardRef(function Header1(props, ref) {
                                 </div>
                             </div>
                             <div className="col-lg-7 col-md-4 col-sm-4 col-xs-4 menu_column">
-                                <button ref={ref} ariaLabel="Menu" onClick={handleMobileMenu} className="theme-btn one navbar_togglers"> 
+                                <button ref={ref} aria-label="Menu" onClick={handleMobileMenu} className="theme-btn one navbar_togglers"> 
                                     <div className="hamburger_menu">
                                         <span className="line" />
                                         <span className="line" />
@@ -37,7 +37,7 @@ const Header1 = forwardRef(function Header1(props, ref) {
                                     <div className="header_right_content">
                                         <ul>
                                             <li>
-                                                <button ariaLabel="Search" type="button" className="search-toggler" onClick={handleSearch}><i className="fa-solid fa-magnifying-glass"/></button>
+                                                <button aria-label="Search" type="button" className="search-toggler" onClick={handleSearch}><i className="fa-solid fa-magnifying-glass"/></button>
                                             </li>
                                         </ul>
                                     </div>
