@@ -1,4 +1,4 @@
-.article-card {
+a.article-card, .article-card {
     position: relative;
     display: block;
     transition: all var(--animation-speed) ease-in-out;
@@ -149,13 +149,13 @@
     }
 }
 
-.article-card:hover {
+a.article-card:hover {
     color: inherit;
-    a .title {
+    .title {
         color: var(--primary-color-three);
     }
 
-    a.read_more {
+    .read_more {
         color: var(--primary-color-three);
         i {
             margin-left: 8px;
@@ -168,12 +168,12 @@
 }
 
 .bg-one, .bg-two, .bg-dark {
-    .article-card, {
+    a.article-card, {
         &:hover {
-            a .title {
+            .title {
                 color: var(--primary-color-four);
             }
-            a.read_more {
+            .read_more {
                 color: var(--primary-color-four);
             }
         }

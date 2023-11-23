@@ -5,6 +5,8 @@ import getLayoutData from "@/utils/layout-data"
 import Link from "next/link"
 import Image from "next/image"
 import { useState } from 'react'
+import { useContext } from 'react'
+import { TranslationContext } from '@/contexts/TranslationContext'
 
 const qs = require('qs');
 
@@ -61,10 +63,9 @@ export const getServerSideProps = async ({ locale, query }) => {
 }
 
 export default function Home5({content, layout, term}) {
-
-
   const { searchResults } = content
-  console.log({searchResults})
+  const terms = useContext(TranslationContext)
+
 
   const articles = searchResults.articles.map(article => {
     const item = {
@@ -109,7 +110,7 @@ export default function Home5({content, layout, term}) {
               <div className="container">
                 <div className="row">
                   <div className="col-12">
-                    <h1 className="mb-5">{`Search results for "${term}"`}</h1>
+                    <h1 className="mb-5">{`${terms.search_results} "${term}"`}</h1>
                       <div className="d-flex flex-column gap-4">
                           {
                               results.length > 0 && (
@@ -130,7 +131,7 @@ export default function Home5({content, layout, term}) {
                               }))
                           }
                           {
-                              results.length === 0 && (<p>Sorry, there are no results for your search.</p>)
+                              results.length === 0 && (<p>{terms.no_search_results}</p>)
                           }
                       </div>
                     </div>

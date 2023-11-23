@@ -44,13 +44,13 @@ export default function ArticleCard ({
     const hasImage = showImage && image
 
     return (
-            <article className={`grid-item article-card ${(hasImage && imageLeft) ? 'image-left' : ''}  ${(hasImage && imageTop) ? 'image-top' : ''} ${bgLight ? 'bg-white' : ''}`}>
+            <Link href={url} className={`grid-item article-card ${(hasImage && imageLeft) ? 'image-left' : ''}  ${(hasImage && imageTop) ? 'image-top' : ''} ${bgLight ? 'bg-white' : ''}`}>
                 <div className={`image`}>
                     { hasImage && <Image width={image.width} height={image.height} src={`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${image.url}`} alt={image.alternativeText} className="img-fluid" /> }
                 </div>
                 <div className={`content_box`}>
                     <div>
-                    <Link href={url}><h3 className="title mt-0">{article.title}</h3></Link>
+                    <h3 href={url} className="title mt-0">{article.title}</h3>
 
                     <p className="byline">
                     {
@@ -70,9 +70,9 @@ export default function ArticleCard ({
                     </div>
 
 
-                    {showLink && <Link href={url} className="read_more mb-0">{linkText || terms.keep_reading} <i className="fa-solid fa-arrow-right-long" /></Link>}
+                    {showLink && <p className="read_more mb-0">{linkText || terms.keep_reading} <i className="fa-solid fa-arrow-right-long" /></p>}
 
                 </div>
-            </article>
+            </Link>
     )
 }
