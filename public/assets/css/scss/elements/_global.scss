@@ -315,6 +315,13 @@ body button[type="submit"] {
     text-transform: uppercase;
 }
 
+.btn-none {
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    padding: unset;
+}
+
 pre {
     text-wrap: wrap;
 }

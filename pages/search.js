@@ -114,8 +114,8 @@ export default function Home5({content, layout, term}) {
                               results.length > 0 && (
                               results.map(article => {
                                   return (
+                                    <Fade key={article.id}>
                                       <SearchResult 
-                                          key={article.id}
                                           article={article} 
                                           showImage
                                           imageLeft
@@ -124,6 +124,7 @@ export default function Home5({content, layout, term}) {
                                           bgLight
                                           showTags
                                       />
+                                    </Fade>
                                   )
                               }))
                           }

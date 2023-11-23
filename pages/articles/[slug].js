@@ -231,7 +231,7 @@ export default function ArticlePage({ content, layout }) {
                         <div className="row">
                           { mainImage &&
                             <div className="col-12 col-lg-4 mx-auto order-lg-2 mr_bottom_40">
-                              <button onClick={() => setOpenLightbox(true)} className="btn btn-clear p-0">
+                              <button aria-label="toggle image viewer" onClick={() => setOpenLightbox(true)} className="btn btn-clear p-0">
                               <Image 
                                   width={mainImage.width} 
                                   height={mainImage.height} 
