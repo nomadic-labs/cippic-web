@@ -83,7 +83,7 @@ export default function Navbar({ topics=[], contentTypes=[], links=[] }) {
                         <span>{terms.our_work}</span>
                         <span className="fa fa-angle-down mr_left_5"></span>
                     </button>
-                    <ul className="dropdown-menu" role="menu">
+                    <ul className="dropdown-menu">
                         <li key={"all-work"} className="menu-item  nav-item">
                             <Link href={`/${router.locale}/our-work`} className="dropdown-item nav-link"> 
                                 <span>{terms.all_work}</span>
@@ -107,7 +107,7 @@ export default function Navbar({ topics=[], contentTypes=[], links=[] }) {
                         <span>{terms.issues}</span>
                         <span className="fa fa-angle-down mr_left_5"></span>
                     </button>
-                    <ul className="dropdown-menu" role="menu">
+                    <ul className="dropdown-menu">
                         <li key={"all-issues"} className="menu-item  nav-item">
                             <Link href={`/${router.locale}/issues`} className="dropdown-item nav-link"> 
                                 <span>{terms.all_issues}</span>
