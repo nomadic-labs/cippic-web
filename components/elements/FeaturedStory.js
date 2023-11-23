@@ -45,8 +45,8 @@ export default function FeaturedStory ({
 
     return (
         <Fade delay={100*order}>
-            <Link href={url} className={`article-card ${(hasImage && imageLeft) ? 'image-left' : ''}  ${(hasImage && imageTop) ? 'image-top' : ''} ${bgLight ? 'bg-white' : ''}`}>
-                <h1 href={url} className="title mt-0">{article.title}</h1>
+            <article className={`article-card ${(hasImage && imageLeft) ? 'image-left' : ''}  ${(hasImage && imageTop) ? 'image-top' : ''} ${bgLight ? 'bg-white' : ''}`}>
+                <Link href={url}><h1 className="title mt-0">{article.title}</h1></Link>
                 <div className={`image`}>
                     { hasImage && <Image width={image.width} height={image.height} src={`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${image.url}`} alt={image.alternativeText} className="img-fluid" /> }
                 </div>
@@ -69,10 +69,10 @@ export default function FeaturedStory ({
                     }
 
 
-                    {showLink && <p className="read_more">{terms.keep_reading} <i className="icon-right-arrow" /></p>}
+                    {showLink && <Link href={url} className="read_more">{terms.keep_reading} <i className="fa-solid fa-arrow-right-long" /></Link>}
 
                 </div>
-            </Link>
+            </article>
         </Fade>
     )
 }

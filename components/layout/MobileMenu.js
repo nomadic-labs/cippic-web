@@ -39,8 +39,8 @@ const MobileMenu = forwardRef(function MobileMenu(props, ref) {
                         <button ref={ref} aria-label="Close" className="btn btn-clear" onClick={handleMobileMenu}><i className="fa-solid fa-x" /></button>
                     </div>
                     <form role="search" method="get" action="/search">
-                        <label id="search-label" htmlFor="search">{terms.search}</label>
-                        <input autoFocus id="search" type="text" className="search" placeholder={terms.search} name="term" title="Search" />
+                        <label className="search-label" htmlFor="search">{terms.search}</label>
+                        <input autoFocus id="mobile-search" type="text" className="search" placeholder={terms.search} name="term" title="Search" />
                         <button type="submit" className="sch_btn"> <i className="fa-solid fa-magnifying-glass"/></button>
                     </form>
                     <div className="menu-outer">

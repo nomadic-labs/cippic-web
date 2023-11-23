@@ -3248,11 +3248,11 @@ body.single-header{
     }
 }
 
-#search-label {
+.search-label {
     position: absolute;
     top: -5000px;
 }
 
-#search::placeholder {
+input.search::placeholder {
     opacity: 0.6;
 }
