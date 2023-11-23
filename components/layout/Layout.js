@@ -58,6 +58,24 @@ export default function Layout({
         })
     })
 
+    useEffect(() => {
+        function handleKeyDown(event) {
+          if (isMobileMenu && event.key === "Escape") {
+            setMobileMenu(false)
+          }
+
+          if (isSearch && event.key === "Escape") {
+            setSearch(false)
+          }
+        }
+        // Bind the event listener
+        document.addEventListener("keydown", handleKeyDown);
+        return () => {
+          // Unbind the event listener on clean up
+          document.removeEventListener("keydown", handleKeyDown);
+        };
+      }, [isMobileMenu, isSearch]);
+
     // Current URL
     const router = useRouter()
     const url = `https://www.cippic.ca{router.pathname}`

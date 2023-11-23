@@ -3600,8 +3600,8 @@ body .enabled_custom_title .title_page .main_tit {
   font-size: 16px;
   line-height: 26px !important;
 }
-.header .header_content_collapse .navigation_menu .navbar_nav li:hover > .dropdown-menu,
-.default_sickty_heaad .header_content_collapse .navigation_menu .navbar_nav li:hover > .dropdown-menu {
+.header .header_content_collapse .navigation_menu .navbar_nav li.is-open > .dropdown-menu,
+.default_sickty_heaad .header_content_collapse .navigation_menu .navbar_nav li.is-open > .dropdown-menu {
   opacity: 1;
   z-index: 99;
   margin-left: 0;
@@ -3639,57 +3639,57 @@ body .enabled_custom_title .title_page .main_tit {
   -webkit-transition-delay: 0.19s;
   transition-delay: 0.19s;
 }
-.header .header_content_collapse .navigation_menu .navbar_nav li:hover .dropdown-menu li,
-.default_sickty_heaad .header_content_collapse .navigation_menu .navbar_nav li:hover .dropdown-menu li {
+.header .header_content_collapse .navigation_menu .navbar_nav li.is-open .dropdown-menu li,
+.default_sickty_heaad .header_content_collapse .navigation_menu .navbar_nav li.is-open .dropdown-menu li {
   opacity: 1;
   visibility: visible;
   -webkit-transform: translateY(0);
   transform: translateY(0);
 }
-.header .header_content_collapse .navigation_menu .navbar_nav li .dropdown-menu li:hover .dropdown-menu li,
-.default_sickty_heaad .header_content_collapse .navigation_menu .navbar_nav li .dropdown-menu li:hover .dropdown-menu li {
+.header .header_content_collapse .navigation_menu .navbar_nav li .dropdown-menu li.is-open .dropdown-menu li,
+.default_sickty_heaad .header_content_collapse .navigation_menu .navbar_nav li .dropdown-menu li.is-open .dropdown-menu li {
   opacity: 1;
   visibility: visible;
   -webkit-transform: translateY(0);
   transform: translateY(0);
 }
-.header .header_content_collapse .navigation_menu .navbar_nav li .dropdown-menu li .dropdown-menu li:hover .dropdown-menu li,
-.default_sickty_heaad .header_content_collapse .navigation_menu .navbar_nav li .dropdown-menu li .dropdown-menu li:hover .dropdown-menu li {
+.header .header_content_collapse .navigation_menu .navbar_nav li .dropdown-menu li .dropdown-menu li.is-open .dropdown-menu li,
+.default_sickty_heaad .header_content_collapse .navigation_menu .navbar_nav li .dropdown-menu li .dropdown-menu li.is-open .dropdown-menu li {
   opacity: 1;
   visibility: visible;
   -webkit-transform: translateY(0);
   transform: translateY(0);
 }
-.header .header_content_collapse .navigation_menu .navbar_nav li .dropdown-menu li .dropdown-menu li .dropdown-menu li:hover .dropdown-menu li,
-.default_sickty_heaad .header_content_collapse .navigation_menu .navbar_nav li .dropdown-menu li .dropdown-menu li .dropdown-menu li:hover .dropdown-menu li {
+.header .header_content_collapse .navigation_menu .navbar_nav li .dropdown-menu li .dropdown-menu li .dropdown-menu li.is-open .dropdown-menu li,
+.default_sickty_heaad .header_content_collapse .navigation_menu .navbar_nav li .dropdown-menu li .dropdown-menu li .dropdown-menu li.is-open .dropdown-menu li {
   opacity: 1;
   visibility: visible;
   -webkit-transform: translateY(0);
   transform: translateY(0);
 }
-.header .header_content_collapse .navigation_menu .navbar_nav li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li:hover .dropdown-menu li,
-.default_sickty_heaad .header_content_collapse .navigation_menu .navbar_nav li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li:hover .dropdown-menu li {
+.header .header_content_collapse .navigation_menu .navbar_nav li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li.is-open .dropdown-menu li,
+.default_sickty_heaad .header_content_collapse .navigation_menu .navbar_nav li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li.is-open .dropdown-menu li {
   opacity: 1;
   visibility: visible;
   -webkit-transform: translateY(0);
   transform: translateY(0);
 }
-.header .header_content_collapse .navigation_menu .navbar_nav li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li:hover .dropdown-menu li,
-.default_sickty_heaad .header_content_collapse .navigation_menu .navbar_nav li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li:hover .dropdown-menu li {
+.header .header_content_collapse .navigation_menu .navbar_nav li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li.is-open .dropdown-menu li,
+.default_sickty_heaad .header_content_collapse .navigation_menu .navbar_nav li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li.is-open .dropdown-menu li {
   opacity: 1;
   visibility: visible;
   -webkit-transform: translateY(0);
   transform: translateY(0);
 }
-.header .header_content_collapse .navigation_menu .navbar_nav li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li:hover .dropdown-menu li,
-.default_sickty_heaad .header_content_collapse .navigation_menu .navbar_nav li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li:hover .dropdown-menu li {
+.header .header_content_collapse .navigation_menu .navbar_nav li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li.is-open .dropdown-menu li,
+.default_sickty_heaad .header_content_collapse .navigation_menu .navbar_nav li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li.is-open .dropdown-menu li {
   opacity: 1;
   visibility: visible;
   -webkit-transform: translateY(0);
   transform: translateY(0);
 }
-.header .header_content_collapse .navigation_menu .navbar_nav li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li:hover .dropdown-menu li,
-.default_sickty_heaad .header_content_collapse .navigation_menu .navbar_nav li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li:hover .dropdown-menu li {
+.header .header_content_collapse .navigation_menu .navbar_nav li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li.is-open .dropdown-menu li,
+.default_sickty_heaad .header_content_collapse .navigation_menu .navbar_nav li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li.is-open .dropdown-menu li {
   opacity: 1;
   visibility: visible;
   -webkit-transform: translateY(0);
