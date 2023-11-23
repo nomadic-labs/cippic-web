@@ -94,7 +94,7 @@ export default function Home5({content, layout, term}) {
     return item
   })
 
-  const results = [...articles, ...categories, ...contentTypes]
+  const results = [...categories, ...contentTypes, ...articles]
 
     return (
         <>

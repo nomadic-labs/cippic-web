@@ -1,4 +1,15 @@
 /*------===============-css-start-==============------*/
+
+#page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    #wrapper_full {
+        flex-grow: 1;
+    }
+}
+
 body {
     font-family           : var(--font-family-one);
     font-size             : 15px;

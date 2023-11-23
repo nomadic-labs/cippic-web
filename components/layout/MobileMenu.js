@@ -2,8 +2,13 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import Fade from 'react-reveal/Fade';
-export default function MobileMenu({ handleMobileMenu, topics, contentTypes }) {
+import { useContext } from 'react'
+import { TranslationContext } from '@/contexts/TranslationContext'
+
+export default function MobileMenu({ handleMobileMenu, topics=[], contentTypes=[], links=[]  }) {
     const router = useRouter()
+    const terms = useContext(TranslationContext)
+
     const [isActive, setIsActive] = useState({
         status: false,
         key: "",
@@ -43,11 +48,18 @@ export default function MobileMenu({ handleMobileMenu, topics, contentTypes }) {
                             </li>
                             <li className="menu-item menu-item-has-children dropdown nav-item">
                                 <button onClick={() => handleToggle(1)} className="nav-link dropdown-toggle">
-                                    <span>Our Work</span>
+                                    <span>{terms.our_work}</span>
                                 </button>
                                 <ul className="dropdown-menu" style={{ display: `${isActive.key == 1 ? "block" : "none"}` }}>
+                                    <Fade>
+                                        <li className="menu-item nav-item">
+                                            <Link href={`/our-work`} className="dropdown-item nav-link">
+                                                <span className="text-faded">{terms.all_work}</span>
+                                            </Link>
+                                        </li>
+                                    </Fade>
                                     { contentTypes.map((item, index) => (
-                                        <Fade key={item.id} delay={60*index}>
+                                        <Fade key={item.id} delay={60*index+1}>
                                             <li className="menu-item nav-item">
                                                 <Link href={`/our-work/${item.slug}`} className="dropdown-item nav-link">
                                                     <span className="text-faded">{item.name}</span>
@@ -62,6 +74,13 @@ export default function MobileMenu({ handleMobileMenu, topics, contentTypes }) {
                                     <span>Issues</span>
                                 </button>
                                 <ul className="dropdown-menu" style={{ display: `${isActive.key == 2 ? "block" : "none"}` }}>
+                                    <Fade>
+                                        <li className="menu-item nav-item">
+                                            <Link href={`/issues`} className="dropdown-item nav-link">
+                                                <span className="text-faded">{terms.all_issues}</span>
+                                            </Link>
+                                        </li>
+                                    </Fade>
                                     { keyTopics.map((topic, index) => (
                                         <Fade key={topic.id} delay={60*index}>
                                             <li className="menu-item nav-item">
@@ -73,27 +92,17 @@ export default function MobileMenu({ handleMobileMenu, topics, contentTypes }) {
                                     ))}
                                 </ul>
                             </li>
-                            <li className="menu-item  mega_menu nav-item">
-                                <Link href="/students" className="nav-link">
-                                    <span>Students</span>
-                                </Link>
-                            </li>
-                            <li className="menu-item  mega_menu nav-item">
-                                <Link href="/about-us" className="nav-link">
-                                    <span>About us</span>
-                                </Link>
-                            </li>
-                            <li className="menu-item mega_menu nav-item">
-                                <Link href="/contact" className="nav-link">
-                                    <span>Contact</span>
-                                </Link>
-                            </li>
-                        
-                            <li className="menu-item mega_menu nav-item">
-                                <Link href="/donate" className="nav-link">
-                                    <span>Donate</span>
-                                </Link>
-                            </li>
+                            {
+                                links.map(link => {
+                                    return (
+                                        <li key={link.link_path} className="menu-item  mega_menu nav-item">
+                                            <Link href={`${link.link_path}`} className="nav-link">
+                                                <span>{link.link_text}</span>
+                                            </Link>
+                                        </li>
+                                    )
+                                })
+                            }
                             <li className="menu-item mega_menu nav-item">
                                 <Link href={router.route} locale={router.locale === 'en' ? 'fr' : 'en'} className="nav-link">
                                     <span>{`${router.locale === 'en' ? 'FR' : 'EN'}`}</span>

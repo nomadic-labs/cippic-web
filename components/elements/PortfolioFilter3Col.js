@@ -78,7 +78,7 @@ export default function PortfolioFilter3Col({articles, filters, filterField="con
         <>
             <div className="row">
                 <div className="col-12">
-                    <div className="bg-white padding-md mr_bottom_20">
+                    <div className="bg-white padding-md mb-4">
                         <div className="fliter_group">
                             <p className="title-small text-dark mb-0 mr_right_15">{`${terms.filters}:`}</p>
                             <ul className="project_filter dark clearfix">

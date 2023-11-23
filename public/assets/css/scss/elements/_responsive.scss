@@ -183,6 +183,10 @@
     }
     
     @media(max-width:992px){
+        .footer_area {
+
+        }
+        
         .grid-wrapper {
             display: grid;
             gap: 1.5rem;
@@ -415,6 +419,15 @@
     }
     
     @media(max-width:768px){ 
+        a.article-card, .article-card {
+            &.image-left {
+                flex-direction: column;
+
+                .image {
+                    aspect-ratio: 2/1;
+                }
+            }
+        }
         .article-card.profile-card {
             flex-direction: column;
 

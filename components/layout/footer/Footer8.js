@@ -8,7 +8,7 @@ export default function Footer8({ layout }) {
 
     return (
         <>
-            <div className="footer_area footer_sticky_enable_foo bg-one" id="footer_contents">
+            <div className="footer_area footer_sticky_enable_foo bg-one mb-2" id="footer_contents">
                 {/*===============spacing==============*/}
                 <div className="footer-copyright">
                     {/*===============spacing==============*/}
@@ -16,7 +16,7 @@ export default function Footer8({ layout }) {
                     {/*===============spacing==============*/}
                     <div className="container-xl">
                         <div className="row align-items-center pd_bottom_20">
-                            <div className="col-lg-6 col-md-12 mb-3 mb-lg-0 mb-xl-0">
+                            <div className="col-12 col-md-8 col-lg-6 mb-3 mb-lg-0 mb-xl-0">
                             {
                                 cippicLogo && 
                                 <Image 
@@ -27,8 +27,8 @@ export default function Footer8({ layout }) {
                                 />
                             }
                             </div>
-                            <div className="col-lg-6 col-md-12">
-                                <div className="footer_copy_content_right text-md-end">
+                            <div className="col-12 col-md-4 col-lg-6">
+                                <div className="footer_copy_content_right text-center text-lg-end">
                                     {
                                         cltsLogo &&
                                         <Image 
@@ -43,8 +43,8 @@ export default function Footer8({ layout }) {
                             </div>
                         </div>
                         <div className="row align-items-center">
-                            <div className="col-lg-8 col-md-12 mb-3 mb-lg-0 mb-xl-0">
-                                <div className="d-flex gap-4">
+                            <div className="col-12 col-md-8 col-lg-8">
+                                <div className="d-flex gap-4 justify-content-center justify-content-md-start mb-3 mb-md-0">
                                 {
                                     footer_links.map(link => {
                                         return (
@@ -56,10 +56,10 @@ export default function Footer8({ layout }) {
                                 }
                                 </div>
                             </div>
-                            <div className="col-lg-4 col-md-12">
+                            <div className="col-12 col-md-4 col-lg-4">
                                 <div className="footer_copy_content_right text-md-end">
                                     <div className="social_media_v_one">
-                                        <ul>
+                                        <ul className="justify-content-center justify-content-md-end">
                                             {
                                                 social_media_links.map(link => {
                                                     const target = link.target === "new window" ? "_blank" : "_self"

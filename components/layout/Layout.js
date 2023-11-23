@@ -80,7 +80,7 @@ export default function Layout({
                 </div>
                 < Footer8 layout={layout} />
 
-                <MobileMenu isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} layout={layout} topics={topics} contentTypes={contentTypes} />
+                <MobileMenu isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} links={layout.header_links} topics={topics} contentTypes={contentTypes} />
                 <SearchPopup isSearch={isSearch} handleSearch={handleSearch} />
 
             </div>

@@ -1482,6 +1482,15 @@
 
 /*--================box shadows ======================--*/
 /*------===============-css-start-==============------*/
+#page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+#page #wrapper_full {
+  flex-grow: 1;
+}
+
 body {
   font-family: var(--font-family-one);
   font-size: 15px;
@@ -19594,7 +19603,6 @@ a.article-card.image-left, .article-card.image-left {
 }
 a.article-card.image-left .image, .article-card.image-left .image {
   flex: 1 1 20%;
-  margin-right: 1.5rem;
   aspect-ratio: 1/1;
 }
 a.article-card.image-left .content_box, .article-card.image-left .content_box {
@@ -20101,6 +20109,12 @@ a.article-card:hover .read_more i {
   }
 }
 @media (max-width: 768px) {
+  a.article-card.image-left, .article-card.image-left {
+    flex-direction: column;
+  }
+  a.article-card.image-left .image, .article-card.image-left .image {
+    aspect-ratio: 2/1;
+  }
   .article-card.profile-card {
     flex-direction: column;
   }
