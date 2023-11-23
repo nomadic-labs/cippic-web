@@ -25,11 +25,9 @@ export const getStaticProps = async ({ params, locale }) => {
         locale,
         sort: "date_published:desc",
         populate: [
-          '*',
-          'main_image',
-          'main_image.media',
-          'categories',
-          'content_types'
+            'main_image',
+            'categories',
+            'content_types'
         ],
         publicationState: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 'preview' : 'live'
       },

@@ -46,10 +46,6 @@ export const getStaticProps = async ({ params, locale }) => {
               $eq: slug,
             },
         },
-        populate: [
-          '*',
-          'icon.media'
-        ],
         publicationState: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 'preview' : 'live'
       },
       {
@@ -69,9 +65,7 @@ export const getStaticProps = async ({ params, locale }) => {
         },
         sort: "date_published:desc",
         populate: [
-          '*',
           'main_image',
-          'main_image.media',
           'categories',
           'content_types'
         ],
@@ -101,8 +95,6 @@ export const getStaticProps = async ({ params, locale }) => {
 
 export default function OurWork({ content, layout }) {
     const { contentType, articles } = content;
-    const mainImage = null
-    const imagePath = mainImage ? mainImage.attributes.url : null
     const latestArticles = articles.slice(0,3)
 
     const articleFilters = articles.reduce((filters, article) => {

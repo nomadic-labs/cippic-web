@@ -49,9 +49,12 @@ a.article-card, .article-card {
         display: flex;
 
         .image {
-            flex: 1 1 25%;
-            margin-right: 1.5rem;
+            flex: 1 1 20%;
             aspect-ratio: 1/1;
+        }
+
+        .content_box {
+            flex: 1 1 80%;
         }
     }
 

@@ -46,7 +46,7 @@ export default function Layout({
     // Current URL
     const router = useRouter()
     const url = `https://www.cippic.ca{router.pathname}`
-    const favicon = layout.favicon.data?.attributes?.url ? `${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${layout.favicon.data.attributes.url}` : "/logomark.svg"
+    const favicon = layout.favicon?.data?.attributes?.url ? `${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${layout.favicon.data.attributes.url}` : "/logomark.svg"
 
 
     return (
@@ -80,7 +80,7 @@ export default function Layout({
                 </div>
                 < Footer8 layout={layout} />
 
-                <MobileMenu isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} layout={layout} topics={topics} contentTypes={contentTypes} />
+                <MobileMenu isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} links={layout.header_links} topics={topics} contentTypes={contentTypes} />
                 <SearchPopup isSearch={isSearch} handleSearch={handleSearch} />
 
             </div>

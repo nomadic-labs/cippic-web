@@ -16,7 +16,6 @@ export const getStaticProps = async ({locale}) => {
       {
         locale,
         populate: [
-          '*',
           'donation_sections',
           'donate_button',
           'how_to_donate'
