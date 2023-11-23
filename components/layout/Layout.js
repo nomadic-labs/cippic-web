@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import BackToTop from '../elements/BackToTop'
@@ -29,8 +29,23 @@ export default function Layout({
     const handleContactPopup = () => setContactPopup(!isContactPopup)
 
     // Moblile Menu
+    const mobileMenuRef = useRef(null)
+    const menuButtonRef = useRef(null)
+
     const [isMobileMenu, setMobileMenu] = useState(false)
     const handleMobileMenu = () => setMobileMenu(!isMobileMenu)
+
+    useEffect(() => {
+        if (isMobileMenu) {
+            setTimeout(() => {
+                mobileMenuRef.current.focus()
+            }, 250)
+        } else {
+            setTimeout(() => {
+                menuButtonRef.current.focus()
+            }, 250)
+        }   
+    }, [isMobileMenu])
 
     // Scroll Header
     const [scroll, setScroll] = useState(0)
@@ -72,7 +87,7 @@ export default function Layout({
             <div id="page" className={`page_wapper hfeed site ${scroll ? "fixed-header floating-menu" : ""} ${isMobileMenu ? "crt_mobile_menu-visible" : ""}`}>
                 <div id="wrapper_full" className="content_all_warpper">
 
-                    <Header1 handleSearch={handleSearch} handleContactPopup={handleContactPopup} handleMobileMenu={handleMobileMenu} layout={layout} topics={topics} contentTypes={contentTypes} />
+                    <Header1 ref={menuButtonRef} handleSearch={handleSearch} handleContactPopup={handleContactPopup} handleMobileMenu={handleMobileMenu} layout={layout} topics={topics} contentTypes={contentTypes} />
 
                     <div id="content" className="site-content">
                         {children}
@@ -80,7 +95,7 @@ export default function Layout({
                 </div>
                 < Footer8 layout={layout} />
 
-                <MobileMenu isMobileMenu={isMobileMenu} handleMobileMenu={handleMobileMenu} links={layout.header_links} topics={topics} contentTypes={contentTypes} />
+                <MobileMenu ref={mobileMenuRef} handleMobileMenu={handleMobileMenu} links={layout.header_links} topics={topics} contentTypes={contentTypes} />
                 <SearchPopup isSearch={isSearch} handleSearch={handleSearch} />
 
             </div>

@@ -3864,6 +3864,9 @@ body .enabled_custom_title .title_page .main_tit {
   border: none;
   margin: auto;
 }
+.search-popup .search-form input::placeholder, .search-popup .search-form input[type=search]::placeholder {
+  opacity: 0.6;
+}
 .search-popup .search-form button {
   position: absolute;
   top: 0;
@@ -5947,6 +5950,15 @@ body.single-header {
     padding: 5px 10px;
   }
 }
+#search-label {
+  position: absolute;
+  top: -5000px;
+}
+
+#search::placeholder {
+  opacity: 0.6;
+}
+
 /*----------------animate-csss---------------*/
 .owl-item .animate_up {
   position: relative;

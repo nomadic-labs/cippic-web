@@ -1,7 +1,9 @@
 import Link from "next/link"
 import Navbar from "../Navbar"
+import { forwardRef } from 'react'
 
-export default function Header1({ handleSearch, handleContactPopup, handleMobileMenu, topics, contentTypes, layout }) {
+const Header1 = forwardRef(function Header1(props, ref) {
+    const { handleSearch, handleContactPopup, handleMobileMenu, topics, contentTypes, layout } = props;
     const mainLogoSrc = layout.main_logo?.data?.attributes?.url ? `${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${layout.main_logo.data.attributes.url}` : "/assets/images/cippic-logo-combined-dark.svg"
     const altLogoSrc = layout.alternate_logo?.data?.attributes?.url ? `${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${layout.alternate_logo.data.attributes.url}` : "/assets/images/cippic-logo-alt-dark.svg"
     return (
@@ -19,7 +21,7 @@ export default function Header1({ handleSearch, handleContactPopup, handleMobile
                                 </div>
                             </div>
                             <div className="col-lg-7 col-md-4 col-sm-4 col-xs-4 menu_column">
-                                <button onClick={handleMobileMenu} className="theme-btn one navbar_togglers"> 
+                                <button ref={ref} ariaLabel="Menu" onClick={handleMobileMenu} className="theme-btn one navbar_togglers"> 
                                     <div className="hamburger_menu">
                                         <span className="line" />
                                         <span className="line" />
@@ -35,7 +37,7 @@ export default function Header1({ handleSearch, handleContactPopup, handleMobile
                                     <div className="header_right_content">
                                         <ul>
                                             <li>
-                                                <button type="button" className="search-toggler" onClick={handleSearch}><i className="fa-solid fa-magnifying-glass"/></button>
+                                                <button ariaLabel="Search" type="button" className="search-toggler" onClick={handleSearch}><i className="fa-solid fa-magnifying-glass"/></button>
                                             </li>
                                         </ul>
                                     </div>
@@ -47,4 +49,6 @@ export default function Header1({ handleSearch, handleContactPopup, handleMobile
             </div>
         </>
     )
-}
+})
+
+export default Header1

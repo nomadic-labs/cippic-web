@@ -1,11 +1,12 @@
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, forwardRef, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Fade from 'react-reveal/Fade';
 import { useContext } from 'react'
 import { TranslationContext } from '@/contexts/TranslationContext'
 
-export default function MobileMenu({ handleMobileMenu, topics=[], contentTypes=[], links=[]  }) {
+const MobileMenu = forwardRef(function MobileMenu(props, ref) {
+    const { handleMobileMenu, topics=[], contentTypes=[], links=[] } = props;
     const router = useRouter()
     const terms = useContext(TranslationContext)
 
@@ -34,20 +35,23 @@ export default function MobileMenu({ handleMobileMenu, topics=[], contentTypes=[
             <div className="crt_mobile_menu">
                 <div className="menu-backdrop" onClick={handleMobileMenu} />
                 <nav className="menu-box">
-                    <div className="close-btn" onClick={handleMobileMenu}><i className="fa-solid fa-x" /></div>
+                    <div className="text-end mb-3">
+                        <button ref={ref} ariaLabel="Close" className="btn btn-clear" onClick={handleMobileMenu}><i className="fa-solid fa-x" /></button>
+                    </div>
                     <form role="search" method="get" action="/search">
-                        <input type="search" className="search" placeholder="Search..." name="term" title="Search" />
-                        <button type="submit" className="sch_btn"> <i className="fa-solid fa-magnifying-glass"/></button>
+                        <label id="search-label" htmlFor="search">{terms.search}</label>
+                        <input autoFocus id="search" type="text" className="search" placeholder={terms.search} name="term" title="Search" />
+                        <button ariaLabel={terms.search} type="submit" className="sch_btn"> <i className="fa-solid fa-magnifying-glass"/></button>
                     </form>
                     <div className="menu-outer">
                         <ul id="myNavbar" className="navbar_nav">
                             <li className="menu-item mega_menu nav-item">
                                 <Link href="/" className="nav-link">
-                                    <span>Home</span>
+                                    <span>{terms.home}</span>
                                 </Link>
                             </li>
                             <li className="menu-item menu-item-has-children dropdown nav-item">
-                                <button onClick={() => handleToggle(1)} className="nav-link dropdown-toggle">
+                                <button ariaLabel="toggle submenu" aria-expanded={Boolean(isActive.key == 1)} onClick={() => handleToggle(1)} className="nav-link dropdown-toggle">
                                     <span>{terms.our_work}</span>
                                 </button>
                                 <ul className="dropdown-menu" style={{ display: `${isActive.key == 1 ? "block" : "none"}` }}>
@@ -70,7 +74,7 @@ export default function MobileMenu({ handleMobileMenu, topics=[], contentTypes=[
                                 </ul>
                             </li>
                             <li className="menu-item menu-item-has-children dropdown nav-item">
-                                <button onClick={() => handleToggle(2)} className="nav-link dropdown-toggle">
+                                <button ariaLabel="toggle submenu" aria-expanded={Boolean(isActive.key == 2)} onClick={() => handleToggle(2)} className="nav-link dropdown-toggle">
                                     <span>Issues</span>
                                 </button>
                                 <ul className="dropdown-menu" style={{ display: `${isActive.key == 2 ? "block" : "none"}` }}>
@@ -115,4 +119,6 @@ export default function MobileMenu({ handleMobileMenu, topics=[], contentTypes=[
             </div>
         </>
     )
-}
+})
+
+export default MobileMenu
