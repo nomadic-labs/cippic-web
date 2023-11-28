@@ -53,7 +53,8 @@ export const getStaticProps = async ({ params, locale }) => {
         populate: [
           'articles',
           'articles.categories',
-          'articles.content_types'
+          'articles.content_types',
+          'header_image.media'
         ],
         publicationState: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 'preview' : 'live'
       },
@@ -107,6 +108,7 @@ export default function TopicsPage({ content, layout }) {
                 title={category.name}
                 subtitle={category.description}
                 iconSrc={category.icon?.data?.attributes?.url}
+                image={category.header_image?.data?.attributes}
               />
                 <main id="main" className="site-main" role="main">
                 <section className="position-relative bg-light section-default">

@@ -195,7 +195,7 @@ export default function PageTemplate({ content, layout }) {
                     <div className="container">
                         <div className="row">
                           { mainImage &&
-                            <div className="col-12 col-lg-4 mx-auto order-lg-2 mr_bottom_40">
+                            <div className="col-12 col-md-4 mx-auto order-md-2 mr_bottom_20">
                               <button aria-label="toggle image viewer" onClick={() => setOpenLightbox(true)} className="btn btn-clear p-0">
                               <Image 
                                   width={mainImage.width} 
@@ -230,7 +230,7 @@ export default function PageTemplate({ content, layout }) {
                           }
                           {
                             page.body && 
-                            <div className="col-12   order-lg-1">
+                            <div className={`col-12 ${mainImage ? 'col-md-8' : ''} order-md-1`}>
                                 <ReactMarkdown rehypePlugins={[rehypeRaw]} remarkPlugins={[remarkGfm]}>
                                     {page.body}
                                 </ReactMarkdown>

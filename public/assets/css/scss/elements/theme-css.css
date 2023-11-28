@@ -19392,6 +19392,12 @@ h1.headline {
   object-fit: cover;
 }
 
+.img-fit {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .page-header {
   position: relative;
   overflow: hidden;
@@ -19574,6 +19580,10 @@ h1.headline {
   max-height: 40px;
   max-width: 40px;
   min-width: 0;
+}
+
+.header-image img {
+  object-fit: cover;
 }
 
 .uottawa-logo {
