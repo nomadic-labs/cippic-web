@@ -4,11 +4,11 @@ import ImageSlider from "@/components/elements/ImageSlider"
 
 const DEFAULT_SLIDES_PER_VIEW = 3
 
-export default function ImageSliderSection({ images, background_colour, slides_per_view, title, subtitle }) {
+export default function ImageSliderSection({ images, background_colour, slides_per_view, title, subtitle, section_id }) {
     const imgArr = images.data.map(i => i.attributes)
     
     return (
-        <section className={`bg-${background_colour}`}>
+        <section className={`bg-${background_colour}`} id={section_id}>
             <div className="container section-md">
                 <div className="row">
                     <div className="col-12">

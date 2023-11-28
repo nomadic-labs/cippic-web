@@ -1,10 +1,10 @@
 import ContentCard from "@/components/elements/ContentCard"
 import ReactMarkdown from 'react-markdown'
 
-export default function ContactOptions({ contact_cards=[], background_colour }) {
+export default function ContactOptions({ contact_cards=[], background_colour, section_id }) {
 
     return (
-        <section className={`bg-${background_colour} pb-5`}>
+        <section id={section_id} className={`bg-${background_colour} pb-5`}>
             <div className="container">
                 <div className="row">
                     {

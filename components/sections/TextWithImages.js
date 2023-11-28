@@ -11,7 +11,7 @@ import "yet-another-react-lightbox/styles.css";
 import "yet-another-react-lightbox/plugins/captions.css";
 
 
-export default function TextWithImages({ images, background_colour, title, subtitle, body }) {
+export default function TextWithImages({ images, background_colour, title, subtitle, body, section_id }) {
     console.log({})
     const [openLightbox, setOpenLightbox] = useState(false);
     const imgArr = images.data.map(img => {
@@ -28,7 +28,7 @@ export default function TextWithImages({ images, background_colour, title, subti
     
     
     return (
-        <section className={`bg-${background_colour}`}>
+        <section id={section_id} className={`bg-${background_colour}`}>
             <div className="container section-md">
                 <div className="row">
                   { mainImage &&

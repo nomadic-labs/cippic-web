@@ -3,9 +3,9 @@ import Fade from 'react-reveal/Fade';
 import ReactMarkdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
 
-export default function HighlightBox({ title, subtitle, body, background_colour }) {
+export default function HighlightBox({ title, subtitle, body, background_colour, section_id }) {
     return (
-        <section className={`bg-${background_colour}`}>
+        <section className={`bg-${background_colour}`} id={section_id}>
             <div className="container section-default">
                 <div className="row">
                     <div className="col-12">

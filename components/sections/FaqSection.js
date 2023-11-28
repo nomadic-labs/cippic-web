@@ -14,7 +14,7 @@ import {
 } from 'react-accessible-accordion';
 
 
-export default function FaqSection({ FAQs, before_title, title, subtitle, background_colour }) {
+export default function FaqSection({ FAQs, before_title, title, subtitle, background_colour, section_id }) {
     const allUuids = useMemo(() => FAQs.map(f => f.id))
     const [expandAll, setExpandAll] = useState(false) 
     const [containerKey, setContainerKey] = useState(0)
@@ -27,7 +27,7 @@ export default function FaqSection({ FAQs, before_title, title, subtitle, backgr
     const preExpanded = expandAll ? allUuids : []
 
     return (
-        <section className={`bg-${background_colour}`}>
+        <section className={`bg-${background_colour}`} id={section_id}>
             <div className="container section-default ">
                 <div className="row">
                     <div className="col-12  " key={containerKey}>

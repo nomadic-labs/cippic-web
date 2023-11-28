@@ -3,9 +3,9 @@ import rehypeRaw from 'rehype-raw'
 import remarkGfm from 'remark-gfm'
 import ButtonLink from '@/components/elements/ButtonLink'
 
-export default function RichTextSection({ title, subtitle, body, button, background_colour }) {
+export default function RichTextSection({ title, subtitle, body, button, background_colour, section_id }) {
     return (
-        <section className={`bg-${background_colour}`}>
+        <section className={`bg-${background_colour}`} id={section_id}>
             <div className="container section-default">
                 <div className="row">
                     <div className="col-12  ">

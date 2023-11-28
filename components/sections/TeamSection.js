@@ -1,9 +1,9 @@
 import ContentCard from "@/components/elements/ContentCard"
 import ProfileCard from "@/components/elements/ProfileCard"
 
-export default function TeamSection({ team_members, title, subtitle, background_colour }) {
+export default function TeamSection({ team_members, title, subtitle, background_colour, section_id }) {
     return (
-        <section className={`contact-section section-default bg-${background_colour}`}>
+        <section id={section_id} className={`contact-section section-default bg-${background_colour}`}>
             <div className="container">
                 <div className="row">
                     <div className="col-12  ">
