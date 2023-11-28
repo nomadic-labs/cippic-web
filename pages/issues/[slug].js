@@ -54,7 +54,8 @@ export const getStaticProps = async ({ params, locale }) => {
           'articles',
           'articles.categories',
           'articles.content_types',
-          'header_image.media'
+          'header_image.media',
+          'localizations'
         ],
         publicationState: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 'preview' : 'live'
       },
@@ -96,6 +97,16 @@ export default function TopicsPage({ content, layout }) {
         return filters.concat(newFilters)
     }, [])
 
+    let localizations;
+    if (category.localizations?.data && category.localizations?.data.length > 0) {
+      localizations = category.localizations.data.map(l => {
+        return ({
+          ...l.attributes,
+          link: `/issues/${l.attributes.slug}`
+        })
+      })
+    }
+
     return (
         <>
             <Layout 
@@ -103,6 +114,7 @@ export default function TopicsPage({ content, layout }) {
                 translation={layout.translation}
                 topics={layout.categories} 
                 contentTypes={layout.contentTypes}
+                localizations={localizations}
             >
               <FancyHeader
                 title={category.name}

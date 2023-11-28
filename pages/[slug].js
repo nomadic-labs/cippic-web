@@ -103,6 +103,7 @@ export const getStaticProps = async ({ params, locale }) => {
         populate: {
           main_image: true,
           more_images: true,
+          localizations: true,
           page_sections: {
             on: {
               "common.highlight-section": { populate: '*' },
@@ -172,7 +173,17 @@ export default function PageTemplate({ content, layout }) {
     }
     
     const terms = useContext(TranslationContext)
-    const headerBg = page.header_background_colour || "dark"
+    const headerBg = page.header_background_colour || "dark" 
+
+    let localizations;
+    if (page.localizations?.data && page.localizations?.data.length > 0) {
+      localizations = page.localizations.data.map(l => {
+        return ({
+          ...l.attributes,
+          link: `/${l.attributes.slug}`
+        })
+      })
+    }
 
     return (
         <>
@@ -181,6 +192,7 @@ export default function PageTemplate({ content, layout }) {
                 translation={layout.translation}
                 topics={layout.categories} 
                 contentTypes={layout.contentTypes}
+                localizations={localizations}
             >
               <main id="main" className="site-main" role="main">
                 <Header className={`bg-${headerBg}`}>

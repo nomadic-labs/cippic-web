@@ -19591,6 +19591,10 @@ h1.headline {
   max-width: 220px;
 }
 
+.uppercase {
+  text-transform: uppercase;
+}
+
 a.article-card, .article-card {
   position: relative;
   display: block;

@@ -19,6 +19,7 @@ export default function Layout({
     topics=[],
     contentTypes=[],
     translation={},
+    localizations
 }) {
     // Search
     const [isSearch, setSearch] = useState(false)
@@ -105,7 +106,16 @@ export default function Layout({
             <div id="page" className={`page_wapper hfeed site ${scroll ? "fixed-header floating-menu" : ""} ${isMobileMenu ? "crt_mobile_menu-visible" : ""}`}>
                 <div id="wrapper_full" className="content_all_warpper">
 
-                    <Header1 ref={menuButtonRef} handleSearch={handleSearch} handleContactPopup={handleContactPopup} handleMobileMenu={handleMobileMenu} layout={layout} topics={topics} contentTypes={contentTypes} />
+                    <Header1 
+                        ref={menuButtonRef} 
+                        handleSearch={handleSearch} 
+                        handleContactPopup={handleContactPopup} 
+                        handleMobileMenu={handleMobileMenu} 
+                        layout={layout} 
+                        topics={topics} 
+                        contentTypes={contentTypes} 
+                        localizations={localizations}
+                    />
 
                     <div id="content" className="site-content">
                         {children}
@@ -113,7 +123,14 @@ export default function Layout({
                 </div>
                 < Footer8 layout={layout} />
 
-                <MobileMenu ref={mobileMenuRef} handleMobileMenu={handleMobileMenu} links={layout.header_links} topics={topics} contentTypes={contentTypes} />
+                <MobileMenu 
+                    ref={mobileMenuRef} 
+                    handleMobileMenu={handleMobileMenu} 
+                    links={layout.header_links} 
+                    topics={topics} 
+                    contentTypes={contentTypes} 
+                    localizations={localizations}
+                />
                 <SearchPopup isSearch={isSearch} handleSearch={handleSearch} />
 
             </div>

@@ -4,7 +4,7 @@ import { useRouter } from "next/router"
 import { useContext, useState, useRef, useEffect } from 'react'
 import { TranslationContext } from '@/contexts/TranslationContext'
 
-export default function Navbar({ topics=[], contentTypes=[], links=[] }) {
+export default function Navbar({ topics=[], contentTypes=[], links=[], localizations }) {
     const router = useRouter()
     const keyTopics = topics.filter(t => t.featured)
     const ourWork = contentTypes.filter(ct => ct.featured)
@@ -144,11 +144,26 @@ export default function Navbar({ topics=[], contentTypes=[], links=[] }) {
                         )
                     })
                 }
-                <li className="menu-item menu-item-has-children dropdown nav-item">
-                    <Link href={router.asPath} locale={router.locale === 'en' ? 'fr' : 'en'} className="dropdown-toggle nav-link">
-                        <span>{`${router.locale === 'en' ? 'FR' : 'EN'}`}</span>
-                    </Link>
-                </li>
+                {
+                    localizations && 
+                    localizations.map(l => {
+                        return (
+                            <li key={l.link} className="menu-item menu-item-has-children dropdown nav-item">
+                                <Link href={l.link} locale={l.locale} className="dropdown-toggle nav-link uppercase">
+                                    <span>{`${l.locale}`}</span>
+                                </Link>
+                            </li>
+                        )
+                    })
+                }
+                {
+                    !localizations &&
+                    <li className="menu-item menu-item-has-children dropdown nav-item">
+                        <Link href="/" locale={router.locale === 'en' ? 'fr' : 'en'} className="dropdown-toggle nav-link uppercase">
+                            <span>{`${router.locale === 'en' ? 'FR' : 'EN'}`}</span>
+                        </Link>
+                    </li>
+                }
             </ul>
         </>
     )

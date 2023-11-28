@@ -3,7 +3,7 @@ import Navbar from "../Navbar"
 import { forwardRef } from 'react'
 
 const Header1 = forwardRef(function Header1(props, ref) {
-    const { handleSearch, handleContactPopup, handleMobileMenu, topics, contentTypes, layout } = props;
+    const { handleSearch, handleContactPopup, handleMobileMenu, topics, contentTypes, layout, localizations } = props;
     const mainLogoSrc = layout.main_logo?.data?.attributes?.url ? `${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${layout.main_logo.data.attributes.url}` : "/assets/images/cippic-logo-combined-dark.svg"
     const altLogoSrc = layout.alternate_logo?.data?.attributes?.url ? `${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${layout.alternate_logo.data.attributes.url}` : "/assets/images/cippic-logo-alt-dark.svg"
     return (
@@ -31,7 +31,7 @@ const Header1 = forwardRef(function Header1(props, ref) {
                                 <div className="header_content_collapse d-flex justify-content-end">
                                     <div className="header_menu_box">
                                         <div className="navigation_menu">
-                                            <Navbar topics={topics} contentTypes={contentTypes} links={layout.header_links} />
+                                            <Navbar topics={topics} contentTypes={contentTypes} links={layout.header_links} localizations={localizations} />
                                         </div>
                                     </div>
                                     <div className="header_right_content">

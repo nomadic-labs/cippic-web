@@ -104,7 +104,8 @@ export const getStaticProps = async ({ params, locale }) => {
               'common.highlight-section': { populate: '*' },
               'common.image-slider': { populate: '*' },
             }
-          }
+          },
+          localizations: true
         },
         publicationState: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 'preview' : 'live'
       },
@@ -206,6 +207,16 @@ export default function ArticlePage({ content, layout }) {
     const tags = categories.map(cat => cat.attributes.name).concat(content_types.map(ct => ct.attributes.name))
     const terms = useContext(TranslationContext)
 
+    let localizations;
+    if (article.localizations?.data && article.localizations?.data.length > 0) {
+      localizations = article.localizations.data.map(l => {
+        return ({
+          ...l.attributes,
+          link: `/articles/${l.attributes.slug}`
+        })
+      })
+    }
+
     return (
         <>
             <Layout 
@@ -213,6 +224,7 @@ export default function ArticlePage({ content, layout }) {
                 translation={layout.translation}
                 topics={layout.categories} 
                 contentTypes={layout.contentTypes}
+                localizations={localizations}
             >
               <main id="main" className="site-main" role="main">
                 <Header>
