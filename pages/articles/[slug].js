@@ -263,7 +263,7 @@ export default function ArticlePage({ content, layout }) {
                               />
                             </div>
                           }
-                            <div className="col-12 col-lg-8 mx-auto order-lg-1">
+                            <div className="col-12   order-lg-1">
                                 <ReactMarkdown rehypePlugins={[rehypeRaw]} remarkPlugins={[remarkGfm]}>
                                     {article.body}
                                 </ReactMarkdown>

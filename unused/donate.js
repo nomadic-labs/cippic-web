@@ -72,7 +72,7 @@ export default function Donate({ content, layout }) {
                                 <section id={section.section_id} key={section.section_id} className={`bg-${section.background_colour}`}>
                                     <div className="container section-default">
                                         <div className="row">
-                                            <div className="col-12 col-lg-8 mx-auto">
+                                            <div className="col-12  ">
                                                 <div className="contnet">
                                                     <h2 className="mt-0">{section.heading}</h2>
                                                     <ReactMarkdown>

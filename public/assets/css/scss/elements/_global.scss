@@ -231,6 +231,11 @@ h6 {
     line-height: 1.25;
     margin-bottom: 1rem;
     margin-top: 1em;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    font-family: var(--font-family-one);
 }
 
 p {
@@ -328,7 +333,7 @@ pre {
 
 @media (min-width:1200px) {
     .container {
-        max-width: 1170px;
+        max-width: 1060px;
         padding  : 0px 15px;
     }
 }

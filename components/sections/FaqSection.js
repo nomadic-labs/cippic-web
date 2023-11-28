@@ -30,7 +30,7 @@ export default function FaqSection({ FAQs, before_title, title, subtitle, backgr
         <section className={`bg-${background_colour}`}>
             <div className="container section-default ">
                 <div className="row">
-                    <div className="col-12 col-lg-8 mx-auto" key={containerKey}>
+                    <div className="col-12  " key={containerKey}>
                         <div className="title_sections">
                             {before_title && <div className="before_title">{before_title}</div>}
                             {title && <h2 className="mb-4">{title}</h2>}
@@ -49,7 +49,7 @@ export default function FaqSection({ FAQs, before_title, title, subtitle, backgr
                                     <AccordionItem key={faq.id} uuid={faq.id}>
                                         <AccordionItemHeading>
                                             <AccordionItemButton>
-                                                <span className="caret"><i className="icon-arrow-down-sign-to-navigate" /></span>
+                                                <span className="caret"><i className="fa-solid fa-angle-down" /></span>
                                                 {faq.Header}
                                             </AccordionItemButton>
                                         </AccordionItemHeading>

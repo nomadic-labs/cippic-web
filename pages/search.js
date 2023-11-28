@@ -66,6 +66,15 @@ export default function Home5({content, layout, term}) {
   const { searchResults } = content
   const terms = useContext(TranslationContext)
 
+  const pages = searchResults.pages.map(page => {
+    const item = {
+      ...page,
+      link: `${page.slug}`,
+      preview: page.subtitle,
+      categories: [{name: 'Page'}]
+    }
+    return item
+  })
 
   const articles = searchResults.articles.map(article => {
     const item = {
@@ -95,7 +104,7 @@ export default function Home5({content, layout, term}) {
     return item
   })
 
-  const results = [...categories, ...contentTypes, ...articles]
+  const results = [...pages, ...categories, ...contentTypes, ...articles]
 
     return (
         <>

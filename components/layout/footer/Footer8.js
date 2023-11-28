@@ -8,7 +8,7 @@ export default function Footer8({ layout }) {
 
     return (
         <>
-            <div className="footer_area footer_sticky_enable_foo bg-one mb-2" id="footer_contents">
+            <div className="footer_area footer_sticky_enable_foo bg-one" id="footer_contents">
                 {/*===============spacing==============*/}
                 <div className="footer-copyright">
                     {/*===============spacing==============*/}

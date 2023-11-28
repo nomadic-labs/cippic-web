@@ -1699,6 +1699,11 @@ h6 {
   line-height: 1.25;
   margin-bottom: 1rem;
   margin-top: 1em;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  font-family: var(--font-family-one);
 }
 
 p {
@@ -1794,7 +1799,7 @@ pre {
 
 @media (min-width: 1200px) {
   .container {
-    max-width: 1170px;
+    max-width: 1060px;
     padding: 0px 15px;
   }
 }
@@ -19282,14 +19287,14 @@ h1.headline {
   font-family: var(--font-family-one);
 }
 
-.bg-one {
+.bg-one, .bg-darkest {
   background-color: var(--primary-color-one);
   color: var(--text-color-light);
 }
-.bg-one a {
+.bg-one a, .bg-darkest a {
   color: var(--text-color-light);
 }
-.bg-one a:hover {
+.bg-one a:hover, .bg-darkest a:hover {
   color: var(--highlight-color);
 }
 
@@ -19716,10 +19721,10 @@ a.article-card:hover .read_more i {
   -o-transition: all var(--animation-speed) ease;
 }
 
-.bg-one a.article-card:hover .title, .bg-two a.article-card:hover .title, .bg-dark a.article-card:hover .title {
+.bg-one a.article-card:hover .title, .bg-two a.article-card:hover .title, .bg-dark a.article-card:hover .title, .bg-darkest a.article-card:hover .title {
   color: var(--primary-color-four);
 }
-.bg-one a.article-card:hover .read_more, .bg-two a.article-card:hover .read_more, .bg-dark a.article-card:hover .read_more {
+.bg-one a.article-card:hover .read_more, .bg-two a.article-card:hover .read_more, .bg-dark a.article-card:hover .read_more, .bg-darkest a.article-card:hover .read_more {
   color: var(--primary-color-four);
 }
 
