@@ -14,9 +14,9 @@ const Header1 = forwardRef(function Header1(props, ref) {
                         <div className="row align-items-center">
                             <div className="col-lg-5 col-md-8 col-sm-8 col-xs-8 logo_column">
                                 <div className="header_logo_box">
-                                    <Link href="/" className="logo navbar-brand">
+                                    <Link href="/" className="logo navbar-brand" id="logo">
                                         <img src={mainLogoSrc} alt="CIPPIC" className="logo_default" />
-                                        <img src={altLogoSrc} alt="CIPPIC" className="logo__sticky" />
+                                        <strong className="text-bold">{layout.full_organization_name}</strong>
                                     </Link>
                                 </div>
                             </div>

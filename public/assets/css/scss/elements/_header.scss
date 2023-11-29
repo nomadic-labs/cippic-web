@@ -263,7 +263,7 @@
         }
         .logo_default{
             display: block;
-            max-width: 550px;
+            // max-width: 550px;
         }
         .logo__sticky{
             display: none;
@@ -293,7 +293,7 @@
 
                  li {
                      position: relative;
-                     margin-right: 1.4rem;
+                     margin-right: 1.1rem;
                      padding: 0px 0px;
                      margin-bottom: 0px!important;
                      display: inline-block;
@@ -302,7 +302,7 @@
                     -moz-transition: var(--animation-speed) ease-in-out;
                     -o-transition: var(--animation-speed) ease-in-out;
                     &.dropdown{
-                        margin-right: 1.4rem;
+                        margin-right: 1.1rem;
 
                         .dropdown-toggle:after {
                             content: '';
@@ -1130,7 +1130,7 @@
 
             li {
                 display: inline-block;
-                margin-left: 20px;
+                margin-left: 12px;
             }
         }
         .contact-toggler{
@@ -1190,10 +1190,10 @@
             border: 0px;
             -webkit-box-shadow: 0px 0px 0px 0px;
             box-shadow: 0px 0px 0px 0px;
-            font-size: 20px;
-            line-height: 20px;
+            font-size: 18px;
+            line-height: 18px;
             color: var(--text-color-light);
-            top: 4px;
+            // top: 4px;
 
             &:hover {
                 color: var(--color-highlight);
@@ -3027,12 +3027,14 @@ body.single-header{
             background: var(--primary-color-two);
         }
 
-        .logo_default {
-            display: none;
-        }
+        // .logo_default {
+        //     display: none;
+        // }
 
-        .logo__sticky {
-            display: block;
+        #logo {
+            strong {
+                display: none;
+            }
         }
     }
 }
@@ -3153,6 +3155,12 @@ body.single-header{
         }
         .menu_column{
             width: 20%;
+        }
+
+        .header_logo_box {
+            img {
+                max-width: 150px;
+            }
         }
          
     }

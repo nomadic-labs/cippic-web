@@ -16,7 +16,7 @@
     .default_sickty_heaad {
         .header_logo_box{
             img{
-                max-width: 430px;
+                // max-width: 430px;
             }
         }
     }
@@ -956,6 +956,12 @@
                 position: relative;
                 font-size: calc(1rem + 2vw);
                 font-weight: 600;
+            }
+        }
+
+        .header_logo_box {
+            strong {
+                display: none;
             }
         }
 

@@ -23,7 +23,8 @@ export default function Footer8({ layout }) {
                                     width={main_logo.data.attributes.width} 
                                     height={main_logo.data.attributes.height} 
                                     src={`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${main_logo.data.attributes.url}`} 
-                                    alt={main_logo.data.attributes.alternativeText} className="img-fluid" 
+                                    alt={main_logo.data.attributes.alternativeText} 
+                                    className="img-fluid cippic-logo" 
                                 />
                             }
                             </div>
