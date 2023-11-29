@@ -1127,22 +1127,6 @@
     background-position: top !important;
 }
 
-.bg_pattern_1 {
-    background-image: url('/assets/images/bg-pattern-1.svg');
-    background-position: top 10% center !important;
-    background-repeat  : no-repeat !important;
-    background-size    : 100% auto;
-    transition         : background 0.3s !important;
-}
-
-.bg_pattern_2 {
-    background-image: url('/logomark.svg');
-    background-position: center;
-    background-repeat: no-repeat !important;
-    background-size: 100% auto;
-    transition: background 0.3s !important;
-}
-
 .bg_pattern_3 {
     background-position: center center !important;
     background-repeat  : no-repeat !important;
@@ -1372,29 +1356,17 @@
 @import 'variable';
 @import 'global';
 @import 'theme-button';
-// @import 'topbar';
 @import 'header';
-// @import 'header-two';
 @import 'slider';
 @import 'blog';
 @import 'team';
 @import 'service';
 @import 'project';
-// @import 'widgets';
 @import 'common';
-// @import 'content-two';
-// @import 'footer';
-// @import 'shop';
-// @import 'shop-widgets';
-// @import 'packagetwo/packagetwo';
-// @import 'packagetwo/header';
-// @import 'side-menu/sidemenu';
-// @import 'map';
 @import 'article';
 @import 'accordion';
 @import 'responsive';
 
-// @import '../../../../../node_modules/react-modal-video/scss/modal-video.scss';
 
 iframe {
     width: 100%;

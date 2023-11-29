@@ -2,13 +2,10 @@ import { useEffect, useState, useRef } from "react"
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import BackToTop from '../elements/BackToTop'
-import Breadcrumb from './Breadcrumb'
-import FloatingMenu from './FloatingMenu'
-import Header1 from './header/Header1'
+import Header from './Header'
 import MobileMenu from './MobileMenu'
-import ModalPopup from './ModalPopup'
 import SearchPopup from './SearchPopup'
-import Footer8 from "./footer/Footer8"
+import Footer from "./Footer"
 
 export default function Layout({ 
     children, 
@@ -106,7 +103,7 @@ export default function Layout({
             <div id="page" className={`page_wapper hfeed site ${scroll ? "fixed-header floating-menu" : ""} ${isMobileMenu ? "crt_mobile_menu-visible" : ""}`}>
                 <div id="wrapper_full" className="content_all_warpper">
 
-                    <Header1 
+                    <Header 
                         ref={menuButtonRef} 
                         handleSearch={handleSearch} 
                         handleContactPopup={handleContactPopup} 
@@ -121,7 +118,7 @@ export default function Layout({
                         {children}
                     </div>
                 </div>
-                < Footer8 layout={layout} />
+                < Footer layout={layout} />
 
                 <MobileMenu 
                     ref={mobileMenuRef} 

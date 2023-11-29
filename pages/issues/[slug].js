@@ -1,17 +1,9 @@
 import Layout from "@/components/layout/Layout"
-import Breadcrumb from '@/components/layout/Breadcrumb'
-import FeaturedArticles from "@/components/sections/FeaturedArticles"
-import Image from "next/image"
 import FancyHeader from "@/components/sections/FancyHeader"
-
-import Link from "next/link"
-import { Autoplay, Navigation, Pagination } from "swiper"
-import { Swiper, SwiperSlide } from "swiper/react"
-import ReactMarkdown from 'react-markdown'
 import dynamic from 'next/dynamic';
 import getLayoutData from "@/utils/layout-data";
 
-const PortfolioFilter3Col = dynamic(() => import('@/components/elements/PortfolioFilter3Col'), {
+const FilterContent = dynamic(() => import('@/components/elements/FilterContent'), {
     ssr: false,
 })
 
@@ -126,7 +118,7 @@ export default function TopicsPage({ content, layout }) {
                 <section className="position-relative bg-light section-default">
                   <div className="container">
                       <div className="project_all filt_style_one filter_enabled">
-                          <PortfolioFilter3Col articles={articles} filters={articleFilters} />
+                          <FilterContent articles={articles} filters={articleFilters} />
                       </div>
                   </div>
                 </section>

@@ -1,18 +1,9 @@
 import Layout from "@/components/layout/Layout"
-import FeaturedArticles from "@/components/sections/FeaturedArticles"
-import LatestNews from "@/components/sections/LatestNews"
 import Articles from "@/components/sections/Articles"
 import Topics from "@/components/sections/Topics"
 import Students from "@/components/sections/Students"
-import Tab1 from "@/components/sections/Tab1"
 import Landing from "@/components/sections/Landing"
-import SpotlightArticle from "@/components/elements/SpotlightArticle"
-import ArticleCard from "@/components/elements/ArticleCard"
-import Underline from "@/components/elements/Underline"
-import Fade from 'react-reveal/Fade';
 import getLayoutData from "@/utils/layout-data"
-import Link from "next/link"
-import Image from "next/image"
 
 const qs = require('qs');
 

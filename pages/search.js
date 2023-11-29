@@ -2,10 +2,7 @@ import Layout from "@/components/layout/Layout"
 import SearchResult from "@/components/elements/SearchResult"
 import Fade from 'react-reveal/Fade';
 import getLayoutData from "@/utils/layout-data"
-import Link from "next/link"
-import Image from "next/image"
-import { useState } from 'react'
-import { useContext } from 'react'
+import { useState, useContext } from 'react'
 import { TranslationContext } from '@/contexts/TranslationContext'
 
 const qs = require('qs');
