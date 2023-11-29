@@ -10,33 +10,24 @@
         "sass": "sass --watch public/assets/css/scss/elements/theme-css.scss:public/assets/css/scss/elements/theme-css.css"
     },
     "dependencies": {
-        "@emotion/cache": "^11.11.0",
         "@vercel/analytics": "^1.1.1",
-        "aos": "^2.3.4",
         "eslint": "8.36.0",
         "eslint-config-next": "13.2.4",
-        "isotope-layout": "^3.0.6",
         "next": "13.2.4",
         "qs": "^6.11.2",
         "react": "18.2.0",
         "react-accessible-accordion": "^5.0.0",
-        "react-countup": "^6.4.2",
         "react-dom": "18.2.0",
         "react-loader-spinner": "^5.3.4",
         "react-markdown": "^9.0.0",
         "react-modal-video": "^2.0.0",
         "react-reveal": "^1.2.2",
-        "react-scroll-trigger": "^0.6.14",
         "react-slick": "^0.29.0",
         "rehype-raw": "^7.0.0",
         "remark-gfm": "^4.0.0",
         "sass": "^1.62.1",
-        "slick-carousel": "^1.8.1",
         "swiper": "^9.2.4",
         "yet-another-react-lightbox": "^3.15.2"
-    },
-    "resolutions": {
-        "react-countup/countup.js": "2.5.0"
     },
     "packageManager": "yarn@3.6.3",
     "devDependencies": {
