@@ -1,17 +1,13 @@
 import Layout from "@/components/layout/Layout"
 import Header from "@/components/sections/Header"
-import Link from "next/link"
-import { Autoplay, Navigation, Pagination } from "swiper"
-import { Swiper, SwiperSlide } from "swiper/react"
 import ArticleCard from "@/components/elements/ArticleCard"
-import ReactMarkdown from 'react-markdown'
 import dynamic from 'next/dynamic';
 import Fade from 'react-reveal/Fade';
 import getLayoutData from "@/utils/layout-data"
 import { useContext } from 'react'
 import { TranslationContext } from '@/contexts/TranslationContext'
 
-const PortfolioFilter3Col = dynamic(() => import('@/components/elements/PortfolioFilter3Col'), {
+const FilterContent = dynamic(() => import('@/components/elements/FilterContent'), {
     ssr: false,
 })
 
@@ -106,7 +102,7 @@ export default function OurWork({ content, layout }) {
                     <div className="container">
                         <div className="row">
                             <div className="project_all filt_style_one filter_enabled">
-                                <PortfolioFilter3Col articles={articles} filters={articleFilters} filterField="content_types" />
+                                <FilterContent articles={articles} filters={articleFilters} filterField="content_types" />
                             </div>
                         </div>
                     </div>

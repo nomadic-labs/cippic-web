@@ -808,7 +808,7 @@
             border-radius: 10px;
             &::before{
                 position: absolute;
-                content: url(../../../images/dot-bg.png);
+                // content: url(../../../images/dot-bg.png);
                 bottom: -249px;
                 left: -36px;
                 width: 100%;
@@ -822,7 +822,7 @@
             }
             &::after{
                 position: absolute;
-                content: url(../../../images/dot-bg.png);
+                // content: url(../../../images/dot-bg.png);
                 right: -33px;
                 top: -243px;
                 width: 100%;

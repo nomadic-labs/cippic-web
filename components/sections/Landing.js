@@ -1,8 +1,4 @@
-import Link from "next/link"
 import FeaturedArticles from "@/components/sections/FeaturedArticles"
-import ArticleCard from "@/components/elements/ArticleCard"
-import ReactMarkdown from 'react-markdown'
-import Circles from '@/components/svgs/circles'
 import FeaturedStory from '@/components/elements/FeaturedStory'
 
 export default function Landing({ featured_story_heading, latest_news_heading, articles, spotlightArticle }) {

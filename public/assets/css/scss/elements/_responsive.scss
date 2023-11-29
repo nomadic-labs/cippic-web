@@ -486,12 +486,6 @@
             }
         }
 
-        .bg_pattern_1 {
-            background-image: url('/assets/images/bg-pattern-2.svg');
-            background-position: top center !important;
-            background-size    : 90% auto;
-        }
-
         .testimonial_sec.style_three .arrows{
             z-index: 99;
             .prev-single-one_three{
@@ -951,12 +945,6 @@
             grid-template-columns: repeat(1, 1fr);
             grid-auto-rows: auto;
             gap: 1.5rem;
-        }
-
-        .bg_pattern_1 {
-            background-image: url('/assets/images/bg-pattern-2.svg');
-            background-position: top 1% center !important;
-            background-size    : 105% auto;
         }
 
         .headline {

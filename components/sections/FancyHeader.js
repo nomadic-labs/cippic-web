@@ -1,5 +1,4 @@
 import Image from "next/image"
-import Circles from '@/components/svgs/circles'
 import ButtonLink from '@/components/elements/ButtonLink'
 import ReactMarkdown from 'react-markdown'
 
