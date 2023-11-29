@@ -4,8 +4,7 @@ import { forwardRef } from 'react'
 
 const Header1 = forwardRef(function Header1(props, ref) {
     const { handleSearch, handleContactPopup, handleMobileMenu, topics, contentTypes, layout, localizations } = props;
-    const mainLogoSrc = layout.main_logo?.data?.attributes?.url ? `${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${layout.main_logo.data.attributes.url}` : "/assets/images/cippic-logo-combined-dark.svg"
-    const altLogoSrc = layout.alternate_logo?.data?.attributes?.url ? `${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${layout.alternate_logo.data.attributes.url}` : "/assets/images/cippic-logo-alt-dark.svg"
+    const mainLogoSrc = layout.main_logo?.data?.attributes?.url ? `${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${layout.main_logo.data.attributes.url}` : "/assets/images/cippic-logo-light.svg"
     return (
         <>
             <div className="header_area" id="header_contents">
