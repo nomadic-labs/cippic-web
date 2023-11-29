@@ -1,4 +1,4 @@
-
+import Fade from 'react-reveal/Fade';
 import Link from "next/link"
 import { useEffect, useMemo, useState } from "react"
 import ReactMarkdown from 'react-markdown'
@@ -33,6 +33,7 @@ export default function PortfolioFilter3Col({articles, filters, filterField="con
 
     const filterArticles = () => {
         setFilteredArticles([])
+
         let filteredArticles = [...articles]
 
         if (selectedFilters.length > 0) {
@@ -82,11 +83,19 @@ export default function PortfolioFilter3Col({articles, filters, filterField="con
                         <div className="fliter_group">
                             <p className="title-small text-dark mb-0 mr_right_15">{`${terms.filters}:`}</p>
                             <ul className="project_filter dark clearfix">
-                                <li className={activeBtn('*')} onClick={handleSelectFilter("*")}>{terms.all}</li>
+                                <li className={activeBtn('*')}>
+                                    <button className="btn-none" onClick={handleSelectFilter("*")}>
+                                        {terms.all}
+                                    </button>
+                                </li>
                                 {
                                     filters.map(filter => {
                                         return(
-                                            <li key={filter.slug} className={activeBtn(filter.slug)} onClick={handleSelectFilter(filter.slug)}>{`${filter.name} (${articleCounts[filter.slug]})`}</li>
+                                            <li key={filter.slug} className={activeBtn(filter.slug)} >
+                                                <button className="btn-none" onClick={handleSelectFilter(filter.slug)}>
+                                                    {`${filter.name} (${articleCounts[filter.slug]})`}  
+                                                </button>
+                                            </li>
                                         )
                                     })
                                 }
@@ -103,6 +112,7 @@ export default function PortfolioFilter3Col({articles, filters, filterField="con
                         {
                             filteredArticles.map(article => {
                                 return (
+                                    <Fade key={article.id}>
                                     <ArticleCard 
                                         key={article.id}
                                         article={article} 
@@ -114,6 +124,7 @@ export default function PortfolioFilter3Col({articles, filters, filterField="con
                                         bgLight
                                         showTags
                                     />
+                                    </Fade>
                                 )
                             })
                         }

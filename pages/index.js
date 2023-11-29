@@ -126,11 +126,6 @@ export const getStaticProps = async ({ locale }) => {
     const pageJson = await pageRes.json()
     const page = pageJson.data.attributes
 
-    const studentsRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/students-page?${studentsQuery}`)
-    const studentsJson = await studentsRes.json()
-    const studentsPage = studentsJson.data.attributes
-    const studentPrograms = studentsPage.student_programs
-
     const articleRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/articles?${articlesQuery}`)
     const articleJson = await articleRes.json()
     const articles = articleJson.data.map((article) => ({
@@ -149,7 +144,7 @@ export const getStaticProps = async ({ locale }) => {
     const spotlightJson = await spotlightRes.json()
     const spotlight = spotlightJson.data.length > 0 ? spotlightJson.data[0].attributes : news[0]
 
-    const content = { ...page, articles, spotlight, news, studentPrograms }
+    const content = { ...page, articles, spotlight, news }
 
     return { 
       props: { content, layout },
@@ -182,11 +177,16 @@ export default function Home5({content, layout}) {
                     subtitle={content.articles_section_subtitle}
                     articles={content.articles}
                 />
+                <Topics 
+                  title={content.topics_section_title}
+                  subtitle={content.topics_section_subtitle}
+                  topics={keyTopics}
+                />
                 <Students 
                     images={content.students_images}
                     title={content.students_section_title}
                     description={content.students_description}
-                    programs={content.studentPrograms}
+                    programs={content.student_programs}
                 />
             </Layout>
         </>

@@ -1,18 +1,27 @@
 import ReactMarkdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
+import remarkGfm from 'remark-gfm'
+import ButtonLink from '@/components/elements/ButtonLink'
 
-export default function RichTextSection({ before_title, title, subtitle, body, background_colour }) {
+export default function RichTextSection({ title, subtitle, body, button, background_colour, section_id }) {
     return (
-        <section className={`bg-${background_colour}`}>
+        <section className={`bg-${background_colour}`} id={section_id}>
             <div className="container section-default">
                 <div className="row">
-                    <div className="col-12 col-lg-8 mx-auto">
+                    <div className="col-12  ">
                         <div className="title_sections">
-                            {before_title && <div className="before_title">{before_title}</div>}
                             {title && <h2>{title}</h2>}
                             {subtitle && <p className="text-lg">{subtitle}</p>}
                         </div>
-                        <ReactMarkdown rehypePlugins={[rehypeRaw]}>{body}</ReactMarkdown >
+                        <ReactMarkdown rehypePlugins={[rehypeRaw]} remarkPlugins={[remarkGfm]}>{body}</ReactMarkdown >
+                        <div>
+                            { button && 
+                            <div className="text-center">
+                                <ButtonLink href={button.button_link} target="_blank" className="mr_top_20">
+                                    {button.button_text}
+                                </ButtonLink>
+                            </div>}
+                        </div>
                     </div>
                 </div>
             </div>

@@ -7799,7 +7799,7 @@ h1.headline {
 
 // backgrounds
 
-.bg-one {
+.bg-one, .bg-darkest {
     background-color: var(--primary-color-one);
     color: var(--text-color-light);
 
@@ -7907,6 +7907,12 @@ h1.headline {
 
 .img-full {
     width: 100%;
+    object-fit: cover;
+}
+
+.img-fit {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 
@@ -8115,7 +8121,18 @@ h1.headline {
     }
 }
 
+.header-image {
+
+    img {
+        object-fit: cover;
+    }
+}
+
 .uottawa-logo {
     filter: grayscale(1) brightness(6);
     max-width: 220px;
+}
+
+.uppercase {
+    text-transform: uppercase;
 }

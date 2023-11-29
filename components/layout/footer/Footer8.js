@@ -8,7 +8,7 @@ export default function Footer8({ layout }) {
 
     return (
         <>
-            <div className="footer_area footer_sticky_enable_foo bg-one mb-2" id="footer_contents">
+            <div className="footer_area footer_sticky_enable_foo bg-one" id="footer_contents">
                 {/*===============spacing==============*/}
                 <div className="footer-copyright">
                     {/*===============spacing==============*/}
@@ -17,15 +17,21 @@ export default function Footer8({ layout }) {
                     <div className="container-xl">
                         <div className="row align-items-center pd_bottom_20">
                             <div className="col-12 col-md-8 col-lg-6 mb-3 mb-lg-0 mb-xl-0">
-                            {
-                                cippicLogo && 
-                                <Image 
-                                    width={main_logo.data.attributes.width} 
-                                    height={main_logo.data.attributes.height} 
-                                    src={`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${main_logo.data.attributes.url}`} 
-                                    alt={main_logo.data.attributes.alternativeText} className="img-fluid" 
-                                />
-                            }
+                                <div className="d-flex justify-content-center justify-content-md-start mb-3 mb-md-0">
+                                {
+                                    cippicLogo && 
+                                    <div className="cippic-logo">
+                                        <Image 
+                                            width={main_logo.data.attributes.width} 
+                                            height={main_logo.data.attributes.height} 
+                                            src={`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${main_logo.data.attributes.url}`} 
+                                            alt={main_logo.data.attributes.alternativeText} 
+                                            className="img-fluid cippic-logo" 
+                                        />
+                                        <strong className="text-bold">{layout.full_organization_name}</strong>
+                                    </div>
+                                }
+                                </div>
                             </div>
                             <div className="col-12 col-md-4 col-lg-6">
                                 <div className="footer_copy_content_right text-center text-lg-end">

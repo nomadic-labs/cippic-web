@@ -65,6 +65,8 @@ export default function StudentsPage({ content, layout }) {
                         })}
                     </div>
                 </FancyHeader>
+
+                <main id="main" className="site-main" role="main">
                                 
                 <section className="section-default bg-light">
                     <div className="container">
@@ -85,7 +87,7 @@ export default function StudentsPage({ content, layout }) {
                             <section className={`bg-${program.background_colour}`} id={program.section_id} key={program.section_id}>
                                 <div className="container section-default">
                                     <div className="row">
-                                        <div className="col-12 col-lg-8 mx-auto">
+                                        <div className="col-12  ">
                                             <div className="title_sections">
                                                 <h2>{program.title}</h2>
                                                 {program.subtitle && <p className="text-lg">{program.subtitle}</p>}
@@ -108,6 +110,7 @@ export default function StudentsPage({ content, layout }) {
                         )
                     })
                 }
+                </main>
             </Layout>
         </>
     )

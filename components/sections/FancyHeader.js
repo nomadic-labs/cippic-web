@@ -4,13 +4,24 @@ import ButtonLink from '@/components/elements/ButtonLink'
 import ReactMarkdown from 'react-markdown'
 
 
-export default function FancyHeader({ before_title, title, subtitle, byline, iconSrc, button, tags, children }) {
-
+export default function FancyHeader({ before_title, title, subtitle, byline, iconSrc, button, tags, image, children }) {
     return (
       <section className="section-md bg-two">
         <div className="container position-relative">
           <div className="row">
-            <div className="col-12">
+            {
+              image && 
+              <div className="col-12 col-md-4 mb-3 header-image">
+                <Image 
+                  className="highlight-border img-fit" 
+                  src={`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${image.formats.small.url}`} 
+                  width={image.formats.small.width} 
+                  height={image.formats.small.height} 
+                  alt={image.alternativeText} 
+                />
+              </div>
+            }
+            <div className={`${image ? "col-12 col-md-8" : "col-12"}`}>
                 {tags && <div className="tags">
                     <i className="icon-folder" />
                     {tags}

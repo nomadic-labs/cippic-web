@@ -49,7 +49,7 @@ export default function Donate({ content, layout }) {
                     title={content.title}
                     subtitle={content.subtitle}
                 />
-                    
+                <main id="main" className="site-main" role="main">
                     <section className="contact-section section-default">
                         <div className="container">
                             <div className="row">
@@ -75,7 +75,7 @@ export default function Donate({ content, layout }) {
 
                     
                     
-
+                </main>
             </Layout>
         </>
     )

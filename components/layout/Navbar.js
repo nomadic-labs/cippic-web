@@ -1,23 +1,88 @@
 import Link from "next/link"
 import Image from "next/image"
 import { useRouter } from "next/router"
-import { useContext } from 'react'
+import { useContext, useState, useRef, useEffect } from 'react'
 import { TranslationContext } from '@/contexts/TranslationContext'
 
-export default function Navbar({ topics=[], contentTypes=[], links=[] }) {
+export default function Navbar({ topics=[], contentTypes=[], links=[], localizations }) {
     const router = useRouter()
     const keyTopics = topics.filter(t => t.featured)
     const ourWork = contentTypes.filter(ct => ct.featured)
     const terms = useContext(TranslationContext)
+    const [isOpenWork, setIsOpenWork] = useState(false)
+    const [isOpenIssues, setIsOpenIssues] = useState(false)
+    const workMenu = useRef(null)
+    const issuesMenu = useRef(null)
+
+    const toggleWorkMenu = (e) => {
+        setIsOpenIssues(false)
+        setIsOpenWork(!isOpenWork);
+    }
+
+    const toggleIssuesMenu = (e) => {
+        setIsOpenWork(false)
+        setIsOpenIssues(!isOpenIssues);
+    }
+
+    useEffect(() => {
+        function handleClickOutside(event) {
+          if (isOpenWork && workMenu.current && !workMenu.current.contains(event.target)) {
+            event.stopPropagation()
+            setIsOpenWork(false)
+            console.log("close work!")
+          }
+        }
+        // Bind the event listener
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+          // Unbind the event listener on clean up
+          document.removeEventListener("mousedown", handleClickOutside);
+        };
+      }, [workMenu, isOpenWork]);
+
+    useEffect(() => {
+        function handleClickOutside(event) {
+          if (isOpenIssues && issuesMenu.current && !issuesMenu.current.contains(event.target)) {
+            event.stopPropagation()
+            setIsOpenIssues(false)
+            console.log("close issues!")
+          }
+        }
+        // Bind the event listener
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+          // Unbind the event listener on clean up
+          document.removeEventListener("mousedown", handleClickOutside);
+        };
+      }, [issuesMenu, isOpenIssues]);
+
+    useEffect(() => {
+        function handleKeyDown(event) {
+          if (isOpenIssues && event.key === "Escape") {
+            setIsOpenIssues(false)
+          }
+
+          if (isOpenWork && event.key === "Escape") {
+            setIsOpenWork(false)
+          }
+        }
+        // Bind the event listener
+        document.addEventListener("keydown", handleKeyDown);
+        return () => {
+          // Unbind the event listener on clean up
+          document.removeEventListener("keydown", handleKeyDown);
+        };
+      }, [isOpenWork, isOpenIssues]);
+
 
     return (
         <>
             <ul id="myNavbar" className="navbar_nav">
-                <li className="menu-item menu-item-has-children dropdown nav-item">
-                    <div className="dropdown-toggle nav-link">
+                <li ref={workMenu} className={`menu-item menu-item-has-children dropdown nav-item ${isOpenWork ? 'is-open' : 'is-closed'}`}>
+                    <button className="dropdown-toggle nav-link btn-none" onClick={toggleWorkMenu} aria-expanded={isOpenWork}>
                         <span>{terms.our_work}</span>
                         <span className="fa fa-angle-down mr_left_5"></span>
-                    </div>
+                    </button>
                     <ul className="dropdown-menu">
                         <li key={"all-work"} className="menu-item  nav-item">
                             <Link href={`/${router.locale}/our-work`} className="dropdown-item nav-link"> 
@@ -37,11 +102,11 @@ export default function Navbar({ topics=[], contentTypes=[], links=[] }) {
                         }
                     </ul>
                 </li>
-                <li className="menu-item menu-item-has-children dropdown nav-item">
-                    <div className="dropdown-toggle nav-link">
+                <li ref={issuesMenu} className={`menu-item menu-item-has-children dropdown nav-item ${isOpenIssues ? 'is-open' : 'is-closed'}`}>
+                    <button className="dropdown-toggle nav-link btn-none" onClick={toggleIssuesMenu} aria-expanded={isOpenIssues}>
                         <span>{terms.issues}</span>
                         <span className="fa fa-angle-down mr_left_5"></span>
-                    </div>
+                    </button>
                     <ul className="dropdown-menu">
                         <li key={"all-issues"} className="menu-item  nav-item">
                             <Link href={`/${router.locale}/issues`} className="dropdown-item nav-link"> 
@@ -79,11 +144,26 @@ export default function Navbar({ topics=[], contentTypes=[], links=[] }) {
                         )
                     })
                 }
-                <li className="menu-item menu-item-has-children dropdown nav-item">
-                    <Link href={router.asPath} locale={router.locale === 'en' ? 'fr' : 'en'} className="dropdown-toggle nav-link">
-                        <span>{`${router.locale === 'en' ? 'FR' : 'EN'}`}</span>
-                    </Link>
-                </li>
+                {
+                    localizations && 
+                    localizations.map(l => {
+                        return (
+                            <li key={l.link} className="menu-item menu-item-has-children dropdown nav-item">
+                                <Link href={l.link} locale={l.locale} className="dropdown-toggle nav-link uppercase">
+                                    <span>{`${l.locale}`}</span>
+                                </Link>
+                            </li>
+                        )
+                    })
+                }
+                {
+                    !localizations &&
+                    <li className="menu-item menu-item-has-children dropdown nav-item">
+                        <Link href="/" locale={router.locale === 'en' ? 'fr' : 'en'} className="dropdown-toggle nav-link uppercase">
+                            <span>{`${router.locale === 'en' ? 'FR' : 'EN'}`}</span>
+                        </Link>
+                    </li>
+                }
             </ul>
         </>
     )

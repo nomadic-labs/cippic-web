@@ -53,7 +53,9 @@ export const getStaticProps = async ({ params, locale }) => {
         populate: [
           'articles',
           'articles.categories',
-          'articles.content_types'
+          'articles.content_types',
+          'header_image.media',
+          'localizations'
         ],
         publicationState: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 'preview' : 'live'
       },
@@ -95,6 +97,16 @@ export default function TopicsPage({ content, layout }) {
         return filters.concat(newFilters)
     }, [])
 
+    let localizations;
+    if (category.localizations?.data && category.localizations?.data.length > 0) {
+      localizations = category.localizations.data.map(l => {
+        return ({
+          ...l.attributes,
+          link: `/issues/${l.attributes.slug}`
+        })
+      })
+    }
+
     return (
         <>
             <Layout 
@@ -102,13 +114,15 @@ export default function TopicsPage({ content, layout }) {
                 translation={layout.translation}
                 topics={layout.categories} 
                 contentTypes={layout.contentTypes}
+                localizations={localizations}
             >
               <FancyHeader
                 title={category.name}
                 subtitle={category.description}
                 iconSrc={category.icon?.data?.attributes?.url}
+                image={category.header_image?.data?.attributes}
               />
-                
+                <main id="main" className="site-main" role="main">
                 <section className="position-relative bg-light section-default">
                   <div className="container">
                       <div className="project_all filt_style_one filter_enabled">
@@ -116,7 +130,7 @@ export default function TopicsPage({ content, layout }) {
                       </div>
                   </div>
                 </section>
-
+                </main>
             </Layout>
         </>
     )

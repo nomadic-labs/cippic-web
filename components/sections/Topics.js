@@ -2,7 +2,7 @@ import Link from "next/link"
 import Image from "next/image"
 import Fade from 'react-reveal/Fade';
 
-export default function Topics({title, before_title, subtitle, topics=[]}) {
+export default function Topics({title="Key issues", before_title, subtitle, topics=[]}) {
     const keyTopics = topics.filter(t => t.featured)
     return (
         <>

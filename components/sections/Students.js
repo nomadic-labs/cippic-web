@@ -23,10 +23,10 @@ export default function Students({title, description, images, programs=[]}) {
                                     {
                                         programs.map(program => {
                                             return (
-                                                <li key={program.section_id} className="">
-                                                    <Link href={`/students#${program.section_id}`}>
-                                                        <i className={`mr_right_10 fa-solid fas ${program.icon_class || "fa-star"}`} />
-                                                        {program.title}
+                                                <li key={program.link_path} className="">
+                                                    <Link href={program.link_path}>
+                                                        <i className={`mr_right_10 ${program.icon_class || "fa-solid fa-star"}`} />
+                                                        {program.link_text}
                                                     </Link>
                                                 </li>
                                             )

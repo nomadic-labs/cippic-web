@@ -46,6 +46,7 @@ export const getStaticProps = async ({ params, locale }) => {
               $eq: slug,
             },
         },
+        populate: ['localizations'],
         publicationState: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 'preview' : 'live'
       },
       {
@@ -67,7 +68,7 @@ export const getStaticProps = async ({ params, locale }) => {
         populate: [
           'main_image',
           'categories',
-          'content_types'
+          'content_types',
         ],
         publicationState: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 'preview' : 'live'
       },
@@ -108,6 +109,16 @@ export default function OurWork({ content, layout }) {
         return filters.concat(newFilters)
     }, [])
 
+    let localizations;
+    if (contentType.localizations?.data && contentType.localizations?.data.length > 0) {
+      localizations = contentType.localizations.data.map(l => {
+        return ({
+          ...l.attributes,
+          link: `/our-work/${l.attributes.slug}`
+        })
+      })
+    }
+
     return (
         <>
             <Layout 
@@ -115,6 +126,7 @@ export default function OurWork({ content, layout }) {
                 translation={layout.translation}
                 topics={layout.categories} 
                 contentTypes={layout.contentTypes}
+                localizations={localizations}
             >
 
             <Header>
@@ -143,6 +155,7 @@ export default function OurWork({ content, layout }) {
                     
                 </div>
             </Header>
+            <main id="main" className="site-main" role="main">
                 <section className="section-md">
                     <div className="container">
                         <div className="row">
@@ -152,6 +165,7 @@ export default function OurWork({ content, layout }) {
                         </div>
                     </div>
                 </section>
+            </main>
             </Layout>
         </>
     )

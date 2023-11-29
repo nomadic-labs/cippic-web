@@ -70,7 +70,7 @@ export default function ArticleCard ({
                     </div>
 
 
-                    {showLink && <p className="read_more mb-0">{linkText || terms.keep_reading} <i className="icon-right-arrow" /></p>}
+                    {showLink && <p className="read_more mb-0">{linkText || terms.keep_reading} <i className="fa-solid fa-arrow-right-long" /></p>}
 
                 </div>
             </Link>
