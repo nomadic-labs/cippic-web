@@ -6,7 +6,7 @@ import { useContext } from 'react'
 import { TranslationContext } from '@/contexts/TranslationContext'
 
 const MobileMenu = forwardRef(function MobileMenu(props, ref) {
-    const { handleMobileMenu, topics=[], contentTypes=[], links=[] } = props;
+    const { handleMobileMenu, topics=[], contentTypes=[], links=[], localizations } = props;
     const router = useRouter()
     const terms = useContext(TranslationContext)
 
@@ -107,11 +107,26 @@ const MobileMenu = forwardRef(function MobileMenu(props, ref) {
                                     )
                                 })
                             }
-                            <li className="menu-item mega_menu nav-item">
-                                <Link href={router.route} locale={router.locale === 'en' ? 'fr' : 'en'} className="nav-link">
-                                    <span>{`${router.locale === 'en' ? 'FR' : 'EN'}`}</span>
-                                </Link>
-                            </li>
+                            {
+                                localizations && 
+                                localizations.map(l => {
+                                    return (
+                                        <li key={l.link} className="menu-item  mega_menu nav-item">
+                                            <Link href={l.link} locale={l.locale} className="dropdown-toggle nav-link uppercase">
+                                                <span>{`${l.locale}`}</span>
+                                            </Link>
+                                        </li>
+                                    )
+                                })
+                            }
+                            {
+                                !localizations &&
+                                <li className="menu-item  mega_menu nav-item">
+                                    <Link href="/" locale={router.locale === 'en' ? 'fr' : 'en'} className="dropdown-toggle nav-link uppercase">
+                                        <span>{`${router.locale === 'en' ? 'FR' : 'EN'}`}</span>
+                                    </Link>
+                                </li>
+                            }
                         </ul>
 
                     </div>

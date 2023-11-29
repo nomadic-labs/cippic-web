@@ -2857,25 +2857,21 @@ body .enabled_custom_title .title_page .main_tit {
   filter: invert(1);
 }
 
-#logo {
+.cippic-logo {
   display: flex;
   align-items: flex-end;
   gap: 0.75rem;
   max-width: 485px;
 }
-#logo img {
+.cippic-logo img {
   width: 170px;
 }
-#logo strong {
+.cippic-logo strong {
   font-size: 15px;
   white-space: pre-wrap;
   line-height: 1.1;
   margin-bottom: 1px;
   width: 305px;
-}
-
-.footer_area .cippic-logo {
-  max-width: 220px;
 }
 
 /*----------theme-button-csss-------*/
@@ -5799,7 +5795,7 @@ body.single-header {
 .fixed-header .get_sticky_header.style_two {
   background: var(--primary-color-two);
 }
-.fixed-header .get_sticky_header #logo strong {
+.fixed-header .get_sticky_header .cippic-logo strong {
   display: none;
 }
 
@@ -20162,6 +20158,11 @@ a.article-card:hover .read_more i {
   }
 }
 @media (max-width: 768px) {
+  .footer_area .cippic-logo {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
   a.article-card.image-left, .article-card.image-left {
     flex-direction: column;
   }
@@ -20659,6 +20660,10 @@ a.article-card:hover .read_more i {
     position: relative;
     font-size: calc(1rem + 2vw);
     font-weight: 600;
+  }
+  .logo_column {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
   }
   .header_logo_box strong {
     display: none;
