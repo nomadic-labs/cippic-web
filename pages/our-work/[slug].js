@@ -4,12 +4,93 @@ import ArticleCard from "@/components/elements/ArticleCard"
 import dynamic from 'next/dynamic';
 import Fade from 'react-reveal/Fade';
 import getLayoutData from "@/utils/layout-data"
+import { useRouter } from 'next/router'
 
 const FilterContent = dynamic(() => import('@/components/elements/FilterContent'), {
     ssr: false,
 })
 
 const qs = require('qs');
+
+async function fetchAllArticles(articles, pagination, locale, slug) {
+  try {
+    const query = qs.stringify(
+        {
+            locale: locale,
+            populate: [
+                'main_image',
+                'categories',
+                'content_types'
+            ],
+            filters: {
+                content_types: {
+                    slug: {
+                        $eq: slug
+                    }
+                },
+            },
+          pagination: {
+            page: pagination.page + 1,
+            pageSize: 100
+          },
+          publicationState: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 'preview' : 'live'
+        },
+        {
+          encodeValuesOnly: true, // prettify URL
+        }
+      );
+    const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/articles?${query}`)
+    const { data, meta } = await res.json()
+    const newArticles = data.map(t => ({ id: t.id, ...t.attributes}))
+    const accumulator = articles.concat(newArticles)
+
+    if (meta.pagination.page < meta.pagination.pageCount) {
+      return await fetchAllArticles(accumulator, meta.pagination, locale, slug)
+    } else {
+      return accumulator
+    }
+  } catch (e) {
+    console.log(e)
+    return []
+  }
+}
+
+const fetchArticles = async ({ pagination, locale, slug, filters=[] }) => {
+    const articlesQuery = qs.stringify(
+      {
+        locale,
+        pagination: pagination,
+        sort: "date_published:desc",
+        populate: [
+            'main_image',
+            'categories',
+            'content_types'
+        ],
+        filters: {
+            content_types: {
+                slug: {
+                    $eq: slug
+                }
+            },
+            categories: {
+                slug: {
+                    $in: filters
+                }
+            }
+        },
+        publicationState: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 'preview' : 'live',
+      },
+      {
+        encodeValuesOnly: true, // prettify URL
+      }
+    );
+
+    const articlesRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/articles?${articlesQuery}`)
+    const articlesJson = await articlesRes.json()
+    const articles = articlesJson.data.map(t => ({ id: t.id, ...t.attributes}))
+
+    return { articles, pagination: articlesJson.meta.pagination }
+}
 
 export async function getStaticPaths({locale}) {
     if (process.env.NEXT_PUBLIC_PREVIEW_MODE) {
@@ -50,39 +131,46 @@ export const getStaticProps = async ({ params, locale }) => {
       }
     );
 
-    const articlesQuery = qs.stringify(
-      {
-        locale,
-        filters: {
-            content_types: {
-                slug: {
-                    $eq: slug
-                }
-            },
-        },
-        sort: "date_published:desc",
-        populate: [
-          'main_image',
-          'categories',
-          'content_types',
-        ],
-        publicationState: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 'preview' : 'live'
-      },
-      {
-        encodeValuesOnly: true, // prettify URL
-      }
-    );
-
     const contentTypeRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/content-types?${contentTypeQuery}`)
     const contentTypeJson = await contentTypeRes.json()
     const contentTypeData = contentTypeJson.data[0]
+
+    if (!contentTypeData) {
+        return {
+          redirect: {
+            destination: "/",
+          },
+        }
+    }
+
     const contentType = { id: contentTypeData.id, ...contentTypeData.attributes }
 
-    const articlesRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/articles?${articlesQuery}`)
-    const articlesJson = await articlesRes.json()
-    const articles = articlesJson.data.map(t => ({ id: t.id, ...t.attributes}))
+    const allArticles = await fetchAllArticles([], {page: 0}, locale, slug)
 
-    const content = { contentType, articles }
+    const articleFilters = allArticles.reduce((filters, article) => {
+        const articleContentTypes = article.categories.data.map(ct => ({ id: ct.id, ...ct.attributes}))
+        const newFilters = articleContentTypes.map(act => {
+            const filterExists = filters.find(f => f?.slug === act.slug)
+            if (!filterExists) {
+                return act
+            }
+        }).filter(i => i)
+        return filters.concat(newFilters)
+    }, [])
+
+    const articleCounts = articleFilters.reduce((counts, f) => {
+        const articlesWithFilterField = allArticles.filter(article => {
+            const articleFilterFieldIds = article.categories.data.map(f => f.attributes.slug)
+            return articleFilterFieldIds.includes(f.slug)
+        })
+
+        counts[f.slug] = articlesWithFilterField.length
+        return counts
+    }, {})
+
+    const articles = allArticles.slice(0,3)
+
+    const content = { contentType, articles, articleFilters, articleCounts, total: allArticles.length, slug }
 
     return { 
         props: { content, layout },
@@ -91,19 +179,8 @@ export const getStaticProps = async ({ params, locale }) => {
 }
 
 export default function OurWork({ content, layout }) {
-    const { contentType, articles } = content;
-    const latestArticles = articles.slice(0,3)
-
-    const articleFilters = articles.reduce((filters, article) => {
-        const articleCategories = article.categories.data.map(ct => ct.attributes)
-        const newFilters = articleCategories.map(act => {
-            const filterExists = filters.find(f => f?.slug === act.slug)
-            if (!filterExists) {
-                return act
-            }
-        }).filter(i => i)
-        return filters.concat(newFilters)
-    }, [])
+    const { contentType, articles, articleFilters, articleCounts, total, slug } = content;
+    const { locale } = useRouter()
 
     let localizations;
     if (contentType.localizations?.data && contentType.localizations?.data.length > 0) {
@@ -113,6 +190,10 @@ export default function OurWork({ content, layout }) {
           link: `/our-work/${l.attributes.slug}`
         })
       })
+    }
+
+    const fetchArticlesWithSlug = async(params) => {
+        return await fetchArticles({...params, slug: slug})
     }
 
     return (
@@ -133,7 +214,7 @@ export default function OurWork({ content, layout }) {
                             
                 <div className="row header-articles">
                 {
-                        latestArticles.map((article, index) => {
+                        articles.map((article, index) => {
                             return (
                                 <div key={article.id} className="article">
                                     <ArticleCard 
@@ -156,7 +237,15 @@ export default function OurWork({ content, layout }) {
                     <div className="container">
                         <div className="row">
                             <div className="project_all filt_style_one filter_enabled">
-                                <FilterContent articles={articles} filters={articleFilters} filterField="categories" />
+                                <FilterContent 
+                                    initialArticles={[]} 
+                                    filters={articleFilters} 
+                                    articleCounts={articleCounts}
+                                    filterField="categories" 
+                                    fetchArticles={fetchArticlesWithSlug}
+                                    locale={locale}
+                                    count={total}
+                                />
                             </div>
                         </div>
                     </div>

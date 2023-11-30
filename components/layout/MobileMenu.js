@@ -112,7 +112,7 @@ const MobileMenu = forwardRef(function MobileMenu(props, ref) {
                                 localizations.map(l => {
                                     return (
                                         <li key={l.link} className="menu-item  mega_menu nav-item">
-                                            <Link href={l.link} locale={l.locale} className="dropdown-toggle nav-link uppercase">
+                                            <Link href={l.link} locale={l.locale} className="nav-link uppercase">
                                                 <span>{`${l.locale}`}</span>
                                             </Link>
                                         </li>
@@ -122,7 +122,7 @@ const MobileMenu = forwardRef(function MobileMenu(props, ref) {
                             {
                                 !localizations &&
                                 <li className="menu-item  mega_menu nav-item">
-                                    <Link href="/" locale={router.locale === 'en' ? 'fr' : 'en'} className="dropdown-toggle nav-link uppercase">
+                                    <Link href={router.asPath} locale={router.locale === 'en' ? 'fr' : 'en'} className="nav-link uppercase">
                                         <span>{`${router.locale === 'en' ? 'FR' : 'EN'}`}</span>
                                     </Link>
                                 </li>

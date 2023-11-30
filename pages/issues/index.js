@@ -4,8 +4,9 @@ import ArticleCard from "@/components/elements/ArticleCard"
 import dynamic from 'next/dynamic';
 import Fade from 'react-reveal/Fade';
 import getLayoutData from "@/utils/layout-data"
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { TranslationContext } from '@/contexts/TranslationContext'
+import { useRouter } from 'next/router'
 
 const FilterContent = dynamic(() => import('@/components/elements/FilterContent'), {
     ssr: false,
@@ -13,18 +14,61 @@ const FilterContent = dynamic(() => import('@/components/elements/FilterContent'
 
 const qs = require('qs');
 
-export const getStaticProps = async ({ params, locale }) => {
-    const layout = await getLayoutData(locale)
+async function fetchAllArticles(articles, pagination, locale) {
+  try {
+    const query = qs.stringify(
+        {
+          locale: locale,
+          populate: [
+            'main_image',
+            'categories',
+            'content_types'
+          ],
+          pagination: {
+            page: pagination.page + 1,
+            pageSize: 100
+          },
+          publicationState: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 'preview' : 'live'
+        },
+        {
+          encodeValuesOnly: true, // prettify URL
+        }
+      );
+    const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/articles?${query}`)
+    const { data, meta } = await res.json()
+    const newArticles = data.map(t => ({ id: t.id, ...t.attributes}))
+    const accumulator = articles.concat(newArticles)
 
+    if (meta.pagination.page < meta.pagination.pageCount) {
+      return await fetchAllArticles(accumulator, meta.pagination, locale)
+    } else {
+      return accumulator
+    }
+  } catch (e) {
+    console.log(e)
+    return []
+  }
+}
+
+const fetchArticles = async ({ pagination, locale, filters=[] }) => {
     const articlesQuery = qs.stringify(
       {
         locale,
+        pagination: pagination,
         sort: "date_published:desc",
         populate: [
-          'categories',
-          'content_types'
+            'main_image',
+            'categories',
+            'content_types'
         ],
-        publicationState: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 'preview' : 'live'
+        filters: {
+            categories: {
+                slug: {
+                    $in: filters
+                }
+            }
+        },
+        publicationState: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 'preview' : 'live',
       },
       {
         encodeValuesOnly: true, // prettify URL
@@ -35,21 +79,16 @@ export const getStaticProps = async ({ params, locale }) => {
     const articlesJson = await articlesRes.json()
     const articles = articlesJson.data.map(t => ({ id: t.id, ...t.attributes}))
 
-    const content = { articles }
-
-    return { 
-        props: { content, layout }, 
-        revalidate: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 10 : false
-    }
+    return { articles, pagination: articlesJson.meta.pagination }
 }
 
-export default function IssuesPage({ content, layout }) {
-    const { articles } = content;
-    const terms = useContext(TranslationContext)
-    const latestArticles = articles.slice(0,3)
+export const getStaticProps = async ({ params, locale }) => {
+    const layout = await getLayoutData(locale)
+    const {articles} = await fetchArticles({ pagination: { start: 0, limit: 3}, locale })
+    const allArticles = await fetchAllArticles([], {page: 0}, locale)
 
-    const articleFilters = articles.reduce((filters, article) => {
-        const articleCategories = article.categories.data.map(ct => ct.attributes)
+    const articleFilters = allArticles.reduce((filters, article) => {
+        const articleCategories = article.categories.data.map(ct => ({ id: ct.id, ...ct.attributes}))
         const newFilters = articleCategories.map(act => {
             const filterExists = filters.find(f => f?.slug === act.slug)
             if (!filterExists) {
@@ -58,6 +97,30 @@ export default function IssuesPage({ content, layout }) {
         }).filter(i => i)
         return filters.concat(newFilters)
     }, [])
+
+    const articleCounts = articleFilters.reduce((counts, f) => {
+        const articlesWithFilterField = allArticles.filter(article => {
+            const articleFilterFieldIds = article.categories.data.map(f => f.attributes.slug)
+            return articleFilterFieldIds.includes(f.slug)
+        })
+
+        counts[f.slug] = articlesWithFilterField.length
+        return counts
+    }, {})
+
+
+    const content = { articles, articleFilters, articleCounts, total: allArticles.length }
+
+    return { 
+        props: { content, layout }, 
+        revalidate: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 10 : false
+    }
+}
+
+export default function IssuesPage({ content, layout }) {
+    const { articles, articleFilters, articleCounts, total } = content;
+    const terms = useContext(TranslationContext)
+    const { locale } = useRouter()
 
     return (
         <>
@@ -76,7 +139,7 @@ export default function IssuesPage({ content, layout }) {
                             
                 <div className="row header-articles">
                 {
-                        latestArticles.map((article, index) => {
+                        articles.map((article, index) => {
                             return (
                                 <div key={article.id} className="article">
                                     <Fade bottom delay={index * 60}>
@@ -86,6 +149,7 @@ export default function IssuesPage({ content, layout }) {
                                             showImage
                                             imageTop
                                             showTags
+                                            tagsAttribute="categories"
                                         />
                                     </Fade>
                                 </div>
@@ -100,7 +164,15 @@ export default function IssuesPage({ content, layout }) {
                         <div className="container">
                             <div className="row">
                                 <div className="project_all filt_style_one filter_enabled">
-                                    <FilterContent articles={articles} filters={articleFilters} filterField="categories" />
+                                    <FilterContent 
+                                        initialArticles={[]} 
+                                        filters={articleFilters} 
+                                        articleCounts={articleCounts}
+                                        filterField="categories" 
+                                        fetchArticles={fetchArticles}
+                                        locale={locale}
+                                        count={total}
+                                    />
                                 </div>
                             </div>
                         </div>

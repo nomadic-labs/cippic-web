@@ -177,28 +177,26 @@
             padding-left: 0px;
             display: inline-flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            gap: 0.25rem;
             margin-bottom: 0;
             
             li{
                 display: inline-block;
                 position: relative;
-                padding: 0 4px;
+                padding: 2px 8px;
+                border-radius: 40px;
                 color: var(--primary-color-one);
                 cursor: pointer;
                 font-family: var(--font-family-one);
                 margin-bottom: 0;
-                border-bottom: 2px solid transparent;
+                border: 2px solid transparent;
                 transition: var(--animation-speed) ease;
 
                 &.current{
-                    border-color: var(--primary-color-three);
-                    // background: var(--highlight-color-alt);
-                    // color: var(--primary-color-three);
+                    background: var(--highlight-color-alt);
                 }
 
                 &:hover {
-                    // color: var(--highlight-color);
                     border-color: var(--highlight-color);
                 }
             }
