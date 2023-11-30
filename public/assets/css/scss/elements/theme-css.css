@@ -11041,22 +11041,23 @@ a.service_box:hover {
   padding-left: 0px;
   display: inline-flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.25rem;
   margin-bottom: 0;
 }
 .project_all.filt_style_one .fliter_group .project_filter li, .project_all.filt_style_six .fliter_group .project_filter li {
   display: inline-block;
   position: relative;
-  padding: 0 4px;
+  padding: 2px 8px;
+  border-radius: 40px;
   color: var(--primary-color-one);
   cursor: pointer;
   font-family: var(--font-family-one);
   margin-bottom: 0;
-  border-bottom: 2px solid transparent;
+  border: 2px solid transparent;
   transition: var(--animation-speed) ease;
 }
 .project_all.filt_style_one .fliter_group .project_filter li.current, .project_all.filt_style_six .fliter_group .project_filter li.current {
-  border-color: var(--primary-color-three);
+  background: var(--highlight-color-alt);
 }
 .project_all.filt_style_one .fliter_group .project_filter li:hover, .project_all.filt_style_six .fliter_group .project_filter li:hover {
   border-color: var(--highlight-color);

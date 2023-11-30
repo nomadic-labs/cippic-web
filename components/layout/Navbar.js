@@ -159,7 +159,7 @@ export default function Navbar({ topics=[], contentTypes=[], links=[], localizat
                 {
                     !localizations &&
                     <li className="menu-item menu-item-has-children dropdown nav-item">
-                        <Link href="/" locale={router.locale === 'en' ? 'fr' : 'en'} className="dropdown-toggle nav-link uppercase">
+                        <Link href={router.asPath} locale={router.locale === 'en' ? 'fr' : 'en'} className="dropdown-toggle nav-link uppercase">
                             <span>{`${router.locale === 'en' ? 'FR' : 'EN'}`}</span>
                         </Link>
                     </li>
