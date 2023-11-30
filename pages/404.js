@@ -1,6 +1,6 @@
 export const Custom404 = () => <div></div>;
 
-export const getServerSideProps = () => {
+export const getStaticProps = () => {
   return { redirect: { destination: "/", permanent: false } }; 
 };
 
