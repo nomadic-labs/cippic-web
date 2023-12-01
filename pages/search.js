@@ -101,16 +101,17 @@ export default function Search({content, layout, term}) {
   })
 
   const results = [...pages, ...categories, ...contentTypes, ...articles]
+  const title = `${terms.search_results} "${term}"`
 
     return (
         <>
-            <Layout {...layout}> 
+          <Layout {...layout} title={title}> 
             <main id="main" className="site-main" role="main">
             <section className="section-md">
               <div className="container">
                 <div className="row">
                   <div className="col-12">
-                    <h1 className="mb-5">{`${terms.search_results} "${term}"`}</h1>
+                    <h1 className="mb-5">{title}</h1>
                       <div className="d-flex flex-column gap-4">
                           {
                               results.length > 0 && (
@@ -139,8 +140,8 @@ export default function Search({content, layout, term}) {
                   </div>
                 </div>
               </section>
-              </main>
-            </Layout>
+            </main>
+          </Layout>
         </>
     )
 }

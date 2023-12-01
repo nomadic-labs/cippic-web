@@ -6,18 +6,18 @@ import Header from './Header'
 import MobileMenu from './MobileMenu'
 import SearchPopup from './SearchPopup'
 import Footer from "./Footer"
+import SEO from "./SEO"
 import { TranslationContext } from '@/contexts/TranslationContext'
 
 export default function Layout({ 
     children, 
-    title="CIPPIC | Canadian Internet Policy and Public Interest Clinic",
-    description="The Samuelson-Glushko Canadian Internet Policy and Public Interest Clinic (CIPPIC) is Canada’s first and only public interest technology law clinic.",
-    image="/assets/images/test-image.jpg", 
     layout={},
     categories=[],
     contentTypes=[],
     translation={},
-    localizations
+    localizations,
+    seo,
+    title="CIPPIC | Canadian Internet Policy and Public Interest Clinic"
 }) {
     const router = useRouter()
     
@@ -89,17 +89,16 @@ export default function Layout({
         };
       }, [isMobileMenu, isSearch]);
 
-    // Current URL
-    const url = `https://www.cippic.ca${router.pathname}`
     const favicon = layout.favicon?.data?.attributes?.url ? `${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${layout.favicon.data.attributes.url}` : "/favicon.svg"
+    const defaultImg = layout.default_share_image?.data?.attributes?.url ? `${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${layout.default_share_image.data.attributes.url}` : null
 
     return (
         <TranslationContext.Provider value={translation}>
             <Head>
                 <title>{title}</title>
-                <meta name="description" content={description} />
                 <link rel="shortcut icon" href={favicon} />
             </Head>
+            <SEO image={defaultImg} {...seo} />
 
             <div id="page" className={`page_wapper hfeed site ${scroll ? "fixed-header floating-menu" : ""} ${isMobileMenu ? "crt_mobile_menu-visible" : ""}`}>
                 <div id="wrapper_full" className="content_all_warpper">

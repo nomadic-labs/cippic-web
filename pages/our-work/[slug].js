@@ -192,13 +192,23 @@ export default function OurWork({ content, layout }) {
       })
     }
 
+    let seo = {
+      title: contentType.name,
+      description: contentType.description,
+      type: "website",
+    }
+
+    if (contentType.SEO) {
+      seo = { ...seo, ...contentType.SEO }
+    }
+
     const fetchArticlesWithSlug = async(params) => {
         return await fetchArticles({...params, slug: slug})
     }
 
     return (
         <>
-            <Layout {...layout} localizations={localizations}>
+            <Layout {...layout} localizations={localizations} seo={seo} title={contentType.name}>
             <Header>
                 <div className="title-section ">
                     <h1 className="mt-0 underline">{contentType.name}</h1>

@@ -183,9 +183,23 @@ export default function PageTemplate({ content, layout }) {
       })
     }
 
+    let seo = {
+      title: page.title,
+      description: page.subtitle,
+      type: "website",
+    }
+
+    if (mainImage) {
+      seo.image = `${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${mainImage.url}`
+    }
+
+    if (page.SEO) {
+      seo = { ...seo, ...page.SEO }
+    }
+
     return (
         <>
-            <Layout {...layout} localizations={localizations}>
+            <Layout {...layout} localizations={localizations} seo={seo} title={page.title}>
               <main id="main" className="site-main" role="main">
                 <Header className={`bg-${headerBg}`}>
                   <div className="title_sections">

@@ -125,7 +125,7 @@ export default function OurWork({ content, layout }) {
 
     return (
         <>
-            <Layout {...layout}>
+            <Layout {...layout} title={terms.our_work}>
             <Header>
                 <div className="title-section ">
                     <h1 className="mt-0 underline">{terms.our_work}</h1>

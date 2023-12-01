@@ -121,9 +121,14 @@ export default function IssuesPage({ content, layout }) {
     const terms = layout.translation
     const { locale } = useRouter()
 
+    const seo = {
+        title: terms.issues,
+        description: `Browse our articles by issue`
+    }
+
     return (
         <>
-            <Layout {...layout}>
+            <Layout {...layout} seo={seo} title={terms.issues}>
             <Header>
                 <div className="title-section ">
                     <h1 className="mt-0 underline">{terms.issues}</h1>

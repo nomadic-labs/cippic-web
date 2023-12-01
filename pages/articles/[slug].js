@@ -104,7 +104,10 @@ export const getStaticProps = async ({ params, locale }) => {
               'common.image-slider': { populate: '*' },
             }
           },
-          localizations: true
+          localizations: true,
+          SEO: {
+            populate: ['share_image']
+          }
         },
         publicationState: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 'preview' : 'live'
       },
@@ -216,9 +219,28 @@ export default function ArticlePage({ content, layout }) {
       })
     }
 
+    let seo = {
+      title: article.title,
+      description: article.preview,
+      type: "article",
+    }
+
+    if (mainImage) {
+      seo.image = `${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${mainImage.url}`
+    }
+
+    if (article.SEO) {
+      seo = { ...seo, ...article.SEO }
+    }
+
     return (
         <>
-            <Layout {...layout} localizations={localizations}>
+            <Layout 
+              {...layout} 
+              localizations={localizations}
+              seo={seo}
+              title={article.title}
+            >
               <main id="main" className="site-main" role="main">
                 <Header>
                   <div className="title_sections">
