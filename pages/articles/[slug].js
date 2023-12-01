@@ -319,7 +319,7 @@ export default function ArticlePage({ content, layout }) {
                           {
                             relatedArticles.map((article, index) => {
                                 return (
-                                    <div key={article.slug} className="col-12 col-lg-6 col-xl-4">
+                                    <div key={article.slug} className="col-12 col-lg-4">
                                         <Fade bottom delay={index * 60}>
                                             <ArticleCard 
                                               article={article} 
