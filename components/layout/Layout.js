@@ -6,6 +6,7 @@ import Header from './Header'
 import MobileMenu from './MobileMenu'
 import SearchPopup from './SearchPopup'
 import Footer from "./Footer"
+import { TranslationContext } from '@/contexts/TranslationContext'
 
 export default function Layout({ 
     children, 
@@ -13,11 +14,13 @@ export default function Layout({
     description="The Samuelson-Glushko Canadian Internet Policy and Public Interest Clinic (CIPPIC) is Canada’s first and only public interest technology law clinic.",
     image="/assets/images/test-image.jpg", 
     layout={},
-    topics=[],
+    categories=[],
     contentTypes=[],
     translation={},
     localizations
 }) {
+    const router = useRouter()
+    
     // Search
     const [isSearch, setSearch] = useState(false)
     const handleSearch = () => setSearch(!isSearch)
@@ -32,6 +35,18 @@ export default function Layout({
 
     const [isMobileMenu, setMobileMenu] = useState(false)
     const handleMobileMenu = () => setMobileMenu(!isMobileMenu)
+
+    useEffect(() => {
+        const handleRouteChange = () => {
+          setMobileMenu(false)
+        }
+     
+        router.events.on('routeChangeStart', handleRouteChange)
+     
+        return () => {
+          router.events.off('routeChangeStart', handleRouteChange)
+        }
+      }, [router])
 
     useEffect(() => {
         if (isMobileMenu) {
@@ -75,41 +90,26 @@ export default function Layout({
       }, [isMobileMenu, isSearch]);
 
     // Current URL
-    const router = useRouter()
     const url = `https://www.cippic.ca${router.pathname}`
     const favicon = layout.favicon?.data?.attributes?.url ? `${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${layout.favicon.data.attributes.url}` : "/favicon.svg"
 
-
     return (
-        <>
+        <TranslationContext.Provider value={translation}>
             <Head>
                 <title>{title}</title>
                 <meta name="description" content={description} />
-                <link rel="icon" href={favicon} />
-                <meta name="image" content={image} />
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content={title} />
-                <meta name="twitter:url" content={url} />
-                <meta name="twitter:description" content={description} />
-                <meta name="twitter:image" content={image} />
-                <meta name="twitter:creator" content="@cippic" />
-                <meta property="og:title" content={title} />
-                <meta property="og:type" content="website" />
-                <meta property="og:url" content={url} />
-                <meta property="og:image" content={image} />
-                <meta property="og:description" content={description} />
+                <link rel="shortcut icon" href={favicon} />
             </Head>
 
             <div id="page" className={`page_wapper hfeed site ${scroll ? "fixed-header floating-menu" : ""} ${isMobileMenu ? "crt_mobile_menu-visible" : ""}`}>
                 <div id="wrapper_full" className="content_all_warpper">
-
                     <Header 
                         ref={menuButtonRef} 
                         handleSearch={handleSearch} 
                         handleContactPopup={handleContactPopup} 
                         handleMobileMenu={handleMobileMenu} 
                         layout={layout} 
-                        topics={topics} 
+                        topics={categories} 
                         contentTypes={contentTypes} 
                         localizations={localizations}
                     />
@@ -124,7 +124,7 @@ export default function Layout({
                     ref={mobileMenuRef} 
                     handleMobileMenu={handleMobileMenu} 
                     links={layout.header_links} 
-                    topics={topics} 
+                    topics={categories} 
                     contentTypes={contentTypes} 
                     localizations={localizations}
                 />
@@ -132,6 +132,6 @@ export default function Layout({
 
             </div>
             <BackToTop />
-        </>
+        </TranslationContext.Provider>
     )
 }

@@ -10,8 +10,7 @@ import ImageSliderSection from '@/components/sections/ImageSliderSection';
 import Fade from 'react-reveal/Fade';
 import ArticleCard from "@/components/elements/ArticleCard"
 import Header from "@/components/sections/Header"
-import { useContext, useState } from 'react'
-import { TranslationContext } from '@/contexts/TranslationContext'
+import { useState } from 'react'
 import { useRouter } from 'next/router'
 import rehypeRaw from 'rehype-raw'
 import remarkGfm from 'remark-gfm'
@@ -174,6 +173,7 @@ export default function ArticlePage({ content, layout }) {
     const { locale } = useRouter()
     const categories = article.categories.data || []
     const content_types = article.content_types.data || []
+    const terms = layout.translation
 
     let lightboxImages = [];
     let mainImage;
@@ -205,27 +205,20 @@ export default function ArticlePage({ content, layout }) {
     const dateLocale = locale === "fr" ? 'fr-CA' : 'en-CA'
     const dateString = datePublished.toLocaleDateString(dateLocale, { year: 'numeric', month: 'short', day: 'numeric' })
     const tags = categories.map(cat => cat.attributes.name).concat(content_types.map(ct => ct.attributes.name))
-    const terms = useContext(TranslationContext)
 
     let localizations;
     if (article.localizations?.data && article.localizations?.data.length > 0) {
       localizations = article.localizations.data.map(l => {
         return ({
           ...l.attributes,
-          link: `/articles/${l.attributes.slug}`
+          link: `${l.attributes.locale}/articles/${l.attributes.slug}`
         })
       })
     }
 
     return (
         <>
-            <Layout 
-                layout={layout.layout}
-                translation={layout.translation}
-                topics={layout.categories} 
-                contentTypes={layout.contentTypes}
-                localizations={localizations}
-            >
+            <Layout {...layout} localizations={localizations}>
               <main id="main" className="site-main" role="main">
                 <Header>
                   <div className="title_sections">

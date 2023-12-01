@@ -187,7 +187,7 @@ export default function OurWork({ content, layout }) {
       localizations = contentType.localizations.data.map(l => {
         return ({
           ...l.attributes,
-          link: `/our-work/${l.attributes.slug}`
+          link: `${l.attributes.locale}/our-work/${l.attributes.slug}`
         })
       })
     }
@@ -198,14 +198,7 @@ export default function OurWork({ content, layout }) {
 
     return (
         <>
-            <Layout 
-                layout={layout.layout}
-                translation={layout.translation}
-                topics={layout.categories} 
-                contentTypes={layout.contentTypes}
-                localizations={localizations}
-            >
-
+            <Layout {...layout} localizations={localizations}>
             <Header>
                 <div className="title-section ">
                     <h1 className="mt-0 underline">{contentType.name}</h1>

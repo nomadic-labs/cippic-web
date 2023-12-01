@@ -1,10 +1,17 @@
 const qs = require('qs');
 
-
 export default async function getLayoutData(locale="en") {
   const layoutQuery = qs.stringify(
     {
-      populate: '*',
+      populate: [
+        'favicon.media', 
+        'main_logo.media', 
+        'alternate_logo.media', 
+        'uottawa_logo.media',
+        'header_links',
+        'footer_links',
+        'social_media_links'
+      ],
       locale: locale
     },
     {

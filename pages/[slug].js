@@ -14,8 +14,7 @@ import ContactOptions from '@/components/sections/ContactOptions';
 import Fade from 'react-reveal/Fade';
 import ArticleCard from "@/components/elements/ArticleCard"
 import Header from "@/components/sections/Header"
-import { useContext, useState } from 'react'
-import { TranslationContext } from '@/contexts/TranslationContext'
+import { useState } from 'react'
 import { useRouter } from 'next/router'
 import rehypeRaw from 'rehype-raw'
 import remarkGfm from 'remark-gfm'
@@ -145,6 +144,8 @@ export default function PageTemplate({ content, layout }) {
     const { page } = content;
     const [openLightbox, setOpenLightbox] = useState(false);
     const { locale } = useRouter()
+    const terms = layout.translation
+    const headerBg = page.header_background_colour || "dark" 
 
     let lightboxImages = [];
     let mainImage;
@@ -171,29 +172,20 @@ export default function PageTemplate({ content, layout }) {
       })
       lightboxImages = lightboxImages.concat(moreImages)
     }
-    
-    const terms = useContext(TranslationContext)
-    const headerBg = page.header_background_colour || "dark" 
 
     let localizations;
     if (page.localizations?.data && page.localizations?.data.length > 0) {
       localizations = page.localizations.data.map(l => {
         return ({
           ...l.attributes,
-          link: `/${l.attributes.slug}`
+          link: `${l.attributes.locale}/${l.attributes.slug}`
         })
       })
     }
 
     return (
         <>
-            <Layout 
-                layout={layout.layout}
-                translation={layout.translation}
-                topics={layout.categories} 
-                contentTypes={layout.contentTypes}
-                localizations={localizations}
-            >
+            <Layout {...layout} localizations={localizations}>
               <main id="main" className="site-main" role="main">
                 <Header className={`bg-${headerBg}`}>
                   <div className="title_sections">

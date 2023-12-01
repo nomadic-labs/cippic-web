@@ -11047,7 +11047,7 @@ a.service_box:hover {
 .project_all.filt_style_one .fliter_group .project_filter li, .project_all.filt_style_six .fliter_group .project_filter li {
   display: inline-block;
   position: relative;
-  padding: 2px 8px;
+  padding: 0px 8px;
   border-radius: 40px;
   color: var(--primary-color-one);
   cursor: pointer;
@@ -19701,7 +19701,7 @@ a.article-card:hover .read_more i {
 /*------===============-responsive scs-==============------*/
 @media (max-width: 1400px) {
   #wrapper, #content {
-    padding-top: 76px;
+    padding-top: 69px;
   }
 }
 /*---slider---cs----*/

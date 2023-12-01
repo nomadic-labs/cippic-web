@@ -1,7 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 
-export default function Footer8({ layout }) {
+export default function Footer({ layout }) {
     const { twitter, footer_links=[], social_media_links=[], main_logo, uottawa_logo } = layout;
     const cippicLogo = main_logo?.data?.attributes 
     const cltsLogo = uottawa_logo?.data?.attributes 

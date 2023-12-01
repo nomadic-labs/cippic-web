@@ -186,7 +186,7 @@ export default function TopicsPage({ content, layout }) {
       localizations = category.localizations.data.map(l => {
         return ({
           ...l.attributes,
-          link: `/issues/${l.attributes.slug}`
+          link: `${l.attributes.locale}/issues/${l.attributes.slug}`
         })
       })
     }
@@ -197,13 +197,7 @@ export default function TopicsPage({ content, layout }) {
 
     return (
         <>
-            <Layout 
-                layout={layout.layout}
-                translation={layout.translation}
-                topics={layout.categories} 
-                contentTypes={layout.contentTypes}
-                localizations={localizations}
-            >
+            <Layout {...layout} localizations={localizations}>
               <FancyHeader
                 title={category.name}
                 subtitle={category.description}
