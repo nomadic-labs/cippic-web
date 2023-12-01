@@ -11,7 +11,7 @@ export default function SEO ({
 	image,
 }) {
 	const router = useRouter()
-	const url = `${process.env.NEXT_PUBLIC_SITE_URL}${router.pathname}`
+	const url = `${process.env.NEXT_PUBLIC_SITE_URL}${router.asPath}`
 	const robotsIndex = robots_index ? 'index' : 'noindex'
 	const robotsFollow = robots_follow ? 'follow' : 'nofollow'
 	const robots = [robotsIndex, robotsFollow].join(", ")

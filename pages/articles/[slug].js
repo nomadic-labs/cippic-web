@@ -120,6 +120,15 @@ export const getStaticProps = async ({ params, locale }) => {
     const articleRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/articles?${pageQuery}`)
     const articleJson = await articleRes.json()
     const articleData = articleJson.data[0]
+
+    if (!articleData) {
+      return {
+        redirect: {
+          destination: "/",
+        },
+      }
+    }
+    
     const article = { id: articleData.id, ...articleData.attributes }
     const categoriesArr = article.categories.data.map(c => c.attributes.slug)
 

@@ -130,6 +130,15 @@ export const getStaticProps = async ({ params, locale }) => {
     const pageRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/pages?${pageQuery}`)
     const pageJson = await pageRes.json()
     const pageData = pageJson.data[0]
+
+    if (!pageData) {
+      return {
+        redirect: {
+          destination: "/",
+        },
+      }
+    }
+    
     const page = { id: pageData.id, ...pageData.attributes }
 
     const content = { page }
