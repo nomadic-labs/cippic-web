@@ -17,7 +17,7 @@ export default function SEO ({
 	const robots = [robotsIndex, robotsFollow].join(", ")
 	let imageUrl = image;
 
-	if (share_image) {
+	if (share_image?.data?.attributes?.url) {
 		imageUrl = `${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${share_image.data.attributes.url}`
 	}
 
