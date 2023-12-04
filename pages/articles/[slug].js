@@ -8,22 +8,23 @@ import ArticleCard from "@/components/elements/ArticleCard"
 import Header from "@/components/sections/Header"
 import { useState } from 'react'
 import { useRouter } from 'next/router'
+import ReactMarkdown from 'react-markdown'
+import rehypeRaw from 'rehype-raw'
+import remarkGfm from 'remark-gfm'
+
 import "yet-another-react-lightbox/styles.css";
 import "yet-another-react-lightbox/plugins/captions.css";
 
 const Lightbox = dynamic(() => import("yet-another-react-lightbox"))
 const Captions = dynamic(() => import("yet-another-react-lightbox/plugins/captions"))
-const ReactMarkdown = dynamic(() => import("react-markdown"))
-const rehypeRaw = dynamic(() => import("rehype-raw"))
-const remarkGfm = dynamic(() => import("remark-gfm"))
 
 
 const dynamicContentDict = {
   "common.faq-section": dynamic(() => import('@/components/sections/FaqSection')),
   "common.highlight-section": dynamic(() => import('@/components/sections/HighlightBox')),
   "common.image-slider": dynamic(() => import('@/components/sections/ImageSliderSection')),
-  "common.page-section-navigation": dynamic(() => import('@/components/sections/PageNavigation')),
   "common.paragraph-text-section": dynamic(() => import('@/components/sections/RichTextSection')),
+  "common.page-section-navigation": dynamic(() => import('@/components/sections/PageNavigation')),
   "common.team-section": dynamic(() => import('@/components/sections/TeamSection')),
   "common.text-with-image-lightbox": dynamic(() => import('@/components/sections/TextWithImages')),
   "common.contact-options": dynamic(() => import('@/components/sections/ContactOptions'))
