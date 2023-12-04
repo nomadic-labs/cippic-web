@@ -4,10 +4,6 @@ import Image from "next/image"
 import dynamic from 'next/dynamic'
 import ReactMarkdown from 'react-markdown'
 import getLayoutData from "@/utils/layout-data"
-import FaqSection from '@/components/sections/FaqSection';
-import RichTextSection from '@/components/sections/RichTextSection';
-import HighlightBox from '@/components/sections/HighlightBox';
-import ImageSliderSection from '@/components/sections/ImageSliderSection';
 import Fade from 'react-reveal/Fade';
 import ArticleCard from "@/components/elements/ArticleCard"
 import Header from "@/components/sections/Header"
@@ -20,13 +16,6 @@ import Captions from "yet-another-react-lightbox/plugins/captions";
 import "yet-another-react-lightbox/styles.css";
 import "yet-another-react-lightbox/plugins/captions.css";
 
-
-// const dynamicContentDict = {
-//   'common.faq-section': FaqSection,
-//   'common.paragraph-text-section': RichTextSection,
-//   'common.highlight-section': HighlightBox,
-//   'common.image-slider': ImageSliderSection
-// }
 
 const dynamicContentDict = {
   "common.faq-section": dynamic(() => import('@/components/sections/FaqSection')),

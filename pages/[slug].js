@@ -4,18 +4,9 @@ import Image from "next/image"
 import dynamic from 'next/dynamic'
 import ReactMarkdown from 'react-markdown'
 import getLayoutData from "@/utils/layout-data"
-import FaqSection from '@/components/sections/FaqSection';
-import RichTextSection from '@/components/sections/RichTextSection';
-import HighlightBox from '@/components/sections/HighlightBox';
-import ImageSliderSection from '@/components/sections/ImageSliderSection';
-import PageNavigation from '@/components/sections/PageNavigation';
-import TeamSection from '@/components/sections/TeamSection';
-import TextWithImages from '@/components/sections/TextWithImages';
-import ContactOptions from '@/components/sections/ContactOptions';
 import Fade from 'react-reveal/Fade';
 import ArticleCard from "@/components/elements/ArticleCard"
 import Header from "@/components/sections/Header"
-import Loader from "@/components/elements/Loader"
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import rehypeRaw from 'rehype-raw'
