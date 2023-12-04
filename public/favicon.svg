@@ -3,14 +3,8 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:url(#SVGID_1_);}
-	.st1{fill:url(#SVGID_00000116215234528897241630000002874918693509393342_);}
+	.st0{fill:#06D6A0;}
 </style>
-<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="2.504323" y1="24.022142" x2="30.920101" y2="10.771648">
-	<stop  offset="0" style="stop-color:#06D6A0"/>
-	<stop  offset="0.645015" style="stop-color:#67E0BF"/>
-	<stop  offset="1" style="stop-color:#98E5CF"/>
-</linearGradient>
 <path class="st0" d="M22.220676,27.71019c-2.902931,0.06703-4.746702-0.805429-7.660479-0.822412
 	c-3.306068-0.01927-7.675434,0.946676-7.675434,0.946676c-0.069252,0-0.118134-0.067219-0.096745-0.133413l0.918613-2.935095
 	l-7.482348-5.661413c-0.062122-0.04685-0.049902-0.144615,0.022402-0.175165l2.639756-1.125362l-1.815849-3.618453

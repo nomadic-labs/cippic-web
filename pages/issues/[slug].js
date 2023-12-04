@@ -186,7 +186,7 @@ export default function TopicsPage({ content, layout }) {
       localizations = category.localizations.data.map(l => {
         return ({
           ...l.attributes,
-          link: `/issues/${l.attributes.slug}`
+          link: `${l.attributes.locale}/issues/${l.attributes.slug}`
         })
       })
     }
@@ -195,15 +195,23 @@ export default function TopicsPage({ content, layout }) {
         return await fetchArticles({...params, slug: slug})
     }
 
+    let seo = {
+      title: category.name,
+      description: category.description,
+      type: "website",
+    }
+
+    if (category.header_image?.data?.attributes) {
+      seo.image = `${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${category.header_image?.data?.attributes?.url}`
+    }
+
+    if (category.SEO) {
+      seo = { ...seo, ...category.SEO }
+    }
+
     return (
         <>
-            <Layout 
-                layout={layout.layout}
-                translation={layout.translation}
-                topics={layout.categories} 
-                contentTypes={layout.contentTypes}
-                localizations={localizations}
-            >
+            <Layout {...layout} localizations={localizations} seo={seo} title={category.name}>
               <FancyHeader
                 title={category.name}
                 subtitle={category.description}

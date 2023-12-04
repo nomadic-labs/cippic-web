@@ -187,9 +187,19 @@ export default function OurWork({ content, layout }) {
       localizations = contentType.localizations.data.map(l => {
         return ({
           ...l.attributes,
-          link: `/our-work/${l.attributes.slug}`
+          link: `${l.attributes.locale}/our-work/${l.attributes.slug}`
         })
       })
+    }
+
+    let seo = {
+      title: contentType.name,
+      description: contentType.description,
+      type: "website",
+    }
+
+    if (contentType.SEO) {
+      seo = { ...seo, ...contentType.SEO }
     }
 
     const fetchArticlesWithSlug = async(params) => {
@@ -198,14 +208,7 @@ export default function OurWork({ content, layout }) {
 
     return (
         <>
-            <Layout 
-                layout={layout.layout}
-                translation={layout.translation}
-                topics={layout.categories} 
-                contentTypes={layout.contentTypes}
-                localizations={localizations}
-            >
-
+            <Layout {...layout} localizations={localizations} seo={seo} title={contentType.name}>
             <Header>
                 <div className="title-section ">
                     <h1 className="mt-0 underline">{contentType.name}</h1>

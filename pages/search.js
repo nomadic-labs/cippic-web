@@ -2,8 +2,7 @@ import Layout from "@/components/layout/Layout"
 import SearchResult from "@/components/elements/SearchResult"
 import Fade from 'react-reveal/Fade';
 import getLayoutData from "@/utils/layout-data"
-import { useState, useContext } from 'react'
-import { TranslationContext } from '@/contexts/TranslationContext'
+import { useState } from 'react'
 
 const qs = require('qs');
 
@@ -59,9 +58,9 @@ export const getServerSideProps = async ({ locale, query }) => {
     }
 }
 
-export default function Home5({content, layout, term}) {
+export default function Search({content, layout, term}) {
   const { searchResults } = content
-  const terms = useContext(TranslationContext)
+  const terms = layout.translation
 
   const pages = searchResults.pages.map(page => {
     const item = {
@@ -102,21 +101,17 @@ export default function Home5({content, layout, term}) {
   })
 
   const results = [...pages, ...categories, ...contentTypes, ...articles]
+  const title = `${terms.search_results} "${term}"`
 
     return (
         <>
-            <Layout 
-              layout={layout.layout}
-              translation={layout.translation}
-              topics={layout.categories} 
-              contentTypes={layout.contentTypes}
-            > 
+          <Layout {...layout} title={title}> 
             <main id="main" className="site-main" role="main">
             <section className="section-md">
               <div className="container">
                 <div className="row">
                   <div className="col-12">
-                    <h1 className="mb-5">{`${terms.search_results} "${term}"`}</h1>
+                    <h1 className="mb-5">{title}</h1>
                       <div className="d-flex flex-column gap-4">
                           {
                               results.length > 0 && (
@@ -145,8 +140,8 @@ export default function Home5({content, layout, term}) {
                   </div>
                 </div>
               </section>
-              </main>
-            </Layout>
+            </main>
+          </Layout>
         </>
     )
 }

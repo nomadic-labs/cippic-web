@@ -4,8 +4,7 @@ import ArticleCard from "@/components/elements/ArticleCard"
 import dynamic from 'next/dynamic';
 import Fade from 'react-reveal/Fade';
 import getLayoutData from "@/utils/layout-data"
-import { useContext, useState } from 'react'
-import { TranslationContext } from '@/contexts/TranslationContext'
+import { useState } from 'react'
 import { useRouter } from 'next/router'
 
 const FilterContent = dynamic(() => import('@/components/elements/FilterContent'), {
@@ -119,18 +118,17 @@ export const getStaticProps = async ({ params, locale }) => {
 
 export default function IssuesPage({ content, layout }) {
     const { articles, articleFilters, articleCounts, total } = content;
-    const terms = useContext(TranslationContext)
+    const terms = layout.translation
     const { locale } = useRouter()
+
+    const seo = {
+        title: terms.issues,
+        description: `Browse our articles by issue`
+    }
 
     return (
         <>
-            <Layout 
-                layout={layout.layout}
-                translation={layout.translation}
-                topics={layout.categories} 
-                contentTypes={layout.contentTypes}
-            >
-
+            <Layout {...layout} seo={seo} title={terms.issues}>
             <Header>
                 <div className="title-section ">
                     <h1 className="mt-0 underline">{terms.issues}</h1>

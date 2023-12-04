@@ -143,43 +143,37 @@ export const getStaticProps = async ({ locale }) => {
     }
 }
 
-export default function Home5({content, layout}) {
+export default function Home({content, layout}) {
   const keyTopics = layout.categories.filter(t => t.featured)
-    return (
-        <>
-            <Layout 
-              layout={layout.layout}
-              translation={layout.translation}
-              topics={layout.categories} 
-              contentTypes={layout.contentTypes}
-            > 
-                <Landing 
-                  headline={content.headline}
-                  before_headline={content.before_headline}
-                  intro={content.intro}
-                  insights_heading={content.insights_heading}
-                  articles={content.news}
-                  featured_story_heading={content.featured_story_heading}
-                  latest_news_heading={content.latest_news_heading}
-                  spotlightArticle={content.spotlight}
-                />
-                <Articles 
-                    title={content.articles_section_title}
-                    subtitle={content.articles_section_subtitle}
-                    articles={content.articles}
-                />
-                <Topics 
-                  title={content.topics_section_title}
-                  subtitle={content.topics_section_subtitle}
-                  topics={keyTopics}
-                />
-                <Students 
-                    images={content.students_images}
-                    title={content.students_section_title}
-                    description={content.students_description}
-                    programs={content.student_programs}
-                />
-            </Layout>
-        </>
-    )
+
+  return (
+      <Layout {...layout} seo={content.SEO}> 
+          <Landing 
+            headline={content.headline}
+            before_headline={content.before_headline}
+            intro={content.intro}
+            insights_heading={content.insights_heading}
+            articles={content.news}
+            featured_story_heading={content.featured_story_heading}
+            latest_news_heading={content.latest_news_heading}
+            spotlightArticle={content.spotlight}
+          />
+          <Articles 
+              title={content.articles_section_title}
+              subtitle={content.articles_section_subtitle}
+              articles={content.articles}
+          />
+          <Topics 
+            title={content.topics_section_title}
+            subtitle={content.topics_section_subtitle}
+            topics={keyTopics}
+          />
+          <Students 
+              images={content.students_images}
+              title={content.students_section_title}
+              description={content.students_description}
+              programs={content.student_programs}
+          />
+      </Layout>
+  )
 }

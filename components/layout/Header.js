@@ -2,14 +2,14 @@ import Link from "next/link"
 import Navbar from "./Navbar"
 import { forwardRef } from 'react'
 
-const Header1 = forwardRef(function Header1(props, ref) {
+const Header = forwardRef(function Header(props, ref) {
     const { handleSearch, handleContactPopup, handleMobileMenu, topics, contentTypes, layout, localizations } = props;
     const mainLogoSrc = layout.main_logo?.data?.attributes?.url ? `${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${layout.main_logo.data.attributes.url}` : "/assets/images/cippic-logo-light.svg"
     return (
         <>
             <div className="header_area" id="header_contents">
                 <header className="header header_default bg-one get_sticky_header">
-                    <div className="container-xl">
+                    <div className="container-fluid">
                         <div className="row align-items-center">
                             <div className="col-lg-5 col-md-8 col-sm-8 col-xs-8 logo_column">
                                 <div className="header_logo_box">
@@ -50,4 +50,4 @@ const Header1 = forwardRef(function Header1(props, ref) {
     )
 })
 
-export default Header1
+export default Header
