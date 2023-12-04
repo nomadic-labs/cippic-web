@@ -1,6 +1,7 @@
 import Layout from "@/components/layout/Layout"
 import Link from "next/link"
 import Image from "next/image"
+import dynamic from 'next/dynamic'
 import ReactMarkdown from 'react-markdown'
 import getLayoutData from "@/utils/layout-data"
 import FaqSection from '@/components/sections/FaqSection';
@@ -14,6 +15,7 @@ import ContactOptions from '@/components/sections/ContactOptions';
 import Fade from 'react-reveal/Fade';
 import ArticleCard from "@/components/elements/ArticleCard"
 import Header from "@/components/sections/Header"
+import Loader from "@/components/elements/Loader"
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import rehypeRaw from 'rehype-raw'
@@ -25,14 +27,14 @@ import "yet-another-react-lightbox/plugins/captions.css";
 
 
 const dynamicContentDict = {
-  "common.faq-section": FaqSection,
-  "common.highlight-section": HighlightBox,
-  "common.image-slider": ImageSliderSection,
-  "common.page-section-navigation": PageNavigation,
-  "common.paragraph-text-section": RichTextSection,
-  "common.team-section": TeamSection,
-  "common.text-with-image-lightbox": TextWithImages,
-  "common.contact-options": ContactOptions
+  "common.faq-section": dynamic(() => import('@/components/sections/FaqSection')),
+  "common.highlight-section": dynamic(() => import('@/components/sections/HighlightBox')),
+  "common.image-slider": dynamic(() => import('@/components/sections/ImageSliderSection')),
+  "common.page-section-navigation": dynamic(() => import('@/components/sections/PageNavigation')),
+  "common.paragraph-text-section": dynamic(() => import('@/components/sections/RichTextSection')),
+  "common.team-section": dynamic(() => import('@/components/sections/TeamSection')),
+  "common.text-with-image-lightbox": dynamic(() => import('@/components/sections/TextWithImages')),
+  "common.contact-options": dynamic(() => import('@/components/sections/ContactOptions'))
 }
 
 const qs = require('qs');
@@ -138,7 +140,7 @@ export const getStaticProps = async ({ params, locale }) => {
         },
       }
     }
-    
+
     const page = { id: pageData.id, ...pageData.attributes }
 
     const content = { page }
@@ -163,6 +165,7 @@ export default function PageTemplate({ content, layout }) {
     if (page.main_image?.data) {
       mainImage = {
         ...page.main_image.data.attributes,
+        thumbnail: page.main_image.data.attributes.formats.medium,
         src: `${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${page.main_image.data.attributes.url}`, 
         alt: page.main_image.data.attributes.alternativeText,
         description: page.main_image.data.attributes.caption
@@ -174,6 +177,7 @@ export default function PageTemplate({ content, layout }) {
       moreImages = page.more_images.data.map(img => { 
         return {
           ...img.attributes,
+          thumbnail: img.attributes.formats.thumbnail,
           src: `${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${img.attributes.url}`, 
           alt: img.attributes.alternativeText,
           description: img.attributes.caption
@@ -206,6 +210,16 @@ export default function PageTemplate({ content, layout }) {
       seo = { ...seo, ...page.SEO }
     }
 
+    const dynamicSections = page.page_sections.map((section, index) => {
+      const DynamicComponent = dynamicContentDict[section.__component];
+      if (!DynamicComponent) return null
+
+      return {
+        component: DynamicComponent,
+        props: section
+      }
+    })
+
     return (
         <>
             <Layout {...layout} localizations={localizations} seo={seo} title={page.title}>
@@ -225,9 +239,9 @@ export default function PageTemplate({ content, layout }) {
                             <div className="col-12 col-md-4 mx-auto order-md-2 mr_bottom_20">
                               <button aria-label="toggle image viewer" onClick={() => setOpenLightbox(true)} className="btn btn-clear p-0">
                               <Image 
-                                  width={mainImage.width} 
-                                  height={mainImage.height} 
-                                  src={`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${mainImage.url}`} 
+                                  width={mainImage.thumbnail.width} 
+                                  height={mainImage.thumbnail.height} 
+                                  src={`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${mainImage.thumbnail.url}`} 
                                   alt={mainImage.alternativeText} 
                                   className="mr_bottom_10 img-fluid img-full highlight-shadow" 
                               />
@@ -235,14 +249,16 @@ export default function PageTemplate({ content, layout }) {
                               <div className="thumbnails">
                               {
                                 moreImages.map(img => {
-                                  return (<Image 
-                                      key={img.url}
+                                  return (
+                                    <Image 
+                                      key={img.thumbnail.url}
                                       width={40} 
                                       height={40} 
-                                      src={`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${img.url}`} 
+                                      src={`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${img.thumbnail.url}`} 
                                       alt={img.alternativeText} 
                                       className="img-fluid img-full" 
-                                  />)
+                                    />
+                                  )
                                 })
                               }
                               </div>
@@ -268,14 +284,10 @@ export default function PageTemplate({ content, layout }) {
                 </section>
                 }
 
-                {page.page_sections.map((section, index) => {
-                  const Component = dynamicContentDict[section.__component];
-                  if (!Component) return null
-                  return(
-                    <Component key={`dynamic-section-${index}`} {...section} />
-                  )
+                {dynamicSections.map((section, index) => {
+                  const DynamicComponent = section.component
+                  return <DynamicComponent {...section.props} key={`dynamic-component-${index}`} />
                 })}
-
 
               </main>
             </Layout>

@@ -11,16 +11,17 @@ export default function ProfileCard ({
 
     let image;
 
-    if (profile.photo?.data) {
+    if (profile.photo?.data?.attributes) {
         image = profile.photo.data.attributes;
     }
 
     const hasImage = showImage && image
+    const sizedImage = image.formats?.medium ? image.formats.medium : image
 
     return (
         <div className={`article-card profile-card bg-white image-left`}>
             <div className={`image`}>
-                { hasImage && <Image width={image.width} height={image.height} src={`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${image.url}`} alt={image.alternativeText} className="img-fluid" alt="img" /> }
+                { hasImage && <Image width={sizedImage.width} height={sizedImage.height} src={`${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}${sizedImage.url}`} alt={image.alternativeText} className="img-fluid" alt="img" /> }
             </div>
             <div className="content_box">
                 <h3 className="mt-0">{profile.name}</h3>
