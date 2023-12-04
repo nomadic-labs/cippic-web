@@ -1,6 +1,5 @@
 import Image from "next/image"
 import ButtonLink from '@/components/elements/ButtonLink'
-import ReactMarkdown from 'react-markdown'
 
 
 export default function FancyHeader({ before_title, title, subtitle, byline, iconSrc, button, tags, image, children }) {
@@ -29,7 +28,7 @@ export default function FancyHeader({ before_title, title, subtitle, byline, ico
                   <h1 className="m-0 underline">{title}</h1>
                 </div>
                 {byline && <p>{byline}</p>}
-                {subtitle && <ReactMarkdown className="text-lg">{subtitle}</ReactMarkdown>}
+                {subtitle && <p className="text-lg mb-4">{subtitle}</p>}
                 {button && <div className="mr_top_40"><ButtonLink href={button.button_link} target="_blank">{button.button_text}</ButtonLink></div>}
                 {children}
             </div>

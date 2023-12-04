@@ -3,7 +3,7 @@ export default function Document() {
     return (
         <Html lang="en">
             <Head>
-                <meta name="robots" content="noindex, nofollow" />
+                <meta name="robots" content={`${process.env.NEXT_PUBLIC_PREVIEW_MODE ? "noindex, nofollow" : 'index, follow'}`} />
             </Head>
             <link rel="shortcut icon" href="/favicon.svg" />
             <link rel="preconnect" href="https://fonts.googleapis.com" />

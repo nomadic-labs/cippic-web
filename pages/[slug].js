@@ -2,19 +2,20 @@ import Layout from "@/components/layout/Layout"
 import Link from "next/link"
 import Image from "next/image"
 import dynamic from 'next/dynamic'
-import ReactMarkdown from 'react-markdown'
 import getLayoutData from "@/utils/layout-data"
 import Fade from 'react-reveal/Fade';
 import ArticleCard from "@/components/elements/ArticleCard"
 import Header from "@/components/sections/Header"
 import { useState } from 'react'
 import { useRouter } from 'next/router'
-import rehypeRaw from 'rehype-raw'
-import remarkGfm from 'remark-gfm'
-import Lightbox from "yet-another-react-lightbox";
-import Captions from "yet-another-react-lightbox/plugins/captions";
 import "yet-another-react-lightbox/styles.css";
 import "yet-another-react-lightbox/plugins/captions.css";
+
+const Lightbox = dynamic(() => import("yet-another-react-lightbox"))
+const Captions = dynamic(() => import("yet-another-react-lightbox/plugins/captions"))
+const ReactMarkdown = dynamic(() => import("react-markdown"))
+const rehypeRaw = dynamic(() => import("rehype-raw"))
+const remarkGfm = dynamic(() => import("remark-gfm"))
 
 
 const dynamicContentDict = {
