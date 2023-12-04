@@ -11,12 +11,11 @@ import { useRouter } from 'next/router'
 import ReactMarkdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
 import remarkGfm from 'remark-gfm'
+import Lightbox from "yet-another-react-lightbox"
+import Captions from "yet-another-react-lightbox/plugins/captions"
 
 import "yet-another-react-lightbox/styles.css";
 import "yet-another-react-lightbox/plugins/captions.css";
-
-const Lightbox = dynamic(() => import("yet-another-react-lightbox"))
-const Captions = dynamic(() => import("yet-another-react-lightbox/plugins/captions"))
 
 
 const dynamicContentDict = {
