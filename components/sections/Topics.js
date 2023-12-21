@@ -18,7 +18,7 @@ export default function Topics({title="Key issues", before_title, subtitle, topi
                                         return(
                                             <Fade bottom delay={index * 60} key={topic.id}>
                                                 <div>
-                                                    <Link className="service_box" href={`/topics/${topic.slug}`}>
+                                                    <Link className="service_box" href={`/issues/${topic.slug}`}>
                                                         <div className="service_content bg-white rounded-sm">
                                                             <div className="content_inner">
                                                                 {
