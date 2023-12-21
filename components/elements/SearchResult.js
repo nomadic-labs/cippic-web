@@ -35,10 +35,11 @@ export default function SearchResult ({
         image = article.main_image.data.attributes;
     }
 
-    const categories = article.categories || []
-    const content_types = article.content_types || []
+    const categories = article.categories
+    const content_types = article.content_types
 
     const tags = [...categories, ...content_types].map(t => t.name).join(', ')
+    // const tags = ''
     const url = article.link
     const hasImage = showImage && image
 

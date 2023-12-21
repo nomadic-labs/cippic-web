@@ -6,52 +6,190 @@ import { useState } from 'react'
 
 const qs = require('qs');
 
-
-export const getServerSideProps = async ({ locale, query }) => {
-    const layout = await getLayoutData(locale)
-    const { term } = query;
+const searchArticles = async ({ locale, term }) => {
+  try {
     const searchQuery = qs.stringify(
-      {
-        locale: locale,
-        query: term,
-        filters: {
-          articles: {
-            publishedAt: {
-              $notNull: true
-            }
-          },
-          categories: {
-            publishedAt: {
-              $notNull: true
-            }
-          },
-          'content-types': {
-            publishedAt: {
-              $notNull: true
-            }
-          }
-        },
-        populate: {
-          articles: {
+        {
+          locale: locale,
+          _q: term,
+          fields: [
+            'title',
+            'author',
+            'preview',
+            'date_published',
+            'slug',
+          ],
+          populate: {
             categories: {
               populate: ['name', 'slug']
             },
             'content_types': {
               populate: ['name', 'slug']
             }
+          },
+          pagination: {
+            limit: 50,
+            start: 0
           }
+        },
+        {
+          encodeValuesOnly: true, // prettify URL
         }
-      },
-      {
-        encodeValuesOnly: true, // prettify URL
-      }
-    );
-    
-    const url = `${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/fuzzy-search/search?${searchQuery}`
-    const searchRes = await fetch(url)
-    const searchJson = await searchRes.json()
+      );
+      
+      const url = `${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/articles?${searchQuery}`
+      const searchRes = await fetch(url)
+      const { data } = await searchRes.json()
 
-    const content = { searchResults: searchJson }
+      const articles = data.map(article => {
+        const categories = article.attributes.categories?.data || []
+        const formattedCategories = categories.map(c => ({id: c.id, ...c.attributes}))
+        const content_types = article.attributes.content_types?.data || []
+        const formattedContentTypes = content_types.map(c => ({id: c.id, ...c.attributes}))
+        const item = {
+          ...article.attributes,
+          id: article.id,
+          categories: formattedCategories,
+          content_types: formattedContentTypes,
+          link: `/${locale}/articles/${article.attributes.slug}`
+        }
+        return item
+      })
+      
+      return articles 
+  } catch(e) {
+    console.log(e)
+    return []
+  }
+}
+
+const searchPages = async ({ locale, term }) => {
+  try {
+    const searchQuery = qs.stringify(
+        {
+          locale: locale,
+          _q: term,
+          fields: [
+            'title',
+            'slug',
+            'subtitle'
+          ],
+        },
+        {
+          encodeValuesOnly: true, // prettify URL
+        }
+      );
+      
+      const url = `${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/pages?${searchQuery}`
+      const searchRes = await fetch(url)
+      const { data } = await searchRes.json()
+      
+      const pages = data.map(page => {
+        const item = {
+          title: page.attributes.title,
+          preview: page.attributes.subtitle,
+          categories: [{name: 'Page'}],
+          content_types: [],
+          link: `/${locale}/${page.attributes.slug}`,
+        }
+        return item
+      })
+
+      return pages
+  } catch(e) {
+    console.log(e)
+    return []
+  }
+}
+
+const searchCategories = async ({ locale, term }) => {
+  try {
+    const searchQuery = qs.stringify(
+        {
+          locale: locale,
+          _q: term,
+          fields: [
+            'name',
+            'slug',
+            'description'
+          ],
+        },
+        {
+          encodeValuesOnly: true, // prettify URL
+        }
+      );
+      
+      const url = `${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/categories?${searchQuery}`
+      const searchRes = await fetch(url)
+      const { data } = await searchRes.json()
+      
+      const categories = data.map(category => {
+        const item = {
+          title: category.attributes.name,
+          preview: category.attributes.description,
+          categories: [{ name: 'Issue' }],
+          content_types: [],
+          link: `/${locale}/issues/${category.attributes.slug}`
+        }
+        return item
+      })
+
+      return categories
+  } catch(e) {
+    console.log(e)
+    return []
+  }
+}
+
+const searchContentTypes = async ({ locale, term }) => {
+  try {
+    const searchQuery = qs.stringify(
+        {
+          locale: locale,
+          _q: term,
+          fields: [
+            'name',
+            'slug',
+            'description'
+          ],
+        },
+        {
+          encodeValuesOnly: true, // prettify URL
+        }
+      );
+      
+      const url = `${process.env.NEXT_PUBLIC_STRAPI_DOMAIN}/api/content-types?${searchQuery}`
+      const searchRes = await fetch(url)
+      const { data } = await searchRes.json()
+      
+      const contentTypes = data.map(content_type => {
+        const item = {
+          title: content_type.attributes.name,
+          preview: content_type.attributes.description,
+          categories: [{ name: 'Our work' }],
+          content_types: [],
+          link: `/${locale}/our-work/${content_type.attributes.slug}`
+        }
+        return item
+      })
+
+      return contentTypes
+  } catch(e) {
+    console.log(e)
+    return []
+  }
+}
+
+
+export const getServerSideProps = async ({ locale, query }) => {
+    const layout = await getLayoutData(locale)
+    const { term } = query;
+    const pages = await searchPages({ locale, term })
+    const categories = await searchCategories({ locale, term })
+    const contentTypes = await searchContentTypes({ locale, term })
+    const articles = await searchArticles({ locale, term })
+
+    const content = { searchResults: [...pages, ...categories, ...contentTypes, ...articles] }
 
     return { 
       props: { content, layout, term }
@@ -62,45 +200,6 @@ export default function Search({content, layout, term}) {
   const { searchResults } = content
   const terms = layout.translation
 
-  const pages = searchResults.pages.map(page => {
-    const item = {
-      ...page,
-      link: `${page.slug}`,
-      preview: page.subtitle,
-      categories: [{name: 'Page'}]
-    }
-    return item
-  })
-
-  const articles = searchResults.articles.map(article => {
-    const item = {
-      ...article,
-      link: `/articles/${article.slug}`
-    }
-    return item
-  })
-
-  const categories = searchResults.categories.map(category => {
-    const item = {
-      title: category.name,
-      preview: category.description,
-      categories: [{ name: 'Issue' }],
-      link: `/issues/${category.slug}`
-    }
-    return item
-  })
-
-  const contentTypes = searchResults['content-types'].map(content_type => {
-    const item = {
-      title: content_type.name,
-      preview: content_type.description,
-      categories: [{ name: 'Our work' }],
-      link: `/our-work/${content_type.slug}`
-    }
-    return item
-  })
-
-  const results = [...pages, ...categories, ...contentTypes, ...articles]
   const title = `${terms.search_results} "${term}"`
 
     return (
@@ -114,8 +213,9 @@ export default function Search({content, layout, term}) {
                     <h1 className="mb-5">{title}</h1>
                       <div className="d-flex flex-column gap-4">
                           {
-                              results.length > 0 && (
-                              results.map(article => {
+                              searchResults.length > 0 && (
+                              searchResults.map(article => {
+          
                                   return (
                                     <Fade key={article.id}>
                                       <SearchResult 
@@ -132,7 +232,7 @@ export default function Search({content, layout, term}) {
                               }))
                           }
                           {
-                              results.length === 0 && (<p>{terms.no_search_results}</p>)
+                              searchResults.length === 0 && (<p>{terms.no_search_results}</p>)
                           }
                       </div>
                     </div>
