@@ -27,6 +27,7 @@ async function fetchAllArticles(articles, pagination, locale, slug) {
                     }
                 },
             },
+            sort: ["date_published:desc", "title"],
           pagination: {
             page: pagination.page + 1,
             pageSize: 100
