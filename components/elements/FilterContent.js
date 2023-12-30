@@ -163,7 +163,7 @@ export default function FilterContent({
                         }
                     </div>
 
-                    <div ref={loaderRef} className="mt-4 d-flex justify-content-center">
+                    <div ref={loaderRef} className="mt-4 d-flex justify-content-center" style={{height: "100px"}}>
                         <Loader visible={isLoading} color="var(--color-white)" />
                     </div>
 

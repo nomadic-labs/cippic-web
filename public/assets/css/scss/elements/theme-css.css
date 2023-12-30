@@ -1766,7 +1766,7 @@ p a, ul a, ol a {
 #content {
   width: 100%;
   height: 100%;
-  padding-top: 69px;
+  padding-top: 66px;
   overflow: hidden;
 }
 
@@ -19705,7 +19705,7 @@ a.article-card:hover .read_more i {
 /*------===============-responsive scs-==============------*/
 @media (max-width: 1400px) {
   #wrapper, #content {
-    padding-top: 69px;
+    padding-top: 66px;
   }
 }
 /*---slider---cs----*/
@@ -20916,7 +20916,7 @@ a.article-card:hover .read_more i {
     line-height: 48px !important;
     min-height: 46px;
     font-size: 12px;
-    padding: 0px 25px;
+    padding: 0px 10px;
     min-width: auto;
   }
   .team_intro_box .team_intro_inner .team_intro_start .left_content {
