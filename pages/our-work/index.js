@@ -6,7 +6,7 @@ import Fade from 'react-reveal/Fade';
 import getLayoutData from "@/utils/layout-data"
 import { useState } from 'react'
 import { useRouter } from 'next/router'
-import { REVALIDATE_SECONDS, PAGESIZE, INITIAL_PAGES } from '@/utils/constants'
+import { REVALIDATE_SECONDS } from '@/utils/constants'
 
 const FilterContent = dynamic(() => import('@/components/elements/FilterContent'), {
     ssr: false,

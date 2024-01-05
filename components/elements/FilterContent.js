@@ -27,7 +27,6 @@ export default function FilterContent({
     const terms = useContext(TranslationContext)
     const loaderRef = useRef(null);
 
-
     useEffect(() => {
         if (selectedFilters) {
             filterArticles()
@@ -108,8 +107,6 @@ export default function FilterContent({
           }
         };
       }, [loadMore]);
-
-    console.log({articles})
 
     return (
         <>
