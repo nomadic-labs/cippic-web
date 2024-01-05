@@ -3,6 +3,7 @@ import FancyHeader from "@/components/sections/FancyHeader"
 import dynamic from 'next/dynamic';
 import getLayoutData from "@/utils/layout-data";
 import { useRouter } from 'next/router'
+import { REVALIDATE_SECONDS } from '@/utils/constants'
 
 const FilterContent = dynamic(() => import('@/components/elements/FilterContent'), {
     ssr: false,
@@ -174,7 +175,7 @@ export const getStaticProps = async ({ params, locale }) => {
 
     return { 
       props: { content, layout },
-      revalidate: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 10 : false 
+      revalidate: process.env.NEXT_PUBLIC_PREVIEW_MODE ? REVALIDATE_SECONDS : false 
     }
 }
 

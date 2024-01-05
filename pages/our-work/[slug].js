@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic';
 import Fade from 'react-reveal/Fade';
 import getLayoutData from "@/utils/layout-data"
 import { useRouter } from 'next/router'
+import { PAGESIZE, INITIAL_PAGES, REVALIDATE_SECONDS } from '@/utils/constants'
 
 const FilterContent = dynamic(() => import('@/components/elements/FilterContent'), {
     ssr: false,
@@ -169,18 +170,19 @@ export const getStaticProps = async ({ params, locale }) => {
         return counts
     }, {})
 
-    const articles = allArticles.slice(0,3)
+    const latestArticles = allArticles.slice(0,3)
+    const initialArticles = allArticles.slice(0,PAGESIZE*INITIAL_PAGES)
 
-    const content = { contentType, articles, articleFilters, articleCounts, total: allArticles.length, slug }
+    const content = { contentType, latestArticles, initialArticles, articleFilters, articleCounts, total: allArticles.length, slug }
 
     return { 
         props: { content, layout },
-        revalidate: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 10 : false 
+        revalidate: process.env.NEXT_PUBLIC_PREVIEW_MODE ? REVALIDATE_SECONDS : false 
     }
 }
 
 export default function OurWork({ content, layout }) {
-    const { contentType, articles, articleFilters, articleCounts, total, slug } = content;
+    const { contentType, latestArticles, initialArticles, articleFilters, articleCounts, total, slug } = content;
     const { locale } = useRouter()
 
     let localizations;
@@ -218,7 +220,7 @@ export default function OurWork({ content, layout }) {
                             
                 <div className="row header-articles">
                 {
-                        articles.map((article, index) => {
+                        latestArticles.map((article, index) => {
                             return (
                                 <div key={article.id} className="article">
                                     <ArticleCard 
@@ -242,7 +244,7 @@ export default function OurWork({ content, layout }) {
                         <div className="row">
                             <div className="project_all filt_style_one filter_enabled">
                                 <FilterContent 
-                                    initialArticles={[]} 
+                                    initialArticles={initialArticles} 
                                     filters={articleFilters} 
                                     articleCounts={articleCounts}
                                     filterField="categories" 

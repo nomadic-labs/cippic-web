@@ -13,6 +13,7 @@ import rehypeRaw from 'rehype-raw'
 import remarkGfm from 'remark-gfm'
 import Lightbox from "yet-another-react-lightbox"
 import Captions from "yet-another-react-lightbox/plugins/captions"
+import { REVALIDATE_SECONDS } from '@/utils/constants'
 
 import "yet-another-react-lightbox/styles.css";
 import "yet-another-react-lightbox/plugins/captions.css";
@@ -139,7 +140,7 @@ export const getStaticProps = async ({ params, locale }) => {
 
     return { 
       props: { content, layout },
-      revalidate: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 10 : false
+      revalidate: process.env.NEXT_PUBLIC_PREVIEW_MODE ? REVALIDATE_SECONDS : false
     }
 }
 

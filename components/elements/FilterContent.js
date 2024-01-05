@@ -5,8 +5,8 @@ import ArticleCard from '@/components/elements/ArticleCard'
 import Loader from '@/components/elements/Loader'
 import { useContext } from 'react'
 import { TranslationContext } from '@/contexts/TranslationContext'
+import { PAGESIZE } from '@/utils/constants'
 
-const PAGESIZE = 25
 
 export default function FilterContent({
     initialArticles=[], 
@@ -107,6 +107,8 @@ export default function FilterContent({
           }
         };
       }, [loadMore]);
+
+    console.log({articles})
 
     return (
         <>
