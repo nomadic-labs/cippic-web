@@ -1545,14 +1545,16 @@ h6 {
   -moz-transition: var(--animation-speed) ease-in-out;
   -o-transition: var(--animation-speed) ease-in-out;
   word-break: break-word;
+  hyphens: auto;
 }
 
 .h1,
 h1 {
   line-height: 1.25;
-  font-size: calc(2.5rem + 1vw);
+  font-size: calc(2.4rem + 1vw);
   margin-bottom: 1rem;
   margin-top: 0.25em;
+  hyphens: auto;
 }
 
 .h2,
@@ -1685,6 +1687,10 @@ body button[type=submit] {
 
 pre {
   text-wrap: wrap;
+  background-color: var(--primary-color-two);
+  color: var(--color-light);
+  padding: 1rem;
+  border-radius: 0.5rem;
 }
 
 @media (min-width: 1200px) {
@@ -1760,7 +1766,7 @@ p a, ul a, ol a {
 #content {
   width: 100%;
   height: 100%;
-  padding-top: 69px;
+  padding-top: 66px;
   overflow: hidden;
 }
 
@@ -2751,16 +2757,14 @@ body .enabled_custom_title .title_page .main_tit {
   display: flex;
   align-items: flex-end;
   gap: 0.75rem;
-  max-width: 485px;
 }
 .cippic-logo img {
-  width: 170px;
+  width: 160px;
 }
 .cippic-logo strong {
-  font-size: 15px;
+  font-size: 14px;
   white-space: pre-wrap;
   line-height: 1.1;
-  margin-bottom: 1px;
   width: 305px;
 }
 
@@ -19458,7 +19462,7 @@ h1.headline {
 }
 
 .tags-links a.tag {
-  margin-left: 0.5rem;
+  margin: 0.25rem;
 }
 
 .btn-simple {
@@ -19701,7 +19705,7 @@ a.article-card:hover .read_more i {
 /*------===============-responsive scs-==============------*/
 @media (max-width: 1400px) {
   #wrapper, #content {
-    padding-top: 69px;
+    padding-top: 66px;
   }
 }
 /*---slider---cs----*/
@@ -20912,7 +20916,7 @@ a.article-card:hover .read_more i {
     line-height: 48px !important;
     min-height: 46px;
     font-size: 12px;
-    padding: 0px 25px;
+    padding: 0px 10px;
     min-width: auto;
   }
   .team_intro_box .team_intro_inner .team_intro_start .left_content {

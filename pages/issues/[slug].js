@@ -27,6 +27,7 @@ async function fetchAllArticles(articles, pagination, locale, slug) {
                     }
                 },
             },
+            sort: ["date_published:desc", "title"],
           pagination: {
             page: pagination.page + 1,
             pageSize: 100
@@ -179,7 +180,8 @@ export const getStaticProps = async ({ params, locale }) => {
 
 export default function TopicsPage({ content, layout }) {
     const { category, articles, articleFilters, articleCounts, total, slug } = content;
-    const { locale } = useRouter()
+    const router = useRouter()
+    const locale = router.locale
 
     let localizations;
     if (category.localizations?.data && category.localizations?.data.length > 0) {
@@ -223,6 +225,7 @@ export default function TopicsPage({ content, layout }) {
                   <div className="container">
                       <div className="project_all filt_style_one filter_enabled">
                           <FilterContent 
+                              key={router.asPath}
                               initialArticles={[]} 
                               filters={articleFilters} 
                               articleCounts={articleCounts}

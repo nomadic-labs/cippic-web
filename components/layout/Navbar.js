@@ -149,7 +149,7 @@ export default function Navbar({ topics=[], contentTypes=[], links=[], localizat
                     localizations.map(l => {
                         return (
                             <li key={l.link} className="menu-item menu-item-has-children dropdown nav-item">
-                                <Link href={l.link} locale={l.locale} className="dropdown-toggle nav-link uppercase">
+                                <Link href={`/${l.link}`} locale={l.locale} className="dropdown-toggle nav-link uppercase">
                                     <span>{`${l.locale}`}</span>
                                 </Link>
                             </li>
