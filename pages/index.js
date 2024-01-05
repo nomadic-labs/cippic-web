@@ -4,6 +4,7 @@ import Topics from "@/components/sections/Topics"
 import Students from "@/components/sections/Students"
 import Landing from "@/components/sections/Landing"
 import getLayoutData from "@/utils/layout-data"
+import { REVALIDATE_SECONDS } from '@/utils/constants'
 
 const qs = require('qs');
 
@@ -139,7 +140,7 @@ export const getStaticProps = async ({ locale }) => {
 
     return { 
       props: { content, layout },
-      revalidate: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 10 : false 
+      revalidate: process.env.NEXT_PUBLIC_PREVIEW_MODE ? REVALIDATE_SECONDS : false 
     }
 }
 

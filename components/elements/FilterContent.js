@@ -5,8 +5,8 @@ import ArticleCard from '@/components/elements/ArticleCard'
 import Loader from '@/components/elements/Loader'
 import { useContext } from 'react'
 import { TranslationContext } from '@/contexts/TranslationContext'
+import { PAGESIZE } from '@/utils/constants'
 
-const PAGESIZE = 25
 
 export default function FilterContent({
     initialArticles=[], 
@@ -26,7 +26,6 @@ export default function FilterContent({
     const [currentPage, setCurrentPage] = useState(1)
     const terms = useContext(TranslationContext)
     const loaderRef = useRef(null);
-
 
     useEffect(() => {
         if (selectedFilters) {
@@ -92,7 +91,8 @@ export default function FilterContent({
     useEffect(() => {
         const observer = new IntersectionObserver(async(entries) => {
           const target = entries[0];
-          if (target.isIntersecting && Math.floor(target.intersectionRatio) === 1) {
+          // if (target.isIntersecting && Math.floor(target.intersectionRatio) === 1) {
+          if (target.isIntersecting) {
              await loadMore();
           }
         });

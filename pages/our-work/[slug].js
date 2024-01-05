@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic';
 import Fade from 'react-reveal/Fade';
 import getLayoutData from "@/utils/layout-data"
 import { useRouter } from 'next/router'
+import { REVALIDATE_SECONDS } from '@/utils/constants'
 
 const FilterContent = dynamic(() => import('@/components/elements/FilterContent'), {
     ssr: false,
@@ -17,6 +18,7 @@ async function fetchAllArticles(articles, pagination, locale, slug) {
     const query = qs.stringify(
         {
             locale: locale,
+            fields: ['title', 'preview', 'slug', 'date_published'],
             populate: [
                 'main_image',
                 'categories',
@@ -61,6 +63,7 @@ const fetchArticles = async ({ pagination, locale, slug, filters=[] }) => {
       {
         locale,
         pagination: pagination,
+        fields: ['title', 'preview', 'slug', 'date_published'],
         sort: "date_published:desc",
         populate: [
             'main_image',
@@ -169,18 +172,18 @@ export const getStaticProps = async ({ params, locale }) => {
         return counts
     }, {})
 
-    const articles = allArticles.slice(0,3)
+    const latestArticles = allArticles.slice(0,3)
 
-    const content = { contentType, articles, articleFilters, articleCounts, total: allArticles.length, slug }
+    const content = { contentType, latestArticles, articleFilters, articleCounts, total: allArticles.length, slug }
 
     return { 
         props: { content, layout },
-        revalidate: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 10 : false 
+        revalidate: process.env.NEXT_PUBLIC_PREVIEW_MODE ? REVALIDATE_SECONDS : false 
     }
 }
 
 export default function OurWork({ content, layout }) {
-    const { contentType, articles, articleFilters, articleCounts, total, slug } = content;
+    const { contentType, latestArticles, articleFilters, articleCounts, total, slug } = content;
     const { locale } = useRouter()
 
     let localizations;
@@ -218,7 +221,7 @@ export default function OurWork({ content, layout }) {
                             
                 <div className="row header-articles">
                 {
-                        articles.map((article, index) => {
+                        latestArticles.map((article, index) => {
                             return (
                                 <div key={article.id} className="article">
                                     <ArticleCard 

@@ -6,6 +6,7 @@ import Fade from 'react-reveal/Fade';
 import getLayoutData from "@/utils/layout-data"
 import { useState } from 'react'
 import { useRouter } from 'next/router'
+import { REVALIDATE_SECONDS } from '@/utils/constants'
 
 const FilterContent = dynamic(() => import('@/components/elements/FilterContent'), {
     ssr: false,
@@ -18,6 +19,8 @@ async function fetchAllArticles(articles, pagination, locale) {
     const query = qs.stringify(
         {
           locale: locale,
+          sort: "date_published:desc",
+          fields: ['title', 'preview', 'slug', 'date_published'],
           populate: [
             'main_image',
             'categories',
@@ -54,6 +57,7 @@ const fetchArticles = async ({ pagination, locale, filters=[] }) => {
       {
         locale,
         pagination: pagination,
+        fields: ['title', 'preview', 'slug', 'date_published'],
         sort: "date_published:desc",
         populate: [
             'main_image',
@@ -83,8 +87,8 @@ const fetchArticles = async ({ pagination, locale, filters=[] }) => {
 
 export const getStaticProps = async ({ params, locale }) => {
     const layout = await getLayoutData(locale)
-    const {articles} = await fetchArticles({ pagination: { start: 0, limit: 3}, locale })
     const allArticles = await fetchAllArticles([], {page: 0}, locale)
+    const latestArticles = allArticles.slice(0,3)
 
     const articleFilters = allArticles.reduce((filters, article) => {
         const articleCategories = article.categories.data.map(ct => ({ id: ct.id, ...ct.attributes}))
@@ -108,16 +112,16 @@ export const getStaticProps = async ({ params, locale }) => {
     }, {})
 
 
-    const content = { articles, articleFilters, articleCounts, total: allArticles.length }
+    const content = { latestArticles, articleFilters, articleCounts, total: allArticles.length }
 
     return { 
         props: { content, layout }, 
-        revalidate: process.env.NEXT_PUBLIC_PREVIEW_MODE ? 10 : false
+        revalidate: process.env.NEXT_PUBLIC_PREVIEW_MODE ? REVALIDATE_SECONDS : false
     }
 }
 
 export default function IssuesPage({ content, layout }) {
-    const { articles, articleFilters, articleCounts, total } = content;
+    const { latestArticles, articleFilters, articleCounts, total } = content;
     const terms = layout.translation
     const { locale } = useRouter()
 
@@ -137,7 +141,7 @@ export default function IssuesPage({ content, layout }) {
                             
                 <div className="row header-articles">
                 {
-                        articles.map((article, index) => {
+                        latestArticles.map((article, index) => {
                             return (
                                 <div key={article.id} className="article">
                                     <Fade bottom delay={index * 60}>
