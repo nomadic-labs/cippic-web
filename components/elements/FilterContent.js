@@ -92,7 +92,8 @@ export default function FilterContent({
     useEffect(() => {
         const observer = new IntersectionObserver(async(entries) => {
           const target = entries[0];
-          if (target.isIntersecting && Math.floor(target.intersectionRatio) === 1) {
+          // if (target.isIntersecting && Math.floor(target.intersectionRatio) === 1) {
+          if (target.isIntersecting) {
              await loadMore();
           }
         });

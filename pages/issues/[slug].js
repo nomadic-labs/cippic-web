@@ -16,6 +16,7 @@ async function fetchAllArticles(articles, pagination, locale, slug) {
     const query = qs.stringify(
         {
             locale: locale,
+            fields: ['title', 'preview', 'slug', 'date_published'],
             populate: [
                 'main_image',
                 'categories',
@@ -60,6 +61,7 @@ const fetchArticles = async ({ pagination, locale, slug, filters=[] }) => {
       {
         locale,
         pagination: pagination,
+        fields: ['title', 'preview', 'slug', 'date_published'],
         sort: "date_published:desc",
         populate: [
             'main_image',
@@ -169,9 +171,7 @@ export const getStaticProps = async ({ params, locale }) => {
         return counts
     }, {})
 
-    const articles = allArticles.slice(0,3)
-
-    const content = { category, articles, articleFilters, articleCounts, total: allArticles.length, slug }
+    const content = { category, articleFilters, articleCounts, total: allArticles.length, slug }
 
     return { 
       props: { content, layout },
@@ -180,7 +180,7 @@ export const getStaticProps = async ({ params, locale }) => {
 }
 
 export default function TopicsPage({ content, layout }) {
-    const { category, articles, articleFilters, articleCounts, total, slug } = content;
+    const { category, articleFilters, articleCounts, total, slug } = content;
     const router = useRouter()
     const locale = router.locale
 

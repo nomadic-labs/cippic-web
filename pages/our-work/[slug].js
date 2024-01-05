@@ -18,6 +18,7 @@ async function fetchAllArticles(articles, pagination, locale, slug) {
     const query = qs.stringify(
         {
             locale: locale,
+            fields: ['title', 'preview', 'slug', 'date_published'],
             populate: [
                 'main_image',
                 'categories',
@@ -62,6 +63,7 @@ const fetchArticles = async ({ pagination, locale, slug, filters=[] }) => {
       {
         locale,
         pagination: pagination,
+        fields: ['title', 'preview', 'slug', 'date_published'],
         sort: "date_published:desc",
         populate: [
             'main_image',
